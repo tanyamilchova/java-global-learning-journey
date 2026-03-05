@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
-public class Agregation {
+public class Aggregation {
     /*
     Write a Java function that takes Stream<Prop> and returns
     the name of the object with the highest value property

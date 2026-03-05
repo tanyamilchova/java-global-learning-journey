@@ -6,7 +6,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class CustomAgregation {
+public class CustomAggregation {
     /* Write a Java function that takes Stream<Prop> and returns
     the names of the objects which have highest and lowest value property
      */
