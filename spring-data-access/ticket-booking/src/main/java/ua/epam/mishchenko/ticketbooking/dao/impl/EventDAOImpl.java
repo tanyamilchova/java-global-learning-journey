@@ -60,7 +60,6 @@ public class EventDAOImpl implements EventDAO {
         Event event = new EventImpl();
         event.setId(Long.parseLong(getFieldValueFromFields(stringFields, index++)));
         event.setTitle(getFieldValueFromFields(stringFields, index++));
-        event.setDate(createDateFromString(getFieldValueFromFields(stringFields, index)));
         return event;
     }
 
@@ -238,10 +237,7 @@ public class EventDAOImpl implements EventDAO {
     private boolean existsByTitleAndDay(Event event) {
         List<String> idsOfEvents = getIdsOfEvents();
         for (String id : idsOfEvents) {
-            String stringEvent = storage.getInMemoryStorage().get(id);
-            if (titleEquals(stringEvent, event.getTitle()) && dayEquals(stringEvent, event.getDate())) {
-                return true;
-            }
+        storage.getInMemoryStorage().get(id);
         }
         return false;
     }

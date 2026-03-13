@@ -1,6 +1,7 @@
 package ua.epam.mishchenko.ticketbooking.model.impl;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+
 import ua.epam.mishchenko.ticketbooking.model.Ticket;
 
 import java.util.Objects;

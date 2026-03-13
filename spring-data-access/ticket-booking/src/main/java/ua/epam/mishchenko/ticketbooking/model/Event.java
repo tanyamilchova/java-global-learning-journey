@@ -1,6 +1,6 @@
 package ua.epam.mishchenko.ticketbooking.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Created by maksym_govorischev.
@@ -14,8 +14,8 @@ public interface Event {
     void setId(long id);
     String getTitle();
     void setTitle(String title);
-    Date getDate();
-    void setDate(Date date);
+    LocalDate getDate();
+    void setDate(LocalDate date);
     double getTicketPrice();
     void setTicketPrice(double ticketPrice);
 }

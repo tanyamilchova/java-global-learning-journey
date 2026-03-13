@@ -5,7 +5,7 @@ import ua.epam.mishchenko.ticketbooking.model.Ticket;
 import ua.epam.mishchenko.ticketbooking.model.User;
 import ua.epam.mishchenko.ticketbooking.model.UserAccount;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -38,7 +38,7 @@ public interface BookingFacade {
      * @param pageNum Pagination param. Number of the page to return. Starts from 1.
      * @return List of events.
      */
-    List<Event> getEventsForDay(Date day, int pageSize, int pageNum);
+    List<Event> getEventsForDay(LocalDate day, int pageSize, int pageNum);
 
     /**
      * Creates new event. Event id should be auto-generated.
@@ -68,6 +68,15 @@ public interface BookingFacade {
     User getUserById(long userId);
 
     /**
+     * Retrieves a paginated list of all users.
+     *
+     * @param pageSize the number of users to return per page
+     * @param pageNum the page number to retrieve (starting from 1)
+     * @return a list of users for the specified page, or an empty list if none found
+     */
+     List<User> getAllUsers(int pageSize, int pageNum);
+
+     /**
      * Gets user by its email. Email is strictly matched.
      * @return User.
      */

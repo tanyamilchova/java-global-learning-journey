@@ -2,50 +2,75 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 
-    <context:property-placeholder location="classpath:storage.properties"/>
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <bean id="eventDAO" class="ua.epam.mishchenko.ticketbooking.dao.impl.EventDAOImpl">
-        <property name="storage" ref="storage"/>
+
+    <context:component-scan base-package="ua.epam.mishchenko.ticketbooking"/>
+
+
+    <jpa:repositories
+            base-package="ua.epam.mishchenko.ticketbooking.model.repository"
+            entity-manager-factory-ref="entityManagerFactory"
+            transaction-manager-ref="transactionManager"/>
+
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/ticket_booking"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
     </bean>
 
-    <bean id="ticketDAO" class="ua.epam.mishchenko.ticketbooking.dao.impl.TicketDAOImpl">
-        <property name="storage" ref="storage"/>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan">
+            <list>
+                <value>ua.epam.mishchenko.ticketbooking.model</value>
+            </list>
+        </property>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="true"/>
+                <property name="generateDdl" value="true"/>
+                <property name="databasePlatform" value="org.hibernate.dialect.MySQL8Dialect"/>
+            </bean>
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.generate_statistics">true</prop>
+            </props>
+        </property>
     </bean>
 
-    <bean id="userDAO" class="ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl">
-        <property name="storage" ref="storage"/>
-    </bean>
 
-    <bean id="eventService" class="ua.epam.mishchenko.ticketbooking.service.impl.EventServiceImpl" autowire="byName">
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <bean id="ticketService" class="ua.epam.mishchenko.ticketbooking.service.impl.TicketServiceImpl" autowire="byName">
-    </bean>
-
-    <bean id="userService" class="ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl" autowire="byName">
-    </bean>
 
     <bean id="bookingFacade" class="ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl">
-        <constructor-arg ref="eventService"/>
-        <constructor-arg ref="ticketService"/>
+        <constructor-arg ref="eventServiceImpl"/>
+        <constructor-arg ref="ticketServiceImpl"/>
+
         <constructor-arg ref="userService"/>
+        <constructor-arg ref="userAccountServiceImpl"/>
     </bean>
 
-    <bean id="storage" class="ua.epam.mishchenko.ticketbooking.db.Storage">
-    </bean>
-
-    <bean id="storageBeanPostProcessor"
-          class="ua.epam.mishchenko.ticketbooking.postprocessor.StorageBeanPostProcessor">
-        <property name="fileReader" ref="fileReader"/>
-    </bean>
-
-    <bean id="fileReader" class="ua.epam.mishchenko.ticketbooking.postprocessor.FileReader">
-        <property name="file" value="${storage.path}"/>
-    </bean>
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
 </beans>

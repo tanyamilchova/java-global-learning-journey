@@ -10,4 +10,6 @@ public interface UserAccountService {
     UserAccount updateUserAccount(UserAccount userAccount);
 
     boolean deleteUserAccount(long userId);
+
+    UserAccount addFunds(long userId, double funds);
 }

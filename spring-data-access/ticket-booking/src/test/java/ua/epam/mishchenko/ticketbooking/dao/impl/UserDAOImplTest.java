@@ -18,12 +18,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration({"classpath:/test-applicationContext.xml"})
@@ -116,7 +112,7 @@ public class UserDAOImplTest {
                 new UserImpl(5L, "Alex", "alex@gmail.com"),
                 new UserImpl(6L, "Alex", "anotheralex@gmail.com")
         );
-        List<User> actualListOfUsers = userDAO.getAll();
+        List<User> actualListOfUsers = userDAO.getAll(2, 1);
 
         assertTrue(actualListOfUsers.containsAll(expectedListOfUsers));
     }

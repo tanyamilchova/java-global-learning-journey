@@ -10,7 +10,7 @@ import ua.epam.mishchenko.ticketbooking.service.TicketService;
 import ua.epam.mishchenko.ticketbooking.service.UserAccountService;
 import ua.epam.mishchenko.ticketbooking.service.UserService;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class BookingFacadeImpl implements BookingFacade {
@@ -41,7 +41,7 @@ public class BookingFacadeImpl implements BookingFacade {
     }
 
     @Override
-    public List<Event> getEventsForDay(Date day, int pageSize, int pageNum) {
+    public List<Event> getEventsForDay(LocalDate day, int pageSize, int pageNum) {
         return eventService.getEventsForDay(day, pageSize, pageNum);
     }
 
@@ -63,6 +63,12 @@ public class BookingFacadeImpl implements BookingFacade {
     @Override
     public User getUserById(long userId) {
         return userService.getUserById(userId);
+    }
+
+    @Override
+    public List<User> getAllUsers(int pageSize, int pageNum) {
+
+            return userService.getAllUsers(pageSize, pageNum);
     }
 
     @Override

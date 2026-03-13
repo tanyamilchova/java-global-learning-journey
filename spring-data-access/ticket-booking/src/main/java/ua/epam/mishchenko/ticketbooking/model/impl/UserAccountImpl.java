@@ -1,12 +1,12 @@
 package ua.epam.mishchenko.ticketbooking.model.impl;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import ua.epam.mishchenko.ticketbooking.model.UserAccount;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
@@ -73,5 +73,4 @@ public class UserAccountImpl implements UserAccount {
                 ", balance=" + balance +
                 '}';
     }
-
 }

@@ -1,72 +1,86 @@
 package ua.epam.mishchenko.ticketbooking.service.impl;
 
-import jakarta.transaction.Transactional;
+
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ua.epam.mishchenko.ticketbooking.dao.EventDAO;
-import ua.epam.mishchenko.ticketbooking.dao.UserAccountDAO;
-import ua.epam.mishchenko.ticketbooking.dao.impl.TicketDAOImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
 import ua.epam.mishchenko.ticketbooking.model.Event;
 import ua.epam.mishchenko.ticketbooking.model.Ticket;
 import ua.epam.mishchenko.ticketbooking.model.User;
 import ua.epam.mishchenko.ticketbooking.model.UserAccount;
 import ua.epam.mishchenko.ticketbooking.model.impl.TicketImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
+import ua.epam.mishchenko.ticketbooking.model.repository.EventRepository;
+import ua.epam.mishchenko.ticketbooking.model.repository.TicketRepository;
+import ua.epam.mishchenko.ticketbooking.model.repository.UserAccountRepository;
 import ua.epam.mishchenko.ticketbooking.service.TicketService;
+import ua.epam.mishchenko.ticketbooking.utils.Util;
 
+import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class TicketServiceImpl implements TicketService {
 
+    @Autowired
+    TicketRepository ticketRepository;
+
+    @Autowired
+    EventRepository eventRepository;
+
+    @Autowired
+    UserAccountRepository userAccountRepository;
+
     private static final Logger LOGGER = LogManager.getLogger(TicketServiceImpl.class);
-
-    private TicketDAOImpl ticketDAO;
-
-    private EventDAO eventDAO;
-
-    private UserAccountDAO userAccountDAO;
 
     @Transactional
     @Override
     public Ticket bookTicket(long userId, long eventId, int place, Ticket.Category category) {
+        Util.validateId(userId);
+        Util.validateLong(eventId);
+        if (place <= 0) {
+            LOGGER.warn("Invalid place provided: {}", place);
+            throw new IllegalArgumentException("Place must be positive: " + place);
+        }
+        Util.validateNotNull(category, "Ticket.Category");
+
         LOGGER.log(Level.DEBUG,
-                "Start booking a ticket for user with id {}, event with id event {}, place {}, category {}",
+                "Start booking a ticket for user with id {}, event with id {}, place {}, category {}",
                 userId, eventId, place, category);
 
-        Event event = eventDAO.getById(eventId);
-        UserAccount userAccount = userAccountDAO.getByUserId(userId);
-        if (event == null) {
-            LOGGER.warn("Event {} not found", eventId);
-            return null;
-        }
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> {
+                    LOGGER.warn("Event {} not found", eventId);
+                    return new DbException("Event not found: " + eventId);
+                });
 
-        if (userAccount == null) {
-            LOGGER.warn("User account {} not found", userId);
-            return null;
-        }
+        UserAccount userAccount = userAccountRepository.findByUserId(userId)
+                .orElseThrow(() -> {
+                    LOGGER.warn("User account {} not found", userId);
+                    return new DbException("User account not found: " + userId);
+                });
 
-        if(userAccount.getBalance() < event.getTicketPrice()){
+        if (userAccount.getBalance() < event.getTicketPrice()) {
             LOGGER.warn("Insufficient funds for user {} to book ticket for event {}", userId, eventId);
-            return null;
+            throw new DbException("Insufficient funds for user " + userId);
         }
 
+        userAccount.setBalance(userAccount.getBalance() - event.getTicketPrice());
+        userAccountRepository.save((UserAccountImpl) userAccount);
 
-        try {
-            userAccount.setBalance(userAccount.getBalance() - event.getTicketPrice());
-            userAccountDAO.update(userAccount);
-            Ticket ticket = ticketDAO.insert(createNewTicket(userId, eventId, place, category));
+        Ticket ticket = createNewTicket(userId, eventId, place, category);
+        ticket = ticketRepository.save((TicketImpl) ticket);
 
-            LOGGER.log(Level.DEBUG, "Successfully booking of the ticket: {}", ticket);
-
-            return ticket;
-        } catch (DbException e) {
-            LOGGER.log(Level.WARN,
-                    "Can not to book a ticket for user with id {}, event with id {}, place {}, category {}",
-                    userId, eventId, place, category, e);
-            return null;
-        }
+        LOGGER.log(Level.DEBUG, "Successfully booked ticket: {}", ticket);
+        return ticket;
     }
+
 
     private Ticket createNewTicket(long userId, long eventId, int place, Ticket.Category category) {
         return new TicketImpl(userId, eventId, place, category);
@@ -74,38 +88,46 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public List<Ticket> getBookedTickets(User user, int pageSize, int pageNum) {
+        Util.validateUser(user);
+        Util.validatePagination(pageSize, pageNum);
         LOGGER.log(Level.DEBUG,
                 "Finding all booked tickets by user {} with page size {} and number of page {}",
                 user, pageSize, pageNum);
 
         try {
-            List<Ticket> ticketsByUser = ticketDAO.getAllByUser(user, pageSize, pageNum);
+           Pageable pageable = PageRequest.of(pageNum, pageSize);
+
+            List<TicketImpl> ticketsByUser = ticketRepository.getAllByUserId(user.getId(), pageable).getContent();
 
             LOGGER.log(Level.DEBUG,
                     "All booked tickets successfully found by user {} with page size {} and number of page {}",
                     user, pageSize, pageNum);
 
-            return ticketsByUser;
+            return new ArrayList<>(ticketsByUser);
         } catch (DbException e) {
             LOGGER.log(Level.WARN, "Can not to find a list of booked tickets by user '{}'", user, e);
             return null;
         }
+
     }
 
     @Override
     public List<Ticket> getBookedTickets(Event event, int pageSize, int pageNum) {
+        Util.validateNotNull(event, "Event");
+        Util.validatePagination(pageSize, pageNum);
         LOGGER.log(Level.DEBUG,
                 "Finding all booked tickets by event {} with page size {} and number of page {}",
                 event, pageSize, pageNum);
 
         try {
-            List<Ticket> ticketsByUser = ticketDAO.getAllByEvent(event, pageSize, pageNum);
+            Pageable pageable = PageRequest.of(pageNum, pageSize);
+            List<TicketImpl> ticketsByUser = ticketRepository.getAllByEventId(event.getId(), pageable).getContent();
 
             LOGGER.log(Level.DEBUG,
                     "All booked tickets successfully found by event {} with page size {} and number of page {}",
                     event, pageSize, pageNum);
 
-            return ticketsByUser;
+            return new ArrayList<>(ticketsByUser);
         } catch (DbException e) {
             LOGGER.log(Level.WARN, "Can not to find a list of booked tickets by event '{}'", event, e);
             return null;
@@ -114,29 +136,18 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public boolean cancelTicket(long ticketId) {
+        Util.validateLong(ticketId);
         LOGGER.log(Level.DEBUG, "Start canceling a ticket with id: {}", ticketId);
 
         try {
-            boolean isRemoved = ticketDAO.delete(ticketId);
+            ticketRepository.deleteById(ticketId);
 
             LOGGER.log(Level.DEBUG, "Successfully canceling of the ticket with id: {}", ticketId);
 
-            return isRemoved;
+            return true;
         } catch (DbException e) {
             LOGGER.log(Level.WARN, "Can not to cancel a ticket with id: {}", ticketId, e);
             return false;
         }
-    }
-
-    public void setTicketDAO(TicketDAOImpl ticketDAO) {
-        this.ticketDAO = ticketDAO;
-    }
-
-    public void setEventDAO(EventDAO eventDAO) {
-        this.eventDAO = eventDAO;
-    }
-
-    public void setUserAccountDAO(UserAccountDAO userAccountDAO) {
-        this.userAccountDAO = userAccountDAO;
     }
 }

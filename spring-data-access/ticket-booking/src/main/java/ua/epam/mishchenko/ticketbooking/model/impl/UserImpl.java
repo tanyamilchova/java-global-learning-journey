@@ -1,8 +1,11 @@
 package ua.epam.mishchenko.ticketbooking.model.impl;
 
-import jakarta.persistence.*;
 import ua.epam.mishchenko.ticketbooking.model.User;
-
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.util.Objects;
 
 @Entity
@@ -87,4 +90,5 @@ public class UserImpl implements User, Comparable<UserImpl> {
         return Long.compare(this.id, o.id);
     }
 }
+
 

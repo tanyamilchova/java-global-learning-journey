@@ -1,12 +1,15 @@
 package ua.epam.mishchenko.ticketbooking.model.impl;
 
-import jakarta.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.Table;
 import ua.epam.mishchenko.ticketbooking.model.Event;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
-
-import static ua.epam.mishchenko.ticketbooking.utils.Constants.DATE_FORMATTER;
 
 @Entity
 @Table(name = "events")
@@ -19,9 +22,8 @@ public class EventImpl implements Event {
     @Column(name = "title")
     private String title;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date")
-    private Date date;
+    private LocalDate date;
 
     @Column(name = "ticket_price")
     private double ticketPrice;
@@ -29,25 +31,25 @@ public class EventImpl implements Event {
 
     public EventImpl() {}
 
-    public EventImpl(String title, Date date) {
+    public EventImpl(String title, LocalDate date) {
         this.title = title;
         this.date = date;
     }
 
-    public EventImpl(long id, String title, Date date, double price) {
+    public EventImpl(long id, String title, LocalDate date, double price) {
         this.id = id;
         this.title = title;
         this.date = date;
         this.ticketPrice = price;
     }
 
-    public EventImpl(String title, Date date, double price) {
+    public EventImpl(String title, LocalDate date, double price) {
         this.title = title;
         this.date = date;
         this.ticketPrice = price;
     }
 
-    public EventImpl(long id, String title, Date date) {
+    public EventImpl(long id, String title, LocalDate date) {
         this.id = id;
         this.title = title;
         this.date = date;
@@ -80,12 +82,12 @@ public class EventImpl implements Event {
     }
 
     @Override
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
     @Override
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -114,10 +116,11 @@ public class EventImpl implements Event {
 
     @Override
     public String toString() {
-        return "{" +
-                "'id' : " + id +
-                ", 'title' : '" + title + '\'' +
-                ", 'date' : '" + DATE_FORMATTER.format(date) +
-                "'}";
+        return "EventImpl{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", date=" + date +
+                ", ticketPrice=" + ticketPrice +
+                '}';
     }
 }

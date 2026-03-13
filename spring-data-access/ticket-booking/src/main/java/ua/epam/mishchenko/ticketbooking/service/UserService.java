@@ -12,6 +12,8 @@ public interface UserService {
 
     List<User> getUsersByName(String name, int pageSize, int pageNum);
 
+    List<User> getAllUsers(int pageSize, int pageNum);
+
     User createUser(User user);
 
     User updateUser(User user);

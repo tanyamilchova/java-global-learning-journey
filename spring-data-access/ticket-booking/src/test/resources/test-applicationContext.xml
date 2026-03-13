@@ -2,15 +2,18 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:property-placeholder location="classpath:test-storage.properties"/>
 
-    <bean id="bookingFacadeTest" class="ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImplTest">
-    </bean>
+    <bean id="bookingFacadeTest" class="ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImplTest"/>
 
     <bean id="bookingFacade" class="ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl">
         <constructor-arg ref="eventService"/>
@@ -19,26 +22,17 @@
         <constructor-arg ref="userAccountService"/>
     </bean>
 
-    <bean id="eventService" class="ua.epam.mishchenko.ticketbooking.service.impl.EventServiceImpl" autowire="byName">
-    </bean>
-
-    <bean id="userService" class="ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl" autowire="byName">
-    </bean>
-
-    <bean id="ticketService" class="ua.epam.mishchenko.ticketbooking.service.impl.TicketServiceImpl" autowire="byName">
-    </bean>
-
-    <bean id="userAccountService" class="ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl" autowire="byName">
-    </bean>
+    <bean id="eventService" class="ua.epam.mishchenko.ticketbooking.service.impl.EventServiceImpl" autowire="byName"/>
+    <bean id="userService" class="ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl" autowire="byName"/>
+    <bean id="ticketService" class="ua.epam.mishchenko.ticketbooking.service.impl.TicketServiceImpl" autowire="byName"/>
+    <bean id="userAccountService" class="ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl" autowire="byName"/>
 
     <bean id="userDAO" class="ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl">
         <property name="storage" ref="storage"/>
     </bean>
-
     <bean id="ticketDAO" class="ua.epam.mishchenko.ticketbooking.dao.impl.TicketDAOImpl">
         <property name="storage" ref="storage"/>
     </bean>
-
     <bean id="eventDAO" class="ua.epam.mishchenko.ticketbooking.dao.impl.EventDAOImpl">
         <property name="storage" ref="storage"/>
     </bean>
@@ -46,11 +40,38 @@
         <property name="storage" ref="storage"/>
     </bean>
 
-    <bean id="storage" class="ua.epam.mishchenko.ticketbooking.db.Storage">
-    </bean>
-
+    <bean id="storage" class="ua.epam.mishchenko.ticketbooking.db.Storage"/>
     <bean id="fileReader" class="ua.epam.mishchenko.ticketbooking.postprocessor.FileReader">
         <property name="file" value="${storage.path}"/>
     </bean>
+
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${db.driver}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.username}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
+
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="ua.epam.mishchenko.ticketbooking.model"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>
