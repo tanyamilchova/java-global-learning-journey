@@ -1,25 +1,5 @@
 package tests;
 
-//import static org.mockito.Mockito.*;
-//import static org.junit.Assert.*;
-//
-//import org.junit.Before;
-//import org.junit.Test;
-//import org.mockito.InjectMocks;
-//import org.mockito.Mock;
-//import org.mockito.MockitoAnnotations;
-//import ua.epam.mishchenko.ticketbooking.model.UserAccount;
-//import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
-//import ua.epam.mishchenko.ticketbooking.model.repository.UserAccountRepository;
-//import ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl;
-//
-//import java.util.Optional;
-//
-//import static org.junit.Assert.assertEquals;
-//import static org.junit.Assert.assertNotNull;
-//import static org.mockito.Mockito.*;
-
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -89,7 +69,7 @@ public class UserAccountServiceTest {
 
         UserAccountImpl account = new UserAccountImpl(userId, 100.0);
 
-        when(userAccountRepository.findByUserId(userId))
+        when(userAccountRepository.findById(userId))
                 .thenReturn(Optional.of(account));
 
         UserAccount result = userAccountService.addFunds(userId, amount);
@@ -108,7 +88,7 @@ public class UserAccountServiceTest {
             userAccountService.addFunds(userId, amount);
         });
 
-        verify(userAccountRepository, never()).findByUserId(anyLong());
+        verify(userAccountRepository, never()).findById(anyLong());
     }
 
     @Test
@@ -116,7 +96,7 @@ public class UserAccountServiceTest {
         long userId = 1L;
         double amount = 50;
 
-        when(userAccountRepository.findByUserId(userId))
+        when(userAccountRepository.findById(userId))
                 .thenReturn(Optional.empty());
 
         assertThrows(DbException.class, () -> {
@@ -133,7 +113,7 @@ public class UserAccountServiceTest {
 
         UserAccountImpl account = new UserAccountImpl(userId, 100);
 
-        when(userAccountRepository.findByUserId(userId))
+        when(userAccountRepository.findById(userId))
                 .thenReturn(Optional.of(account));
 
         doThrow(new RuntimeException("DB error"))
@@ -150,7 +130,7 @@ public class UserAccountServiceTest {
 
         UserAccountImpl account = new UserAccountImpl(userId, 100);
 
-        when(userAccountRepository.findByUserId(userId))
+        when(userAccountRepository.findById(userId))
                 .thenReturn(Optional.of(account));
 
         UserAccount result = userAccountService.getUserAccountByUserId(userId);
@@ -159,21 +139,21 @@ public class UserAccountServiceTest {
         assertEquals(userId, result.getUserId());
         assertEquals(100, result.getBalance(), 0.001);
 
-        verify(userAccountRepository).findByUserId(userId);
+        verify(userAccountRepository).findById(userId);
     }
 
     @Test
     public void getUserAccountByUserIdShouldThrowWhenAccountNotFound() {
         long userId = 1L;
 
-        when(userAccountRepository.findByUserId(userId))
+        when(userAccountRepository.findById(userId))
                 .thenReturn(Optional.empty());
 
         assertThrows(DbException.class, () -> {
             userAccountService.getUserAccountByUserId(userId);
         });
 
-        verify(userAccountRepository).findByUserId(userId);
+        verify(userAccountRepository).findById(userId);
     }
 
     @Test
@@ -184,7 +164,7 @@ public class UserAccountServiceTest {
             userAccountService.getUserAccountByUserId(userId);
         });
 
-        verify(userAccountRepository, never()).findByUserId(anyLong());
+        verify(userAccountRepository, never()).findById(anyLong());
     }
 
     @Test
@@ -193,7 +173,7 @@ public class UserAccountServiceTest {
         UserAccountImpl existingAccount = new UserAccountImpl(userId, 100.0);
         UserAccount update = new UserAccountImpl(userId, 200.0);
 
-        when(userAccountRepository.findByUserId(userId))
+        when(userAccountRepository.findById(userId))
                 .thenReturn(Optional.of(existingAccount));
 
         UserAccount result = userAccountService.updateUserAccount(update);
@@ -201,7 +181,7 @@ public class UserAccountServiceTest {
         assertNotNull(result);
         assertEquals(200.0, result.getBalance(), 0.001);
 
-        verify(userAccountRepository).findByUserId(userId);
+        verify(userAccountRepository).findById(userId);
         verify(userAccountRepository).save(existingAccount);
     }
 
@@ -211,7 +191,7 @@ public class UserAccountServiceTest {
             userAccountService.updateUserAccount(null);
         });
 
-        verify(userAccountRepository, never()).findByUserId(anyLong());
+        verify(userAccountRepository, never()).findById(anyLong());
         verify(userAccountRepository, never()).save(any());
     }
 
@@ -220,13 +200,13 @@ public class UserAccountServiceTest {
         long userId = 1L;
         UserAccount update = new UserAccountImpl(userId, 200.0);
 
-        when(userAccountRepository.findByUserId(userId)).thenReturn(Optional.empty());
+        when(userAccountRepository.findById(userId)).thenReturn(Optional.empty());
 
         assertThrows(DbException.class, () -> {
             userAccountService.updateUserAccount(update);
         });
 
-        verify(userAccountRepository).findByUserId(userId);
+        verify(userAccountRepository).findById(userId);
         verify(userAccountRepository, never()).save(any());
     }
 
@@ -236,14 +216,14 @@ public class UserAccountServiceTest {
         UserAccountImpl existingAccount = new UserAccountImpl(userId, 100.0);
         UserAccount updateToAccount = new UserAccountImpl(userId, 200.0);
 
-        when(userAccountRepository.findByUserId(userId)).thenReturn(Optional.of(existingAccount));
+        when(userAccountRepository.findById(userId)).thenReturn(Optional.of(existingAccount));
         doThrow(new RuntimeException("DB error")).when(userAccountRepository).save(existingAccount);
 
         assertThrows(DbException.class, () -> {
             userAccountService.updateUserAccount(updateToAccount);
         });
 
-        verify(userAccountRepository).findByUserId(userId);
+        verify(userAccountRepository).findById(userId);
         verify(userAccountRepository).save(existingAccount);
     }
 
@@ -252,14 +232,14 @@ public class UserAccountServiceTest {
         long userId = 1L;
         UserAccountImpl account = new UserAccountImpl(userId, 100.0);
 
-        when(userAccountRepository.findByUserId(userId))
+        when(userAccountRepository.findById(userId))
                 .thenReturn(Optional.of(account));
 
         boolean result = userAccountService.deleteUserAccount(userId);
 
         assertTrue(result);
 
-        verify(userAccountRepository).findByUserId(userId);
+        verify(userAccountRepository).findById(userId);
         verify(userAccountRepository).delete(account);
     }
 
@@ -271,7 +251,7 @@ public class UserAccountServiceTest {
             userAccountService.deleteUserAccount(invalidUserId);
         });
 
-        verify(userAccountRepository, never()).findByUserId(anyLong());
+        verify(userAccountRepository, never()).findById(anyLong());
         verify(userAccountRepository, never()).delete(any());
     }
 
@@ -279,14 +259,14 @@ public class UserAccountServiceTest {
     public void deleteUserAccountShouldThrowWhenAccountNotFound() {
         long userId = 1L;
 
-        when(userAccountRepository.findByUserId(userId))
+        when(userAccountRepository.findById(userId))
                 .thenReturn(Optional.empty());
 
         assertThrows(DbException.class, () -> {
             userAccountService.deleteUserAccount(userId);
         });
 
-        verify(userAccountRepository).findByUserId(userId);
+        verify(userAccountRepository).findById(userId);
         verify(userAccountRepository, never()).delete(any());
     }
 }

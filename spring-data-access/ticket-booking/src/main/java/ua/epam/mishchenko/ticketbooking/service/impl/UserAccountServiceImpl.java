@@ -1,6 +1,5 @@
 package ua.epam.mishchenko.ticketbooking.service.impl;
 
-import lombok.Setter;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -77,7 +76,7 @@ public class UserAccountServiceImpl implements UserAccountService {
         LOGGER.log(Level.DEBUG, "Start adding funds: {} to userId: {}", amount, userId);
 
         try {
-            Optional<UserAccountImpl> optionalAccount = userAccountRepository.findByUserId(userId);
+            Optional<UserAccountImpl> optionalAccount = userAccountRepository.findById(userId);
 
             UserAccount userAccount = optionalAccount.orElseThrow(() -> {
                 LOGGER.log(Level.WARN, "User account not found for userId: {}", userId);
@@ -104,7 +103,7 @@ public class UserAccountServiceImpl implements UserAccountService {
         Util.validateId(userId);
         LOGGER.log(Level.DEBUG, "Start getting a user account with userId: {}", userId);
 
-            UserAccountImpl userAccount = userAccountRepository.findByUserId(userId)
+            UserAccountImpl userAccount = userAccountRepository.findById(userId)
                     .orElseThrow(() -> {
                         LOGGER.log(Level.WARN, "User account not found for userId {}", userId);
                         return new DbException("User account not found for userId: " + userId);
@@ -123,7 +122,7 @@ public class UserAccountServiceImpl implements UserAccountService {
 
         try {
             UserAccountImpl userAccountToUpdate = userAccountRepository
-                    .findByUserId(userAccount.getUserId())
+                    .findById(userAccount.getUserId())
                     .orElseThrow(() -> {
                         LOGGER.log(Level.WARN,
                                 "User account to update not found for userId {}", userAccount.getUserId());
@@ -156,7 +155,7 @@ public class UserAccountServiceImpl implements UserAccountService {
         LOGGER.debug("Start deleting user account for userId {}", userId);
 
         UserAccountImpl account = userAccountRepository
-                .findByUserId(userId)
+                .findById(userId)
                 .orElseThrow(() -> new DbException("User account not found for userId: " + userId));
 
         userAccountRepository.delete(account);

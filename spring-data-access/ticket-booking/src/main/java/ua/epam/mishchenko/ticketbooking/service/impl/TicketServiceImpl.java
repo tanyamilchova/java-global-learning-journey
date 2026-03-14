@@ -60,7 +60,7 @@ public class TicketServiceImpl implements TicketService {
                     return new DbException("Event not found: " + eventId);
                 });
 
-        UserAccount userAccount = userAccountRepository.findByUserId(userId)
+        UserAccount userAccount = userAccountRepository.findById(userId)
                 .orElseThrow(() -> {
                     LOGGER.warn("User account {} not found", userId);
                     return new DbException("User account not found: " + userId);

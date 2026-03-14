@@ -56,7 +56,7 @@ public class TicketServiceTest {
         UserAccountImpl account = new UserAccountImpl(userId, 100.0);
 
         when(eventRepository.findById(eventId)).thenReturn(Optional.of(event));
-        when(userAccountRepository.findByUserId(userId)).thenReturn(Optional.of(account));
+        when(userAccountRepository.findById(userId)).thenReturn(Optional.of(account));
         when(ticketRepository.save(any(TicketImpl.class))).thenAnswer(i -> i.getArgument(0));
 
         Ticket ticket = ticketService.bookTicket(userId, eventId, place, category);
@@ -70,7 +70,7 @@ public class TicketServiceTest {
         assertEquals(50.0, account.getBalance(), 0.001);
 
         verify(eventRepository).findById(eventId);
-        verify(userAccountRepository).findByUserId(userId);
+        verify(userAccountRepository).findById(userId);
         verify(userAccountRepository).save(account);
         verify(ticketRepository).save(any(TicketImpl.class));
 
@@ -114,14 +114,14 @@ public class TicketServiceTest {
         event.setTicketPrice(50.0);
 
         when(eventRepository.findById(eventId)).thenReturn(Optional.of(event));
-        when(userAccountRepository.findByUserId(userId)).thenReturn(Optional.empty());
+        when(userAccountRepository.findById(userId)).thenReturn(Optional.empty());
 
         assertThrows(DbException.class, () ->
                 ticketService.bookTicket(userId, eventId, 5, Ticket.Category.STANDARD)
         );
 
         verify(eventRepository).findById(eventId);
-        verify(userAccountRepository).findByUserId(userId);
+        verify(userAccountRepository).findById(userId);
         verifyNoInteractions(ticketRepository);
     }
 
@@ -138,7 +138,7 @@ public class TicketServiceTest {
         UserAccountImpl account = new UserAccountImpl(userId, 50.0);
 
         when(eventRepository.findById(eventId)).thenReturn(Optional.of(event));
-        when(userAccountRepository.findByUserId(userId)).thenReturn(Optional.of(account));
+        when(userAccountRepository.findById(userId)).thenReturn(Optional.of(account));
 
         assertThrows(DbException.class, () ->
                 ticketService.bookTicket(userId, eventId, 5, Ticket.Category.STANDARD)
