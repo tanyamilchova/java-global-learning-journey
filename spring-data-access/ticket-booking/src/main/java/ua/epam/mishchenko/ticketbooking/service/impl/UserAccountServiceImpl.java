@@ -1,5 +1,6 @@
 package ua.epam.mishchenko.ticketbooking.service.impl;
 
+import lombok.Setter;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,13 +24,14 @@ public class UserAccountServiceImpl implements UserAccountService {
     private  UserAccountDAO userAccountDAO;
     private UserDAO userDAO;
 
-    @Autowired
-    public UserAccountServiceImpl(UserDAO userDAO) {
-        this.userDAO = userDAO;
-    }
+    UserAccountRepository userAccountRepository;
 
     @Autowired
-    UserAccountRepository userAccountRepository;
+    public UserAccountServiceImpl(UserDAO userDAO,
+                                  UserAccountRepository userAccountRepository) {
+        this.userDAO = userDAO;
+        this.userAccountRepository = userAccountRepository;
+    }
 
     public UserAccountServiceImpl() {
     }

@@ -19,13 +19,13 @@ import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
 import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
 
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
-import static ua.epam.mishchenko.ticketbooking.utils.Constants.DATE_FORMATTER;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TicketServiceImplTest {
@@ -44,9 +44,6 @@ public class TicketServiceImplTest {
     @Before
     public void setUp() {
         ticketService = new TicketServiceImpl();
-        ticketService.setTicketDAO(ticketDAO);
-        ticketService.setEventDAO(eventDAO);
-        ticketService.setUserAccountDAO(userAccountDAO);
     }
 
     @Test
@@ -114,7 +111,7 @@ public class TicketServiceImplTest {
 
     @Test
     public void getBookedTicketsWithNotNullEventAndProperPageSizeAndPageNumShouldBeOk() throws ParseException {
-        Event event = new EventImpl(4, "Fourth event", DATE_FORMATTER.parse("15-05-2022 21:00"));
+        Event event = new EventImpl(4, "Fourth event", LocalDate.of(2026, 1, 15));
         List<Ticket> expectedListOfTicketsByEvent = Arrays.asList(
                 new TicketImpl(4L, 1L, 4L, 20, Ticket.Category.BAR),
                 new TicketImpl(2L, 3L, 4L, 10, Ticket.Category.PREMIUM)

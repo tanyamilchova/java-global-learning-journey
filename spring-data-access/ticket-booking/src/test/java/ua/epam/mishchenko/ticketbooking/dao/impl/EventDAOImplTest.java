@@ -15,17 +15,14 @@ import ua.epam.mishchenko.ticketbooking.model.impl.EventImpl;
 import ua.epam.mishchenko.ticketbooking.postprocessor.FileReader;
 
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 import static ua.epam.mishchenko.ticketbooking.utils.Constants.DATE_FORMATTER;
 
 @RunWith(SpringRunner.class)
@@ -53,7 +50,7 @@ public class EventDAOImplTest {
 
     @Test
     public void getByIdWithExistsIdShouldBeOk() throws ParseException {
-        Event event = new EventImpl(3L, "Third event", DATE_FORMATTER.parse("16-05-2022 12:00"));
+        Event event = new EventImpl(3L, "Third event", LocalDate.of(2022, 5, 16));
 
         Event actualEvent = eventDAO.getById(3L);
 
@@ -75,8 +72,8 @@ public class EventDAOImplTest {
     public void getByTitleWithExistsTitleShouldBeOk() throws ParseException {
         String title = "Third event";
         List<Event> expectedEvents = Arrays.asList(
-                new EventImpl(3L, "Third event", DATE_FORMATTER.parse("16-05-2022 12:00")),
-                new EventImpl(5L, "Third event", DATE_FORMATTER.parse("25-05-2022 9:10"))
+                new EventImpl(3L, "Third event", LocalDate.of(2022, 5, 16)),
+                new EventImpl(5L, "Third event", LocalDate.of(2022, 5, 25))
         );
         List<Event> actualEvents = eventDAO.getEventsByTitle(title, 2, 1);
 
@@ -116,8 +113,8 @@ public class EventDAOImplTest {
     public void getForDayWithExistsDayShouldBeOk() throws ParseException {
         Date day = DATE_FORMATTER.parse("15-05-2022 21:00");
         List<Event> expectedEvents = Arrays.asList(
-                new EventImpl(2L, "Second event", DATE_FORMATTER.parse("15-05-2022 21:00")),
-                new EventImpl(4L, "Fourth event", DATE_FORMATTER.parse("15-05-2022 21:00"))
+                new EventImpl(2L, "Second event", LocalDate.of(2022, 5, 15)),
+                new EventImpl(4L, "Fourth event", LocalDate.of(2022, 5, 15))
         );
         List<Event> actualEvents = eventDAO.getEventsForDay(day, 2, 1);
 
@@ -155,8 +152,7 @@ public class EventDAOImplTest {
 
     @Test
     public void insertWithEventShouldBeOk() {
-        Event expectedEvent = new EventImpl("Test title", new Date(System.currentTimeMillis()));
-
+        Event expectedEvent = new EventImpl("Test title", LocalDate.now());
         Event actualEvent = eventDAO.insert(expectedEvent);
         expectedEvent.setId(actualEvent.getId());
 
@@ -176,8 +172,7 @@ public class EventDAOImplTest {
     @Test
     public void insertWithExistsTitleAndEmailShouldThrowException() {
         DbException dbException = assertThrows(DbException.class,
-                () -> eventDAO.insert(new EventImpl("Second event", DATE_FORMATTER.parse("15-05-2022 21:00"))));
-
+                () -> eventDAO.insert(new EventImpl("Second event", LocalDate.of(2022, 5, 15))));
         assertEquals("This email already exists", dbException.getMessage());
     }
 
@@ -204,8 +199,7 @@ public class EventDAOImplTest {
     @Test
     public void updateEventWhichNotExistsShouldThrowException() {
         DbException dbException = assertThrows(DbException.class,
-                () -> eventDAO.update(new EventImpl(10L, "Test User", new Date(System.currentTimeMillis()))));
-
+                () -> eventDAO.update(new EventImpl(10L, "Test User", LocalDate.now())));
         verify(storage, times(1)).getInMemoryStorage();
 
         assertEquals("The event with id 10 does not exist", dbException.getMessage());

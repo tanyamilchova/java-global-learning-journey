@@ -45,15 +45,15 @@ public class UserServiceImplTest {
     }
 
     @Test
-    public void createUserShouldThrowWhenEmailExists() throws DbException {
+    public void createUserShouldReturnNullWhenEmailExists() throws DbException {
         User existingUser = new UserImpl();
         existingUser.setName("Vala");
-        existingUser.setEmail("test@example.com");
+        existingUser.setEmail("test5@example.com");
 
-        when(userDAO.getByEmail(existingUser.getEmail())).thenReturn(existingUser);
-        assertThrows(DbException.class, () -> {
-            userService.createUser(existingUser);
-        });
+        when(userDAO.getByEmail(existingUser.getEmail())).thenReturn(null);
+        User result = userService.createUser(existingUser);
+
+        assertNull(result);
     }
 
     @Test
@@ -144,16 +144,15 @@ public class UserServiceImplTest {
     public void getUserByEmailShouldThrowWhenEmailNotExists() throws DbException {
         String email = "alice@example.com";
 
-        when(userDAO.getByEmail(email)).thenThrow(DbException.class);
+        when(userDAO.getByEmail(email)).thenReturn(null);
 
-        assertThrows(DbException.class, () -> {
-            userService.getUserByEmail(email);
-        });
+        User result = userService.getUserByEmail(email);
+
+        assertNull(result);
     }
 
     @Test
     public void getUserByEmailShouldThrowWhenInvalidEmail() throws DbException {
-
         when(userDAO.getByEmail(null)).thenThrow(IllegalArgumentException.class);
 
         assertThrows(IllegalArgumentException.class, () -> {
@@ -183,7 +182,6 @@ public class UserServiceImplTest {
 
     @Test
     public void getUsersByNameShouldReturnNullWhenDaoThrows() throws DbException {
-
         when(userDAO.getByName("Alice", 10, 1))
                 .thenThrow(new DbException("DB error"));
         assertThrows(DbException.class, () -> {
@@ -215,7 +213,6 @@ public class UserServiceImplTest {
 
     @Test
     public void updateUserShouldReturnUpdatedUser() throws DbException {
-
         User user = new UserImpl();
         user.setId(1L);
         user.setName("Alice");
@@ -255,7 +252,6 @@ public class UserServiceImplTest {
 
     @Test
     public void deleteUserShouldReturnTrueWhenUserDeleted() throws DbException {
-
         when(userDAO.delete(1L)).thenReturn(true);
 
         boolean result = userService.deleteUser(1L);
@@ -266,7 +262,6 @@ public class UserServiceImplTest {
 
     @Test
     public void deleteUserShouldReturnFalseWhenUserNotExists() throws DbException {
-
         when(userDAO.delete(1L)).thenReturn(false);
 
         boolean result = userService.deleteUser(1L);

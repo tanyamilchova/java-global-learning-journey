@@ -33,8 +33,7 @@ public class UserServiceImplTest {
 
     @Before
     public void setUp() {
-        userService = new UserServiceImpl();
-        userService.setUserDAO(userDAO);
+        userService = new UserServiceImpl(userDAO);
     }
 
 

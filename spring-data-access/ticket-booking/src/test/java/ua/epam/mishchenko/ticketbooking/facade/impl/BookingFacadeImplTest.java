@@ -12,7 +12,7 @@ import ua.epam.mishchenko.ticketbooking.model.UserAccount;
 import ua.epam.mishchenko.ticketbooking.model.impl.EventImpl;
 import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -27,7 +27,7 @@ public class BookingFacadeImplTest {
     @Test
     public void createUserThenCreateEventThenBookTicketForThisEventForUserAndThenCancelItShouldBeOk() {
         User user = new UserImpl("Andrii", "andrii@gmail.com");
-        Event event = new EventImpl("Integration Event", new Date(System.currentTimeMillis()));
+        Event event = new EventImpl("Integration Event", LocalDate.now());
         int place = 10;
 
         user = bookingFacade.createUser(user);

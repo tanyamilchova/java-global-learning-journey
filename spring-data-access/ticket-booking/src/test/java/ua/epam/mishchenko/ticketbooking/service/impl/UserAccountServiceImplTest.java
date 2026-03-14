@@ -27,8 +27,7 @@ public class UserAccountServiceImplTest {
 
     @Before
     public void setUp() {
-        userAccountService = new UserAccountServiceImpl();
-        userAccountService.setUserAccountDAO(userAccountDAO);
+        userAccountService = new UserAccountServiceImpl(userAccountDAO);
     }
 
     @Test

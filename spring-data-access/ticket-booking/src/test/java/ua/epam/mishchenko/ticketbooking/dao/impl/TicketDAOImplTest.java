@@ -18,17 +18,13 @@ import ua.epam.mishchenko.ticketbooking.model.impl.TicketImpl;
 import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
 import ua.epam.mishchenko.ticketbooking.postprocessor.FileReader;
 
+import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration({"classpath:/test-applicationContext.xml"})
@@ -136,7 +132,7 @@ public class TicketDAOImplTest {
     public void getAllByEventWithNotExistsEmailShouldThrowException() {
         Event event = new EventImpl();
         event.setId(100L);
-        event.setDate(new Date(System.currentTimeMillis()));
+        event.setDate(LocalDate.now());
         DbException dbException = assertThrows(DbException.class,
                 () -> ticketDAO.getAllByEvent(event, 1, 1));
 

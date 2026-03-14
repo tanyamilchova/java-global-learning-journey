@@ -11,21 +11,15 @@ import ua.epam.mishchenko.ticketbooking.model.Event;
 import ua.epam.mishchenko.ticketbooking.model.impl.EventImpl;
 
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.eq;
+import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
-import static ua.epam.mishchenko.ticketbooking.utils.Constants.DATE_FORMATTER;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EventServiceImplTest {
@@ -44,8 +38,7 @@ public class EventServiceImplTest {
     @Test
     public void getEventByIdWithExistsIdShouldBeOk() throws ParseException {
         long userId = 3L;
-        Event expectedEvent = new EventImpl(userId, "Third event", DATE_FORMATTER.parse("16-05-2022 12:00"));
-
+        Event expectedEvent = new EventImpl(userId, "Third event", LocalDate.of(2026, 1, 15));
         when(eventDAO.getById(userId)).thenReturn(expectedEvent);
 
         Event actualEvent = eventService.getEventById(userId);
@@ -66,8 +59,8 @@ public class EventServiceImplTest {
     public void getEventsByTitleWithExistsTitleShouldBeOk() throws ParseException {
         String title = "Third event";
         List<Event> expectedEvents = Arrays.asList(
-                new EventImpl(3L, title, DATE_FORMATTER.parse("16-05-2022 12:00")),
-                new EventImpl(5L, title, DATE_FORMATTER.parse("25-05-2022 9:10"))
+                new EventImpl(3L, title, LocalDate.of(2022, 5, 16)),
+                new EventImpl(5L, title, LocalDate.of(2022, 5, 25))
         );
 
         when(eventDAO.getEventsByTitle(eq(title), anyInt(), anyInt())).thenReturn(expectedEvents);
@@ -88,14 +81,15 @@ public class EventServiceImplTest {
 
     @Test
     public void getEventsForDayWithExistsDayShouldBeOk() throws ParseException {
-        Date day = DATE_FORMATTER.parse("15-05-2022 21:00");
+        LocalDate day = LocalDate.of(2022, 15, 5);
         List<Event> expectedEvents = Arrays.asList(
-                new EventImpl(2L, "Second event", DATE_FORMATTER.parse("15-05-2022 21:00")),
-                new EventImpl(4L, "Fourth event", DATE_FORMATTER.parse("15-05-2022 21:00"))
+                new EventImpl(3L, "second event", LocalDate.of(2022, 5, 16)),
+                new EventImpl(5L, "third event", LocalDate.of(2022, 5, 25))
         );
 
-        when(eventDAO.getEventsForDay(eq(day), anyInt(), anyInt())).thenReturn(expectedEvents);
+        Date dayAsDate = Date.from(day.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
+        when(eventDAO.getEventsForDay(eq(dayAsDate), anyInt(), anyInt())).thenReturn(expectedEvents);
         List<Event> actualEvents = eventService.getEventsForDay(day, 2, 1);
 
         assertTrue(expectedEvents.containsAll(actualEvents));
@@ -103,8 +97,7 @@ public class EventServiceImplTest {
 
     @Test
     public void getEventsForDayWithExceptionShouldReturnNull() throws ParseException {
-        Date day = DATE_FORMATTER.parse("15-05-2000 21:00");
-
+        LocalDate day = LocalDate.of(2000, 5, 15);
         when(eventDAO.getEventsForDay(any(), anyInt(), anyInt())).thenThrow(DbException.class);
 
         List<Event> actualEventsForDay = eventService.getEventsForDay(day, 1, 1);
@@ -123,8 +116,8 @@ public class EventServiceImplTest {
 
     @Test
     public void createEventWithExistsTitleAndEmailShouldReturnNull() throws ParseException {
-        EventImpl expectedEvent = new EventImpl(1L, "Second event", DATE_FORMATTER.parse("15-05-2022 21:00"));
-
+        LocalDate eventDate = LocalDate.of(2022, 5, 15);
+        EventImpl expectedEvent = new EventImpl(1L, "Second event", eventDate);
         when(eventDAO.insert(expectedEvent)).thenReturn(expectedEvent);
 
         Event actualEvent = eventService.createEvent(expectedEvent);
@@ -134,8 +127,7 @@ public class EventServiceImplTest {
 
     @Test
     public void updateEventWithExistsEventShouldBeOk() throws ParseException {
-        Event expectedEvent = new EventImpl(1L, "Second event", DATE_FORMATTER.parse("15-05-2022 21:00"));
-
+        Event expectedEvent = new EventImpl(1L, "Second event", LocalDate.of(2022, 5, 15));
         when(eventDAO.update(any())).thenReturn(expectedEvent);
 
         Event actualEvent = eventService.updateEvent(expectedEvent);

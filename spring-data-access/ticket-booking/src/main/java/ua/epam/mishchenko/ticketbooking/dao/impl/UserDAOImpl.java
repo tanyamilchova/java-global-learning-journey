@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
+import ua.epam.mishchenko.ticketbooking.db.Storage;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
 import ua.epam.mishchenko.ticketbooking.model.User;
 import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
@@ -56,7 +57,8 @@ public class UserDAOImpl implements UserDAO {
                     .setParameter("email", email)
                     .getSingleResult();
         } catch (Exception e) {
-            throw new DbException("Error finding user by email", e);
+//            throw new DbException("Error finding user by email", e);
+            return null;
         }
     }
 
@@ -70,7 +72,8 @@ public class UserDAOImpl implements UserDAO {
                     .setMaxResults(pageSize)
                     .getResultList();
         } catch (Exception e) {
-            throw new DbException("Error finding users by name", e);
+//            throw new DbException("Error finding users by name", e);
+            return null;
         }
     }
 
