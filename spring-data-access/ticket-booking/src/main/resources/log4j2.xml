@@ -25,5 +25,7 @@
         <Root level="debug" additivity="false">
             <appender-ref ref="console" />
         </Root>
+        <Logger name="org.hibernate.cache" level="debug"/>
+        <Logger name="org.hibernate.stat" level="debug"/>
     </Loggers>
 </Configuration>

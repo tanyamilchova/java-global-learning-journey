@@ -66,7 +66,7 @@ public class EventServiceImpl implements EventService {
             throw new IllegalArgumentException("Page size must be > 0 and page number >= 0");
         }
 
-        Pageable pageable = PageRequest.of(pageNum, pageSize);
+        Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
         List<Event> eventsByTitle = eventRepository.findByTitleContainingIgnoreCase(title, pageable).getContent();
 
         LOGGER.log(Level.DEBUG,
@@ -82,7 +82,7 @@ public class EventServiceImpl implements EventService {
         Util.validatePagination(pageSize, pageNum);
 
         try {
-            Pageable pageable = PageRequest.of(pageNum, pageSize);
+            Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
             List<EventImpl> eventsImpl = eventRepository.findByDate(day, pageable).getContent();
             return new ArrayList<>(eventsImpl);
         } catch (Exception exception) {

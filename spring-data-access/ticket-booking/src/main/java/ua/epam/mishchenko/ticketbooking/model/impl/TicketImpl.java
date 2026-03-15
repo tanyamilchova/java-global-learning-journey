@@ -1,13 +1,16 @@
 package ua.epam.mishchenko.ticketbooking.model.impl;
 
-import javax.persistence.*;
-
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import ua.epam.mishchenko.ticketbooking.model.Ticket;
 
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "tickets")
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class TicketImpl implements Ticket {
 
     @Id

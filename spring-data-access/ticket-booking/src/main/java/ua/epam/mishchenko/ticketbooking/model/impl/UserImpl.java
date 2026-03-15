@@ -1,15 +1,16 @@
 package ua.epam.mishchenko.ticketbooking.model.impl;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import ua.epam.mishchenko.ticketbooking.model.User;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "users")
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class UserImpl implements User, Comparable<UserImpl> {
 
     @Id

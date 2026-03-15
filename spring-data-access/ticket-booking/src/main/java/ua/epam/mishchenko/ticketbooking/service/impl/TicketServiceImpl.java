@@ -95,7 +95,7 @@ public class TicketServiceImpl implements TicketService {
                 user, pageSize, pageNum);
 
         try {
-           Pageable pageable = PageRequest.of(pageNum, pageSize);
+           Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
 
             List<TicketImpl> ticketsByUser = ticketRepository.getAllByUserId(user.getId(), pageable).getContent();
 
@@ -111,6 +111,7 @@ public class TicketServiceImpl implements TicketService {
 
     }
 
+
     @Override
     public List<Ticket> getBookedTickets(Event event, int pageSize, int pageNum) {
         Util.validateNotNull(event, "Event");
@@ -120,7 +121,7 @@ public class TicketServiceImpl implements TicketService {
                 event, pageSize, pageNum);
 
         try {
-            Pageable pageable = PageRequest.of(pageNum, pageSize);
+            Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
             List<TicketImpl> ticketsByUser = ticketRepository.getAllByEventId(event.getId(), pageable).getContent();
 
             LOGGER.log(Level.DEBUG,
