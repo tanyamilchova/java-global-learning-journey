@@ -1,7 +1,6 @@
 package ua.epam.mishchenko.ticketbooking.service.impl;
 
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,8 +49,7 @@ public class TicketServiceImpl implements TicketService {
         }
         Util.validateNotNull(category, "Ticket.Category");
 
-        LOGGER.log(Level.DEBUG,
-                "Start booking a ticket for user with id {}, event with id {}, place {}, category {}",
+        LOGGER.debug("Start booking a ticket for user with id {}, event with id {}, place {}, category {}",
                 userId, eventId, place, category);
 
         Event event = eventRepository.findById(eventId)
@@ -77,7 +75,7 @@ public class TicketServiceImpl implements TicketService {
         Ticket ticket = createNewTicket(userId, eventId, place, category);
         ticket = ticketRepository.save((TicketImpl) ticket);
 
-        LOGGER.log(Level.DEBUG, "Successfully booked ticket: {}", ticket);
+        LOGGER.info("Successfully booked ticket: {}", ticket);
         return ticket;
     }
 
@@ -90,22 +88,18 @@ public class TicketServiceImpl implements TicketService {
     public List<Ticket> getBookedTickets(User user, int pageSize, int pageNum) {
         Util.validateUser(user);
         Util.validatePagination(pageSize, pageNum);
-        LOGGER.log(Level.DEBUG,
-                "Finding all booked tickets by user {} with page size {} and number of page {}",
-                user, pageSize, pageNum);
+        LOGGER.debug("Finding all booked tickets by user {} with page size {} and number of page {}", user, pageSize, pageNum);
 
         try {
            Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
 
             List<TicketImpl> ticketsByUser = ticketRepository.getAllByUserId(user.getId(), pageable).getContent();
 
-            LOGGER.log(Level.DEBUG,
-                    "All booked tickets successfully found by user {} with page size {} and number of page {}",
-                    user, pageSize, pageNum);
+            LOGGER.info("All booked tickets successfully found by user {} with page size {} and number of page {}", user, pageSize, pageNum);
 
             return new ArrayList<>(ticketsByUser);
         } catch (DbException e) {
-            LOGGER.log(Level.WARN, "Can not to find a list of booked tickets by user '{}'", user, e);
+            LOGGER.warn("Cannot find a list of booked tickets by user '{}'", user, e);
             return null;
         }
 
@@ -116,21 +110,18 @@ public class TicketServiceImpl implements TicketService {
     public List<Ticket> getBookedTickets(Event event, int pageSize, int pageNum) {
         Util.validateNotNull(event, "Event");
         Util.validatePagination(pageSize, pageNum);
-        LOGGER.log(Level.DEBUG,
-                "Finding all booked tickets by event {} with page size {} and number of page {}",
-                event, pageSize, pageNum);
+        LOGGER.debug("Finding all booked tickets by event {} with page size {} and number of page {}", event, pageSize, pageNum);
+
 
         try {
             Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
             List<TicketImpl> ticketsByUser = ticketRepository.getAllByEventId(event.getId(), pageable).getContent();
 
-            LOGGER.log(Level.DEBUG,
-                    "All booked tickets successfully found by event {} with page size {} and number of page {}",
-                    event, pageSize, pageNum);
+            LOGGER.info("All booked tickets successfully found by event {} with page size {} and number of page {}", event, pageSize, pageNum);
 
             return new ArrayList<>(ticketsByUser);
         } catch (DbException e) {
-            LOGGER.log(Level.WARN, "Can not to find a list of booked tickets by event '{}'", event, e);
+            LOGGER.warn("Cannot find a list of booked tickets by event '{}'", event, e);
             return null;
         }
     }
@@ -138,16 +129,16 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public boolean cancelTicket(long ticketId) {
         Util.validateLong(ticketId);
-        LOGGER.log(Level.DEBUG, "Start canceling a ticket with id: {}", ticketId);
+        LOGGER.debug("Start canceling a ticket with id: {}", ticketId);
 
         try {
             ticketRepository.deleteById(ticketId);
 
-            LOGGER.log(Level.DEBUG, "Successfully canceling of the ticket with id: {}", ticketId);
+            LOGGER.info("Successfully canceled the ticket with id: {}", ticketId);
 
             return true;
         } catch (DbException e) {
-            LOGGER.log(Level.WARN, "Can not to cancel a ticket with id: {}", ticketId, e);
+            LOGGER.warn("Cannot cancel a ticket with id: {}", ticketId, e);
             return false;
         }
     }

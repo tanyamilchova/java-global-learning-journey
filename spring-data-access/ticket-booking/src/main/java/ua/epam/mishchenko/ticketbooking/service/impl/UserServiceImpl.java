@@ -28,16 +28,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserById(long userId) {
         Util.validateId(userId);
-        LOGGER.log(Level.DEBUG, "Finding a user by id: {}", userId);
+        LOGGER.debug("Finding a user by id: {}", userId);
 
         try {
             User user = userDAO.getById(userId);
 
-            LOGGER.log(Level.DEBUG, "The user with id {} successfully found ", userId);
+            LOGGER.info("User with id {} successfully found", userId);;
 
             return user;
         } catch (DbException exception) {
-            LOGGER.log(Level.WARN, "Can not to get an user by id: " + userId);
+            LOGGER.warn("Failed to get user by id: {}", userId, exception);
             throw exception;
         }
     }
@@ -45,17 +45,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUsers(int pageSize, int pageNum) {
         Util.validatePagination(pageSize, pageNum);
-        LOGGER.log(Level.DEBUG, "Retrieving all users");
+        LOGGER.debug("Retrieving all users with pageSize: {} and pageNum: {}", pageSize, pageNum);
+
 
         try {
             List<User> users = userDAO.getAll(pageSize, pageNum);
 
-            LOGGER.log(Level.DEBUG, "Successfully retrieved {} users", users.size());
+            LOGGER.info("Successfully retrieved {} users", users.size());
 
             return users;
-
         } catch (DbException e) {
-            LOGGER.log(Level.WARN, "Cannot retrieve users", e);
+            LOGGER.warn("Cannot retrieve users with pageSize: {} and pageNum: {}", pageSize, pageNum, e);
             return List.of();
         }
     }
@@ -63,16 +63,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByEmail(String email) {
         Util.validateEmail(email);
-        LOGGER.log(Level.DEBUG, "Finding a user by email: {}", email);
+        LOGGER.debug("Finding a user by email: {}", email);
 
         try {
             User user = userDAO.getByEmail(email);
 
-            LOGGER.log(Level.DEBUG, "The user with email {} successfully found ", email);
+            LOGGER.info("User with email {} successfully found", email);
 
             return user;
         } catch (DbException exception) {
-            LOGGER.log(Level.WARN, "Can not to get an user by email: " + email);
+            LOGGER.warn("Failed to get user by email: {}", email, exception);
             throw exception;
         }
     }
@@ -81,18 +81,17 @@ public class UserServiceImpl implements UserService {
     public List<User> getUsersByName(String name, int pageSize, int pageNum) {
         Util.validateString(name);
         Util.validatePagination(pageSize, pageNum);
-        LOGGER.log(Level.DEBUG,
-                "Finding all users by name {} with page size {} and number of page {}", name, pageSize, pageNum);
+        LOGGER.debug("Finding all users by name '{}' with page size {} and page number {}", name, pageSize, pageNum);
 
         try {
             List<User> usersByName = userDAO.getByName(name, pageSize, pageNum);
 
-            LOGGER.log(Level.DEBUG,
-                    "All users successfully found by name {} with page size {} and number of page {}", name, pageSize, pageNum);
+            LOGGER.info("Successfully found {} users by name '{}' with page size {} and page number {}", usersByName.size(), name, pageSize, pageNum);
 
             return usersByName;
         } catch (DbException exception) {
-            LOGGER.log(Level.WARN, "Can not to find a list of users by name '{}'", name, exception);
+            LOGGER.warn("Failed to find users by name '{}', page size {}, page number {}", name, pageSize, pageNum, exception);
+
             throw exception;
         }
     }
@@ -101,19 +100,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public User createUser(User user) {
        Util.validateUser(user);
-        LOGGER.log(Level.DEBUG, "Start creating an user: {}", user);
+        LOGGER.debug("Start creating a user: {}", user);
         try {
             User existingUser = userDAO.getByEmail(user.getEmail());
 
             if (existingUser != null) {
-                LOGGER.log(Level.DEBUG, "Wrong credentials.");
+                LOGGER.info("Attempt to create a user failed: email {} is already registered.", user.getEmail());
                 throw new DbException("User already exists with email: " + user.getEmail());
             }
             user = userDAO.insert(user);
-            LOGGER.log(Level.DEBUG, "Successfully creation of the user: {}", user);
+            LOGGER.info("Successfully created user: {}", user);
             return user;
         } catch (DbException exception) {
-            LOGGER.log(Level.WARN, "Cannot create user: {}", user, exception);
+            LOGGER.warn("Cannot create user: {}", user, exception);
             throw exception;
         }
     }
@@ -123,16 +122,16 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public User updateUser(User user) {
         Util.validateUser(user);
-        LOGGER.log(Level.DEBUG, "Start updating an user: {}", user);
+        LOGGER.debug("Start updating user: {}", user);
 
         try {
             user = userDAO.update(user);
 
-            LOGGER.log(Level.DEBUG, "Successfully updating of the user: {}", user);
+            LOGGER.info("Successfully updated user: {}", user);
 
             return user;
         } catch (DbException exception) {
-            LOGGER.log(Level.WARN, "Can not to update an user: {}", user, exception);
+            LOGGER.warn("Failed to update user: {}", user, exception);
             throw exception;
         }
     }
@@ -141,12 +140,16 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public boolean deleteUser(long userId) {
         Util.validateId(userId);
-        LOGGER.log(Level.DEBUG, "Start deleting an user with id: {}", userId);
+        LOGGER.debug("Start deleting  user with id : {}", userId);
 
         try {
             boolean isRemoved = userDAO.delete(userId);
 
-            LOGGER.log(Level.DEBUG, "Successfully deletion of the user with id: {}", userId);
+            if (isRemoved) {
+                LOGGER.info("Successfully deleted user with id: {}", userId);
+            } else {
+                LOGGER.warn("No user found to delete with id: {}", userId);
+            }
 
             return isRemoved;
         } catch (DbException e) {

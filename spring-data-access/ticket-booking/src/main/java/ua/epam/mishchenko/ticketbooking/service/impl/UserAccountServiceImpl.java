@@ -1,6 +1,5 @@
 package ua.epam.mishchenko.ticketbooking.service.impl;
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,11 +41,11 @@ public class UserAccountServiceImpl implements UserAccountService {
     @Override
     public UserAccount createUserAccount(long userId) {
         Util.validateId(userId);
-        LOGGER.log(Level.DEBUG, "Start creating a user account with userId: {}", userId);
+        LOGGER.debug("Start creating a user account with userId: {}", userId);
 
         User user = userDAO.getById(userId);
         if (user == null) {
-            LOGGER.log(Level.WARN, "User with id {} not found", userId);
+            LOGGER.warn("User with id {} not found", userId);
             throw new DbException("User not found: " + userId);
         }
 
@@ -54,11 +53,11 @@ public class UserAccountServiceImpl implements UserAccountService {
             UserAccount userAccount = createNewUserAccount(userId);
             userAccountRepository.save((UserAccountImpl)userAccount);
 
-            LOGGER.log(Level.DEBUG, "Successfully creating userAccount for userId: {}", userId);
+            LOGGER.info("Successfully created userAccount for userId: {}", userId);
             return userAccount;
 
         } catch (Exception e) {
-            LOGGER.log(Level.ERROR, "Cannot create user account for userId {}", userId, e);
+            LOGGER.error("Cannot create user account for userId {}", userId, e);
             throw new DbException("Cannot create user account for userId " + userId, e);
         }
     }
@@ -73,13 +72,13 @@ public class UserAccountServiceImpl implements UserAccountService {
         if (amount <= 0) {
             throw new IllegalArgumentException("Amount must be positive");
         }
-        LOGGER.log(Level.DEBUG, "Start adding funds: {} to userId: {}", amount, userId);
+        LOGGER.debug("Start adding funds: {} to userId: {}", amount, userId);
 
         try {
             Optional<UserAccountImpl> optionalAccount = userAccountRepository.findById(userId);
 
             UserAccount userAccount = optionalAccount.orElseThrow(() -> {
-                LOGGER.log(Level.WARN, "User account not found for userId: {}", userId);
+                LOGGER.warn("User account not found for userId: {}", userId);
                 return new DbException("User account not found for userId: " + userId);
             });
 
@@ -87,12 +86,13 @@ public class UserAccountServiceImpl implements UserAccountService {
             userAccount.setBalance(newBalance);
 
             userAccountRepository.save((UserAccountImpl) userAccount);
-            LOGGER.log(Level.DEBUG, "Successfully added {} to userId: {}. New balance: {}", amount, userId, newBalance);
+            LOGGER.info("Successfully added {} to userId: {}. New balance: {}", amount, userId, newBalance);
+
             return userAccount;
         } catch (DbException exception) {
             throw exception;
         } catch (Exception exception) {
-            LOGGER.log(Level.ERROR, "Cannot add funds to userId: {}", userId, exception);
+            LOGGER.error("Cannot add funds to userId: {}", userId, exception);
             throw new DbException("Cannot add funds to userId " + userId, exception);
         }
     }
@@ -101,46 +101,42 @@ public class UserAccountServiceImpl implements UserAccountService {
     @Override
     public UserAccount getUserAccountByUserId(long userId) {
         Util.validateId(userId);
-        LOGGER.log(Level.DEBUG, "Start getting a user account with userId: {}", userId);
+        LOGGER.debug("Start getting a user account with userId: {}", userId);
 
             UserAccountImpl userAccount = userAccountRepository.findById(userId)
                     .orElseThrow(() -> {
-                        LOGGER.log(Level.WARN, "User account not found for userId {}", userId);
+                        LOGGER.warn("User account not found for userId {}", userId);
                         return new DbException("User account not found for userId: " + userId);
                     });
+            LOGGER.info("Successfully retrieved userAccount for userId: {}", userId);
 
-               LOGGER.log(Level.DEBUG, "Successfully getting userAccount for userId: {}", userId);
-               return userAccount;
+            return userAccount;
     }
 
 
     @Override
     public UserAccount updateUserAccount(UserAccount userAccount) {
         Util.validateNotNull(userAccount, "UserAccount");
-        LOGGER.log(Level.DEBUG,
-                "Start updating user account with userId: {}", userAccount.getUserId());
+        LOGGER.debug("Start updating user account with userId: {}", userAccount.getUserId());
 
         try {
             UserAccountImpl userAccountToUpdate = userAccountRepository
                     .findById(userAccount.getUserId())
                     .orElseThrow(() -> {
-                        LOGGER.log(Level.WARN,
-                                "User account to update not found for userId {}", userAccount.getUserId());
+
+                        LOGGER.warn("User account to update not found for userId {}", userAccount.getUserId());
                         return new DbException("User account to update not found for userId: " + userAccount.getUserId());
                     });
 
             userAccountToUpdate.setBalance(userAccount.getBalance());
             userAccountRepository.save(userAccountToUpdate);
 
-            LOGGER.log(Level.DEBUG,
-                    "Successfully updated userAccount for userId: {}", userAccountToUpdate.getUserId());
+            LOGGER.info("Successfully updated userAccount for userId: {}", userAccountToUpdate.getUserId());
 
             return userAccountToUpdate;
         } catch (Exception exception) {
 
-            LOGGER.log(Level.WARN,
-                    "Cannot update user account for userId {}", userAccount.getUserId(), exception);
-
+            LOGGER.error("Cannot update user account for userId {}", userAccount.getUserId(), exception);
             throw new DbException("Error while updating user account", exception);
         }
     }
@@ -149,6 +145,7 @@ public class UserAccountServiceImpl implements UserAccountService {
     public boolean deleteUserAccount(long userId) {
         Util.validateId(userId);
         if (userId <= 0) {
+            LOGGER.warn("Attempted to delete user account with invalid userId: {}", userId);
             throw new IllegalArgumentException("UserId must be positive");
         }
 
@@ -156,11 +153,14 @@ public class UserAccountServiceImpl implements UserAccountService {
 
         UserAccountImpl account = userAccountRepository
                 .findById(userId)
-                .orElseThrow(() -> new DbException("User account not found for userId: " + userId));
+                .orElseThrow(() -> {
+                    LOGGER.warn("No user account exists for userId: {}. Deletion aborted.", userId);
+                    return new DbException("User account not found for userId: " + userId);
+                });
 
         userAccountRepository.delete(account);
 
-        LOGGER.debug("Successfully deleted user account for userId {}", userId);
+        LOGGER.info("Successfully deleted user account for userId {}", userId);
 
         return true;
     }

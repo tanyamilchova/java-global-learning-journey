@@ -31,20 +31,20 @@ public class EventServiceImpl implements EventService {
     @Override
     public Event getEventById(long eventId) {
         Util.validateLong(eventId);
-        LOGGER.log(Level.DEBUG, "Finding an event by id: {}", eventId);
+        LOGGER.debug("Finding an event by id: {}", eventId);
 
         if (eventId <= 0) {
-            LOGGER.log(Level.WARN, "Invalid eventId provided: {}", eventId);
+            LOGGER.warn("Invalid eventId provided: {}", eventId);
             throw new IllegalArgumentException("EventId must be positive: " + eventId);
         }
 
         return eventRepository.findById(eventId)
                 .map(event -> {
-                    LOGGER.log(Level.DEBUG, "Event with id {} successfully found", eventId);
+                    LOGGER.info("Event with id {} successfully found", eventId);
                     return event;
                 })
                 .orElseThrow(() -> {
-                    LOGGER.log(Level.WARN, "Event with id {} not found", eventId);
+                    LOGGER.error("Event with id {} not found", eventId);
                     return new DbException("Event not found with id: " + eventId);
                 });
     }
@@ -53,25 +53,22 @@ public class EventServiceImpl implements EventService {
     public List<Event> getEventsByTitle(String title, int pageSize, int pageNum) {
         Util.validateString(title);
         Util.validatePagination(pageSize, pageNum);
-        LOGGER.log(Level.DEBUG,
-                "Finding all events by title '{}' with page size {} and number of page {}",
-                title, pageSize, pageNum);
+        LOGGER.debug("Finding all events by title '{}' with page size {} and number of page {}", title, pageSize, pageNum);
+
 
         if (title == null || title.isBlank()) {
-            LOGGER.log(Level.WARN, "Invalid title provided: '{}'", title);
+            LOGGER.warn("Invalid title provided: '{}'", title);
             throw new IllegalArgumentException("Title must not be null or empty");
         }
         if (pageSize <= 0 || pageNum < 0) {
-            LOGGER.log(Level.WARN, "Invalid pagination parameters: pageSize={}, pageNum={}", pageSize, pageNum);
+            LOGGER.warn("Invalid pagination parameters: pageSize={}, pageNum={}", pageSize, pageNum);
             throw new IllegalArgumentException("Page size must be > 0 and page number >= 0");
         }
 
         Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
         List<Event> eventsByTitle = eventRepository.findByTitleContainingIgnoreCase(title, pageable).getContent();
 
-        LOGGER.log(Level.DEBUG,
-                "Found {} events by title '{}' on page {} with page size {}",
-                eventsByTitle.size(), title, pageNum, pageSize);
+        LOGGER.info("Found {} events by title '{}' on page {} with page size {}", eventsByTitle.size(), title, pageNum, pageSize);
 
         return eventsByTitle;
     }
@@ -84,9 +81,11 @@ public class EventServiceImpl implements EventService {
         try {
             Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
             List<EventImpl> eventsImpl = eventRepository.findByDate(day, pageable).getContent();
+            LOGGER.info("Found {} events for day {} on page {} with page size {}", eventsImpl.size(), day, pageNum, pageSize);
+
             return new ArrayList<>(eventsImpl);
         } catch (Exception exception) {
-            LOGGER.log(Level.WARN, "Cannot find events for day {}", day, exception);
+            LOGGER.error("Cannot find events for day {}", day, exception);
             throw new DbException("Error fetching events for day " + day, exception);
         }
     }
@@ -96,18 +95,19 @@ public class EventServiceImpl implements EventService {
     @Transactional
     public Event createEvent(Event event) {
         Util.validateNotNull(event, "Event");
-        LOGGER.log(Level.DEBUG, "Start creating an event: {}", event);
+        LOGGER.debug("Start creating an event: {}", event);
 
         if (!(event instanceof EventImpl)) {
+            LOGGER.warn("Event is not of type EventImpl: {}", event);
             throw new IllegalArgumentException("Event must be of type EventImpl");
         }
 
         try {
             Event savedEvent = eventRepository.save((EventImpl) event);
-            LOGGER.log(Level.DEBUG, "Successfully created the event: {}", savedEvent);
+            LOGGER.info("Successfully created the event: {}", savedEvent);
             return savedEvent;
         } catch (Exception exception) {
-            LOGGER.log(Level.WARN, "Cannot create event: {}", event, exception);
+            LOGGER.error("Cannot create event: {}", event, exception);
             throw new DbException("Error creating event: " + event, exception);
         }
     }
@@ -116,18 +116,19 @@ public class EventServiceImpl implements EventService {
     @Override
     public Event updateEvent(Event event) {
         Util.validateNotNull(event, "Event");
-        LOGGER.log(Level.DEBUG, "Start updating an event: {}", event);
+        LOGGER.debug("Start updating an event: {}", event);
 
         if (!(event instanceof EventImpl)) {
+            LOGGER.warn("Event is not of type EventImpl: {}", event);
             throw new IllegalArgumentException("Event must be of type EventImpl");
         }
 
         try {
             Event updatedEvent = eventRepository.save((EventImpl) event);
-            LOGGER.log(Level.DEBUG, "Successfully updated the event: {}", updatedEvent);
+            LOGGER.info("Successfully updated the event: {}", updatedEvent);
             return updatedEvent;
         } catch (Exception exception) {
-            LOGGER.log(Level.WARN, "Cannot update event: {}", event, exception);
+            LOGGER.error("Cannot update event: {}", event, exception);
             throw new DbException("Error updating event: " + event, exception);
         }
     }
@@ -136,21 +137,21 @@ public class EventServiceImpl implements EventService {
     @Transactional
     public boolean deleteEvent(long eventId) {
         Util.validateId(eventId);
-        LOGGER.log(Level.DEBUG, "Start deleting an event with id: {}", eventId);
+        LOGGER.debug("Start deleting an event with id: {}", eventId);
 
         if (eventId <= 0) {
-            LOGGER.log(Level.WARN, "Invalid eventId provided: {}", eventId);
+            LOGGER.warn("Invalid eventId provided: {}", eventId);
             throw new IllegalArgumentException("EventId must be positive" + eventId);
         }
 
         return eventRepository.findById(eventId)
                 .map(event -> {
                     eventRepository.delete(event);
-                    LOGGER.log(Level.DEBUG, "Successfully deleted the event with id: {}", eventId);
+                    LOGGER.info("Successfully deleted the event with id: {}", eventId);
                     return true;
                 })
                 .orElseGet(() -> {
-                    LOGGER.log(Level.WARN, "Event not found with id: {}", eventId);
+                    LOGGER.warn("Event not found with id: {}", eventId);
                     return false;
                 });
     }
