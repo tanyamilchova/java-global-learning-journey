@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+import ua.epam.mishchenko.ticketbooking.config.AppConfig;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
 import ua.epam.mishchenko.ticketbooking.model.User;
 import ua.epam.mishchenko.ticketbooking.model.UserAccount;
@@ -19,7 +20,7 @@ import java.util.Optional;
 
 import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:test-applicationContext.xml")
+@ContextConfiguration(classes = AppConfig.class)
 @Transactional
 public class UserAccountServiceIntegrationTest {
 

@@ -34,13 +34,12 @@ public class UserAccountServiceTest {
         MockitoAnnotations.openMocks(this);
     }
 
-
     @Test
     public void createUserAccount_success() {
         long userId = 1L;
         User mockUser = mock(User.class);
 
-        when(userDAO.getById(userId)).thenReturn(mockUser);
+        when(userDAO.getById(userId)).thenReturn(Optional.of(mockUser));
 
         UserAccount result = userAccountService.createUserAccount(userId);
 
@@ -53,7 +52,7 @@ public class UserAccountServiceTest {
     public void createUserAccountShouldThrowExceptionWhenUserNotFound() {
         long userId = 1L;
 
-        when(userDAO.getById(userId)).thenReturn(null);
+        when(userDAO.getById(userId)).thenReturn(Optional.empty());
 
         assertThrows(DbException.class, () -> {
             userAccountService.createUserAccount(userId);

@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import ua.epam.mishchenko.ticketbooking.config.AppConfig;
 import ua.epam.mishchenko.ticketbooking.model.Event;
 import ua.epam.mishchenko.ticketbooking.model.Ticket;
 import ua.epam.mishchenko.ticketbooking.model.User;
@@ -20,9 +21,12 @@ import ua.epam.mishchenko.ticketbooking.service.UserService;
 
 import javax.persistence.EntityManagerFactory;
 import java.util.List;
+import java.util.Optional;
+
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:applicationContext.xml")
+@ContextConfiguration(classes = AppConfig.class)
 public class CacheTest {
     private  final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger(CacheTest.class);
     @Autowired
@@ -52,28 +56,33 @@ public class CacheTest {
         entityManagerFactory.createEntityManager().clear();
     }
 
-    @Test
-    public void shouldUseSecondLevelCacheWhenGetUserByID() {
-        LOGGER.log(Level.INFO, "Test start");
+@Test
+public void shouldUseSecondLevelCacheWhenGetUserByID() {
+    LOGGER.info("Test start");
 
-        Statistics stats = getStatistics();
-        stats.clear();
+    Statistics stats = getStatistics();
+    stats.clear();
 
-        User firstUser = userService.getUserById(1L);
-        LOGGER.log(Level.INFO, "First load: " + firstUser);
-        LOGGER.log(Level.INFO, "L2C stats after first load - Hits: " + stats.getSecondLevelCacheHitCount() +
-                ", Misses: " + stats.getSecondLevelCacheMissCount() +
-                ", Puts: " + stats.getSecondLevelCachePutCount());
+    Optional<User> firstUserOpt = userService.getUserById(1L);
+    assertTrue(firstUserOpt.isPresent());
+    User firstUser = firstUserOpt.get();
+    LOGGER.info("First load: {}", firstUser);
+    LOGGER.info("L2C stats after first load - Hits: {}, Misses: {}, Puts: {}",
+            stats.getSecondLevelCacheHitCount(),
+            stats.getSecondLevelCacheMissCount(),
+            stats.getSecondLevelCachePutCount());
 
-        clearFirstLevelCache();
+    clearFirstLevelCache();
 
-
-        User secondUser = userService.getUserById(1L);
-        LOGGER.log(Level.INFO, "Second load: " + secondUser);
-        LOGGER.log(Level.INFO, "L2C stats after second load - Hits: " + stats.getSecondLevelCacheHitCount() +
-                ", Misses: " + stats.getSecondLevelCacheMissCount() +
-                ", Puts: " + stats.getSecondLevelCachePutCount());
-    }
+    Optional<User> secondUserOpt = userService.getUserById(1L);
+    assertTrue(secondUserOpt.isPresent());
+    User secondUser = secondUserOpt.get();
+    LOGGER.info("Second load: {}", secondUser);
+    LOGGER.info("L2C stats after second load - Hits: {}, Misses: {}, Puts: {}",
+            stats.getSecondLevelCacheHitCount(),
+            stats.getSecondLevelCacheMissCount(),
+            stats.getSecondLevelCachePutCount());
+}
 
 
     @Test
@@ -102,24 +111,29 @@ public class CacheTest {
     @Test
     public void shouldUseSecondLevelCacheWhenGetTicketByID() {
         Statistics stats = getStatistics();
-        User user = userService.getUserById(1L);
 
-        LOGGER.log(Level.DEBUG, "Test cache Tickets start");
+        Optional<User> userOpt = userService.getUserById(1L);
+        assertTrue(userOpt.isPresent());
+        User user = userOpt.get();
+
+        LOGGER.debug("Test cache Tickets start");
         stats.clear();
 
         List<Ticket> firstTicket = ticketService.getBookedTickets(user, 10, 1);
-        LOGGER.log(Level.INFO, "First load ticket list: " + firstTicket);
-        LOGGER.log(Level.INFO, "L2C stats after first load of ticket list - Hits: " + stats.getSecondLevelCacheHitCount() +
-                ", Misses: " + stats.getSecondLevelCacheMissCount() +
-                ", Puts: " + stats.getSecondLevelCachePutCount());
+        LOGGER.info("First load ticket list: {}", firstTicket);
+        LOGGER.info("L2C stats after first load of ticket list - Hits: {}, Misses: {}, Puts: {}",
+                stats.getSecondLevelCacheHitCount(),
+                stats.getSecondLevelCacheMissCount(),
+                stats.getSecondLevelCachePutCount());
 
         clearFirstLevelCache();
 
         List<Ticket> secondTicket = ticketService.getBookedTickets(user, 10, 1);
-        LOGGER.log(Level.INFO, "Second load ticket list: " + secondTicket);
-        LOGGER.log(Level.INFO, "L2C stats after second load of ticket list- Hits: " + stats.getSecondLevelCacheHitCount() +
-                ", Misses: " + stats.getSecondLevelCacheMissCount() +
-                ", Puts: " + stats.getSecondLevelCachePutCount());
+        LOGGER.info("Second load ticket list: {}", secondTicket);
+        LOGGER.info("L2C stats after second load of ticket list - Hits: {}, Misses: {}, Puts: {}",
+                stats.getSecondLevelCacheHitCount(),
+                stats.getSecondLevelCacheMissCount(),
+                stats.getSecondLevelCachePutCount());
     }
 
     @Test

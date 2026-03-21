@@ -1,5 +1,6 @@
 package ua.epam.mishchenko.ticketbooking.facade;
 
+import org.springframework.stereotype.Component;
 import ua.epam.mishchenko.ticketbooking.model.Event;
 import ua.epam.mishchenko.ticketbooking.model.Ticket;
 import ua.epam.mishchenko.ticketbooking.model.User;
@@ -7,11 +8,13 @@ import ua.epam.mishchenko.ticketbooking.model.UserAccount;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Groups together all operations related to tickets booking.
  * Created by maksym_govorischev.
  */
+@Component
 public interface BookingFacade {
 
     /**
@@ -62,10 +65,11 @@ public interface BookingFacade {
     boolean deleteEvent(long eventId);
 
     /**
-     * Gets user by its id.
-     * @return User.
+     * Gets user by their id.
+     * @param userId the id of the user to retrieve
+     * @return Optional containing the User if found, or Optional.empty() if not found.
      */
-    User getUserById(long userId);
+    Optional<User> getUserById(long userId);
 
     /**
      * Retrieves a paginated list of all users.
@@ -76,11 +80,12 @@ public interface BookingFacade {
      */
      List<User> getAllUsers(int pageSize, int pageNum);
 
-     /**
-     * Gets user by its email. Email is strictly matched.
-     * @return User.
+    /**
+     * Gets user by their email. Email is strictly matched.
+     * @param email the email to search for
+     * @return Optional containing the User if found, or Optional.empty() if not found.
      */
-    User getUserByEmail(String email);
+    Optional<User> getUserByEmail(String email);
 
     /**
      * Get list of users by matching name. Name is matched using 'contains' approach.

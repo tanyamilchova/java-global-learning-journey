@@ -12,6 +12,7 @@ import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
 import ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -28,13 +29,14 @@ public class UserServiceImplTest {
         MockitoAnnotations.openMocks(this);
     }
 
+
     @Test
     public void createUserShouldInsertUserWhenEmailNotExists() throws DbException {
         User newUser = new UserImpl();
         newUser.setName("Vala");
         newUser.setEmail("test@example.com");
 
-        when(userDAO.getByEmail(newUser.getEmail())).thenReturn(null);
+        when(userDAO.getByEmail(newUser.getEmail())).thenReturn(Optional.empty());
         when(userDAO.insert(newUser)).thenReturn(newUser);
 
         User created = userService.createUser(newUser);
@@ -45,15 +47,16 @@ public class UserServiceImplTest {
     }
 
     @Test
-    public void createUserShouldReturnNullWhenEmailExists() throws DbException {
+    public void createUserShouldThrowExceptionWhenEmailExists() throws DbException {
         User existingUser = new UserImpl();
         existingUser.setName("Vala");
         existingUser.setEmail("test5@example.com");
 
-        when(userDAO.getByEmail(existingUser.getEmail())).thenReturn(null);
-        User result = userService.createUser(existingUser);
+        when(userDAO.getByEmail(existingUser.getEmail())).thenReturn(Optional.of(existingUser));
 
-        assertNull(result);
+        assertThrows(DbException.class, () -> userService.createUser(existingUser));
+        verify(userDAO, times(1)).getByEmail(existingUser.getEmail());
+        verify(userDAO, never()).insert(any());
     }
 
     @Test
@@ -63,7 +66,6 @@ public class UserServiceImplTest {
                 () -> userService.createUser(null));
     }
 
-
     @Test
     public void getUserByIdShouldReturnUserWhenExists() throws DbException {
         User user = new UserImpl();
@@ -71,11 +73,12 @@ public class UserServiceImplTest {
         user.setName("Alice");
         user.setEmail("alice@example.com");
 
-        when(userDAO.getById(1L)).thenReturn(user);
+        when(userDAO.getById(1L)).thenReturn(Optional.of(user));
 
-        User resultUser = userService.getUserById(1L);
+        Optional<User> resultUser = userService.getUserById(1L);
 
-        assertEquals(user, resultUser);
+        assertTrue(resultUser.isPresent());
+        assertEquals(user, resultUser.get());
         verify(userDAO, times(1)).getById(1L);
 
     }
@@ -132,12 +135,13 @@ public class UserServiceImplTest {
         user.setName("Alice");
         user.setEmail("alice@example.com");
 
-        when(userDAO.getByEmail(user.getEmail())).thenReturn(user);
+        when(userDAO.getByEmail(user.getEmail())).thenReturn(Optional.of(user));
 
-        User resultUser = userService.getUserByEmail("alice@example.com");
+        Optional<User> resultUser = userService.getUserByEmail("alice@example.com");
 
-        assertNotNull(resultUser);
-        assertEquals(user.getId(), resultUser.getId());
+        assertTrue(resultUser.isPresent());
+        assertEquals(user.getId(), resultUser.get().getId());
+        assertEquals(user, resultUser.get());
     }
 
     @Test
@@ -146,7 +150,7 @@ public class UserServiceImplTest {
 
         when(userDAO.getByEmail(email)).thenReturn(null);
 
-        User result = userService.getUserByEmail(email);
+        Optional<User> result = userService.getUserByEmail(email);
 
         assertNull(result);
     }
@@ -248,7 +252,6 @@ public class UserServiceImplTest {
         assertThrows(IllegalArgumentException.class, () ->
                 userService.updateUser(null));
     }
-
 
     @Test
     public void deleteUserShouldReturnTrueWhenUserDeleted() throws DbException {

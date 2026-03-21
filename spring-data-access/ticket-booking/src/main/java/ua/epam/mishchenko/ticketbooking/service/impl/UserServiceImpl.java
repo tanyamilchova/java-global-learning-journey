@@ -13,6 +13,8 @@ import ua.epam.mishchenko.ticketbooking.service.UserService;
 import ua.epam.mishchenko.ticketbooking.utils.Util;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
@@ -25,17 +27,38 @@ public class UserServiceImpl implements UserService {
         this.userDAO = userDAO;
     }
 
+//    @Override
+//    public User getUserById(long userId) {
+//        Util.validateId(userId);
+//        LOGGER.debug("Finding a user by id: {}", userId);
+//
+//        try {
+//            User user = userDAO.getById(userId);
+//
+//            LOGGER.info("User with id {} successfully found", userId);;
+//
+//            return user;
+//        } catch (DbException exception) {
+//            LOGGER.warn("Failed to get user by id: {}", userId, exception);
+//            throw exception;
+//        }
+//    }
+
     @Override
-    public User getUserById(long userId) {
+    public Optional<User> getUserById(long userId) {
         Util.validateId(userId);
         LOGGER.debug("Finding a user by id: {}", userId);
 
         try {
-            User user = userDAO.getById(userId);
+            Optional<User> user = userDAO.getById(userId);
 
-            LOGGER.info("User with id {} successfully found", userId);;
-
+            if (user.isPresent()) {
+                LOGGER.info("User with id {} successfully found", userId);
+            } else {
+                LOGGER.info("No user found with id {}", userId);
+            }
             return user;
+
         } catch (DbException exception) {
             LOGGER.warn("Failed to get user by id: {}", userId, exception);
             throw exception;
@@ -60,17 +83,34 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+//    @Override
+//    public User getUserByEmail(String email) {
+//        Util.validateEmail(email);
+//        LOGGER.debug("Finding a user by email: {}", email);
+//
+//        try {
+//            User user = userDAO.getByEmail(email);
+//
+//            LOGGER.info("User with email {} successfully found", email);
+//
+//            return user;
+//        } catch (DbException exception) {
+//            LOGGER.warn("Failed to get user by email: {}", email, exception);
+//            throw exception;
+//        }
+//    }
+
     @Override
-    public User getUserByEmail(String email) {
+    public Optional<User> getUserByEmail(String email) {
         Util.validateEmail(email);
         LOGGER.debug("Finding a user by email: {}", email);
 
         try {
-            User user = userDAO.getByEmail(email);
+            Optional<User> user = userDAO.getByEmail(email);
 
             LOGGER.info("User with email {} successfully found", email);
-
             return user;
+
         } catch (DbException exception) {
             LOGGER.warn("Failed to get user by email: {}", email, exception);
             throw exception;
@@ -102,12 +142,17 @@ public class UserServiceImpl implements UserService {
        Util.validateUser(user);
         LOGGER.debug("Start creating a user: {}", user);
         try {
-            User existingUser = userDAO.getByEmail(user.getEmail());
+            Optional<User> existingUser = userDAO.getByEmail(user.getEmail());
 
-            if (existingUser != null) {
+//            if (existingUser.isEmpty()) {
+//                LOGGER.info("Attempt to create a user failed: email {} is already registered.", user.getEmail());
+//                throw new DbException("User already exists with email: " + user.getEmail());
+//            }
+            if (existingUser.isPresent()) {
                 LOGGER.info("Attempt to create a user failed: email {} is already registered.", user.getEmail());
                 throw new DbException("User already exists with email: " + user.getEmail());
             }
+
             user = userDAO.insert(user);
             LOGGER.info("Successfully created user: {}", user);
             return user;

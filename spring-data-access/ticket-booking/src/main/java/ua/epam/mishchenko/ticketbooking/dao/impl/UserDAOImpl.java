@@ -1,6 +1,5 @@
 package ua.epam.mishchenko.ticketbooking.dao.impl;
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;
@@ -8,10 +7,14 @@ import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
 import ua.epam.mishchenko.ticketbooking.model.User;
 import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
+import ua.epam.mishchenko.ticketbooking.utils.Util;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class UserDAOImpl implements UserDAO {
@@ -21,16 +24,21 @@ public class UserDAOImpl implements UserDAO {
 
     private static final Logger LOGGER = LogManager.getLogger(UserDAOImpl.class);
 
+
     @Override
-    public User getById(long id) throws DbException {
-        if(id <= 0){
-            throw new IllegalArgumentException("User id must be positive");
-        }
+    public Optional<User> getById(long id) throws DbException {
+
+        Util.validateId(id);
         try {
-            LOGGER.log(Level.DEBUG, "Start retrieving  user by id: {}", id);
-            return entityManager.find(UserImpl.class, id);
+            LOGGER.debug("Start retrieving user by id: {}", id);
+            User user = entityManager.find(UserImpl.class, id);
+            if (user == null) {
+                LOGGER.info("No user found with id: {}", id);
+                return Optional.empty();
+            }
+            return Optional.of(user);
         } catch (DbException exception) {
-            LOGGER.log(Level.DEBUG, "Error while retrieving  user by id: {}", id);
+            LOGGER.error("Error while retrieving user by id: {}", id, exception);
 
             throw new DbException(exception.getMessage());
         }
@@ -48,15 +56,20 @@ public class UserDAOImpl implements UserDAO {
         }
     }
 
+
     @Override
-    public User getByEmail(String email) throws DbException {
+    public Optional<User> getByEmail(String email) throws DbException {
         try {
-            return entityManager.createQuery(
+            User user = entityManager.createQuery(
                             "SELECT u FROM UserImpl u WHERE u.email = :email", User.class)
                     .setParameter("email", email)
                     .getSingleResult();
+            return Optional.ofNullable(user);
+        } catch (NoResultException e) {
+            return Optional.empty();
         } catch (Exception e) {
-            return null;
+            LOGGER.error("Error retrieving user by email: {}", email, e);
+            throw new DbException("Error retrieving user by email: " + email, e);
         }
     }
 
@@ -70,7 +83,7 @@ public class UserDAOImpl implements UserDAO {
                     .setMaxResults(pageSize)
                     .getResultList();
         } catch (Exception e) {
-            return null;
+            return Collections.emptyList();
         }
     }
 
@@ -97,9 +110,9 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean delete(long id) throws DbException {
         try {
-            User user = getById(id);
-            if (user != null) {
-                entityManager.remove(user);
+            Optional<User> user = getById(id);
+            if (user.isPresent()) {
+                entityManager.remove(user.get());
                 return true;
             }
             return false;

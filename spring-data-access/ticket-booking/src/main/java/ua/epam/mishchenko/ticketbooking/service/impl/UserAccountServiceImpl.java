@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ua.epam.mishchenko.ticketbooking.dao.UserAccountDAO;
 import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
 import ua.epam.mishchenko.ticketbooking.model.User;
@@ -19,7 +18,7 @@ import java.util.Optional;
 @Service
 public class UserAccountServiceImpl implements UserAccountService {
     private static final Logger LOGGER = LogManager.getLogger(UserAccountServiceImpl.class);
-    private  UserAccountDAO userAccountDAO;
+//    private  UserAccountDAO userAccountDAO;
     private UserDAO userDAO;
 
     UserAccountRepository userAccountRepository;
@@ -34,17 +33,17 @@ public class UserAccountServiceImpl implements UserAccountService {
     public UserAccountServiceImpl() {
     }
 
-    public UserAccountServiceImpl(UserAccountDAO userAccountDAO) {
-        this.userAccountDAO = userAccountDAO;
-    }
+//    public UserAccountServiceImpl(UserAccountDAO userAccountDAO) {
+//        this.userAccountDAO = userAccountDAO;
+//    }
 
     @Override
     public UserAccount createUserAccount(long userId) {
         Util.validateId(userId);
         LOGGER.debug("Start creating a user account with userId: {}", userId);
 
-        User user = userDAO.getById(userId);
-        if (user == null) {
+        Optional<User> userOpt = userDAO.getById(userId);
+        if (userOpt.isEmpty()) {
             LOGGER.warn("User with id {} not found", userId);
             throw new DbException("User not found: " + userId);
         }

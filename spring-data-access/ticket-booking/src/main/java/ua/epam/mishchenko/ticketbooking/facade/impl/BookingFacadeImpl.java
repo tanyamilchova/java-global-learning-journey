@@ -1,5 +1,6 @@
 package ua.epam.mishchenko.ticketbooking.facade.impl;
 
+import org.springframework.stereotype.Component;
 import ua.epam.mishchenko.ticketbooking.facade.BookingFacade;
 import ua.epam.mishchenko.ticketbooking.model.Event;
 import ua.epam.mishchenko.ticketbooking.model.Ticket;
@@ -12,7 +13,9 @@ import ua.epam.mishchenko.ticketbooking.service.UserService;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
+@Component
 public class BookingFacadeImpl implements BookingFacade {
 
     private final EventService eventService;
@@ -61,7 +64,7 @@ public class BookingFacadeImpl implements BookingFacade {
     }
 
     @Override
-    public User getUserById(long userId) {
+    public Optional<User> getUserById(long userId) {
         return userService.getUserById(userId);
     }
 
@@ -72,7 +75,7 @@ public class BookingFacadeImpl implements BookingFacade {
     }
 
     @Override
-    public User getUserByEmail(String email) {
+    public Optional<User> getUserByEmail(String email) {
         return userService.getUserByEmail(email);
     }
 
