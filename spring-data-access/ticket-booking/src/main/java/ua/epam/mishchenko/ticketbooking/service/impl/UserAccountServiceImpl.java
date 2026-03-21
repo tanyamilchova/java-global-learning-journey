@@ -18,7 +18,6 @@ import java.util.Optional;
 @Service
 public class UserAccountServiceImpl implements UserAccountService {
     private static final Logger LOGGER = LogManager.getLogger(UserAccountServiceImpl.class);
-//    private  UserAccountDAO userAccountDAO;
     private UserDAO userDAO;
 
     UserAccountRepository userAccountRepository;
@@ -33,9 +32,6 @@ public class UserAccountServiceImpl implements UserAccountService {
     public UserAccountServiceImpl() {
     }
 
-//    public UserAccountServiceImpl(UserAccountDAO userAccountDAO) {
-//        this.userAccountDAO = userAccountDAO;
-//    }
 
     @Override
     public UserAccount createUserAccount(long userId) {

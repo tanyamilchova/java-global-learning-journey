@@ -27,22 +27,6 @@ public class UserServiceImpl implements UserService {
         this.userDAO = userDAO;
     }
 
-//    @Override
-//    public User getUserById(long userId) {
-//        Util.validateId(userId);
-//        LOGGER.debug("Finding a user by id: {}", userId);
-//
-//        try {
-//            User user = userDAO.getById(userId);
-//
-//            LOGGER.info("User with id {} successfully found", userId);;
-//
-//            return user;
-//        } catch (DbException exception) {
-//            LOGGER.warn("Failed to get user by id: {}", userId, exception);
-//            throw exception;
-//        }
-//    }
 
     @Override
     public Optional<User> getUserById(long userId) {
@@ -82,23 +66,6 @@ public class UserServiceImpl implements UserService {
             return List.of();
         }
     }
-
-//    @Override
-//    public User getUserByEmail(String email) {
-//        Util.validateEmail(email);
-//        LOGGER.debug("Finding a user by email: {}", email);
-//
-//        try {
-//            User user = userDAO.getByEmail(email);
-//
-//            LOGGER.info("User with email {} successfully found", email);
-//
-//            return user;
-//        } catch (DbException exception) {
-//            LOGGER.warn("Failed to get user by email: {}", email, exception);
-//            throw exception;
-//        }
-//    }
 
     @Override
     public Optional<User> getUserByEmail(String email) {
@@ -144,10 +111,6 @@ public class UserServiceImpl implements UserService {
         try {
             Optional<User> existingUser = userDAO.getByEmail(user.getEmail());
 
-//            if (existingUser.isEmpty()) {
-//                LOGGER.info("Attempt to create a user failed: email {} is already registered.", user.getEmail());
-//                throw new DbException("User already exists with email: " + user.getEmail());
-//            }
             if (existingUser.isPresent()) {
                 LOGGER.info("Attempt to create a user failed: email {} is already registered.", user.getEmail());
                 throw new DbException("User already exists with email: " + user.getEmail());
