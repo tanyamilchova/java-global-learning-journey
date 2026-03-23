@@ -1,9 +1,7 @@
 package ua.epam.mishchenko.ticketbooking.model.impl;
 
-
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import ua.epam.mishchenko.ticketbooking.model.UserAccount;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -12,7 +10,7 @@ import java.util.Objects;
 @Table(name = "user_accounts")
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class UserAccountImpl implements UserAccount {
+public class UserAccountImpl  {
 
     @Id
     @Column(name = "user_id")
@@ -33,23 +31,18 @@ public class UserAccountImpl implements UserAccount {
         this.balance = balance;
     }
 
-    @Override
     public long getUserId() {
         return userId;
     }
 
-    @Override
     public void setUserId(long userId) {
         this.userId = userId;
     }
 
-
-    @Override
     public double getBalance() {
         return balance;
     }
 
-    @Override
     public void setBalance(double balance) {
         this.balance = balance;
     }

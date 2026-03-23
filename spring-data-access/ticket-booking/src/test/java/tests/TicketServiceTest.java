@@ -6,7 +6,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.Ticket;
 import ua.epam.mishchenko.ticketbooking.model.impl.EventImpl;
 import ua.epam.mishchenko.ticketbooking.model.impl.TicketImpl;
 import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
@@ -47,7 +46,7 @@ public class TicketServiceTest {
         long userId = 1L;
         long eventId = 100L;
         int place = 5;
-        Ticket.Category category = Ticket.Category.PREMIUM;
+        TicketImpl.Category category = TicketImpl.Category.PREMIUM;
 
         EventImpl event = new EventImpl();
         event.setId(eventId);
@@ -59,7 +58,7 @@ public class TicketServiceTest {
         when(userAccountRepository.findById(userId)).thenReturn(Optional.of(account));
         when(ticketRepository.save(any(TicketImpl.class))).thenAnswer(i -> i.getArgument(0));
 
-        Ticket ticket = ticketService.bookTicket(userId, eventId, place, category);
+        TicketImpl ticket = ticketService.bookTicket(userId, eventId, place, category);
 
         assertNotNull(ticket);
         assertEquals(userId, ticket.getUserId());
@@ -80,7 +79,7 @@ public class TicketServiceTest {
     public void bookTicketShouldThrowWhenPlaceInvalid() {
 
         assertThrows(IllegalArgumentException.class, () ->
-                ticketService.bookTicket(1L, 100L, 0, Ticket.Category.STANDARD)
+                ticketService.bookTicket(1L, 100L, 0, TicketImpl.Category.STANDARD)
         );
 
         verifyNoInteractions(eventRepository, userAccountRepository, ticketRepository);
@@ -96,7 +95,7 @@ public class TicketServiceTest {
         when(eventRepository.findById(eventId)).thenReturn(Optional.empty());
 
         assertThrows(DbException.class, () ->
-                ticketService.bookTicket(userId, eventId, 5, Ticket.Category.STANDARD)
+                ticketService.bookTicket(userId, eventId, 5, TicketImpl.Category.STANDARD)
         );
 
         verify(eventRepository).findById(eventId);
@@ -117,7 +116,7 @@ public class TicketServiceTest {
         when(userAccountRepository.findById(userId)).thenReturn(Optional.empty());
 
         assertThrows(DbException.class, () ->
-                ticketService.bookTicket(userId, eventId, 5, Ticket.Category.STANDARD)
+                ticketService.bookTicket(userId, eventId, 5, TicketImpl.Category.STANDARD)
         );
 
         verify(eventRepository).findById(eventId);
@@ -141,7 +140,7 @@ public class TicketServiceTest {
         when(userAccountRepository.findById(userId)).thenReturn(Optional.of(account));
 
         assertThrows(DbException.class, () ->
-                ticketService.bookTicket(userId, eventId, 5, Ticket.Category.STANDARD)
+                ticketService.bookTicket(userId, eventId, 5, TicketImpl.Category.STANDARD)
         );
 
         assertEquals(50.0, account.getBalance(), 0.001);

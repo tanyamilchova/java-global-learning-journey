@@ -1,23 +1,23 @@
 package ua.epam.mishchenko.ticketbooking.service;
 
-import ua.epam.mishchenko.ticketbooking.model.User;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
 
-    Optional<User> getUserById(long userId);
+    Optional<UserImpl> getUserById(long userId);
 
-    Optional<User> getUserByEmail(String email);
+    Optional<UserImpl> getUserByEmail(String email);
 
-    List<User> getUsersByName(String name, int pageSize, int pageNum);
+    List<UserImpl> getUsersByName(String name, int pageSize, int pageNum);
 
-    List<User> getAllUsers(int pageSize, int pageNum);
+    List<UserImpl> getAllUsers(int pageSize, int pageNum);
 
-    User createUser(User user);
+    UserImpl createUser(UserImpl user);
 
-    User updateUser(User user);
+    UserImpl updateUser(UserImpl user);
 
     boolean deleteUser(long userId);
 }

@@ -7,8 +7,10 @@ import org.springframework.data.jpa.repository.QueryHints;
 import ua.epam.mishchenko.ticketbooking.model.impl.TicketImpl;
 
 import javax.persistence.QueryHint;
+import java.util.Optional;
 
 public interface TicketRepository extends JpaRepository<TicketImpl, Long> {
+    Optional<TicketImpl>findById(long id);
     @QueryHints(@QueryHint(name = "org.hibernate.cacheable", value = "true"))
     Page<TicketImpl> getAllByUserId(Long userId, Pageable pageable);
     @QueryHints(@QueryHint(name = "org.hibernate.cacheable", value = "true"))

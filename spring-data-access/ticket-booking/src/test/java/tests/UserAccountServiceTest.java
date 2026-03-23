@@ -7,9 +7,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.User;
-import ua.epam.mishchenko.ticketbooking.model.UserAccount;
 import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
 import ua.epam.mishchenko.ticketbooking.model.repository.UserAccountRepository;
 import ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl;
 
@@ -37,11 +36,11 @@ public class UserAccountServiceTest {
     @Test
     public void createUserAccount_success() {
         long userId = 1L;
-        User mockUser = mock(User.class);
+        UserImpl mockUser = mock(UserImpl.class);
 
         when(userDAO.getById(userId)).thenReturn(Optional.of(mockUser));
 
-        UserAccount result = userAccountService.createUserAccount(userId);
+        UserAccountImpl result = userAccountService.createUserAccount(userId);
 
         assertNotNull(result);
         assertEquals(userId, result.getUserId());
@@ -71,7 +70,7 @@ public class UserAccountServiceTest {
         when(userAccountRepository.findById(userId))
                 .thenReturn(Optional.of(account));
 
-        UserAccount result = userAccountService.addFunds(userId, amount);
+        UserAccountImpl result = userAccountService.addFunds(userId, amount);
 
         assertEquals(150.0, result.getBalance(), 0.001);
 
@@ -132,7 +131,7 @@ public class UserAccountServiceTest {
         when(userAccountRepository.findById(userId))
                 .thenReturn(Optional.of(account));
 
-        UserAccount result = userAccountService.getUserAccountByUserId(userId);
+        UserAccountImpl result = userAccountService.getUserAccountByUserId(userId);
 
         assertNotNull(result);
         assertEquals(userId, result.getUserId());
@@ -170,12 +169,12 @@ public class UserAccountServiceTest {
     public void updateUserAccountShouldUpdateBalanceSuccessfully() {
         long userId = 1L;
         UserAccountImpl existingAccount = new UserAccountImpl(userId, 100.0);
-        UserAccount update = new UserAccountImpl(userId, 200.0);
+        UserAccountImpl update = new UserAccountImpl(userId, 200.0);
 
         when(userAccountRepository.findById(userId))
                 .thenReturn(Optional.of(existingAccount));
 
-        UserAccount result = userAccountService.updateUserAccount(update);
+        UserAccountImpl result = userAccountService.updateUserAccount(update);
 
         assertNotNull(result);
         assertEquals(200.0, result.getBalance(), 0.001);
@@ -197,7 +196,7 @@ public class UserAccountServiceTest {
     @Test
     public void updateUserAccountShouldThrowWhenAccountNotFound() {
         long userId = 1L;
-        UserAccount update = new UserAccountImpl(userId, 200.0);
+        UserAccountImpl update = new UserAccountImpl(userId, 200.0);
 
         when(userAccountRepository.findById(userId)).thenReturn(Optional.empty());
 
@@ -213,7 +212,7 @@ public class UserAccountServiceTest {
     public void updateUserAccountShouldThrowWhenSaveFails() {
         long userId = 1L;
         UserAccountImpl existingAccount = new UserAccountImpl(userId, 100.0);
-        UserAccount updateToAccount = new UserAccountImpl(userId, 200.0);
+        UserAccountImpl updateToAccount = new UserAccountImpl(userId, 200.0);
 
         when(userAccountRepository.findById(userId)).thenReturn(Optional.of(existingAccount));
         doThrow(new RuntimeException("DB error")).when(userAccountRepository).save(existingAccount);

@@ -6,46 +6,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.User;
-import ua.epam.mishchenko.ticketbooking.model.UserAccount;
 import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
 import ua.epam.mishchenko.ticketbooking.model.repository.UserAccountRepository;
 import ua.epam.mishchenko.ticketbooking.service.UserAccountService;
-import ua.epam.mishchenko.ticketbooking.utils.Util;
+import ua.epam.mishchenko.ticketbooking.validator.GenericValidator;
+import ua.epam.mishchenko.ticketbooking.validator.UserAccountValidator;
 
 import java.util.Optional;
 
 @Service
 public class UserAccountServiceImpl implements UserAccountService {
     private static final Logger LOGGER = LogManager.getLogger(UserAccountServiceImpl.class);
-    private UserDAO userDAO;
 
-    UserAccountRepository userAccountRepository;
+    private final UserDAO userDAO;
+    private final UserAccountRepository userAccountRepository;
+    private final UserAccountValidator userAccountValidator;
+    private final GenericValidator genericValidator;
 
     @Autowired
-    public UserAccountServiceImpl(UserDAO userDAO,
-                                  UserAccountRepository userAccountRepository) {
+    public UserAccountServiceImpl(
+            UserDAO userDAO,
+            UserAccountRepository userAccountRepository,
+            UserAccountValidator userAccountValidator,
+            GenericValidator genericValidator
+    ) {
         this.userDAO = userDAO;
         this.userAccountRepository = userAccountRepository;
+        this.userAccountValidator = userAccountValidator;
+        this.genericValidator = genericValidator;
     }
-
-    public UserAccountServiceImpl() {
-    }
-
 
     @Override
-    public UserAccount createUserAccount(long userId) {
-        Util.validateId(userId);
+    public UserAccountImpl createUserAccount(long userId) {
+        genericValidator.validateId(userId, "User id");
         LOGGER.debug("Start creating a user account with userId: {}", userId);
 
-        Optional<User> userOpt = userDAO.getById(userId);
+        Optional<UserImpl> userOpt = userDAO.getById(userId);
         if (userOpt.isEmpty()) {
             LOGGER.warn("User with id {} not found", userId);
             throw new DbException("User not found: " + userId);
         }
 
         try{
-            UserAccount userAccount = createNewUserAccount(userId);
+            UserAccountImpl userAccount = createNewUserAccount(userId);
             userAccountRepository.save((UserAccountImpl)userAccount);
 
             LOGGER.info("Successfully created userAccount for userId: {}", userId);
@@ -57,13 +61,15 @@ public class UserAccountServiceImpl implements UserAccountService {
         }
     }
 
-    private UserAccount createNewUserAccount(long userId) {
+    private UserAccountImpl createNewUserAccount(long userId) {
         return new UserAccountImpl(userId);
     }
 
     @Override
-    public UserAccount addFunds(long userId, double amount) {
-        Util.validateId(userId);
+    public UserAccountImpl addFunds(long userId, double amount) {
+
+        genericValidator.validateId(userId, "User id");
+        genericValidator.validateFunds(amount);
         if (amount <= 0) {
             throw new IllegalArgumentException("Amount must be positive");
         }
@@ -72,15 +78,14 @@ public class UserAccountServiceImpl implements UserAccountService {
         try {
             Optional<UserAccountImpl> optionalAccount = userAccountRepository.findById(userId);
 
-            UserAccount userAccount = optionalAccount.orElseThrow(() -> {
+            UserAccountImpl userAccount = optionalAccount.orElseThrow(() -> {
                 LOGGER.warn("User account not found for userId: {}", userId);
                 return new DbException("User account not found for userId: " + userId);
             });
 
-            double newBalance = userAccount.getBalance() + amount;
-            userAccount.setBalance(newBalance);
+            double newBalance = userAccountValidator.updateBalance(userAccount, amount);
 
-            userAccountRepository.save((UserAccountImpl) userAccount);
+            userAccountRepository.save( userAccount);
             LOGGER.info("Successfully added {} to userId: {}. New balance: {}", amount, userId, newBalance);
 
             return userAccount;
@@ -94,8 +99,8 @@ public class UserAccountServiceImpl implements UserAccountService {
 
 
     @Override
-    public UserAccount getUserAccountByUserId(long userId) {
-        Util.validateId(userId);
+    public UserAccountImpl getUserAccountByUserId(long userId) {
+        genericValidator.validateId(userId, "User id");
         LOGGER.debug("Start getting a user account with userId: {}", userId);
 
             UserAccountImpl userAccount = userAccountRepository.findById(userId)
@@ -110,8 +115,8 @@ public class UserAccountServiceImpl implements UserAccountService {
 
 
     @Override
-    public UserAccount updateUserAccount(UserAccount userAccount) {
-        Util.validateNotNull(userAccount, "UserAccount");
+    public UserAccountImpl updateUserAccount(UserAccountImpl userAccount) {
+        userAccountValidator.validate(userAccount);
         LOGGER.debug("Start updating user account with userId: {}", userAccount.getUserId());
 
         try {
@@ -138,7 +143,8 @@ public class UserAccountServiceImpl implements UserAccountService {
 
     @Override
     public boolean deleteUserAccount(long userId) {
-        Util.validateId(userId);
+
+        genericValidator.validateId(userId, "User id");
         if (userId <= 0) {
             LOGGER.warn("Attempted to delete user account with invalid userId: {}", userId);
             throw new IllegalArgumentException("UserId must be positive");

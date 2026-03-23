@@ -8,18 +8,20 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.Event;
-import ua.epam.mishchenko.ticketbooking.model.Ticket;
-import ua.epam.mishchenko.ticketbooking.model.User;
-import ua.epam.mishchenko.ticketbooking.model.UserAccount;
+import ua.epam.mishchenko.ticketbooking.model.impl.EventImpl;
 import ua.epam.mishchenko.ticketbooking.model.impl.TicketImpl;
 import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
 import ua.epam.mishchenko.ticketbooking.model.repository.EventRepository;
 import ua.epam.mishchenko.ticketbooking.model.repository.TicketRepository;
 import ua.epam.mishchenko.ticketbooking.model.repository.UserAccountRepository;
 import ua.epam.mishchenko.ticketbooking.service.TicketService;
-import ua.epam.mishchenko.ticketbooking.utils.Util;
+import ua.epam.mishchenko.ticketbooking.validator.GenericValidator;
+import ua.epam.mishchenko.ticketbooking.validator.UserAccountValidator;
+import ua.epam.mishchenko.ticketbooking.validator.UserValidator;
+import ua.epam.mishchenko.ticketbooking.validator.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,22 +29,42 @@ import java.util.List;
 @Service
 public class TicketServiceImpl implements TicketService {
 
-    @Autowired
-    TicketRepository ticketRepository;
-
-    @Autowired
-    EventRepository eventRepository;
-
-    @Autowired
-    UserAccountRepository userAccountRepository;
-
     private static final Logger LOGGER = LogManager.getLogger(TicketServiceImpl.class);
+
+    private final TicketRepository ticketRepository;
+    private final EventRepository eventRepository;
+    private final UserAccountRepository userAccountRepository;
+    private final UserValidator userValidator;
+    private final GenericValidator genericValidator;
+    private final UserAccountValidator userAccountValidator;
+    private final UserDAO userDAO;
+
+    @Autowired
+    public TicketServiceImpl(
+            TicketRepository ticketRepository,
+            EventRepository eventRepository,
+            UserAccountRepository userAccountRepository,
+            UserValidator userValidator,
+            GenericValidator genericValidator,
+            UserAccountValidator userAccountValidator,
+            UserDAO userDAO
+    ) {
+        this.ticketRepository = ticketRepository;
+        this.eventRepository = eventRepository;
+        this.userAccountRepository = userAccountRepository;
+        this.userValidator = userValidator;
+        this.genericValidator = genericValidator;
+        this.userAccountValidator = userAccountValidator;
+        this.userDAO = userDAO;
+    }
 
     @Transactional
     @Override
-    public Ticket bookTicket(long userId, long eventId, int place, Ticket.Category category) {
-        Util.validateId(userId);
-        Util.validateLong(eventId);
+    public TicketImpl bookTicket(long userId, long eventId, int place, TicketImpl.Category category) {
+        genericValidator.validateId(userId, "User id");
+        genericValidator.validateId(eventId, "Event id");
+
+
         if (place <= 0) {
             LOGGER.warn("Invalid place provided: {}", place);
             throw new IllegalArgumentException("Place must be positive: " + place);
@@ -52,42 +74,38 @@ public class TicketServiceImpl implements TicketService {
         LOGGER.debug("Start booking a ticket for user with id {}, event with id {}, place {}, category {}",
                 userId, eventId, place, category);
 
-        Event event = eventRepository.findById(eventId)
+        EventImpl event = eventRepository.findById(eventId)
                 .orElseThrow(() -> {
                     LOGGER.warn("Event {} not found", eventId);
                     return new DbException("Event not found: " + eventId);
                 });
 
-        UserAccount userAccount = userAccountRepository.findById(userId)
+        UserAccountImpl userAccount = userAccountRepository.findById(userId)
                 .orElseThrow(() -> {
                     LOGGER.warn("User account {} not found", userId);
                     return new DbException("User account not found: " + userId);
                 });
 
-        if (userAccount.getBalance() < event.getTicketPrice()) {
-            LOGGER.warn("Insufficient funds for user {} to book ticket for event {}", userId, eventId);
-            throw new DbException("Insufficient funds for user " + userId);
-        }
+        Util.updateBalance(userAccount, - event.getTicketPrice());
 
-        userAccount.setBalance(userAccount.getBalance() - event.getTicketPrice());
         userAccountRepository.save((UserAccountImpl) userAccount);
 
-        Ticket ticket = createNewTicket(userId, eventId, place, category);
-        ticket = ticketRepository.save((TicketImpl) ticket);
+        TicketImpl ticket = createNewTicket(userId, eventId, place, category);
+        TicketImpl bookedTicket = ticketRepository.save((TicketImpl) ticket);
 
         LOGGER.info("Successfully booked ticket: {}", ticket);
-        return ticket;
+        return bookedTicket;
     }
 
 
-    private Ticket createNewTicket(long userId, long eventId, int place, Ticket.Category category) {
+    private TicketImpl createNewTicket(long userId, long eventId, int place, TicketImpl.Category category) {
         return new TicketImpl(userId, eventId, place, category);
     }
 
     @Override
-    public List<Ticket> getBookedTickets(User user, int pageSize, int pageNum) {
-        Util.validateUser(user);
-        Util.validatePagination(pageSize, pageNum);
+    public List<TicketImpl> getBookedTickets(UserImpl user, int pageSize, int pageNum) {
+        userValidator.validate(user);
+        genericValidator.validatePagination(pageSize, pageNum);
         LOGGER.debug("Finding all booked tickets by user {} with page size {} and number of page {}", user, pageSize, pageNum);
 
         try {
@@ -107,9 +125,9 @@ public class TicketServiceImpl implements TicketService {
 
 
     @Override
-    public List<Ticket> getBookedTickets(Event event, int pageSize, int pageNum) {
+    public List<TicketImpl> getBookedTickets(EventImpl event, int pageSize, int pageNum) {
         Util.validateNotNull(event, "Event");
-        Util.validatePagination(pageSize, pageNum);
+        genericValidator.validatePagination(pageSize, pageNum);
         LOGGER.debug("Finding all booked tickets by event {} with page size {} and number of page {}", event, pageSize, pageNum);
 
 
@@ -126,12 +144,20 @@ public class TicketServiceImpl implements TicketService {
         }
     }
 
+    @Transactional
     @Override
     public boolean cancelTicket(long ticketId) {
-        Util.validateLong(ticketId);
+        genericValidator.validateLong(ticketId, "Ticket id");
         LOGGER.debug("Start canceling a ticket with id: {}", ticketId);
 
         try {
+            TicketImpl ticket = ticketRepository.findById(ticketId).orElseThrow(() ->new IllegalArgumentException("Ticket not found"));
+            UserImpl user = userDAO.getById(ticket.getUserId()).orElseThrow(() ->new IllegalArgumentException("User not found"));
+            long userAccountId = user.getId();
+            UserAccountImpl userAccount = userAccountRepository.findById(userAccountId).orElseThrow(() ->new IllegalArgumentException("User account not found"));
+            EventImpl event = eventRepository.findById(ticket.getEventId()).orElseThrow(() ->new IllegalArgumentException("User account not found"));
+
+            userAccountValidator.updateBalance(userAccount, event.getTicketPrice());
             ticketRepository.deleteById(ticketId);
 
             LOGGER.info("Successfully canceled the ticket with id: {}", ticketId);

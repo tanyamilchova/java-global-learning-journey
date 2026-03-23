@@ -5,9 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.User;
 import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
-import ua.epam.mishchenko.ticketbooking.utils.Util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -26,12 +24,14 @@ public class UserDAOImpl implements UserDAO {
 
 
     @Override
-    public Optional<User> getById(long id) throws DbException {
+    public Optional<UserImpl> getById(long id) throws DbException {
 
-        Util.validateId(id);
+        if (id <= 0) {
+            throw new IllegalArgumentException("Value must be positive. Provided: " + id);
+        }
         try {
             LOGGER.debug("Start retrieving user by id: {}", id);
-            User user = entityManager.find(UserImpl.class, id);
+            UserImpl user = entityManager.find(UserImpl.class, id);
             if (user == null) {
                 LOGGER.info("No user found with id: {}", id);
                 return Optional.empty();
@@ -45,10 +45,10 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public List<User> getAll(int pageSize, int pageNum) throws DbException {
+    public List<UserImpl> getAll(int pageSize, int pageNum) throws DbException {
         try {
             return entityManager.createQuery(
-                    "SELECT u FROM UserImpl u", User.class)
+                    "SELECT u FROM UserImpl u", UserImpl.class)
                     .setFirstResult((pageNum - 1) * pageSize)
                     .setMaxResults(pageSize).getResultList();
         } catch (Exception e) {
@@ -58,10 +58,10 @@ public class UserDAOImpl implements UserDAO {
 
 
     @Override
-    public Optional<User> getByEmail(String email) throws DbException {
+    public Optional<UserImpl> getByEmail(String email) throws DbException {
         try {
-            User user = entityManager.createQuery(
-                            "SELECT u FROM UserImpl u WHERE u.email = :email", User.class)
+            UserImpl user = entityManager.createQuery(
+                            "SELECT u FROM UserImpl u WHERE u.email = :email", UserImpl.class)
                     .setParameter("email", email)
                     .getSingleResult();
             return Optional.ofNullable(user);
@@ -74,10 +74,10 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public List<User> getByName(String name, int pageSize, int pageNum) throws DbException {
+    public List<UserImpl> getByName(String name, int pageSize, int pageNum) throws DbException {
         try {
             return entityManager.createQuery(
-                            "SELECT u FROM UserImpl u WHERE u.name LIKE :name", User.class)
+                            "SELECT u FROM UserImpl u WHERE u.name LIKE :name", UserImpl.class)
                     .setParameter("name", "%" + name + "%")
                     .setFirstResult((pageNum - 1) * pageSize)
                     .setMaxResults(pageSize)
@@ -88,7 +88,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User insert(User user) throws DbException {
+    public UserImpl insert(UserImpl user) throws DbException {
         try {
             entityManager.persist(user);
             return user;
@@ -99,7 +99,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User update(User user) throws DbException {
+    public UserImpl update(UserImpl user) throws DbException {
         try {
             return entityManager.merge(user);
         } catch (Exception e) {
@@ -110,7 +110,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean delete(long id) throws DbException {
         try {
-            Optional<User> user = getById(id);
+            Optional<UserImpl> user = getById(id);
             if (user.isPresent()) {
                 entityManager.remove(user.get());
                 return true;

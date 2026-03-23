@@ -1,18 +1,18 @@
 package ua.epam.mishchenko.ticketbooking.service;
 
-import ua.epam.mishchenko.ticketbooking.model.Event;
-import ua.epam.mishchenko.ticketbooking.model.Ticket;
-import ua.epam.mishchenko.ticketbooking.model.User;
+import ua.epam.mishchenko.ticketbooking.model.impl.EventImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.TicketImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
 
 import java.util.List;
 
 public interface TicketService {
 
-    Ticket bookTicket(long userId, long eventId, int place, Ticket.Category category);
+    TicketImpl bookTicket(long userId, long eventId, int place, TicketImpl.Category category);
 
-    List<Ticket> getBookedTickets(User user, int pageSize, int pageNum);
+    List<TicketImpl> getBookedTickets(UserImpl user, int pageSize, int pageNum);
 
-    List<Ticket> getBookedTickets(Event event, int pageSize, int pageNum);
+    List<TicketImpl> getBookedTickets(EventImpl event, int pageSize, int pageNum);
 
     boolean cancelTicket(long ticketId);
 }

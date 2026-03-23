@@ -1,7 +1,6 @@
 package ua.epam.mishchenko.ticketbooking.service.impl;
 
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +9,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.Event;
 import ua.epam.mishchenko.ticketbooking.model.impl.EventImpl;
 import ua.epam.mishchenko.ticketbooking.model.repository.EventRepository;
 import ua.epam.mishchenko.ticketbooking.service.EventService;
-import ua.epam.mishchenko.ticketbooking.utils.Util;
+import ua.epam.mishchenko.ticketbooking.validator.GenericValidator;
+import ua.epam.mishchenko.ticketbooking.validator.Util;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,15 +21,22 @@ import java.util.List;
 
 @Service
 public class EventServiceImpl implements EventService {
-
-    @Autowired
-    private EventRepository eventRepository;
-
     private static final Logger LOGGER = LogManager.getLogger(EventServiceImpl.class);
 
+    private final EventRepository eventRepository;
+
+    private final GenericValidator genericValidator;
+
+
+    @Autowired
+    public EventServiceImpl(EventRepository eventRepository, GenericValidator genericValidator) {
+        this.eventRepository = eventRepository;
+        this.genericValidator = genericValidator;
+    }
+
     @Override
-    public Event getEventById(long eventId) {
-        Util.validateLong(eventId);
+    public EventImpl getEventById(long eventId) {
+        genericValidator.validateId(eventId, "Event id");
         LOGGER.debug("Finding an event by id: {}", eventId);
 
         if (eventId <= 0) {
@@ -50,9 +56,9 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public List<Event> getEventsByTitle(String title, int pageSize, int pageNum) {
-        Util.validateString(title);
-        Util.validatePagination(pageSize, pageNum);
+    public List<EventImpl> getEventsByTitle(String title, int pageSize, int pageNum) {
+        genericValidator.validateString(title, "Title");
+        genericValidator.validatePagination(pageSize, pageNum);
         LOGGER.debug("Finding all events by title '{}' with page size {} and number of page {}", title, pageSize, pageNum);
 
 
@@ -66,7 +72,7 @@ public class EventServiceImpl implements EventService {
         }
 
         Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
-        List<Event> eventsByTitle = eventRepository.findByTitleContainingIgnoreCase(title, pageable).getContent();
+        List<EventImpl> eventsByTitle = eventRepository.findByTitleContainingIgnoreCase(title, pageable).getContent();
 
         LOGGER.info("Found {} events by title '{}' on page {} with page size {}", eventsByTitle.size(), title, pageNum, pageSize);
 
@@ -74,9 +80,9 @@ public class EventServiceImpl implements EventService {
     }
 
 
-    public List<Event> getEventsForDay(LocalDate day, int pageSize, int pageNum) {
+    public List<EventImpl> getEventsForDay(LocalDate day, int pageSize, int pageNum) {
         Util.validateNotNull(day, "LocalDate");
-        Util.validatePagination(pageSize, pageNum);
+        genericValidator.validatePagination(pageSize, pageNum);
 
         try {
             Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
@@ -93,17 +99,12 @@ public class EventServiceImpl implements EventService {
 
     @Override
     @Transactional
-    public Event createEvent(Event event) {
+    public EventImpl createEvent(EventImpl event) {
         Util.validateNotNull(event, "Event");
         LOGGER.debug("Start creating an event: {}", event);
 
-        if (!(event instanceof EventImpl)) {
-            LOGGER.warn("Event is not of type EventImpl: {}", event);
-            throw new IllegalArgumentException("Event must be of type EventImpl");
-        }
-
         try {
-            Event savedEvent = eventRepository.save((EventImpl) event);
+            EventImpl savedEvent = eventRepository.save( event);
             LOGGER.info("Successfully created the event: {}", savedEvent);
             return savedEvent;
         } catch (Exception exception) {
@@ -114,17 +115,12 @@ public class EventServiceImpl implements EventService {
 
 
     @Override
-    public Event updateEvent(Event event) {
+    public EventImpl updateEvent(EventImpl event) {
         Util.validateNotNull(event, "Event");
         LOGGER.debug("Start updating an event: {}", event);
 
-        if (!(event instanceof EventImpl)) {
-            LOGGER.warn("Event is not of type EventImpl: {}", event);
-            throw new IllegalArgumentException("Event must be of type EventImpl");
-        }
-
         try {
-            Event updatedEvent = eventRepository.save((EventImpl) event);
+            EventImpl updatedEvent = eventRepository.save(event);
             LOGGER.info("Successfully updated the event: {}", updatedEvent);
             return updatedEvent;
         } catch (Exception exception) {
@@ -136,7 +132,7 @@ public class EventServiceImpl implements EventService {
     @Override
     @Transactional
     public boolean deleteEvent(long eventId) {
-        Util.validateId(eventId);
+        genericValidator.validateId(eventId, "Event id");
         LOGGER.debug("Start deleting an event with id: {}", eventId);
 
         if (eventId <= 0) {

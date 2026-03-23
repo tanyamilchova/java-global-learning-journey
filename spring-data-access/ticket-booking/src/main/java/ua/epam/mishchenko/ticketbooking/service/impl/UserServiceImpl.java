@@ -8,33 +8,36 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.User;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
 import ua.epam.mishchenko.ticketbooking.service.UserService;
-import ua.epam.mishchenko.ticketbooking.utils.Util;
+import ua.epam.mishchenko.ticketbooking.validator.GenericValidator;
+import ua.epam.mishchenko.ticketbooking.validator.UserValidator;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
-
     private static final Logger LOGGER = LogManager.getLogger(UserServiceImpl.class);
 
     private final UserDAO userDAO;
+    private final UserValidator userValidator;
+    private final GenericValidator genericValidator;
 
     @Autowired
-    public UserServiceImpl(UserDAO userDAO) {
+    public UserServiceImpl(UserDAO userDAO, UserValidator userValidator, GenericValidator genericValidator) {
         this.userDAO = userDAO;
+        this.userValidator = userValidator;
+        this.genericValidator = genericValidator;
     }
 
-
     @Override
-    public Optional<User> getUserById(long userId) {
-        Util.validateId(userId);
+    public Optional<UserImpl> getUserById(long userId) {
+        genericValidator.validateId(userId, "id");
         LOGGER.debug("Finding a user by id: {}", userId);
 
         try {
-            Optional<User> user = userDAO.getById(userId);
+            Optional<UserImpl> user = userDAO.getById(userId);
 
             if (user.isPresent()) {
                 LOGGER.info("User with id {} successfully found", userId);
@@ -50,13 +53,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllUsers(int pageSize, int pageNum) {
-        Util.validatePagination(pageSize, pageNum);
+    public List<UserImpl> getAllUsers(int pageSize, int pageNum) {
+        genericValidator.validatePagination(pageSize, pageNum);
         LOGGER.debug("Retrieving all users with pageSize: {} and pageNum: {}", pageSize, pageNum);
 
 
         try {
-            List<User> users = userDAO.getAll(pageSize, pageNum);
+            List<UserImpl> users = userDAO.getAll(pageSize, pageNum);
 
             LOGGER.info("Successfully retrieved {} users", users.size());
 
@@ -68,12 +71,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> getUserByEmail(String email) {
-        Util.validateEmail(email);
+    public Optional<UserImpl> getUserByEmail(String email) {
+        userValidator.validateEmail(email);
         LOGGER.debug("Finding a user by email: {}", email);
 
         try {
-            Optional<User> user = userDAO.getByEmail(email);
+            Optional<UserImpl> user = userDAO.getByEmail(email);
 
             LOGGER.info("User with email {} successfully found", email);
             return user;
@@ -85,13 +88,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUsersByName(String name, int pageSize, int pageNum) {
-        Util.validateString(name);
-        Util.validatePagination(pageSize, pageNum);
+    public List<UserImpl> getUsersByName(String name, int pageSize, int pageNum) {
+        userValidator.validateString(name, "User name");
+        genericValidator.validatePagination(pageSize, pageNum);
+
         LOGGER.debug("Finding all users by name '{}' with page size {} and page number {}", name, pageSize, pageNum);
 
         try {
-            List<User> usersByName = userDAO.getByName(name, pageSize, pageNum);
+            List<UserImpl> usersByName = userDAO.getByName(name, pageSize, pageNum);
 
             LOGGER.info("Successfully found {} users by name '{}' with page size {} and page number {}", usersByName.size(), name, pageSize, pageNum);
 
@@ -105,11 +109,12 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public User createUser(User user) {
-       Util.validateUser(user);
+    public UserImpl createUser(UserImpl user) {
+       userValidator.validate(user);
+
         LOGGER.debug("Start creating a user: {}", user);
         try {
-            Optional<User> existingUser = userDAO.getByEmail(user.getEmail());
+            Optional<UserImpl> existingUser = userDAO.getByEmail(user.getEmail());
 
             if (existingUser.isPresent()) {
                 LOGGER.info("Attempt to create a user failed: email {} is already registered.", user.getEmail());
@@ -128,8 +133,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User updateUser(User user) {
-        Util.validateUser(user);
+    public UserImpl updateUser(UserImpl user) {
+        userValidator.validate(user);
         LOGGER.debug("Start updating user: {}", user);
 
         try {
@@ -147,7 +152,8 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public boolean deleteUser(long userId) {
-        Util.validateId(userId);
+
+        genericValidator.validateId(userId, "User id");
         LOGGER.debug("Start deleting  user with id : {}", userId);
 
         try {

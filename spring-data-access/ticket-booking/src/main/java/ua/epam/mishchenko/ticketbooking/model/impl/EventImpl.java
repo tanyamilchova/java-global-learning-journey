@@ -2,7 +2,6 @@ package ua.epam.mishchenko.ticketbooking.model.impl;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import ua.epam.mishchenko.ticketbooking.model.Event;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -12,7 +11,8 @@ import java.util.Objects;
 @Table(name = "events")
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class EventImpl implements Event {
+
+public class EventImpl  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -60,42 +60,35 @@ public class EventImpl implements Event {
         this.ticketPrice = ticketPrice;
     }
 
-    @Override
     public long getId() {
         return id;
     }
 
-    @Override
     public void setId(long id) {
         this.id = id;
     }
 
-    @Override
     public String getTitle() {
         return title;
     }
 
-    @Override
     public void setTitle(String title) {
         this.title = title;
     }
 
-    @Override
     public LocalDate getDate() {
         return date;
     }
 
-    @Override
     public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    @Override
     public void setTicketPrice(double ticketPrice) {
         this.ticketPrice = ticketPrice;
     }
 
-    @Override
+
     public double getTicketPrice() {
         return ticketPrice;
     }

@@ -2,7 +2,6 @@ package ua.epam.mishchenko.ticketbooking.model.impl;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import ua.epam.mishchenko.ticketbooking.model.User;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -11,7 +10,7 @@ import java.util.Objects;
 @Table(name = "users")
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class UserImpl implements User, Comparable<UserImpl> {
+public class UserImpl  implements Comparable<UserImpl>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,32 +33,26 @@ public class UserImpl implements User, Comparable<UserImpl> {
         this.email = email;
     }
 
-    @Override
     public long getId() {
         return id;
     }
 
-    @Override
     public void setId(long id) {
         this.id = id;
     }
 
-    @Override
     public String getName() {
         return name;
     }
 
-    @Override
     public void setName(String name) {
         this.name = name;
     }
 
-    @Override
     public String getEmail() {
         return email;
     }
 
-    @Override
     public void setEmail(String email) {
         this.email = email;
     }

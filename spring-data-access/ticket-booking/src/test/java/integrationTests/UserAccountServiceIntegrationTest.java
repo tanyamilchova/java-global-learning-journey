@@ -8,8 +8,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import ua.epam.mishchenko.ticketbooking.config.AppConfig;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.User;
-import ua.epam.mishchenko.ticketbooking.model.UserAccount;
 import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
 import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
 import ua.epam.mishchenko.ticketbooking.model.repository.UserAccountRepository;
@@ -55,12 +53,12 @@ public class UserAccountServiceIntegrationTest {
 
     @Test
     public void createUserAccount_ShouldPersist_WhenUserExists() {
-        User user = userService.createUser(new UserImpl("Peter", "peer1@gmail.com"));
+        UserImpl user = userService.createUser(new UserImpl("Peter", "peer1@gmail.com"));
 
-        UserAccount account = userAccountService.createUserAccount(user.getId());
+        UserAccountImpl account = userAccountService.createUserAccount(user.getId());
 
         assertNotNull(account);
-        UserAccount fromDb = userAccountRepository.findById(account.getUserId()).orElse(null);
+        UserAccountImpl fromDb = userAccountRepository.findById(account.getUserId()).orElse(null);
         assertNotNull(fromDb);
         assertEquals(user.getId(), fromDb.getUserId());
     }
@@ -78,25 +76,25 @@ public class UserAccountServiceIntegrationTest {
 
     @Test
     public void addFunds_ShouldIncreaseBalance_WhenAmountIsPositive() {
-        User user = userService.createUser(new UserImpl("Poly", "poli@gmail.com"));
-        UserAccount account = userAccountService.createUserAccount(user.getId());
+        UserImpl user = userService.createUser(new UserImpl("Poly", "poli@gmail.com"));
+        UserAccountImpl account = userAccountService.createUserAccount(user.getId());
 
         double initialBalance = account.getBalance();
         double amountToAdd = 100.0;
 
-        UserAccount updatedAccount = userAccountService.addFunds(user.getId(), amountToAdd);
+        UserAccountImpl updatedAccount = userAccountService.addFunds(user.getId(), amountToAdd);
 
         assertNotNull(updatedAccount);
         assertEquals(initialBalance + amountToAdd, updatedAccount.getBalance(), 0.001);
 
-        UserAccount fromDb = userAccountRepository.findById(user.getId()).orElse(null);
+        UserAccountImpl fromDb = userAccountRepository.findById(user.getId()).orElse(null);
         assertNotNull(fromDb);
         assertEquals(initialBalance + amountToAdd, fromDb.getBalance(), 0.001);
     }
 
     @Test
     public void addFunds_ShouldThrowException_WhenAmountIsZeroOrNegative() {
-        User user = userService.createUser(new UserImpl("Anna", "anna@gmail.com"));
+        UserImpl user = userService.createUser(new UserImpl("Anna", "anna@gmail.com"));
         userAccountService.createUserAccount(user.getId());
 
         double negativeAmount = -50.0;
@@ -122,18 +120,18 @@ public class UserAccountServiceIntegrationTest {
 
     @Test
     public void updateUserAccountSuccessfulWhenUserAccountExists() {
-        User user = userService.createUser(new UserImpl("John", "john@gmail.com"));
-        UserAccount account = userAccountService.createUserAccount(user.getId());
+        UserImpl user = userService.createUser(new UserImpl("John", "john@gmail.com"));
+        UserAccountImpl account = userAccountService.createUserAccount(user.getId());
 
         double newBalance = account.getBalance() + 150.0;
         account.setBalance(newBalance);
 
-        UserAccount updatedAccount = userAccountService.updateUserAccount(account);
+        UserAccountImpl updatedAccount = userAccountService.updateUserAccount(account);
 
         assertNotNull(updatedAccount);
         assertEquals(newBalance, updatedAccount.getBalance(), 0.001);
 
-        UserAccount fromDb = userAccountRepository.findById(account.getUserId()).orElse(null);
+        UserAccountImpl fromDb = userAccountRepository.findById(account.getUserId()).orElse(null);
         assertNotNull(fromDb);
         assertEquals(newBalance, fromDb.getBalance(), 0.001);
     }
@@ -147,12 +145,12 @@ public class UserAccountServiceIntegrationTest {
 
     @Test
     public void updateUserAccount_ShouldHandleNegativeBalanceProperly() {
-        User user = userService.createUser(new UserImpl("Lara", "lara@gmail.com"));
-        UserAccount account = userAccountService.createUserAccount(user.getId());
+        UserImpl user = userService.createUser(new UserImpl("Lara", "lara@gmail.com"));
+        UserAccountImpl account = userAccountService.createUserAccount(user.getId());
 
         account.setBalance(-50.0);
 
-        UserAccount updatedAccount = userAccountService.updateUserAccount(account);
+        UserAccountImpl updatedAccount = userAccountService.updateUserAccount(account);
 
         assertEquals(-50.0, updatedAccount.getBalance(), 0.001);
 
@@ -161,8 +159,8 @@ public class UserAccountServiceIntegrationTest {
 
     @Test
     public void deleteUserAccount_ShouldRemoveAccount_WhenUserExists() {
-        User user = userService.createUser(new UserImpl("Ana", "ana@gmail.com"));
-        UserAccount account = userAccountService.createUserAccount(user.getId());
+        UserImpl user = userService.createUser(new UserImpl("Ana", "ana@gmail.com"));
+        UserAccountImpl account = userAccountService.createUserAccount(user.getId());
 
         boolean deleted = userAccountService.deleteUserAccount(user.getId());
 

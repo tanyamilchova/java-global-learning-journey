@@ -10,7 +10,6 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.Event;
 import ua.epam.mishchenko.ticketbooking.model.impl.EventImpl;
 import ua.epam.mishchenko.ticketbooking.model.repository.EventRepository;
 import ua.epam.mishchenko.ticketbooking.service.impl.EventServiceImpl;
@@ -47,7 +46,7 @@ public class EventServiceTest {
 
         when(eventRepository.findById(eventId)).thenReturn(Optional.of(event));
 
-        Event result = eventService.getEventById(eventId);
+        EventImpl result = eventService.getEventById(eventId);
 
         assertNotNull(result);
         assertEquals(eventId, result.getId());
@@ -84,13 +83,13 @@ public class EventServiceTest {
         int pageSize = 2;
         int pageNum = 1;
 
-        List<Event> events = List.of(new EventImpl(), new EventImpl());
-        Page<Event> page = new PageImpl<>(events);
+        List<EventImpl> events = List.of(new EventImpl(), new EventImpl());
+        Page<EventImpl> page = new PageImpl<>(events);
 
         when(eventRepository.findByTitleContainingIgnoreCase(eq(title), any(Pageable.class)))
                 .thenReturn(page);
 
-        List<Event> result = eventService.getEventsByTitle(title, pageSize, pageNum);
+        List<EventImpl> result = eventService.getEventsByTitle(title, pageSize, pageNum);
 
         assertNotNull(result);
         assertEquals(2, result.size());
@@ -104,12 +103,12 @@ public class EventServiceTest {
         int pageSize = 5;
         int pageNum = 1;
 
-        Page<Event> page = new PageImpl<>(Collections.emptyList());
+        Page<EventImpl> page = new PageImpl<>(Collections.emptyList());
 
         when(eventRepository.findByTitleContainingIgnoreCase(eq(title), any(Pageable.class)))
                 .thenReturn(page);
 
-        List<Event> result = eventService.getEventsByTitle(title, pageSize, pageNum);
+        List<EventImpl> result = eventService.getEventsByTitle(title, pageSize, pageNum);
 
         assertNotNull(result);
         assertTrue(result.isEmpty());
@@ -151,11 +150,10 @@ public class EventServiceTest {
         when(eventRepository.findByDate(eq(day), any(Pageable.class)))
                 .thenReturn(page);
 
-        List<Event> result = eventService.getEventsForDay(day, pageSize, pageNum);
+        List<EventImpl> result = eventService.getEventsForDay(day, pageSize, pageNum);
 
         assertNotNull(result);
         assertEquals(2, result.size());
-        assertTrue(result.get(1) instanceof EventImpl);
 
         verify(eventRepository).findByDate(eq(day), any(Pageable.class));
     }
@@ -194,7 +192,7 @@ public class EventServiceTest {
 
         when(eventRepository.save(any(EventImpl.class))).thenReturn(savedEvent);
 
-        Event result = eventService.createEvent(event);
+        EventImpl result = eventService.createEvent(event);
 
         assertNotNull(result);
         assertEquals("Concert", result.getTitle());
@@ -212,7 +210,7 @@ public class EventServiceTest {
 
     @Test
     public void createEventShouldThrowWhenEventNotEventImpl() {
-        Event event = mock(Event.class); // Not EventImpl
+        EventImpl event = mock(EventImpl.class); // Not EventImpl
 
         assertThrows(IllegalArgumentException.class, () -> {
             eventService.createEvent(event);
@@ -247,7 +245,7 @@ public class EventServiceTest {
 
         when(eventRepository.save(any(EventImpl.class))).thenReturn(updatedEvent);
 
-        Event result = eventService.updateEvent(event);
+        EventImpl result = eventService.updateEvent(event);
 
         assertNotNull(result);
         assertEquals("Concert Updated", result.getTitle());
@@ -265,7 +263,7 @@ public class EventServiceTest {
 
     @Test
     public void updateEventShouldThrowWhenEventNotEventImpl() {
-        Event event = mock(Event.class);
+        EventImpl event = mock(EventImpl.class);
 
         assertThrows(IllegalArgumentException.class, () -> {
             eventService.updateEvent(event);

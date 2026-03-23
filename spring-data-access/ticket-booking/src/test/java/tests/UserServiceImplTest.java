@@ -7,7 +7,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.User;
 import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
 import ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl;
 
@@ -32,14 +31,14 @@ public class UserServiceImplTest {
 
     @Test
     public void createUserShouldInsertUserWhenEmailNotExists() throws DbException {
-        User newUser = new UserImpl();
+        UserImpl newUser = new UserImpl();
         newUser.setName("Vala");
         newUser.setEmail("test@example.com");
 
         when(userDAO.getByEmail(newUser.getEmail())).thenReturn(Optional.empty());
         when(userDAO.insert(newUser)).thenReturn(newUser);
 
-        User created = userService.createUser(newUser);
+        UserImpl created = userService.createUser(newUser);
         verify(userDAO, times(1)).getByEmail(newUser.getEmail());
         verify(userDAO, times(1)).insert(newUser);
 
@@ -48,7 +47,7 @@ public class UserServiceImplTest {
 
     @Test
     public void createUserShouldThrowExceptionWhenEmailExists() throws DbException {
-        User existingUser = new UserImpl();
+        UserImpl existingUser = new UserImpl();
         existingUser.setName("Vala");
         existingUser.setEmail("test5@example.com");
 
@@ -68,14 +67,14 @@ public class UserServiceImplTest {
 
     @Test
     public void getUserByIdShouldReturnUserWhenExists() throws DbException {
-        User user = new UserImpl();
+        UserImpl user = new UserImpl();
         user.setId(1L);
         user.setName("Alice");
         user.setEmail("alice@example.com");
 
         when(userDAO.getById(1L)).thenReturn(Optional.of(user));
 
-        Optional<User> resultUser = userService.getUserById(1L);
+        Optional<UserImpl> resultUser = userService.getUserById(1L);
 
         assertTrue(resultUser.isPresent());
         assertEquals(user, resultUser.get());
@@ -95,13 +94,13 @@ public class UserServiceImplTest {
 
     @Test
     public void getAllUsersShouldReturnListWhenUsersExist() throws DbException {
-        List<User> users = List.of(
+        List<UserImpl> users = List.of(
                 new UserImpl(1L, "Alice", "alice@example.com"),
                 new UserImpl(2L, "Bob", "bob@example.com")
         );
         when(userDAO.getAll(10, 1)).thenReturn(users);
 
-        List<User> result = userService.getAllUsers(10, 1);
+        List<UserImpl> result = userService.getAllUsers(10, 1);
 
         assertEquals(2, result.size());
         assertEquals(users, result);
@@ -130,14 +129,14 @@ public class UserServiceImplTest {
 
     @Test
     public void getUserByEmailShouldReturnUserWhenExists() throws DbException {
-        User user = new UserImpl();
+        UserImpl user = new UserImpl();
         user.setId(1L);
         user.setName("Alice");
         user.setEmail("alice@example.com");
 
         when(userDAO.getByEmail(user.getEmail())).thenReturn(Optional.of(user));
 
-        Optional<User> resultUser = userService.getUserByEmail("alice@example.com");
+        Optional<UserImpl> resultUser = userService.getUserByEmail("alice@example.com");
 
         assertTrue(resultUser.isPresent());
         assertEquals(user.getId(), resultUser.get().getId());
@@ -150,7 +149,7 @@ public class UserServiceImplTest {
 
         when(userDAO.getByEmail(email)).thenReturn(null);
 
-        Optional<User> result = userService.getUserByEmail(email);
+        Optional<UserImpl> result = userService.getUserByEmail(email);
 
         assertNull(result);
     }
@@ -167,14 +166,14 @@ public class UserServiceImplTest {
     @Test
     public void getUsersByNameShouldReturnUsersWhenExist() throws DbException {
         String name = "Alice";
-        List<User> users = List.of(
+        List<UserImpl> users = List.of(
                 new UserImpl(1L, "Alice", "alice@mail.com"),
                 new UserImpl(2L, "Alice", "alice2@mail.com")
         );
 
         when(userDAO.getByName(name, 10, 1)).thenReturn(users);
 
-        List<User> resultUsers = userService.getUsersByName(name, 10, 1);
+        List<UserImpl> resultUsers = userService.getUsersByName(name, 10, 1);
 
         assertNotNull(resultUsers);
         assertEquals(2, resultUsers.size());
@@ -217,14 +216,14 @@ public class UserServiceImplTest {
 
     @Test
     public void updateUserShouldReturnUpdatedUser() throws DbException {
-        User user = new UserImpl();
+        UserImpl user = new UserImpl();
         user.setId(1L);
         user.setName("Alice");
         user.setEmail("alice@example.com");
 
         when(userDAO.update(user)).thenReturn(user);
 
-        User result = userService.updateUser(user);
+        UserImpl result = userService.updateUser(user);
 
         assertNotNull(result);
         assertEquals(user, result);
@@ -234,7 +233,7 @@ public class UserServiceImplTest {
 
     @Test
     public void updateUserShouldThrowWhenUserNotExist() throws DbException {
-        User user = new UserImpl();
+        UserImpl user = new UserImpl();
         user.setId(1L);
         user.setName("Alice");
         user.setEmail("alice@example.com");
