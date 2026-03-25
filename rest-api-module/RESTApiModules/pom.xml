@@ -21,7 +21,7 @@
 		<license/>
 	</licenses>
 	<developers>
-		<developer/>exx
+		<developer/>
 	</developers>
     <modules>
         <module>jmp-domain</module>
