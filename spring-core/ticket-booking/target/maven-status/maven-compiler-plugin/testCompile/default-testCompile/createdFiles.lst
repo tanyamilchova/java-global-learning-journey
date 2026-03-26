@@ -1,0 +1,6 @@
+tests\TicketServiceTest.class
+cacheTests\CacheTest.class
+integrationTests\UserAccountServiceIntegrationTest.class
+tests\UserAccountServiceTest.class
+tests\UserServiceImplTest.class
+tests\EventServiceTest.class

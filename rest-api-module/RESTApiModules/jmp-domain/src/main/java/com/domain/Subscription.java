@@ -2,10 +2,14 @@ package com.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -21,27 +25,4 @@ public class Subscription {
      private User user;
 
      private LocalDate startDate;
-
-     public void setStartDate(LocalDate startDate) {
-          this.startDate = startDate;
-     }
-     public User getUser() {
-          return user;
-     }
-
-     public Long getId() {
-          return id;
-     }
-
-     public LocalDate getStartDate() {
-          return startDate;
-     }
-
-     public void setId(Long id) {
-          this.id = id;
-     }
-
-     public void setUser(User user) {
-          this.user = user;
-     }
 }

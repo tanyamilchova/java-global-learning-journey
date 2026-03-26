@@ -1,0 +1,209 @@
+[DEBUG] 2026-03-11 08:46:34.184 [main] EventServiceImpl - Start creating an event: {'id' : 0, 'title' : 'Pop Concert', 'date' : '11-03-2026 08:46'}
+[DEBUG] 2026-03-11 08:46:34.227 [main] EventServiceImpl - Successfully creation of the event: {'id' : 56, 'title' : 'Pop Concert', 'date' : '11-03-2026 08:46'}
+[DEBUG] 2026-03-11 08:46:34.260 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[WARN ] 2026-03-11 08:46:34.260 [main] UserServiceImpl - Can not to create an user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+ua.epam.mishchenko.ticketbooking.exception.DbException: Error inserting user
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.insert(UserDAOImpl.java:329) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl.createUser(UserServiceImpl.java:87) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.29.jar:5.3.29]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.29.jar:5.3.29]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.20.jar:5.3.20]
+	at jdk.proxy2.$Proxy71.createUser(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.MainApplication.main(MainApplication.java:123) ~[classes/:?]
+Caused by: java.lang.IllegalArgumentException: Unknown entity: ua.epam.mishchenko.ticketbooking.model.impl.User
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:804) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:785) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy60.persist(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.insert(UserDAOImpl.java:326) ~[classes/:?]
+	... 13 more
+[DEBUG] 2026-03-11 08:47:43.532 [main] EventServiceImpl - Start creating an event: {'id' : 0, 'title' : 'Pop Concert', 'date' : '11-03-2026 08:47'}
+[DEBUG] 2026-03-11 08:47:43.574 [main] EventServiceImpl - Successfully creation of the event: {'id' : 57, 'title' : 'Pop Concert', 'date' : '11-03-2026 08:47'}
+[DEBUG] 2026-03-11 08:47:43.605 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[WARN ] 2026-03-11 08:47:43.606 [main] UserServiceImpl - Can not to create an user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+ua.epam.mishchenko.ticketbooking.exception.DbException: Error inserting user
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.insert(UserDAOImpl.java:329) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl.createUser(UserServiceImpl.java:87) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.29.jar:5.3.29]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.29.jar:5.3.29]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.29.jar:5.3.29]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.20.jar:5.3.20]
+	at jdk.proxy2.$Proxy71.createUser(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.MainApplication.main(MainApplication.java:123) ~[classes/:?]
+Caused by: java.lang.IllegalArgumentException: Unknown entity: ua.epam.mishchenko.ticketbooking.model.impl.User
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:804) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:785) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy60.persist(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.insert(UserDAOImpl.java:326) ~[classes/:?]
+	... 13 more
+[DEBUG] 2026-03-11 08:53:05.031 [main] EventServiceImpl - Start creating an event: {'id' : 0, 'title' : 'Pop Concert', 'date' : '11-03-2026 08:53'}
+[DEBUG] 2026-03-11 08:53:05.084 [main] EventServiceImpl - Successfully creation of the event: {'id' : 58, 'title' : 'Pop Concert', 'date' : '11-03-2026 08:53'}
+[DEBUG] 2026-03-11 08:53:05.118 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 08:53:05.119 [main] UserServiceImpl - Successfully creation of the user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 08:53:56.110 [main] EventServiceImpl - Start creating an event: {'id' : 0, 'title' : 'Pop Concert', 'date' : '11-03-2026 08:53'}
+[DEBUG] 2026-03-11 08:53:56.154 [main] EventServiceImpl - Successfully creation of the event: {'id' : 59, 'title' : 'Pop Concert', 'date' : '11-03-2026 08:53'}
+[DEBUG] 2026-03-11 08:53:56.178 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 08:53:56.179 [main] UserServiceImpl - Successfully creation of the user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 09:01:18.775 [main] EventServiceImpl - Start creating an event: {'id' : 0, 'title' : 'Pop Concert', 'date' : '11-03-2026 09:01'}
+[DEBUG] 2026-03-11 09:01:18.816 [main] EventServiceImpl - Successfully creation of the event: {'id' : 60, 'title' : 'Pop Concert', 'date' : '11-03-2026 09:01'}
+[DEBUG] 2026-03-11 09:01:18.840 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 09:01:18.846 [main] UserServiceImpl - Successfully creation of the user: {'id' : 1, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 09:12:17.659 [main] EventServiceImpl - Start creating an event: {'id' : 0, 'title' : 'Pop Concert', 'date' : '11-03-2026 09:12'}
+[DEBUG] 2026-03-11 09:12:17.728 [main] EventServiceImpl - Successfully creation of the event: {'id' : 61, 'title' : 'Pop Concert', 'date' : '11-03-2026 09:12'}
+[DEBUG] 2026-03-11 09:12:17.777 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 09:12:17.781 [main] UserServiceImpl - Successfully creation of the user: {'id' : 2, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 09:15:51.739 [main] EventServiceImpl - Start creating an event: {'id' : 0, 'title' : 'Pop Concert', 'date' : '11-03-2026 09:15'}
+[DEBUG] 2026-03-11 09:15:51.787 [main] EventServiceImpl - Successfully creation of the event: {'id' : 62, 'title' : 'Pop Concert', 'date' : '11-03-2026 09:15'}
+[DEBUG] 2026-03-11 09:15:51.815 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 09:15:51.818 [main] UserServiceImpl - Successfully creation of the user: {'id' : 3, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 09:19:13.265 [main] EventServiceImpl - Start creating an event: {'id' : 0, 'title' : 'Pop Concert', 'date' : '11-03-2026 09:19'}
+[DEBUG] 2026-03-11 09:19:13.312 [main] EventServiceImpl - Successfully creation of the event: {'id' : 63, 'title' : 'Pop Concert', 'date' : '11-03-2026 09:19'}
+[DEBUG] 2026-03-11 09:19:13.347 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 09:19:13.349 [main] UserServiceImpl - Successfully creation of the user: {'id' : 4, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 09:54:44.469 [main] EventServiceImpl - Start creating an event: [!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@1aaf46e6=>java.lang.IllegalArgumentException:Cannot format given Object as a Date!!!]
+[DEBUG] 2026-03-11 09:54:44.518 [main] EventServiceImpl - Successfully creation of the event: [!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@1aaf46e6=>java.lang.IllegalArgumentException:Cannot format given Object as a Date!!!]
+[DEBUG] 2026-03-11 09:54:44.543 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 09:54:44.549 [main] UserServiceImpl - Successfully creation of the user: {'id' : 5, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 09:56:35.597 [main] EventServiceImpl - Start creating an event: [!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@391d28ea=>java.lang.IllegalArgumentException:Cannot format given Object as a Date!!!]
+[DEBUG] 2026-03-11 09:56:35.633 [main] EventServiceImpl - Successfully creation of the event: [!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@391d28ea=>java.lang.IllegalArgumentException:Cannot format given Object as a Date!!!]
+[DEBUG] 2026-03-11 09:56:35.654 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 09:56:35.657 [main] UserServiceImpl - Successfully creation of the user: {'id' : 6, 'name' : 'Alice', 'email' : 'alice@example.com'}
+[DEBUG] 2026-03-11 10:08:25.139 [main] EventServiceImpl - Start creating an event: [!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@223cbf0d=>java.lang.IllegalArgumentException:Cannot format given Object as a Date!!!]
+[DEBUG] 2026-03-11 10:08:25.173 [main] EventServiceImpl - Successfully creation of the event: [!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@223cbf0d=>java.lang.IllegalArgumentException:Cannot format given Object as a Date!!!]
+[DEBUG] 2026-03-11 10:08:55.397 [main] EventServiceImpl - Start creating an event: [!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@223cbf0d=>java.lang.IllegalArgumentException:Cannot format given Object as a Date!!!]
+[DEBUG] 2026-03-11 10:08:55.426 [main] EventServiceImpl - Successfully creation of the event: [!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@223cbf0d=>java.lang.IllegalArgumentException:Cannot format given Object as a Date!!!]
+[DEBUG] 2026-03-11 10:09:35.459 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Pop Concert', date=2026-03-11, ticketPrice=100.0}
+[DEBUG] 2026-03-11 10:09:35.504 [main] EventServiceImpl - Successfully creation of the event: EventImpl{id=68, title='Pop Concert', date=2026-03-11, ticketPrice=100.0}
+[DEBUG] 2026-03-11 11:03:43.993 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Pop Concert', date=2026-03-11, ticketPrice=100.0}
+[DEBUG] 2026-03-11 11:03:44.046 [main] EventServiceImpl - Successfully creation of the event: EventImpl{id=69, title='Pop Concert', date=2026-03-11, ticketPrice=100.0}
+[DEBUG] 2026-03-11 12:03:33.652 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:03:33.712 [main] EventServiceImpl - Successfully created the event: EventImpl{id=70, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:05:19.717 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:05:19.758 [main] EventServiceImpl - Successfully created the event: EventImpl{id=71, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:36:50.793 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:36:50.826 [main] EventServiceImpl - Successfully created the event: EventImpl{id=72, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:36:51.002 [main] TicketServiceImpl - Start booking a ticket for user with id 1, event with id 1, place 12, category BAR
+[WARN ] 2026-03-11 12:36:51.116 [main] TicketServiceImpl - User account 1 not found
+[DEBUG] 2026-03-11 12:40:00.003 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:40:00.037 [main] EventServiceImpl - Successfully created the event: EventImpl{id=73, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:46:06.690 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:46:06.717 [main] EventServiceImpl - Successfully created the event: EventImpl{id=74, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:46:06.736 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 12:46:06.739 [main] UserServiceImpl - Successfully creation of the user: {'id' : 7, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 12:47:53.939 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:47:53.972 [main] EventServiceImpl - Successfully created the event: EventImpl{id=75, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:47:53.997 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 12:47:53.999 [main] UserServiceImpl - Successfully creation of the user: {'id' : 8, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 12:47:54.185 [main] TicketServiceImpl - Start booking a ticket for user with id 1, event with id 1, place 12, category BAR
+[WARN ] 2026-03-11 12:47:54.285 [main] TicketServiceImpl - User account 1 not found
+[DEBUG] 2026-03-11 12:54:18.412 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:54:18.445 [main] EventServiceImpl - Successfully created the event: EventImpl{id=76, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 12:54:18.470 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 12:54:18.473 [main] UserServiceImpl - Successfully creation of the user: {'id' : 9, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 12:54:18.657 [main] TicketServiceImpl - Start booking a ticket for user with id 1, event with id 1, place 12, category BAR
+[DEBUG] 2026-03-11 12:54:18.783 [main] TicketServiceImpl - Successfully booked ticket: {'id' : 1, 'userId' : 1, 'eventId' : 1, 'place' : 12, 'category' : 'BAR'}
+[DEBUG] 2026-03-11 18:40:15.422 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 18:40:15.477 [main] EventServiceImpl - Successfully created the event: EventImpl{id=77, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 18:40:15.503 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 18:40:15.509 [main] UserServiceImpl - Successfully creation of the user: {'id' : 10, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 18:40:15.512 [main] UserAccountServiceImpl - Start creating a user account with userId: 10
+[DEBUG] 2026-03-11 18:44:40.091 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 18:44:40.125 [main] EventServiceImpl - Successfully created the event: EventImpl{id=78, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 18:44:40.147 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 18:44:40.150 [main] UserServiceImpl - Successfully creation of the user: {'id' : 11, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 18:44:40.152 [main] UserAccountServiceImpl - Start creating a user account with userId: 11
+[DEBUG] 2026-03-11 18:46:43.203 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 18:46:43.241 [main] EventServiceImpl - Successfully created the event: EventImpl{id=79, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 18:46:43.265 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 18:46:43.267 [main] UserServiceImpl - Successfully creation of the user: {'id' : 12, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 18:48:50.910 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 18:48:50.939 [main] EventServiceImpl - Successfully created the event: EventImpl{id=80, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 18:48:50.961 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 18:48:50.964 [main] UserServiceImpl - Successfully creation of the user: {'id' : 13, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 18:48:50.966 [main] UserAccountServiceImpl - Start creating a user account with userId: 13
+[DEBUG] 2026-03-11 18:53:51.135 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 18:53:51.170 [main] EventServiceImpl - Successfully created the event: EventImpl{id=81, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 18:53:51.193 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 18:53:51.196 [main] UserServiceImpl - Successfully creation of the user: {'id' : 14, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 18:53:51.199 [main] UserAccountServiceImpl - Start creating a user account with userId: 14
+[DEBUG] 2026-03-11 19:52:41.677 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 19:52:41.706 [main] EventServiceImpl - Successfully created the event: EventImpl{id=82, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 19:52:41.734 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:52:41.738 [main] UserServiceImpl - Successfully creation of the user: {'id' : 15, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:52:41.741 [main] UserAccountServiceImpl - Start creating a user account with userId: 1
+[DEBUG] 2026-03-11 19:55:44.411 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 19:55:44.440 [main] EventServiceImpl - Successfully created the event: EventImpl{id=83, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 19:55:44.465 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:55:44.467 [main] UserServiceImpl - Successfully creation of the user: {'id' : 16, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:55:44.469 [main] UserAccountServiceImpl - Start creating a user account with userId: 1
+[DEBUG] 2026-03-11 19:55:44.516 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 1
+[DEBUG] 2026-03-11 19:55:44.517 [main] UserAccountServiceImpl - Start getting a user account with userId: 2
+[WARN ] 2026-03-11 19:55:44.630 [main] UserAccountServiceImpl - User account not found for userId 2
+[DEBUG] 2026-03-11 19:57:46.061 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 19:57:46.092 [main] EventServiceImpl - Successfully created the event: EventImpl{id=84, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 19:57:46.111 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:57:46.114 [main] UserServiceImpl - Successfully creation of the user: {'id' : 17, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:57:46.127 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:57:46.129 [main] UserServiceImpl - Successfully creation of the user: {'id' : 18, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:57:46.131 [main] UserAccountServiceImpl - Start creating a user account with userId: 1
+[DEBUG] 2026-03-11 19:57:46.165 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 1
+[DEBUG] 2026-03-11 19:57:46.167 [main] UserAccountServiceImpl - Start getting a user account with userId: 18
+[WARN ] 2026-03-11 19:57:46.272 [main] UserAccountServiceImpl - User account not found for userId 18
+[DEBUG] 2026-03-11 19:58:10.321 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 19:58:10.351 [main] EventServiceImpl - Successfully created the event: EventImpl{id=85, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 19:58:10.371 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:58:10.372 [main] UserServiceImpl - Successfully creation of the user: {'id' : 19, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:58:10.385 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:58:10.387 [main] UserServiceImpl - Successfully creation of the user: {'id' : 20, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:58:10.390 [main] UserAccountServiceImpl - Start creating a user account with userId: 20
+[DEBUG] 2026-03-11 19:58:10.429 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 20
+[DEBUG] 2026-03-11 19:58:10.431 [main] UserAccountServiceImpl - Start getting a user account with userId: 20
+[DEBUG] 2026-03-11 19:58:10.531 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 20
+[DEBUG] 2026-03-11 19:58:26.438 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 19:58:26.468 [main] EventServiceImpl - Successfully created the event: EventImpl{id=86, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 19:58:26.490 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:58:26.492 [main] UserServiceImpl - Successfully creation of the user: {'id' : 21, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:58:26.505 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:58:26.506 [main] UserServiceImpl - Successfully creation of the user: {'id' : 22, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:58:26.509 [main] UserAccountServiceImpl - Start creating a user account with userId: 22
+[DEBUG] 2026-03-11 19:58:26.545 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 22
+[DEBUG] 2026-03-11 19:58:26.546 [main] UserAccountServiceImpl - Start getting a user account with userId: 22
+[DEBUG] 2026-03-11 19:58:26.652 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 22
+[DEBUG] 2026-03-11 19:58:26.652 [main] UserAccountServiceImpl - Start getting a user account with userId: 22
+[DEBUG] 2026-03-11 19:58:26.663 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 22
+[DEBUG] 2026-03-11 19:58:26.663 [main] UserAccountServiceImpl - Start updating user account with userId: 22
+[DEBUG] 2026-03-11 19:58:26.690 [main] UserAccountServiceImpl - Successfully updated userAccount for userId: 22
+[DEBUG] 2026-03-11 19:58:57.805 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 19:58:57.833 [main] EventServiceImpl - Successfully created the event: EventImpl{id=87, title='Balley', date=2026-03-11, ticketPrice=120.0}
+[DEBUG] 2026-03-11 19:58:57.853 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:58:57.854 [main] UserServiceImpl - Successfully creation of the user: {'id' : 23, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:58:57.868 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:58:57.870 [main] UserServiceImpl - Successfully creation of the user: {'id' : 24, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-11 19:58:57.873 [main] UserAccountServiceImpl - Start creating a user account with userId: 24
+[DEBUG] 2026-03-11 19:58:57.921 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 24
+[DEBUG] 2026-03-11 19:58:57.922 [main] UserAccountServiceImpl - Start getting a user account with userId: 24
+[DEBUG] 2026-03-11 19:58:58.028 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 24
+[DEBUG] 2026-03-11 19:58:58.029 [main] UserAccountServiceImpl - Start getting a user account with userId: 24
+[DEBUG] 2026-03-11 19:58:58.040 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 24
+[DEBUG] 2026-03-11 19:58:58.040 [main] UserAccountServiceImpl - Start updating user account with userId: 24
+[DEBUG] 2026-03-11 19:58:58.065 [main] UserAccountServiceImpl - Successfully updated userAccount for userId: 24
+[DEBUG] 2026-03-11 19:58:58.065 [main] UserAccountServiceImpl - Start deleting user account for userId 24
+[DEBUG] 2026-03-11 19:58:58.097 [main] UserAccountServiceImpl - Successfully deleted user account for userId 24
