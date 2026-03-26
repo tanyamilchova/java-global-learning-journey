@@ -10,7 +10,7 @@ import java.util.Objects;
 @Table(name = "tickets")
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class TicketImpl{
+public class Ticket {
 
     public enum Category {STANDARD, PREMIUM, BAR}
 
@@ -31,9 +31,9 @@ public class TicketImpl{
     @Column(name = "category")
     private Category category;
 
-    public TicketImpl() {}
+    public Ticket() {}
 
-    public TicketImpl(Long id, Long userId, Long eventId, int place, Category category) {
+    public Ticket(Long id, Long userId, Long eventId, int place, Category category) {
         this.id = id;
         this.userId = userId;
         this.eventId = eventId;
@@ -41,7 +41,7 @@ public class TicketImpl{
         this.category = category;
     }
 
-    public TicketImpl(Long userId, Long eventId, int place, Category category) {
+    public Ticket(Long userId, Long eventId, int place, Category category) {
         this.userId = userId;
         this.eventId = eventId;
         this.place = place;
@@ -93,7 +93,7 @@ public class TicketImpl{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TicketImpl ticket = (TicketImpl) o;
+        Ticket ticket = (Ticket) o;
         return place == ticket.place && Objects.equals(id, ticket.id) && Objects.equals(userId, ticket.userId) && Objects.equals(eventId, ticket.eventId) && category == ticket.category;
     }
 

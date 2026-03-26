@@ -10,7 +10,7 @@ import java.util.Objects;
 @Table(name = "user_accounts")
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class UserAccountImpl  {
+public class UserAccount {
 
     @Id
     @Column(name = "user_id")
@@ -20,13 +20,13 @@ public class UserAccountImpl  {
     private double balance;
 
 
-    public UserAccountImpl() {
+    public UserAccount() {
     }
-    public UserAccountImpl(long userId) {
+    public UserAccount(long userId) {
         this.userId = userId;
     }
 
-    public UserAccountImpl(long userId, double balance) {
+    public UserAccount(long userId, double balance) {
         this.userId = userId;
         this.balance = balance;
     }
@@ -50,8 +50,8 @@ public class UserAccountImpl  {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof UserAccountImpl)) return false;
-        UserAccountImpl that = (UserAccountImpl) o;
+        if (!(o instanceof UserAccount)) return false;
+        UserAccount that = (UserAccount) o;
         return Objects.equals(userId, that.userId);
     }
 

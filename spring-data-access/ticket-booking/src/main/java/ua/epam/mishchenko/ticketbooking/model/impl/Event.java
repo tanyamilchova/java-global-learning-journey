@@ -3,6 +3,7 @@ package ua.epam.mishchenko.ticketbooking.model.impl;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -12,7 +13,7 @@ import java.util.Objects;
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 
-public class EventImpl  {
+public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,33 +29,31 @@ public class EventImpl  {
     private double ticketPrice;
 
 
-    public EventImpl() {}
-
-    public EventImpl(String title, LocalDate date) {
-        this.title = title;
-        this.date = date;
-    }
-
-    public EventImpl(long id, String title, LocalDate date, double price) {
+    public Event(long id, String title, LocalDate date, double price) {
         this.id = id;
         this.title = title;
         this.date = date;
         this.ticketPrice = price;
     }
 
-    public EventImpl(String title, LocalDate date, double price) {
+    public Event(String title, LocalDate date) {
+        this.title = title;
+        this.date = date;
+    }
+
+    public Event(String title, LocalDate date, double price) {
         this.title = title;
         this.date = date;
         this.ticketPrice = price;
     }
 
-    public EventImpl(long id, String title, LocalDate date) {
+    public Event(long id, String title, LocalDate date) {
         this.id = id;
         this.title = title;
         this.date = date;
     }
 
-    public EventImpl(long id, String title, double ticketPrice) {
+    public Event(long id, String title, double ticketPrice) {
         this.id = id;
         this.title = title;
         this.ticketPrice = ticketPrice;
@@ -97,7 +96,7 @@ public class EventImpl  {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EventImpl event = (EventImpl) o;
+        Event event = (Event) o;
         return id == event.id && Objects.equals(title, event.title) && Objects.equals(date, event.date);
     }
 

@@ -1,5 +1,6 @@
 package ua.epam.mishchenko.ticketbooking.service.impl;
 
+import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.User;
 import ua.epam.mishchenko.ticketbooking.service.UserService;
 import ua.epam.mishchenko.ticketbooking.validator.GenericValidator;
 import ua.epam.mishchenko.ticketbooking.validator.UserValidator;
@@ -16,9 +17,9 @@ import ua.epam.mishchenko.ticketbooking.validator.UserValidator;
 import java.util.List;
 import java.util.Optional;
 
+@Log4j2
 @Service("userService")
 public class UserServiceImpl implements UserService {
-    private static final Logger LOGGER = LogManager.getLogger(UserServiceImpl.class);
 
     private final UserDAO userDAO;
     private final UserValidator userValidator;
@@ -32,76 +33,76 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<UserImpl> getUserById(long userId) {
+    public Optional<User> getUserById(long userId) {
         genericValidator.validateId(userId, "id");
-        LOGGER.debug("Finding a user by id: {}", userId);
+        log.debug("Finding a user by id: {}", userId);
 
         try {
-            Optional<UserImpl> user = userDAO.getById(userId);
+            Optional<User> user = userDAO.getById(userId);
 
             if (user.isPresent()) {
-                LOGGER.info("User with id {} successfully found", userId);
+                log.info("User with id {} successfully found", userId);
             } else {
-                LOGGER.info("No user found with id {}", userId);
+                log.info("No user found with id {}", userId);
             }
             return user;
 
         } catch (DbException exception) {
-            LOGGER.warn("Failed to get user by id: {}", userId, exception);
+            log.warn("Failed to get user by id: {}", userId, exception);
             throw exception;
         }
     }
 
     @Override
-    public List<UserImpl> getAllUsers(int pageSize, int pageNum) {
+    public List<User> getAllUsers(int pageSize, int pageNum) {
         genericValidator.validatePagination(pageSize, pageNum);
-        LOGGER.debug("Retrieving all users with pageSize: {} and pageNum: {}", pageSize, pageNum);
+        log.debug("Retrieving all users with pageSize: {} and pageNum: {}", pageSize, pageNum);
 
 
         try {
-            List<UserImpl> users = userDAO.getAll(pageSize, pageNum);
+            List<User> users = userDAO.getAll(pageSize, pageNum);
 
-            LOGGER.info("Successfully retrieved {} users", users.size());
+            log.info("Successfully retrieved {} users", users.size());
 
             return users;
         } catch (DbException e) {
-            LOGGER.warn("Cannot retrieve users with pageSize: {} and pageNum: {}", pageSize, pageNum, e);
+            log.warn("Cannot retrieve users with pageSize: {} and pageNum: {}", pageSize, pageNum, e);
             return List.of();
         }
     }
 
     @Override
-    public Optional<UserImpl> getUserByEmail(String email) {
+    public Optional<User> getUserByEmail(String email) {
         userValidator.validateEmail(email);
-        LOGGER.debug("Finding a user by email: {}", email);
+        log.debug("Finding a user by email: {}", email);
 
         try {
-            Optional<UserImpl> user = userDAO.getByEmail(email);
+            Optional<User> user = userDAO.getByEmail(email);
 
-            LOGGER.info("User with email {} successfully found", email);
+            log.info("User with email {} successfully found", email);
             return user;
 
         } catch (DbException exception) {
-            LOGGER.warn("Failed to get user by email: {}", email, exception);
+            log.warn("Failed to get user by email: {}", email, exception);
             throw exception;
         }
     }
 
     @Override
-    public List<UserImpl> getUsersByName(String name, int pageSize, int pageNum) {
+    public List<User> getUsersByName(String name, int pageSize, int pageNum) {
         userValidator.validateString(name, "User name");
         genericValidator.validatePagination(pageSize, pageNum);
 
-        LOGGER.debug("Finding all users by name '{}' with page size {} and page number {}", name, pageSize, pageNum);
+        log.debug("Finding all users by name '{}' with page size {} and page number {}", name, pageSize, pageNum);
 
         try {
-            List<UserImpl> usersByName = userDAO.getByName(name, pageSize, pageNum);
+            List<User> usersByName = userDAO.getByName(name, pageSize, pageNum);
 
-            LOGGER.info("Successfully found {} users by name '{}' with page size {} and page number {}", usersByName.size(), name, pageSize, pageNum);
+            log.info("Successfully found {} users by name '{}' with page size {} and page number {}", usersByName.size(), name, pageSize, pageNum);
 
             return usersByName;
         } catch (DbException exception) {
-            LOGGER.warn("Failed to find users by name '{}', page size {}, page number {}", name, pageSize, pageNum, exception);
+            log.warn("Failed to find users by name '{}', page size {}, page number {}", name, pageSize, pageNum, exception);
 
             throw exception;
         }
@@ -109,23 +110,23 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public UserImpl createUser(UserImpl user) {
+    public User createUser(User user) {
        userValidator.validate(user);
 
-        LOGGER.debug("Start creating a user: {}", user);
+        log.debug("Start creating a user: {}", user);
         try {
-            Optional<UserImpl> existingUser = userDAO.getByEmail(user.getEmail());
+            Optional<User> existingUser = userDAO.getByEmail(user.getEmail());
 
             if (existingUser.isPresent()) {
-                LOGGER.info("Attempt to create a user failed: email {} is already registered.", user.getEmail());
+                log.info("Attempt to create a user failed: email {} is already registered.", user.getEmail());
                 throw new DbException("User already exists with email: " + user.getEmail());
             }
 
             user = userDAO.insert(user);
-            LOGGER.info("Successfully created user: {}", user);
+            log.info("Successfully created user: {}", user);
             return user;
         } catch (DbException exception) {
-            LOGGER.warn("Cannot create user: {}", user, exception);
+            log.warn("Cannot create user: {}", user, exception);
             throw exception;
         }
     }
@@ -133,18 +134,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserImpl updateUser(UserImpl user) {
+    public User updateUser(User user) {
         userValidator.validate(user);
-        LOGGER.debug("Start updating user: {}", user);
+        log.debug("Start updating user: {}", user);
 
         try {
             user = userDAO.update(user);
 
-            LOGGER.info("Successfully updated user: {}", user);
+            log.info("Successfully updated user: {}", user);
 
             return user;
         } catch (DbException exception) {
-            LOGGER.warn("Failed to update user: {}", user, exception);
+            log.warn("Failed to update user: {}", user, exception);
             throw exception;
         }
     }
@@ -154,20 +155,20 @@ public class UserServiceImpl implements UserService {
     public boolean deleteUser(long userId) {
 
         genericValidator.validateId(userId, "User id");
-        LOGGER.debug("Start deleting  user with id : {}", userId);
+        log.debug("Start deleting  user with id : {}", userId);
 
         try {
             boolean isRemoved = userDAO.delete(userId);
 
             if (isRemoved) {
-                LOGGER.info("Successfully deleted user with id: {}", userId);
+                log.info("Successfully deleted user with id: {}", userId);
             } else {
-                LOGGER.warn("No user found to delete with id: {}", userId);
+                log.warn("No user found to delete with id: {}", userId);
             }
 
             return isRemoved;
         } catch (DbException e) {
-            LOGGER.log(Level.WARN, "Can not to delete an user with id: {}", userId, e);
+            log.log(Level.WARN, "Can not to delete an user with id: {}", userId, e);
             return false;
         }
     }

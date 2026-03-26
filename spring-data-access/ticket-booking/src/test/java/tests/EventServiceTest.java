@@ -10,7 +10,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.impl.EventImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.Event;
 import ua.epam.mishchenko.ticketbooking.model.repository.EventRepository;
 import ua.epam.mishchenko.ticketbooking.service.impl.EventServiceImpl;
 
@@ -41,12 +41,12 @@ public class EventServiceTest {
     @Test
     public void getEventByIdShouldReturnEvent() {
         long eventId = 1L;
-        EventImpl event = new EventImpl();
+        Event event = new Event();
         event.setId(eventId);
 
         when(eventRepository.findById(eventId)).thenReturn(Optional.of(event));
 
-        EventImpl result = eventService.getEventById(eventId);
+        Event result = eventService.getEventById(eventId);
 
         assertNotNull(result);
         assertEquals(eventId, result.getId());
@@ -83,13 +83,13 @@ public class EventServiceTest {
         int pageSize = 2;
         int pageNum = 1;
 
-        List<EventImpl> events = List.of(new EventImpl(), new EventImpl());
-        Page<EventImpl> page = new PageImpl<>(events);
+        List<Event> events = List.of(new Event(), new Event());
+        Page<Event> page = new PageImpl<>(events);
 
         when(eventRepository.findByTitleContainingIgnoreCase(eq(title), any(Pageable.class)))
                 .thenReturn(page);
 
-        List<EventImpl> result = eventService.getEventsByTitle(title, pageSize, pageNum);
+        List<Event> result = eventService.getEventsByTitle(title, pageSize, pageNum);
 
         assertNotNull(result);
         assertEquals(2, result.size());
@@ -103,12 +103,12 @@ public class EventServiceTest {
         int pageSize = 5;
         int pageNum = 1;
 
-        Page<EventImpl> page = new PageImpl<>(Collections.emptyList());
+        Page<Event> page = new PageImpl<>(Collections.emptyList());
 
         when(eventRepository.findByTitleContainingIgnoreCase(eq(title), any(Pageable.class)))
                 .thenReturn(page);
 
-        List<EventImpl> result = eventService.getEventsByTitle(title, pageSize, pageNum);
+        List<Event> result = eventService.getEventsByTitle(title, pageSize, pageNum);
 
         assertNotNull(result);
         assertTrue(result.isEmpty());
@@ -144,13 +144,13 @@ public class EventServiceTest {
         int pageSize = 2;
         int pageNum = 1;
 
-        List<EventImpl> eventsImpl = List.of(new EventImpl(), new EventImpl());
-        Page<EventImpl> page = new PageImpl<>(eventsImpl);
+        List<Event> eventsImpl = List.of(new Event(), new Event());
+        Page<Event> page = new PageImpl<>(eventsImpl);
 
         when(eventRepository.findByDate(eq(day), any(Pageable.class)))
                 .thenReturn(page);
 
-        List<EventImpl> result = eventService.getEventsForDay(day, pageSize, pageNum);
+        List<Event> result = eventService.getEventsForDay(day, pageSize, pageNum);
 
         assertNotNull(result);
         assertEquals(2, result.size());
@@ -184,15 +184,15 @@ public class EventServiceTest {
 
     @Test
     public void createEventShouldReturnSavedEvent_thenReturn() {
-        EventImpl event = new EventImpl();
+        Event event = new Event();
         event.setTitle("Concert");
 
-        EventImpl savedEvent = new EventImpl();
+        Event savedEvent = new Event();
         savedEvent.setTitle("Concert");
 
-        when(eventRepository.save(any(EventImpl.class))).thenReturn(savedEvent);
+        when(eventRepository.save(any(Event.class))).thenReturn(savedEvent);
 
-        EventImpl result = eventService.createEvent(event);
+        Event result = eventService.createEvent(event);
 
         assertNotNull(result);
         assertEquals("Concert", result.getTitle());
@@ -210,7 +210,7 @@ public class EventServiceTest {
 
     @Test
     public void createEventShouldThrowWhenEventNotEventImpl() {
-        EventImpl event = mock(EventImpl.class); // Not EventImpl
+        Event event = mock(Event.class); // Not EventImpl
 
         assertThrows(IllegalArgumentException.class, () -> {
             eventService.createEvent(event);
@@ -221,10 +221,10 @@ public class EventServiceTest {
 
     @Test
     public void createEventShouldThrowDbExceptionWhenRepositoryFails() {
-        EventImpl event = new EventImpl();
+        Event event = new Event();
         event.setTitle("Concert");
 
-        when(eventRepository.save(any(EventImpl.class)))
+        when(eventRepository.save(any(Event.class)))
                 .thenThrow(new RuntimeException("DB error"));
 
         DbException exception = assertThrows(DbException.class, () -> {
@@ -237,15 +237,15 @@ public class EventServiceTest {
 
     @Test
     public void updateEventShouldReturnUpdatedEvent() {
-        EventImpl event = new EventImpl();
+        Event event = new Event();
         event.setTitle("Concert");
 
-        EventImpl updatedEvent = new EventImpl();
+        Event updatedEvent = new Event();
         updatedEvent.setTitle("Concert Updated");
 
-        when(eventRepository.save(any(EventImpl.class))).thenReturn(updatedEvent);
+        when(eventRepository.save(any(Event.class))).thenReturn(updatedEvent);
 
-        EventImpl result = eventService.updateEvent(event);
+        Event result = eventService.updateEvent(event);
 
         assertNotNull(result);
         assertEquals("Concert Updated", result.getTitle());
@@ -263,7 +263,7 @@ public class EventServiceTest {
 
     @Test
     public void updateEventShouldThrowWhenEventNotEventImpl() {
-        EventImpl event = mock(EventImpl.class);
+        Event event = mock(Event.class);
 
         assertThrows(IllegalArgumentException.class, () -> {
             eventService.updateEvent(event);
@@ -274,10 +274,10 @@ public class EventServiceTest {
 
     @Test
     public void updateEventShouldThrowDbExceptionWhenRepositoryFails() {
-        EventImpl event = new EventImpl();
+        Event event = new Event();
         event.setTitle("Concert");
 
-        when(eventRepository.save(any(EventImpl.class)))
+        when(eventRepository.save(any(Event.class)))
                 .thenThrow(new RuntimeException("DB error"));
 
         DbException exception = assertThrows(DbException.class, () -> {
@@ -292,7 +292,7 @@ public class EventServiceTest {
     @Test
     public void deleteEventShouldReturnTrueWhenEventExists() {
         long eventId = 1L;
-        EventImpl event = new EventImpl();
+        Event event = new Event();
 
         when(eventRepository.findById(eventId)).thenReturn(Optional.of(event));
 
