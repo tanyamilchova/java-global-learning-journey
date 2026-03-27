@@ -11,8 +11,8 @@ import ua.epam.mishchenko.ticketbooking.config.AppConfig;
 import ua.epam.mishchenko.ticketbooking.facade.BookingFacade;
 import ua.epam.mishchenko.ticketbooking.model.impl.Event;
 import ua.epam.mishchenko.ticketbooking.model.impl.Ticket;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserAccount;
 import ua.epam.mishchenko.ticketbooking.model.impl.User;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserAccount;
 
 import java.time.LocalDate;
 

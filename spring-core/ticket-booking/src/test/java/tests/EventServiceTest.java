@@ -41,7 +41,7 @@ public class EventServiceTest {
     @Test
     public void getEventByIdShouldReturnEvent() {
         long eventId = 1L;
-        Event event = new Event();
+        Event event = new Event("Evnet title", LocalDate.now());
         event.setId(eventId);
 
         when(eventRepository.findById(eventId)).thenReturn(Optional.of(event));
@@ -83,7 +83,7 @@ public class EventServiceTest {
         int pageSize = 2;
         int pageNum = 1;
 
-        List<Event> events = List.of(new Event(), new Event());
+        List<Event> events = List.of(new Event("Event title", LocalDate.now()), new Event("Event title", LocalDate.now()));
         Page<Event> page = new PageImpl<>(events);
 
         when(eventRepository.findByTitleContainingIgnoreCase(eq(title), any(Pageable.class)))
@@ -144,7 +144,7 @@ public class EventServiceTest {
         int pageSize = 2;
         int pageNum = 1;
 
-        List<Event> eventsImpl = List.of(new Event(), new Event());
+        List<Event> eventsImpl = List.of(new Event("Event 1 title", LocalDate.now()), new Event("Event 2 title", LocalDate.now()));
         Page<Event> page = new PageImpl<>(eventsImpl);
 
         when(eventRepository.findByDate(eq(day), any(Pageable.class)))
@@ -184,10 +184,10 @@ public class EventServiceTest {
 
     @Test
     public void createEventShouldReturnSavedEvent_thenReturn() {
-        Event event = new Event();
+        Event event = new Event("Event title", LocalDate.now());
         event.setTitle("Concert");
 
-        Event savedEvent = new Event();
+        Event savedEvent = new Event("Event title", LocalDate.now());
         savedEvent.setTitle("Concert");
 
         when(eventRepository.save(any(Event.class))).thenReturn(savedEvent);
@@ -210,7 +210,7 @@ public class EventServiceTest {
 
     @Test
     public void createEventShouldThrowWhenEventNotEventImpl() {
-        Event event = mock(Event.class); // Not EventImpl
+        Event event = mock(Event.class);
 
         assertThrows(IllegalArgumentException.class, () -> {
             eventService.createEvent(event);
@@ -221,7 +221,7 @@ public class EventServiceTest {
 
     @Test
     public void createEventShouldThrowDbExceptionWhenRepositoryFails() {
-        Event event = new Event();
+        Event event = new Event("Evnet title", LocalDate.now());
         event.setTitle("Concert");
 
         when(eventRepository.save(any(Event.class)))
@@ -237,10 +237,10 @@ public class EventServiceTest {
 
     @Test
     public void updateEventShouldReturnUpdatedEvent() {
-        Event event = new Event();
+        Event event = new Event("Evnet title", LocalDate.now());
         event.setTitle("Concert");
 
-        Event updatedEvent = new Event();
+        Event updatedEvent = new Event("Evnet title", LocalDate.now());
         updatedEvent.setTitle("Concert Updated");
 
         when(eventRepository.save(any(Event.class))).thenReturn(updatedEvent);
@@ -274,7 +274,7 @@ public class EventServiceTest {
 
     @Test
     public void updateEventShouldThrowDbExceptionWhenRepositoryFails() {
-        Event event = new Event();
+        Event event = new Event("Evnet title", LocalDate.now());
         event.setTitle("Concert");
 
         when(eventRepository.save(any(Event.class)))
@@ -292,7 +292,7 @@ public class EventServiceTest {
     @Test
     public void deleteEventShouldReturnTrueWhenEventExists() {
         long eventId = 1L;
-        Event event = new Event();
+        Event event = new Event("Evnet title", LocalDate.now());
 
         when(eventRepository.findById(eventId)).thenReturn(Optional.of(event));
 
