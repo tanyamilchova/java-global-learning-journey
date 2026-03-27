@@ -9,9 +9,8 @@ import com.example.dto.UserResponseDto;
 import com.example.serviceApi.UserService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -20,12 +19,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Log4j2
 @NoArgsConstructor
 @AllArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
 
     @Autowired
@@ -40,14 +38,14 @@ public class UserServiceImpl implements UserService {
         try {
             User userToSave = modelMapper.map(userRequestDTO, User.class);
 
-            LOGGER.debug("Start creating user: {}", userToSave);
+            log.debug("Start creating user: {}", userToSave);
             User savedUser = userRepository.save(userToSave);
             savedUser.setId(userToSave.getId());
             UserResponseDto userResponseDto = modelMapper.map(savedUser, UserResponseDto.class);
-            LOGGER.info("User created successfully: {}", userResponseDto);
+            log.info("User created successfully: {}", userResponseDto);
             return userResponseDto;
         }catch (DBException exception){
-            LOGGER.error( "Cannot create user: {}", userRequestDTO, exception);
+            log.error( "Cannot create user: {}", userRequestDTO, exception);
             throw exception;
         }
     }
@@ -58,20 +56,20 @@ public class UserServiceImpl implements UserService {
         Util.validateUser(userRequestDTO);
         User userToUpdate = userRepository.findById(userId)
                 .orElseThrow();
-        LOGGER.debug("Found user to update: {}", userToUpdate);
+        log.debug("Found user to update: {}", userToUpdate);
         try{
             User mappedUser = modelMapper.map(userRequestDTO, User.class);
-            LOGGER.debug("Mapped user for update: {}", mappedUser);
+            log.debug("Mapped user for update: {}", mappedUser);
 
             User updatedUser = userRepository.save(mappedUser);
-            LOGGER.debug("Saved updated user: {}", updatedUser);
+            log.debug("Saved updated user: {}", updatedUser);
 
 
             UserResponseDto responseDto = modelMapper.map(updatedUser, UserResponseDto.class);
-            LOGGER.info("User updated successfully: {}", responseDto);
+            log.info("User updated successfully: {}", responseDto);
             return responseDto;
         }catch (DBException exception){
-            LOGGER.error( "Cannot update user: {}", userRequestDTO, exception);
+            log.error( "Cannot update user: {}", userRequestDTO, exception);
             throw exception;
         }
     }
@@ -81,13 +79,13 @@ public class UserServiceImpl implements UserService {
         Util.validateId(userId);
         User userToDelete = userRepository.findById(userId)
                 .orElseThrow();
-        LOGGER.debug("Start deleting an user with id: {}", userId);
+        log.debug("Start deleting an user with id: {}", userId);
         try{
             userRepository.delete(userToDelete);
-            LOGGER.info("User deleted successfully with id: {}", userId);
+            log.info("User deleted successfully with id: {}", userId);
             return true;
         }catch (DBException exception){
-            LOGGER.error( "Cannot update user with id : {}", userId, exception);
+            log.error( "Cannot update user with id : {}", userId, exception);
             throw exception;
         }
     }
@@ -95,11 +93,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponseDto getUser(Long userId) {
         Util.validateId(userId);
-        LOGGER.debug( "Finding a user by id: {}", userId);
+        log.debug( "Finding a user by id: {}", userId);
 
         User userToGet = userRepository.findById(userId)
                 .orElseThrow(() -> new DBException("Cannot get user with id: " + userId));
-        LOGGER.info("User retrieved successfully with id: {}", userId);
+        log.info("User retrieved successfully with id: {}", userId);
 
         UserResponseDto responseDto = modelMapper.map(userToGet, UserResponseDto.class);
         return responseDto;
@@ -108,12 +106,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserResponseDto> getAllUsers(int page, int size) {
         Util.validatePagination(page, size);
-        LOGGER.debug("Retrieving all users for page {} and size {}", page, size);
+        log.debug("Retrieving all users for page {} and size {}", page, size);
 
         Pageable pageable = PageRequest.of(page, size);
         try {
             List<User> users = userRepository.findAll(pageable).getContent();
-            LOGGER.debug("Successfully retrieved {} users", users.size());
+            log.debug("Successfully retrieved {} users", users.size());
 
             List<UserResponseDto> userResponseDtoList = users.stream()
                     .map(user -> {
@@ -122,12 +120,12 @@ public class UserServiceImpl implements UserService {
                     })
                     .collect(Collectors.toList());
 
-            LOGGER.info("Successfully mapped {} users to UserResponseDTO for page {} and size {}",
+            log.info("Successfully mapped {} users to UserResponseDTO for page {} and size {}",
                     userResponseDtoList.size(), page, size);
 
             return userResponseDtoList;
         }catch (DBException exception){
-            LOGGER.error( "Cannot get all users from page {}, size {}", page, size);
+            log.error( "Cannot get all users from page {}, size {}", page, size);
             throw exception;
         }
     }
