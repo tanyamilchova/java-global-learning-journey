@@ -9,6 +9,7 @@ import ua.epam.mishchenko.ticketbooking.model.impl.User;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -37,7 +38,7 @@ public class UserDAOImpl implements UserDAO {
                 return Optional.empty();
             }
             return Optional.ofNullable(user);
-        } catch (DbException exception) {
+        } catch (PersistenceException exception) {
             log.error("Error while retrieving user by id: {}", id, exception);
 
             throw new DbException(exception.getMessage());
@@ -65,11 +66,11 @@ public class UserDAOImpl implements UserDAO {
                     .setParameter("email", email)
                     .getSingleResult();
             return Optional.ofNullable(user);
-        } catch (NoResultException e) {
+        } catch (NoResultException exception) {
             return Optional.empty();
-        } catch (Exception e) {
-            log.error("Error retrieving user by email: {}", email, e);
-            throw new DbException("Error retrieving user by email: " + email, e);
+        } catch (PersistenceException  exception) {
+            log.error("Error retrieving user by email: {}", email, exception);
+            throw new DbException("Error retrieving user by email: " + email, exception);
         }
     }
 
@@ -82,7 +83,7 @@ public class UserDAOImpl implements UserDAO {
                     .setFirstResult((pageNum - 1) * pageSize)
                     .setMaxResults(pageSize)
                     .getResultList();
-        } catch (Exception e) {
+        } catch (PersistenceException  exception) {
             return Collections.emptyList();
         }
     }
@@ -92,8 +93,8 @@ public class UserDAOImpl implements UserDAO {
         try {
             entityManager.persist(user);
             return user;
-        } catch (Exception e) {
-            throw new DbException("Error inserting user", e);
+        } catch (PersistenceException exception) {
+            throw new DbException("Error inserting user", exception);
 
         }
     }
@@ -102,8 +103,8 @@ public class UserDAOImpl implements UserDAO {
     public User update(User user) throws DbException {
         try {
             return entityManager.merge(user);
-        } catch (Exception e) {
-            throw new DbException("Error updating user", e);
+        } catch (PersistenceException  exception) {
+            throw new DbException("Error updating user", exception);
         }
     }
 
@@ -116,8 +117,8 @@ public class UserDAOImpl implements UserDAO {
                 return true;
             }
             return false;
-        } catch (Exception e) {
-            throw new DbException("Error deleting user", e);
+        } catch (PersistenceException exception) {
+            throw new DbException("Error deleting user", exception);
         }
     }
 }
