@@ -1,0 +1,1267 @@
+[DEBUG] 2026-03-09 12:18:47.393 [main] EventDAOImpl - Start inserting of the event: {'id' : 0, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 12:18:47.408 [main] EventDAOImpl - Finding an event by id: 1
+[DEBUG] 2026-03-09 12:18:47.409 [main] EventDAOImpl - Event with id 1 successfully found 
+[DEBUG] 2026-03-09 12:18:47.409 [main] EventDAOImpl - Start updating of the event: {'id' : 1, 'title' : 'Test title', 'date' : '18-05-2022 15:30'}
+[DEBUG] 2026-03-09 12:18:47.410 [main] EventDAOImpl - Successfully update of the event: {'id' : 1, 'title' : 'Test title', 'date' : '18-05-2022 15:30'}
+[DEBUG] 2026-03-09 12:18:47.415 [main] EventDAOImpl - Start deleting of the event with id: 10
+[DEBUG] 2026-03-09 12:18:47.423 [main] EventDAOImpl - Finding an event by id: 10
+[WARN ] 2026-03-09 12:18:47.424 [main] EventDAOImpl - Can not to find an event by id: 10
+[DEBUG] 2026-03-09 12:18:47.431 [main] EventDAOImpl - Finding all events for day 2022-05-15T21:00:00.000+0300 in the database using pagination
+[DEBUG] 2026-03-09 12:18:47.433 [main] EventDAOImpl - All events successfully found for day '2022-05-15T21:00:00.000+0300' in the database using pagination
+[DEBUG] 2026-03-09 12:18:47.438 [main] EventDAOImpl - Finding an event by id: 3
+[DEBUG] 2026-03-09 12:18:47.438 [main] EventDAOImpl - Event with id 3 successfully found 
+[DEBUG] 2026-03-09 12:18:47.446 [main] EventDAOImpl - Start inserting of the event: {'id' : 0, 'title' : 'Test title', 'date' : '09-03-2026 12:18'}
+[DEBUG] 2026-03-09 12:18:47.447 [main] EventDAOImpl - Successfully insertion of the event: {'id' : 7, 'title' : 'Test title', 'date' : '09-03-2026 12:18'}
+[DEBUG] 2026-03-09 12:18:47.453 [main] EventDAOImpl - Start updating of the event: null
+[DEBUG] 2026-03-09 12:18:47.459 [main] EventDAOImpl - Finding all events for day 2022-05-15T21:00:00.000+0300 in the database using pagination
+[DEBUG] 2026-03-09 12:18:47.465 [main] EventDAOImpl - Start updating of the event: {'id' : 10, 'title' : 'Test User', 'date' : '09-03-2026 12:18'}
+[DEBUG] 2026-03-09 12:18:47.470 [main] EventDAOImpl - Start deleting of the event with id: 6
+[DEBUG] 2026-03-09 12:18:47.471 [main] EventDAOImpl - Successfully deletion of the event with id: 6
+[DEBUG] 2026-03-09 12:18:47.477 [main] EventDAOImpl - Finding all events by title 'Third event' in the database using pagination
+[DEBUG] 2026-03-09 12:18:47.484 [main] EventDAOImpl - Finding all events for day 2000-05-15T21:00:00.000+0300 in the database using pagination
+[DEBUG] 2026-03-09 12:18:47.498 [main] EventDAOImpl - Finding all events by title 'Third event' in the database using pagination
+[DEBUG] 2026-03-09 12:18:47.503 [main] EventDAOImpl - Finding all events by title 'Third event' in the database using pagination
+[DEBUG] 2026-03-09 12:18:47.505 [main] EventDAOImpl - All events successfully found by title 'Third event' in the database using pagination
+[DEBUG] 2026-03-09 12:18:47.510 [main] EventDAOImpl - Start inserting of the event: null
+[DEBUG] 2026-03-09 12:18:47.517 [main] EventDAOImpl - Finding all events for day 2022-05-15T21:00:00.000+0300 in the database using pagination
+[DEBUG] 2026-03-09 12:18:47.526 [main] EventDAOImpl - Finding all events by title 'not exists title' in the database using pagination
+[DEBUG] 2026-03-09 12:18:56.265 [main] TicketDAOImpl - Start deleting of the ticket with id: 10
+[DEBUG] 2026-03-09 12:18:56.287 [main] TicketDAOImpl - Finding all tickets in the database
+[DEBUG] 2026-03-09 12:18:56.290 [main] TicketDAOImpl - All tickets successfully found
+[DEBUG] 2026-03-09 12:18:56.296 [main] TicketDAOImpl - Finding a ticket by id: 10
+[WARN ] 2026-03-09 12:18:56.296 [main] TicketDAOImpl - Can not to find a ticket by id: 10
+[DEBUG] 2026-03-09 12:18:56.302 [main] TicketDAOImpl - Finding a ticket by id: 5
+[DEBUG] 2026-03-09 12:18:56.303 [main] TicketDAOImpl - The ticket with id 5 successfully found 
+[DEBUG] 2026-03-09 12:18:56.310 [main] TicketDAOImpl - Start deleting of the ticket with id: 6
+[DEBUG] 2026-03-09 12:18:56.310 [main] TicketDAOImpl - Successfully deletion of the ticket with id: 6
+[DEBUG] 2026-03-09 12:18:56.318 [main] TicketDAOImpl - Finding all booked tickets by event '[!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@255e5e2e=>java.lang.NullPointerException:date must not be null!!!]' in the database using pagination
+[DEBUG] 2026-03-09 12:18:56.319 [main] TicketDAOImpl - All booked tickets successfully found by event [!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@255e5e2e=>java.lang.NullPointerException:date must not be null!!!] in the database using pagination
+[DEBUG] 2026-03-09 12:18:56.326 [main] TicketDAOImpl - Start updating of the ticket: {'id' : 10, 'userId' : 10, 'eventId' : 10, 'place' : 100, 'category' : 'BAR'}
+[DEBUG] 2026-03-09 12:18:56.333 [main] TicketDAOImpl - Start inserting of the ticket: null
+[DEBUG] 2026-03-09 12:18:56.340 [main] TicketDAOImpl - Finding a ticket by id: 5
+[DEBUG] 2026-03-09 12:18:56.340 [main] TicketDAOImpl - The ticket with id 5 successfully found 
+[DEBUG] 2026-03-09 12:18:56.340 [main] TicketDAOImpl - Start updating of the ticket: {'id' : 5, 'userId' : 5, 'eventId' : 1, 'place' : 11, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 12:18:56.341 [main] TicketDAOImpl - Successfully update of the ticket: {'id' : 5, 'userId' : 5, 'eventId' : 1, 'place' : 11, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 12:18:56.346 [main] TicketDAOImpl - Finding all booked tickets by event '[!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@1744a475=>java.lang.NullPointerException:date must not be null!!!]' in the database using pagination
+[DEBUG] 2026-03-09 12:18:56.354 [main] TicketDAOImpl - Finding all booked tickets by user '{'id' : 1, 'name' : 'null', 'email' : 'null'}' in the database using pagination
+[DEBUG] 2026-03-09 12:18:56.359 [main] TicketDAOImpl - Start inserting of the ticket: {'id' : 0, 'userId' : 5, 'eventId' : 4, 'place' : 20, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 12:18:56.365 [main] TicketDAOImpl - Finding all booked tickets by event '{'id' : 100, 'title' : 'null', 'date' : '09-03-2026 12:18'}' in the database using pagination
+[DEBUG] 2026-03-09 12:18:56.370 [main] TicketDAOImpl - Finding all booked tickets by user '{'id' : 1, 'name' : 'null', 'email' : 'null'}' in the database using pagination
+[DEBUG] 2026-03-09 12:18:56.371 [main] TicketDAOImpl - All booked tickets successfully found by user {'id' : 1, 'name' : 'null', 'email' : 'null'} in the database using pagination
+[DEBUG] 2026-03-09 12:18:56.376 [main] TicketDAOImpl - Start updating of the ticket: null
+[DEBUG] 2026-03-09 12:18:56.379 [main] TicketDAOImpl - Start inserting of the ticket: {'id' : 0, 'userId' : 5, 'eventId' : 3, 'place' : 20, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 12:18:56.381 [main] TicketDAOImpl - Successfully insertion of the ticket: {'id' : 7, 'userId' : 5, 'eventId' : 3, 'place' : 20, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 12:18:56.385 [main] TicketDAOImpl - Finding all booked tickets by user '{'id' : 100, 'name' : 'null', 'email' : 'null'}' in the database using pagination
+[DEBUG] 2026-03-09 12:19:09.705 [main] UserAccountDAOImpl - Start inserting of the user account: null
+[DEBUG] 2026-03-09 12:19:09.717 [main] UserAccountDAOImpl - Start retrieving  user account for user id: 3
+[DEBUG] 2026-03-09 12:19:09.731 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=3, balance=5000000.0}
+[DEBUG] 2026-03-09 12:19:09.731 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=3, balance=5000000.0}
+[DEBUG] 2026-03-09 12:19:09.731 [main] UserAccountDAOImpl - Finding a user_account by id: 3
+[DEBUG] 2026-03-09 12:19:09.733 [main] UserAccountDAOImpl - The user_account with id 3 successfully found 
+[DEBUG] 2026-03-09 12:19:09.739 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=3, balance=200.0}
+[DEBUG] 2026-03-09 12:19:09.740 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=3, balance=200.0}
+[DEBUG] 2026-03-09 12:19:09.740 [main] UserAccountDAOImpl - Finding a user_account by id: 3
+[DEBUG] 2026-03-09 12:19:09.740 [main] UserAccountDAOImpl - The user_account with id 3 successfully found 
+[DEBUG] 2026-03-09 12:19:09.747 [main] UserAccountDAOImpl - Start inserting of the user account: null
+[DEBUG] 2026-03-09 12:19:09.753 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=3, balance=0.0}
+[DEBUG] 2026-03-09 12:19:09.753 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=3, balance=0.0}
+[DEBUG] 2026-03-09 12:19:09.753 [main] UserAccountDAOImpl - Finding a user_account by id: 3
+[DEBUG] 2026-03-09 12:19:09.754 [main] UserAccountDAOImpl - The user_account with id 3 successfully found 
+[DEBUG] 2026-03-09 12:19:09.762 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=5, balance=0.0}
+[DEBUG] 2026-03-09 12:19:09.764 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=5, balance=0.0}
+[DEBUG] 2026-03-09 12:19:09.769 [main] UserAccountDAOImpl - Start updating of the user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 12:19:09.775 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=6, balance=0.0}
+[DEBUG] 2026-03-09 12:19:09.776 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=6, balance=0.0}
+[DEBUG] 2026-03-09 12:19:09.776 [main] UserAccountDAOImpl - Start deleting of the user account with user id: 6
+[DEBUG] 2026-03-09 12:19:09.777 [main] UserAccountDAOImpl - Successfully deleted user account with user id: 6
+[DEBUG] 2026-03-09 12:19:09.782 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 12:19:09.783 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 12:19:09.783 [main] UserAccountDAOImpl - Finding a user_account by id: 1
+[DEBUG] 2026-03-09 12:19:09.783 [main] UserAccountDAOImpl - The user_account with id 1 successfully found 
+[DEBUG] 2026-03-09 12:19:09.784 [main] UserAccountDAOImpl - Start updating of the user account: UserAccountImpl{userId=1, balance=100.0}
+[DEBUG] 2026-03-09 12:19:09.784 [main] UserAccountDAOImpl - Successfully updated user account: UserAccountImpl{userId=1, balance=100.0}
+[DEBUG] 2026-03-09 12:19:09.789 [main] UserAccountDAOImpl - Start deleting of the user account with user id: 10
+[DEBUG] 2026-03-09 12:19:17.842 [main] UserDAOImpl - Start inserting of the user: null
+[DEBUG] 2026-03-09 12:19:17.855 [main] UserDAOImpl - Start deleting of the user with id: 2
+[DEBUG] 2026-03-09 12:19:17.856 [main] UserDAOImpl - Successfully deletion of the user with id: 2
+[DEBUG] 2026-03-09 12:19:17.863 [main] UserDAOImpl - Finding all users in the database
+[DEBUG] 2026-03-09 12:19:17.865 [main] UserDAOImpl - All users successfully found
+[DEBUG] 2026-03-09 12:19:17.871 [main] UserDAOImpl - Finding all users by name 'Alex' in the database using pagination
+[DEBUG] 2026-03-09 12:19:17.872 [main] UserDAOImpl - All users successfully found by name 'Alex' in the database using pagination
+[DEBUG] 2026-03-09 12:19:17.877 [main] UserDAOImpl - Finding a user by id: 10
+[WARN ] 2026-03-09 12:19:17.878 [main] UserDAOImpl - Can not to find a user by id: 10
+[DEBUG] 2026-03-09 12:19:17.884 [main] UserDAOImpl - Finding a user by email: notexists@gmail.com
+[WARN ] 2026-03-09 12:19:17.885 [main] UserDAOImpl - Can not to find a user by email: notexists@gmail.com
+[DEBUG] 2026-03-09 12:19:17.890 [main] UserDAOImpl - Finding a user by id: 3
+[DEBUG] 2026-03-09 12:19:17.890 [main] UserDAOImpl - The user with id 3 successfully found 
+[DEBUG] 2026-03-09 12:19:17.898 [main] UserDAOImpl - Finding all users by name 'Not exists' in the database using pagination
+[DEBUG] 2026-03-09 12:19:17.904 [main] UserDAOImpl - Start updating of the user: null
+[DEBUG] 2026-03-09 12:19:17.910 [main] UserDAOImpl - Finding all users by name 'Alex' in the database using pagination
+[DEBUG] 2026-03-09 12:19:17.915 [main] UserDAOImpl - Start deleting of the user with id: 10
+[DEBUG] 2026-03-09 12:19:17.921 [main] UserDAOImpl - Finding a user by email: max@gmail.com
+[DEBUG] 2026-03-09 12:19:17.922 [main] UserDAOImpl - The user with email max@gmail.com successfully found 
+[DEBUG] 2026-03-09 12:19:17.927 [main] UserDAOImpl - Start updating of the user: {'id' : 10, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 12:19:17.931 [main] UserDAOImpl - Start inserting of the user: {'id' : 0, 'name' : 'Max', 'email' : 'max@gmail.com'}
+[DEBUG] 2026-03-09 12:19:17.936 [main] UserDAOImpl - Finding a user by id: 1
+[DEBUG] 2026-03-09 12:19:17.936 [main] UserDAOImpl - The user with id 1 successfully found 
+[DEBUG] 2026-03-09 12:19:17.936 [main] UserDAOImpl - Start updating of the user: {'id' : 1, 'name' : 'Test name', 'email' : 'alan@gmail.com'}
+[DEBUG] 2026-03-09 12:19:17.937 [main] UserDAOImpl - Successfully update of the user: {'id' : 1, 'name' : 'Test name', 'email' : 'alan@gmail.com'}
+[DEBUG] 2026-03-09 12:19:17.940 [main] UserDAOImpl - Start inserting of the user: {'id' : 0, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 12:19:17.941 [main] UserDAOImpl - Successfully insertion of the user: {'id' : 7, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 12:19:28.142 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}
+[DEBUG] 2026-03-09 12:19:28.143 [main] UserDAOImpl - Start inserting of the user: {'id' : 0, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}
+[DEBUG] 2026-03-09 12:19:28.143 [main] UserDAOImpl - Successfully insertion of the user: {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}
+[DEBUG] 2026-03-09 12:19:28.144 [main] UserServiceImpl - Successfully creation of the user: {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}
+[DEBUG] 2026-03-09 12:19:28.144 [main] UserServiceImpl - Finding a user by id: 1
+[DEBUG] 2026-03-09 12:19:28.144 [main] UserDAOImpl - Finding a user by id: 1
+[DEBUG] 2026-03-09 12:19:28.144 [main] UserDAOImpl - The user with id 1 successfully found 
+[DEBUG] 2026-03-09 12:19:28.144 [main] UserServiceImpl - The user with id 1 successfully found 
+[DEBUG] 2026-03-09 12:19:28.144 [main] UserAccountServiceImpl - Start creating a user account with userId: 1
+[DEBUG] 2026-03-09 12:19:28.145 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 12:19:28.145 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 12:19:28.145 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 1
+[DEBUG] 2026-03-09 12:19:28.150 [main] EventServiceImpl - Start creating an event: {'id' : 0, 'title' : 'Integration Event', 'date' : '09-03-2026 12:19'}
+[DEBUG] 2026-03-09 12:19:28.150 [main] EventDAOImpl - Start inserting of the event: {'id' : 0, 'title' : 'Integration Event', 'date' : '09-03-2026 12:19'}
+[DEBUG] 2026-03-09 12:19:28.151 [main] EventDAOImpl - Successfully insertion of the event: {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 12:19'}
+[DEBUG] 2026-03-09 12:19:28.151 [main] EventServiceImpl - Successfully creation of the event: {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 12:19'}
+[DEBUG] 2026-03-09 12:19:28.151 [main] EventServiceImpl - Finding an event by id: 1
+[DEBUG] 2026-03-09 12:19:28.151 [main] EventDAOImpl - Finding an event by id: 1
+[DEBUG] 2026-03-09 12:19:28.152 [main] EventDAOImpl - Event with id 1 successfully found 
+[DEBUG] 2026-03-09 12:19:28.152 [main] EventServiceImpl - Event with id 1 successfully found 
+[DEBUG] 2026-03-09 12:19:28.152 [main] TicketServiceImpl - Start booking a ticket for user with id 1, event with id event 1, place 10, category STANDARD
+[DEBUG] 2026-03-09 12:19:28.153 [main] EventDAOImpl - Finding an event by id: 1
+[DEBUG] 2026-03-09 12:19:28.153 [main] EventDAOImpl - Event with id 1 successfully found 
+[DEBUG] 2026-03-09 12:19:28.153 [main] UserAccountDAOImpl - Start retrieving  user account for user id: 1
+[DEBUG] 2026-03-09 12:19:28.153 [main] UserAccountDAOImpl - Start updating of the user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 12:19:28.153 [main] UserAccountDAOImpl - Successfully updated user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 12:19:28.155 [main] TicketDAOImpl - Start inserting of the ticket: {'id' : 0, 'userId' : 1, 'eventId' : 1, 'place' : 10, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 12:19:28.155 [main] TicketDAOImpl - Successfully insertion of the ticket: {'id' : 1, 'userId' : 1, 'eventId' : 1, 'place' : 10, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 12:19:28.156 [main] TicketServiceImpl - Successfully booking of the ticket: {'id' : 1, 'userId' : 1, 'eventId' : 1, 'place' : 10, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 12:19:28.156 [main] TicketServiceImpl - Finding all booked tickets by user {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'} with page size 1 and number of page 1
+[DEBUG] 2026-03-09 12:19:28.156 [main] TicketDAOImpl - Finding all booked tickets by user '{'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}' in the database using pagination
+[DEBUG] 2026-03-09 12:19:28.156 [main] TicketDAOImpl - All booked tickets successfully found by user {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'} in the database using pagination
+[DEBUG] 2026-03-09 12:19:28.157 [main] TicketServiceImpl - All booked tickets successfully found by user {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'} with page size 1 and number of page 1
+[DEBUG] 2026-03-09 12:19:28.157 [main] TicketServiceImpl - Finding all booked tickets by event {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 12:19'} with page size 1 and number of page 1
+[DEBUG] 2026-03-09 12:19:28.157 [main] TicketDAOImpl - Finding all booked tickets by event '{'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 12:19'}' in the database using pagination
+[DEBUG] 2026-03-09 12:19:28.158 [main] TicketDAOImpl - All booked tickets successfully found by event {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 12:19'} in the database using pagination
+[DEBUG] 2026-03-09 12:19:28.158 [main] TicketServiceImpl - All booked tickets successfully found by event {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 12:19'} with page size 1 and number of page 1
+[DEBUG] 2026-03-09 12:19:28.158 [main] TicketServiceImpl - Start canceling a ticket with id: 1
+[DEBUG] 2026-03-09 12:19:28.158 [main] TicketDAOImpl - Start deleting of the ticket with id: 1
+[DEBUG] 2026-03-09 12:19:28.158 [main] TicketDAOImpl - Successfully deletion of the ticket with id: 1
+[DEBUG] 2026-03-09 12:19:28.158 [main] TicketServiceImpl - Successfully canceling of the ticket with id: 1
+[DEBUG] 2026-03-09 12:19:28.158 [main] TicketServiceImpl - Finding all booked tickets by user {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'} with page size 1 and number of page 1
+[DEBUG] 2026-03-09 12:19:28.158 [main] TicketDAOImpl - Finding all booked tickets by user '{'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}' in the database using pagination
+[WARN ] 2026-03-09 12:19:28.159 [main] TicketServiceImpl - Can not to find a list of booked tickets by user '{'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}'
+ua.epam.mishchenko.ticketbooking.exception.DbException: List of all booked tickets by user {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'} is empty
+	at ua.epam.mishchenko.ticketbooking.dao.impl.TicketDAOImpl.getAllByUser(TicketDAOImpl.java:114) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.TicketServiceImpl.getBookedTickets(TicketServiceImpl.java:82) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl.getBookedTickets(BookingFacadeImpl.java:100) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImplTest.createUserThenCreateEventThenBookTicketForThisEventForUserAndThenCancelItShouldBeOk(BookingFacadeImplTest.java:57) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) ~[junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) ~[junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) ~[idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) ~[junit-rt.jar:?]
+[DEBUG] 2026-03-09 12:19:28.169 [main] TicketServiceImpl - Finding all booked tickets by event {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 12:19'} with page size 1 and number of page 1
+[DEBUG] 2026-03-09 12:19:28.170 [main] TicketDAOImpl - Finding all booked tickets by event '{'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 12:19'}' in the database using pagination
+[WARN ] 2026-03-09 12:19:28.170 [main] TicketServiceImpl - Can not to find a list of booked tickets by event '{'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 12:19'}'
+ua.epam.mishchenko.ticketbooking.exception.DbException: List of all booked tickets by event {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 12:19'} is empty
+	at ua.epam.mishchenko.ticketbooking.dao.impl.TicketDAOImpl.getAllByEvent(TicketDAOImpl.java:177) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.TicketServiceImpl.getBookedTickets(TicketServiceImpl.java:102) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl.getBookedTickets(BookingFacadeImpl.java:105) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImplTest.createUserThenCreateEventThenBookTicketForThisEventForUserAndThenCancelItShouldBeOk(BookingFacadeImplTest.java:58) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) ~[junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) ~[junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) ~[idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) ~[junit-rt.jar:?]
+[DEBUG] 2026-03-09 12:19:37.221 [main] EventServiceImpl - Start updating an event: null
+[WARN ] 2026-03-09 12:19:37.224 [main] EventServiceImpl - Can not to update an event: null
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:19:37.229 [main] EventServiceImpl - Finding an event by id: 10
+[WARN ] 2026-03-09 12:19:37.230 [main] EventServiceImpl - Can not to find an event by id: 10
+[DEBUG] 2026-03-09 12:19:37.236 [main] EventServiceImpl - Finding an event by id: 3
+[DEBUG] 2026-03-09 12:19:37.237 [main] EventServiceImpl - Event with id 3 successfully found 
+[DEBUG] 2026-03-09 12:19:37.239 [main] EventServiceImpl - Finding all events for day 2022-05-15T21:00:00.000+0300 with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:19:37.240 [main] EventServiceImpl - All events successfully found for day 2022-05-15T21:00:00.000+0300 with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:19:37.241 [main] EventServiceImpl - Start creating an event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 12:19:37.241 [main] EventServiceImpl - Successfully creation of the event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 12:19:37.243 [main] EventServiceImpl - Start updating an event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 12:19:37.243 [main] EventServiceImpl - Successfully updating of the event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 12:19:37.244 [main] EventServiceImpl - Finding all events by title not exists title with page size 1 and number of page 1
+[WARN ] 2026-03-09 12:19:37.245 [main] EventServiceImpl - Can not to find a list of events by title 'not exists title'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:19:37.246 [main] EventServiceImpl - Start deleting an event with id: 6
+[DEBUG] 2026-03-09 12:19:37.246 [main] EventServiceImpl - Successfully deletion of the event with id: 6
+[DEBUG] 2026-03-09 12:19:37.248 [main] EventServiceImpl - Finding all events for day 2000-05-15T21:00:00.000+0300 with page size 1 and number of page 1
+[WARN ] 2026-03-09 12:19:37.248 [main] EventServiceImpl - Can not to find a list of events for day 2000-05-15T21:00:00.000+0300
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:19:37.249 [main] EventServiceImpl - Start creating an event: null
+[WARN ] 2026-03-09 12:19:37.249 [main] EventServiceImpl - Can not to create an event: null
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:19:37.251 [main] EventServiceImpl - Start deleting an event with id: 10
+[WARN ] 2026-03-09 12:19:37.251 [main] EventServiceImpl - Can not to delete an event with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:19:37.253 [main] EventServiceImpl - Finding all events by title Third event with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:19:37.253 [main] EventServiceImpl - All events successfully found by title Third event with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:19:44.271 [main] TicketServiceImpl - Start booking a ticket for user with id 10, event with id event 10, place 20, category PREMIUM
+[DEBUG] 2026-03-09 12:19:44.274 [main] TicketServiceImpl - Successfully booking of the ticket: {'id' : 0, 'userId' : 10, 'eventId' : 10, 'place' : 20, 'category' : 'PREMIUM'}
+[DEBUG] 2026-03-09 12:19:49.932 [main] TicketServiceImpl - Start canceling a ticket with id: 6
+[DEBUG] 2026-03-09 12:19:49.935 [main] TicketServiceImpl - Successfully canceling of the ticket with id: 6
+[DEBUG] 2026-03-09 12:19:49.940 [main] TicketServiceImpl - Start booking a ticket for user with id 4, event with id event 1, place 10, category BAR
+[WARN ] 2026-03-09 12:19:49.941 [main] TicketServiceImpl - Can not to book a ticket for user with id 4, event with id 1, place 10, category BAR
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:19:49.946 [main] TicketServiceImpl - Finding all booked tickets by user {'id' : 1, 'name' : 'Alan', 'email' : 'alan@gmail.com'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:19:49.946 [main] TicketServiceImpl - All booked tickets successfully found by user {'id' : 1, 'name' : 'Alan', 'email' : 'alan@gmail.com'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:19:49.950 [main] TicketServiceImpl - Finding all booked tickets by event {'id' : 4, 'title' : 'Fourth event', 'date' : '15-05-2022 21:00'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:19:49.950 [main] TicketServiceImpl - All booked tickets successfully found by event {'id' : 4, 'title' : 'Fourth event', 'date' : '15-05-2022 21:00'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:19:49.951 [main] TicketServiceImpl - Finding all booked tickets by event null with page size 2 and number of page 1
+[WARN ] 2026-03-09 12:19:49.951 [main] TicketServiceImpl - Can not to find a list of booked tickets by event 'null'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:19:49.954 [main] TicketServiceImpl - Start booking a ticket for user with id 10, event with id event 10, place 20, category PREMIUM
+[DEBUG] 2026-03-09 12:19:49.955 [main] TicketServiceImpl - Successfully booking of the ticket: {'id' : 0, 'userId' : 10, 'eventId' : 10, 'place' : 20, 'category' : 'PREMIUM'}
+[DEBUG] 2026-03-09 12:19:49.956 [main] TicketServiceImpl - Start canceling a ticket with id: 10
+[WARN ] 2026-03-09 12:19:49.957 [main] TicketServiceImpl - Can not to cancel a ticket with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:19:49.958 [main] TicketServiceImpl - Finding all booked tickets by user null with page size 2 and number of page 1
+[WARN ] 2026-03-09 12:19:49.958 [main] TicketServiceImpl - Can not to find a list of booked tickets by user 'null'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:19:58.449 [main] UserAccountServiceImpl - Start getting a user account with userId: 3
+[DEBUG] 2026-03-09 12:19:58.453 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 3
+[DEBUG] 2026-03-09 12:19:58.455 [main] UserAccountServiceImpl - Start deleting a user account with userId: 6
+[DEBUG] 2026-03-09 12:19:58.455 [main] UserAccountServiceImpl - Successfully deleting userAccount for userId: 6
+[DEBUG] 2026-03-09 12:19:58.458 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[WARN ] 2026-03-09 12:19:58.458 [main] UserAccountServiceImpl - Can not to create a user account for user with id 3
+ua.epam.mishchenko.ticketbooking.exception.DbException: Account exists
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl.createUserAccount(UserAccountServiceImpl.java:29) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImplTest.createUserAccountWithExistsUserIdShouldReturnNull(UserAccountServiceImplTest.java:72) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1$1.evaluate(DefaultInternalRunner.java:55) ~[mockito-core-4.0.0.jar:?]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1.run(DefaultInternalRunner.java:100) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.DefaultInternalRunner.run(DefaultInternalRunner.java:107) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.StrictRunner.run(StrictRunner.java:41) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.junit.MockitoJUnitRunner.run(MockitoJUnitRunner.java:163) ~[mockito-core-4.0.0.jar:?]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) ~[junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) ~[junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) ~[idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) ~[junit-rt.jar:?]
+[DEBUG] 2026-03-09 12:19:58.464 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[DEBUG] 2026-03-09 12:19:58.464 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 3
+[DEBUG] 2026-03-09 12:19:58.467 [main] UserAccountServiceImpl - Start creating a user account with userId: -1
+[WARN ] 2026-03-09 12:19:58.467 [main] UserAccountServiceImpl - Can not to create a user account for user with id -1
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:19:58.468 [main] UserAccountServiceImpl - Start updating a user account with userId: 0
+[WARN ] 2026-03-09 12:19:58.469 [main] UserAccountServiceImpl - Can not to update a user account for user with id 0
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:19:58.470 [main] UserAccountServiceImpl - Start getting a user account with userId: 10
+[DEBUG] 2026-03-09 12:19:58.470 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 10
+[DEBUG] 2026-03-09 12:19:58.471 [main] UserAccountServiceImpl - Start deleting a user account with userId: 10
+[WARN ] 2026-03-09 12:19:58.471 [main] UserAccountServiceImpl - Can not to delete a user account for user with id 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:20:48.428 [main] EventServiceImpl - Start updating an event: null
+[WARN ] 2026-03-09 12:20:48.432 [main] EventServiceImpl - Can not to update an event: null
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:20:48.437 [main] EventServiceImpl - Finding an event by id: 10
+[WARN ] 2026-03-09 12:20:48.438 [main] EventServiceImpl - Can not to find an event by id: 10
+[DEBUG] 2026-03-09 12:20:48.443 [main] EventServiceImpl - Finding an event by id: 3
+[DEBUG] 2026-03-09 12:20:48.444 [main] EventServiceImpl - Event with id 3 successfully found 
+[DEBUG] 2026-03-09 12:20:48.446 [main] EventServiceImpl - Finding all events for day 2022-05-15T21:00:00.000+0300 with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:20:48.446 [main] EventServiceImpl - All events successfully found for day 2022-05-15T21:00:00.000+0300 with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:20:48.447 [main] EventServiceImpl - Start creating an event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 12:20:48.447 [main] EventServiceImpl - Successfully creation of the event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 12:20:48.448 [main] EventServiceImpl - Start updating an event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 12:20:48.449 [main] EventServiceImpl - Successfully updating of the event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 12:20:48.450 [main] EventServiceImpl - Finding all events by title not exists title with page size 1 and number of page 1
+[WARN ] 2026-03-09 12:20:48.451 [main] EventServiceImpl - Can not to find a list of events by title 'not exists title'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:20:48.452 [main] EventServiceImpl - Start deleting an event with id: 6
+[DEBUG] 2026-03-09 12:20:48.452 [main] EventServiceImpl - Successfully deletion of the event with id: 6
+[DEBUG] 2026-03-09 12:20:48.454 [main] EventServiceImpl - Finding all events for day 2000-05-15T21:00:00.000+0300 with page size 1 and number of page 1
+[WARN ] 2026-03-09 12:20:48.455 [main] EventServiceImpl - Can not to find a list of events for day 2000-05-15T21:00:00.000+0300
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:20:48.455 [main] EventServiceImpl - Start creating an event: null
+[WARN ] 2026-03-09 12:20:48.456 [main] EventServiceImpl - Can not to create an event: null
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:20:48.457 [main] EventServiceImpl - Start deleting an event with id: 10
+[WARN ] 2026-03-09 12:20:48.457 [main] EventServiceImpl - Can not to delete an event with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:20:48.458 [main] EventServiceImpl - Finding all events by title Third event with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:20:48.459 [main] EventServiceImpl - All events successfully found by title Third event with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:20:54.261 [main] TicketServiceImpl - Start canceling a ticket with id: 6
+[DEBUG] 2026-03-09 12:20:54.264 [main] TicketServiceImpl - Successfully canceling of the ticket with id: 6
+[DEBUG] 2026-03-09 12:20:54.270 [main] TicketServiceImpl - Start booking a ticket for user with id 4, event with id event 1, place 10, category BAR
+[WARN ] 2026-03-09 12:20:54.271 [main] TicketServiceImpl - Can not to book a ticket for user with id 4, event with id 1, place 10, category BAR
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:20:54.275 [main] TicketServiceImpl - Finding all booked tickets by user {'id' : 1, 'name' : 'Alan', 'email' : 'alan@gmail.com'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:20:54.275 [main] TicketServiceImpl - All booked tickets successfully found by user {'id' : 1, 'name' : 'Alan', 'email' : 'alan@gmail.com'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:20:54.278 [main] TicketServiceImpl - Finding all booked tickets by event {'id' : 4, 'title' : 'Fourth event', 'date' : '15-05-2022 21:00'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:20:54.279 [main] TicketServiceImpl - All booked tickets successfully found by event {'id' : 4, 'title' : 'Fourth event', 'date' : '15-05-2022 21:00'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:20:54.281 [main] TicketServiceImpl - Finding all booked tickets by event null with page size 2 and number of page 1
+[WARN ] 2026-03-09 12:20:54.281 [main] TicketServiceImpl - Can not to find a list of booked tickets by event 'null'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:20:54.284 [main] TicketServiceImpl - Start booking a ticket for user with id 10, event with id event 10, place 20, category PREMIUM
+[DEBUG] 2026-03-09 12:20:54.285 [main] TicketServiceImpl - Successfully booking of the ticket: {'id' : 0, 'userId' : 10, 'eventId' : 10, 'place' : 20, 'category' : 'PREMIUM'}
+[DEBUG] 2026-03-09 12:20:54.286 [main] TicketServiceImpl - Start canceling a ticket with id: 10
+[WARN ] 2026-03-09 12:20:54.287 [main] TicketServiceImpl - Can not to cancel a ticket with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:20:54.288 [main] TicketServiceImpl - Finding all booked tickets by user null with page size 2 and number of page 1
+[WARN ] 2026-03-09 12:20:54.288 [main] TicketServiceImpl - Can not to find a list of booked tickets by user 'null'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:21:02.262 [main] UserServiceImpl - Finding a user by id: 10
+[WARN ] 2026-03-09 12:21:02.266 [main] UserServiceImpl - Can not to get an user by id: 10
+[DEBUG] 2026-03-09 12:21:02.270 [main] UserServiceImpl - Finding a user by email: max@gmail.com
+[DEBUG] 2026-03-09 12:21:02.270 [main] UserServiceImpl - The user with email max@gmail.com successfully found 
+[DEBUG] 2026-03-09 12:21:02.272 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Max', 'email' : 'max@gmail.com'}
+[WARN ] 2026-03-09 12:21:02.272 [main] UserServiceImpl - Can not to create an user: {'id' : 0, 'name' : 'Max', 'email' : 'max@gmail.com'}
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:21:02.275 [main] UserServiceImpl - Start creating an user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 12:21:02.276 [main] UserServiceImpl - Successfully creation of the user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 12:21:02.277 [main] UserServiceImpl - Start updating an user: null
+[WARN ] 2026-03-09 12:21:02.277 [main] UserServiceImpl - Can not to update an user: null
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:21:02.278 [main] UserServiceImpl - Finding a user by email: notexists@gmail.com
+[WARN ] 2026-03-09 12:21:02.279 [main] UserServiceImpl - Can not to get an user by email: notexists@gmail.com
+[DEBUG] 2026-03-09 12:21:02.280 [main] UserServiceImpl - Finding all users by name Not exists with page size 1 and number of page 1
+[WARN ] 2026-03-09 12:21:02.280 [main] UserServiceImpl - Can not to find a list of users by name 'Not exists'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:21:02.281 [main] UserServiceImpl - Start deleting an user with id: 2
+[DEBUG] 2026-03-09 12:21:02.282 [main] UserServiceImpl - Successfully deletion of the user with id: 2
+[DEBUG] 2026-03-09 12:21:02.284 [main] UserServiceImpl - Finding all users by name Max with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:21:02.284 [main] UserServiceImpl - All users successfully found by name Max with page size 2 and number of page 1
+[DEBUG] 2026-03-09 12:21:02.285 [main] UserServiceImpl - Finding a user by id: 3
+[DEBUG] 2026-03-09 12:21:02.285 [main] UserServiceImpl - The user with id 3 successfully found 
+[DEBUG] 2026-03-09 12:21:02.286 [main] UserServiceImpl - Start updating an user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 12:21:02.286 [main] UserServiceImpl - Successfully updating of the user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 12:21:02.288 [main] UserServiceImpl - Start deleting an user with id: 10
+[WARN ] 2026-03-09 12:21:02.288 [main] UserServiceImpl - Can not to delete an user with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:21:11.865 [main] UserAccountServiceImpl - Start getting a user account with userId: 3
+[DEBUG] 2026-03-09 12:21:11.869 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 3
+[DEBUG] 2026-03-09 12:21:11.872 [main] UserAccountServiceImpl - Start deleting a user account with userId: 6
+[DEBUG] 2026-03-09 12:21:11.873 [main] UserAccountServiceImpl - Successfully deleting userAccount for userId: 6
+[DEBUG] 2026-03-09 12:21:11.875 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[WARN ] 2026-03-09 12:21:11.875 [main] UserAccountServiceImpl - Can not to create a user account for user with id 3
+ua.epam.mishchenko.ticketbooking.exception.DbException: Account exists
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl.createUserAccount(UserAccountServiceImpl.java:29) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImplTest.createUserAccountWithExistsUserIdShouldReturnNull(UserAccountServiceImplTest.java:72) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1$1.evaluate(DefaultInternalRunner.java:55) ~[mockito-core-4.0.0.jar:?]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1.run(DefaultInternalRunner.java:100) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.DefaultInternalRunner.run(DefaultInternalRunner.java:107) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.StrictRunner.run(StrictRunner.java:41) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.junit.MockitoJUnitRunner.run(MockitoJUnitRunner.java:163) ~[mockito-core-4.0.0.jar:?]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) ~[junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) ~[junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) ~[idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) ~[junit-rt.jar:?]
+[DEBUG] 2026-03-09 12:21:11.880 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[DEBUG] 2026-03-09 12:21:11.881 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 3
+[DEBUG] 2026-03-09 12:21:11.884 [main] UserAccountServiceImpl - Start creating a user account with userId: -1
+[WARN ] 2026-03-09 12:21:11.884 [main] UserAccountServiceImpl - Can not to create a user account for user with id -1
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:21:11.885 [main] UserAccountServiceImpl - Start updating a user account with userId: 0
+[WARN ] 2026-03-09 12:21:11.886 [main] UserAccountServiceImpl - Can not to update a user account for user with id 0
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:21:11.887 [main] UserAccountServiceImpl - Start getting a user account with userId: 10
+[DEBUG] 2026-03-09 12:21:11.887 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 10
+[DEBUG] 2026-03-09 12:21:11.888 [main] UserAccountServiceImpl - Start deleting a user account with userId: 10
+[WARN ] 2026-03-09 12:21:11.888 [main] UserAccountServiceImpl - Can not to delete a user account for user with id 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:22:57.135 [main] UserAccountServiceImpl - Start getting a user account with userId: 10
+[WARN ] 2026-03-09 12:22:57.139 [main] UserAccountServiceImpl - Can not to get a user account for user with id 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:23:04.430 [main] UserAccountServiceImpl - Start getting a user account with userId: 3
+[DEBUG] 2026-03-09 12:23:04.435 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 3
+[DEBUG] 2026-03-09 12:23:04.437 [main] UserAccountServiceImpl - Start deleting a user account with userId: 6
+[DEBUG] 2026-03-09 12:23:04.437 [main] UserAccountServiceImpl - Successfully deleting userAccount for userId: 6
+[DEBUG] 2026-03-09 12:23:04.440 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[WARN ] 2026-03-09 12:23:04.440 [main] UserAccountServiceImpl - Can not to create a user account for user with id 3
+ua.epam.mishchenko.ticketbooking.exception.DbException: Account exists
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl.createUserAccount(UserAccountServiceImpl.java:29) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImplTest.createUserAccountWithExistsUserIdShouldReturnNull(UserAccountServiceImplTest.java:72) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1$1.evaluate(DefaultInternalRunner.java:55) ~[mockito-core-4.0.0.jar:?]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1.run(DefaultInternalRunner.java:100) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.DefaultInternalRunner.run(DefaultInternalRunner.java:107) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.StrictRunner.run(StrictRunner.java:41) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.junit.MockitoJUnitRunner.run(MockitoJUnitRunner.java:163) ~[mockito-core-4.0.0.jar:?]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) ~[junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) ~[junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) ~[idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) ~[junit-rt.jar:?]
+[DEBUG] 2026-03-09 12:23:04.445 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[DEBUG] 2026-03-09 12:23:04.446 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 3
+[DEBUG] 2026-03-09 12:23:04.448 [main] UserAccountServiceImpl - Start creating a user account with userId: -1
+[WARN ] 2026-03-09 12:23:04.448 [main] UserAccountServiceImpl - Can not to create a user account for user with id -1
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:23:04.449 [main] UserAccountServiceImpl - Start updating a user account with userId: 0
+[WARN ] 2026-03-09 12:23:04.450 [main] UserAccountServiceImpl - Can not to update a user account for user with id 0
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:23:04.451 [main] UserAccountServiceImpl - Start getting a user account with userId: 10
+[WARN ] 2026-03-09 12:23:04.451 [main] UserAccountServiceImpl - Can not to get a user account for user with id 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 12:23:04.452 [main] UserAccountServiceImpl - Start deleting a user account with userId: 10
+[WARN ] 2026-03-09 12:23:04.452 [main] UserAccountServiceImpl - Can not to delete a user account for user with id 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[INFO ] 2026-03-09 15:38:01.154 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.db.Storage during initialization
+[INFO ] 2026-03-09 15:38:01.155 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: inserting prepared data in bean of type ua.epam.mishchenko.ticketbooking.db.Storage
+[INFO ] 2026-03-09 15:38:01.159 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: successfully inserting prepared data in bean of type ua.epam.mishchenko.ticketbooking.db.Storage
+[INFO ] 2026-03-09 15:38:01.161 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.dao.impl.EventDAOImpl during initialization
+[INFO ] 2026-03-09 15:38:01.164 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.dao.impl.TicketDAOImpl during initialization
+[INFO ] 2026-03-09 15:38:01.167 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl during initialization
+[INFO ] 2026-03-09 15:38:01.169 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.service.impl.EventServiceImpl during initialization
+[INFO ] 2026-03-09 15:38:01.181 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.service.impl.TicketServiceImpl during initialization
+[INFO ] 2026-03-09 15:38:01.183 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl during initialization
+[DEBUG] 2026-03-09 15:46:55.196 [main] UserAccountServiceImpl - Start getting a user account with userId: 3
+[DEBUG] 2026-03-09 15:46:55.200 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 3
+[DEBUG] 2026-03-09 15:46:55.203 [main] UserAccountServiceImpl - Start deleting a user account with userId: 6
+[DEBUG] 2026-03-09 15:46:55.203 [main] UserAccountServiceImpl - Successfully deleting userAccount for userId: 6
+[DEBUG] 2026-03-09 15:46:55.205 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[WARN ] 2026-03-09 15:46:55.206 [main] UserAccountServiceImpl - Can not to create a user account for user with id 3
+ua.epam.mishchenko.ticketbooking.exception.DbException: Account exists
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl.createUserAccount(UserAccountServiceImpl.java:29) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImplTest.createUserAccountWithExistsUserIdShouldReturnNull(UserAccountServiceImplTest.java:71) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1$1.evaluate(DefaultInternalRunner.java:55) ~[mockito-core-4.0.0.jar:?]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1.run(DefaultInternalRunner.java:100) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.DefaultInternalRunner.run(DefaultInternalRunner.java:107) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.StrictRunner.run(StrictRunner.java:41) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.junit.MockitoJUnitRunner.run(MockitoJUnitRunner.java:163) ~[mockito-core-4.0.0.jar:?]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) ~[junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) ~[junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) ~[idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) ~[junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) ~[junit-rt.jar:?]
+[DEBUG] 2026-03-09 15:46:55.211 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[DEBUG] 2026-03-09 15:46:55.211 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 3
+[DEBUG] 2026-03-09 15:46:55.214 [main] UserAccountServiceImpl - Start creating a user account with userId: -1
+[WARN ] 2026-03-09 15:46:55.214 [main] UserAccountServiceImpl - Can not to create a user account for user with id -1
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 15:46:55.216 [main] UserAccountServiceImpl - Start updating a user account with userId: 0
+[WARN ] 2026-03-09 15:46:55.216 [main] UserAccountServiceImpl - Can not to update a user account for user with id 0
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 15:46:55.217 [main] UserAccountServiceImpl - Start getting a user account with userId: 10
+[WARN ] 2026-03-09 15:46:55.218 [main] UserAccountServiceImpl - Can not to get a user account for user with id 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 15:46:55.219 [main] UserAccountServiceImpl - Start deleting a user account with userId: 10
+[WARN ] 2026-03-09 15:46:55.219 [main] UserAccountServiceImpl - Can not to delete a user account for user with id 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:23:47.300 [main] UserAccountDAOImpl - Start inserting of the user account: null
+[DEBUG] 2026-03-09 17:23:47.310 [main] UserAccountDAOImpl - Start retrieving  user account for user id: 3
+[DEBUG] 2026-03-09 17:23:47.319 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=3, balance=5000000.0}
+[DEBUG] 2026-03-09 17:23:47.320 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=3, balance=5000000.0}
+[DEBUG] 2026-03-09 17:23:47.320 [main] UserAccountDAOImpl - Finding a user_account by id: 3
+[DEBUG] 2026-03-09 17:23:47.320 [main] UserAccountDAOImpl - The user_account with id 3 successfully found 
+[DEBUG] 2026-03-09 17:23:47.322 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=3, balance=200.0}
+[DEBUG] 2026-03-09 17:23:47.323 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=3, balance=200.0}
+[DEBUG] 2026-03-09 17:23:47.323 [main] UserAccountDAOImpl - Finding a user_account by id: 3
+[DEBUG] 2026-03-09 17:23:47.323 [main] UserAccountDAOImpl - The user_account with id 3 successfully found 
+[DEBUG] 2026-03-09 17:23:47.325 [main] UserAccountDAOImpl - Start inserting of the user account: null
+[DEBUG] 2026-03-09 17:23:47.329 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=3, balance=0.0}
+[DEBUG] 2026-03-09 17:23:47.329 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=3, balance=0.0}
+[DEBUG] 2026-03-09 17:23:47.329 [main] UserAccountDAOImpl - Finding a user_account by id: 3
+[DEBUG] 2026-03-09 17:23:47.329 [main] UserAccountDAOImpl - The user_account with id 3 successfully found 
+[DEBUG] 2026-03-09 17:23:47.332 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=5, balance=0.0}
+[DEBUG] 2026-03-09 17:23:47.332 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=5, balance=0.0}
+[DEBUG] 2026-03-09 17:23:47.334 [main] UserAccountDAOImpl - Start updating of the user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 17:23:47.337 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=6, balance=0.0}
+[DEBUG] 2026-03-09 17:23:47.337 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=6, balance=0.0}
+[DEBUG] 2026-03-09 17:23:47.338 [main] UserAccountDAOImpl - Start deleting of the user account with user id: 6
+[DEBUG] 2026-03-09 17:23:47.338 [main] UserAccountDAOImpl - Successfully deleted user account with user id: 6
+[DEBUG] 2026-03-09 17:23:47.343 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 17:23:47.343 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 17:23:47.343 [main] UserAccountDAOImpl - Finding a user_account by id: 1
+[DEBUG] 2026-03-09 17:23:47.343 [main] UserAccountDAOImpl - The user_account with id 1 successfully found 
+[DEBUG] 2026-03-09 17:23:47.344 [main] UserAccountDAOImpl - Start updating of the user account: UserAccountImpl{userId=1, balance=100.0}
+[DEBUG] 2026-03-09 17:23:47.344 [main] UserAccountDAOImpl - Successfully updated user account: UserAccountImpl{userId=1, balance=100.0}
+[DEBUG] 2026-03-09 17:23:47.347 [main] UserAccountDAOImpl - Start deleting of the user account with user id: 10
+[DEBUG] 2026-03-09 17:27:56.506 [main] EventDAOImpl - Start inserting of the event: {'id' : 0, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 17:27:56.514 [main] EventDAOImpl - Finding an event by id: 1
+[DEBUG] 2026-03-09 17:27:56.515 [main] EventDAOImpl - Event with id 1 successfully found 
+[DEBUG] 2026-03-09 17:27:56.516 [main] EventDAOImpl - Start updating of the event: {'id' : 1, 'title' : 'Test title', 'date' : '18-05-2022 15:30'}
+[DEBUG] 2026-03-09 17:27:56.516 [main] EventDAOImpl - Successfully update of the event: {'id' : 1, 'title' : 'Test title', 'date' : '18-05-2022 15:30'}
+[DEBUG] 2026-03-09 17:27:56.519 [main] EventDAOImpl - Start deleting of the event with id: 10
+[DEBUG] 2026-03-09 17:27:56.525 [main] EventDAOImpl - Finding an event by id: 10
+[WARN ] 2026-03-09 17:27:56.525 [main] EventDAOImpl - Can not to find an event by id: 10
+[DEBUG] 2026-03-09 17:27:56.529 [main] EventDAOImpl - Finding all events for day 2022-05-15T21:00:00.000+0300 in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.530 [main] EventDAOImpl - All events successfully found for day '2022-05-15T21:00:00.000+0300' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.532 [main] EventDAOImpl - Finding an event by id: 3
+[DEBUG] 2026-03-09 17:27:56.533 [main] EventDAOImpl - Event with id 3 successfully found 
+[DEBUG] 2026-03-09 17:27:56.538 [main] EventDAOImpl - Start inserting of the event: {'id' : 0, 'title' : 'Test title', 'date' : '09-03-2026 17:27'}
+[DEBUG] 2026-03-09 17:27:56.539 [main] EventDAOImpl - Successfully insertion of the event: {'id' : 7, 'title' : 'Test title', 'date' : '09-03-2026 17:27'}
+[DEBUG] 2026-03-09 17:27:56.542 [main] EventDAOImpl - Start updating of the event: null
+[DEBUG] 2026-03-09 17:27:56.544 [main] EventDAOImpl - Finding all events for day 2022-05-15T21:00:00.000+0300 in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.547 [main] EventDAOImpl - Start updating of the event: {'id' : 10, 'title' : 'Test User', 'date' : '09-03-2026 17:27'}
+[DEBUG] 2026-03-09 17:27:56.551 [main] EventDAOImpl - Start deleting of the event with id: 6
+[DEBUG] 2026-03-09 17:27:56.551 [main] EventDAOImpl - Successfully deletion of the event with id: 6
+[DEBUG] 2026-03-09 17:27:56.554 [main] EventDAOImpl - Finding all events by title 'Third event' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.558 [main] EventDAOImpl - Finding all events for day 2000-05-15T21:00:00.000+0300 in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.570 [main] EventDAOImpl - Finding all events by title 'Third event' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.573 [main] EventDAOImpl - Finding all events by title 'Third event' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.575 [main] EventDAOImpl - All events successfully found by title 'Third event' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.577 [main] EventDAOImpl - Start inserting of the event: null
+[DEBUG] 2026-03-09 17:27:56.580 [main] EventDAOImpl - Finding all events for day 2022-05-15T21:00:00.000+0300 in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.584 [main] EventDAOImpl - Finding all events by title 'not exists title' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.592 [main] TicketDAOImpl - Start deleting of the ticket with id: 10
+[DEBUG] 2026-03-09 17:27:56.595 [main] TicketDAOImpl - Finding all tickets in the database
+[DEBUG] 2026-03-09 17:27:56.597 [main] TicketDAOImpl - All tickets successfully found
+[DEBUG] 2026-03-09 17:27:56.600 [main] TicketDAOImpl - Finding a ticket by id: 10
+[WARN ] 2026-03-09 17:27:56.600 [main] TicketDAOImpl - Can not to find a ticket by id: 10
+[DEBUG] 2026-03-09 17:27:56.604 [main] TicketDAOImpl - Finding a ticket by id: 5
+[DEBUG] 2026-03-09 17:27:56.605 [main] TicketDAOImpl - The ticket with id 5 successfully found 
+[DEBUG] 2026-03-09 17:27:56.608 [main] TicketDAOImpl - Start deleting of the ticket with id: 6
+[DEBUG] 2026-03-09 17:27:56.609 [main] TicketDAOImpl - Successfully deletion of the ticket with id: 6
+[DEBUG] 2026-03-09 17:27:56.612 [main] TicketDAOImpl - Finding all booked tickets by event '[!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@687eb455=>java.lang.NullPointerException:date must not be null!!!]' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.614 [main] TicketDAOImpl - All booked tickets successfully found by event [!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@687eb455=>java.lang.NullPointerException:date must not be null!!!] in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.622 [main] TicketDAOImpl - Start updating of the ticket: {'id' : 10, 'userId' : 10, 'eventId' : 10, 'place' : 100, 'category' : 'BAR'}
+[DEBUG] 2026-03-09 17:27:56.626 [main] TicketDAOImpl - Start inserting of the ticket: null
+[DEBUG] 2026-03-09 17:27:56.628 [main] TicketDAOImpl - Finding a ticket by id: 5
+[DEBUG] 2026-03-09 17:27:56.628 [main] TicketDAOImpl - The ticket with id 5 successfully found 
+[DEBUG] 2026-03-09 17:27:56.628 [main] TicketDAOImpl - Start updating of the ticket: {'id' : 5, 'userId' : 5, 'eventId' : 1, 'place' : 11, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 17:27:56.628 [main] TicketDAOImpl - Successfully update of the ticket: {'id' : 5, 'userId' : 5, 'eventId' : 1, 'place' : 11, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 17:27:56.630 [main] TicketDAOImpl - Finding all booked tickets by event '[!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@63124022=>java.lang.NullPointerException:date must not be null!!!]' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.635 [main] TicketDAOImpl - Finding all booked tickets by user '{'id' : 1, 'name' : 'null', 'email' : 'null'}' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.636 [main] TicketDAOImpl - Start inserting of the ticket: {'id' : 0, 'userId' : 5, 'eventId' : 4, 'place' : 20, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 17:27:56.637 [main] TicketDAOImpl - Finding all booked tickets by event '{'id' : 100, 'title' : 'null', 'date' : '09-03-2026 17:27'}' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.640 [main] TicketDAOImpl - Finding all booked tickets by user '{'id' : 1, 'name' : 'null', 'email' : 'null'}' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.640 [main] TicketDAOImpl - All booked tickets successfully found by user {'id' : 1, 'name' : 'null', 'email' : 'null'} in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.642 [main] TicketDAOImpl - Start updating of the ticket: null
+[DEBUG] 2026-03-09 17:27:56.645 [main] TicketDAOImpl - Start inserting of the ticket: {'id' : 0, 'userId' : 5, 'eventId' : 3, 'place' : 20, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 17:27:56.645 [main] TicketDAOImpl - Successfully insertion of the ticket: {'id' : 7, 'userId' : 5, 'eventId' : 3, 'place' : 20, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 17:27:56.648 [main] TicketDAOImpl - Finding all booked tickets by user '{'id' : 100, 'name' : 'null', 'email' : 'null'}' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.653 [main] UserAccountDAOImpl - Start inserting of the user account: null
+[DEBUG] 2026-03-09 17:27:56.655 [main] UserAccountDAOImpl - Start retrieving  user account for user id: 3
+[DEBUG] 2026-03-09 17:27:56.659 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=3, balance=5000000.0}
+[DEBUG] 2026-03-09 17:27:56.659 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=3, balance=5000000.0}
+[DEBUG] 2026-03-09 17:27:56.659 [main] UserAccountDAOImpl - Finding a user_account by id: 3
+[DEBUG] 2026-03-09 17:27:56.660 [main] UserAccountDAOImpl - The user_account with id 3 successfully found 
+[DEBUG] 2026-03-09 17:27:56.661 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=3, balance=200.0}
+[DEBUG] 2026-03-09 17:27:56.661 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=3, balance=200.0}
+[DEBUG] 2026-03-09 17:27:56.661 [main] UserAccountDAOImpl - Finding a user_account by id: 3
+[DEBUG] 2026-03-09 17:27:56.661 [main] UserAccountDAOImpl - The user_account with id 3 successfully found 
+[DEBUG] 2026-03-09 17:27:56.663 [main] UserAccountDAOImpl - Start inserting of the user account: null
+[DEBUG] 2026-03-09 17:27:56.666 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=3, balance=0.0}
+[DEBUG] 2026-03-09 17:27:56.666 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=3, balance=0.0}
+[DEBUG] 2026-03-09 17:27:56.666 [main] UserAccountDAOImpl - Finding a user_account by id: 3
+[DEBUG] 2026-03-09 17:27:56.667 [main] UserAccountDAOImpl - The user_account with id 3 successfully found 
+[DEBUG] 2026-03-09 17:27:56.670 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=5, balance=0.0}
+[DEBUG] 2026-03-09 17:27:56.670 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=5, balance=0.0}
+[DEBUG] 2026-03-09 17:27:56.674 [main] UserAccountDAOImpl - Start updating of the user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 17:27:56.676 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=6, balance=0.0}
+[DEBUG] 2026-03-09 17:27:56.676 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=6, balance=0.0}
+[DEBUG] 2026-03-09 17:27:56.676 [main] UserAccountDAOImpl - Start deleting of the user account with user id: 6
+[DEBUG] 2026-03-09 17:27:56.677 [main] UserAccountDAOImpl - Successfully deleted user account with user id: 6
+[DEBUG] 2026-03-09 17:27:56.679 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 17:27:56.679 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 17:27:56.679 [main] UserAccountDAOImpl - Finding a user_account by id: 1
+[DEBUG] 2026-03-09 17:27:56.679 [main] UserAccountDAOImpl - The user_account with id 1 successfully found 
+[DEBUG] 2026-03-09 17:27:56.679 [main] UserAccountDAOImpl - Start updating of the user account: UserAccountImpl{userId=1, balance=100.0}
+[DEBUG] 2026-03-09 17:27:56.680 [main] UserAccountDAOImpl - Successfully updated user account: UserAccountImpl{userId=1, balance=100.0}
+[DEBUG] 2026-03-09 17:27:56.682 [main] UserAccountDAOImpl - Start deleting of the user account with user id: 10
+[DEBUG] 2026-03-09 17:27:56.688 [main] UserDAOImpl - Start inserting of the user: null
+[DEBUG] 2026-03-09 17:27:56.690 [main] UserDAOImpl - Start deleting of the user with id: 2
+[DEBUG] 2026-03-09 17:27:56.690 [main] UserDAOImpl - Successfully deletion of the user with id: 2
+[DEBUG] 2026-03-09 17:27:56.693 [main] UserDAOImpl - Finding all users in the database
+[DEBUG] 2026-03-09 17:27:56.694 [main] UserDAOImpl - All users successfully found
+[DEBUG] 2026-03-09 17:27:56.696 [main] UserDAOImpl - Finding all users by name 'Alex' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.697 [main] UserDAOImpl - All users successfully found by name 'Alex' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.699 [main] UserDAOImpl - Finding a user by id: 10
+[WARN ] 2026-03-09 17:27:56.699 [main] UserDAOImpl - Can not to find a user by id: 10
+[DEBUG] 2026-03-09 17:27:56.702 [main] UserDAOImpl - Finding a user by email: notexists@gmail.com
+[WARN ] 2026-03-09 17:27:56.703 [main] UserDAOImpl - Can not to find a user by email: notexists@gmail.com
+[DEBUG] 2026-03-09 17:27:56.705 [main] UserDAOImpl - Finding a user by id: 3
+[DEBUG] 2026-03-09 17:27:56.706 [main] UserDAOImpl - The user with id 3 successfully found 
+[DEBUG] 2026-03-09 17:27:56.708 [main] UserDAOImpl - Finding all users by name 'Not exists' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.710 [main] UserDAOImpl - Start updating of the user: null
+[DEBUG] 2026-03-09 17:27:56.712 [main] UserDAOImpl - Finding all users by name 'Alex' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.714 [main] UserDAOImpl - Start deleting of the user with id: 10
+[DEBUG] 2026-03-09 17:27:56.716 [main] UserDAOImpl - Finding a user by email: max@gmail.com
+[DEBUG] 2026-03-09 17:27:56.716 [main] UserDAOImpl - The user with email max@gmail.com successfully found 
+[DEBUG] 2026-03-09 17:27:56.718 [main] UserDAOImpl - Start updating of the user: {'id' : 10, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.721 [main] UserDAOImpl - Start inserting of the user: {'id' : 0, 'name' : 'Max', 'email' : 'max@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.724 [main] UserDAOImpl - Finding a user by id: 1
+[DEBUG] 2026-03-09 17:27:56.724 [main] UserDAOImpl - The user with id 1 successfully found 
+[DEBUG] 2026-03-09 17:27:56.724 [main] UserDAOImpl - Start updating of the user: {'id' : 1, 'name' : 'Test name', 'email' : 'alan@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.724 [main] UserDAOImpl - Successfully update of the user: {'id' : 1, 'name' : 'Test name', 'email' : 'alan@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.725 [main] UserDAOImpl - Start inserting of the user: {'id' : 0, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.726 [main] UserDAOImpl - Successfully insertion of the user: {'id' : 7, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.729 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.729 [main] UserDAOImpl - Start inserting of the user: {'id' : 0, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.729 [main] UserDAOImpl - Successfully insertion of the user: {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.729 [main] UserServiceImpl - Successfully creation of the user: {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.729 [main] UserServiceImpl - Finding a user by id: 1
+[DEBUG] 2026-03-09 17:27:56.729 [main] UserDAOImpl - Finding a user by id: 1
+[DEBUG] 2026-03-09 17:27:56.729 [main] UserDAOImpl - The user with id 1 successfully found 
+[DEBUG] 2026-03-09 17:27:56.729 [main] UserServiceImpl - The user with id 1 successfully found 
+[DEBUG] 2026-03-09 17:27:56.729 [main] UserAccountServiceImpl - Start creating a user account with userId: 1
+[DEBUG] 2026-03-09 17:27:56.730 [main] UserAccountDAOImpl - Start inserting of the user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 17:27:56.730 [main] UserAccountDAOImpl - Successfully inserted user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 17:27:56.730 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 1
+[DEBUG] 2026-03-09 17:27:56.730 [main] EventServiceImpl - Start creating an event: {'id' : 0, 'title' : 'Integration Event', 'date' : '09-03-2026 17:27'}
+[DEBUG] 2026-03-09 17:27:56.730 [main] EventDAOImpl - Start inserting of the event: {'id' : 0, 'title' : 'Integration Event', 'date' : '09-03-2026 17:27'}
+[DEBUG] 2026-03-09 17:27:56.730 [main] EventDAOImpl - Successfully insertion of the event: {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 17:27'}
+[DEBUG] 2026-03-09 17:27:56.730 [main] EventServiceImpl - Successfully creation of the event: {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 17:27'}
+[DEBUG] 2026-03-09 17:27:56.730 [main] EventServiceImpl - Finding an event by id: 1
+[DEBUG] 2026-03-09 17:27:56.730 [main] EventDAOImpl - Finding an event by id: 1
+[DEBUG] 2026-03-09 17:27:56.730 [main] EventDAOImpl - Event with id 1 successfully found 
+[DEBUG] 2026-03-09 17:27:56.730 [main] EventServiceImpl - Event with id 1 successfully found 
+[DEBUG] 2026-03-09 17:27:56.730 [main] TicketServiceImpl - Start booking a ticket for user with id 1, event with id event 1, place 10, category STANDARD
+[DEBUG] 2026-03-09 17:27:56.730 [main] EventDAOImpl - Finding an event by id: 1
+[DEBUG] 2026-03-09 17:27:56.730 [main] EventDAOImpl - Event with id 1 successfully found 
+[DEBUG] 2026-03-09 17:27:56.730 [main] UserAccountDAOImpl - Start retrieving  user account for user id: 1
+[DEBUG] 2026-03-09 17:27:56.731 [main] UserAccountDAOImpl - Start updating of the user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 17:27:56.731 [main] UserAccountDAOImpl - Successfully updated user account: UserAccountImpl{userId=1, balance=0.0}
+[DEBUG] 2026-03-09 17:27:56.731 [main] TicketDAOImpl - Start inserting of the ticket: {'id' : 0, 'userId' : 1, 'eventId' : 1, 'place' : 10, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 17:27:56.731 [main] TicketDAOImpl - Successfully insertion of the ticket: {'id' : 1, 'userId' : 1, 'eventId' : 1, 'place' : 10, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 17:27:56.731 [main] TicketServiceImpl - Successfully booking of the ticket: {'id' : 1, 'userId' : 1, 'eventId' : 1, 'place' : 10, 'category' : 'STANDARD'}
+[DEBUG] 2026-03-09 17:27:56.731 [main] TicketServiceImpl - Finding all booked tickets by user {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'} with page size 1 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.731 [main] TicketDAOImpl - Finding all booked tickets by user '{'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.731 [main] TicketDAOImpl - All booked tickets successfully found by user {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'} in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.731 [main] TicketServiceImpl - All booked tickets successfully found by user {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'} with page size 1 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.731 [main] TicketServiceImpl - Finding all booked tickets by event {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 17:27'} with page size 1 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.732 [main] TicketDAOImpl - Finding all booked tickets by event '{'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 17:27'}' in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.732 [main] TicketDAOImpl - All booked tickets successfully found by event {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 17:27'} in the database using pagination
+[DEBUG] 2026-03-09 17:27:56.732 [main] TicketServiceImpl - All booked tickets successfully found by event {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 17:27'} with page size 1 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.732 [main] TicketServiceImpl - Start canceling a ticket with id: 1
+[DEBUG] 2026-03-09 17:27:56.732 [main] TicketDAOImpl - Start deleting of the ticket with id: 1
+[DEBUG] 2026-03-09 17:27:56.732 [main] TicketDAOImpl - Successfully deletion of the ticket with id: 1
+[DEBUG] 2026-03-09 17:27:56.732 [main] TicketServiceImpl - Successfully canceling of the ticket with id: 1
+[DEBUG] 2026-03-09 17:27:56.732 [main] TicketServiceImpl - Finding all booked tickets by user {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'} with page size 1 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.732 [main] TicketDAOImpl - Finding all booked tickets by user '{'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}' in the database using pagination
+[WARN ] 2026-03-09 17:27:56.732 [main] TicketServiceImpl - Can not to find a list of booked tickets by user '{'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'}'
+ua.epam.mishchenko.ticketbooking.exception.DbException: List of all booked tickets by user {'id' : 1, 'name' : 'Andrii', 'email' : 'andrii@gmail.com'} is empty
+	at ua.epam.mishchenko.ticketbooking.dao.impl.TicketDAOImpl.getAllByUser(TicketDAOImpl.java:114) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.TicketServiceImpl.getBookedTickets(TicketServiceImpl.java:82) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl.getBookedTickets(BookingFacadeImpl.java:100) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImplTest.createUserThenCreateEventThenBookTicketForThisEventForUserAndThenCancelItShouldBeOk(BookingFacadeImplTest.java:54) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) ~[surefire-booter-2.22.1.jar:2.22.1]
+[DEBUG] 2026-03-09 17:27:56.733 [main] TicketServiceImpl - Finding all booked tickets by event {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 17:27'} with page size 1 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.733 [main] TicketDAOImpl - Finding all booked tickets by event '{'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 17:27'}' in the database using pagination
+[WARN ] 2026-03-09 17:27:56.733 [main] TicketServiceImpl - Can not to find a list of booked tickets by event '{'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 17:27'}'
+ua.epam.mishchenko.ticketbooking.exception.DbException: List of all booked tickets by event {'id' : 1, 'title' : 'Integration Event', 'date' : '09-03-2026 17:27'} is empty
+	at ua.epam.mishchenko.ticketbooking.dao.impl.TicketDAOImpl.getAllByEvent(TicketDAOImpl.java:177) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.TicketServiceImpl.getBookedTickets(TicketServiceImpl.java:102) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl.getBookedTickets(BookingFacadeImpl.java:105) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImplTest.createUserThenCreateEventThenBookTicketForThisEventForUserAndThenCancelItShouldBeOk(BookingFacadeImplTest.java:55) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) ~[spring-test-5.3.20.jar:5.3.20]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) ~[surefire-booter-2.22.1.jar:2.22.1]
+[DEBUG] 2026-03-09 17:27:56.777 [main] EventServiceImpl - Start updating an event: null
+[WARN ] 2026-03-09 17:27:56.777 [main] EventServiceImpl - Can not to update an event: null
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.779 [main] EventServiceImpl - Finding an event by id: 10
+[WARN ] 2026-03-09 17:27:56.780 [main] EventServiceImpl - Can not to find an event by id: 10
+[DEBUG] 2026-03-09 17:27:56.780 [main] EventServiceImpl - Finding an event by id: 3
+[DEBUG] 2026-03-09 17:27:56.781 [main] EventServiceImpl - Event with id 3 successfully found 
+[DEBUG] 2026-03-09 17:27:56.782 [main] EventServiceImpl - Finding all events for day 2022-05-15T21:00:00.000+0300 with page size 2 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.783 [main] EventServiceImpl - All events successfully found for day 2022-05-15T21:00:00.000+0300 with page size 2 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.784 [main] EventServiceImpl - Start creating an event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 17:27:56.784 [main] EventServiceImpl - Successfully creation of the event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 17:27:56.784 [main] EventServiceImpl - Start updating an event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 17:27:56.784 [main] EventServiceImpl - Successfully updating of the event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 17:27:56.785 [main] EventServiceImpl - Finding all events by title not exists title with page size 1 and number of page 1
+[WARN ] 2026-03-09 17:27:56.785 [main] EventServiceImpl - Can not to find a list of events by title 'not exists title'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.786 [main] EventServiceImpl - Start deleting an event with id: 6
+[DEBUG] 2026-03-09 17:27:56.786 [main] EventServiceImpl - Successfully deletion of the event with id: 6
+[DEBUG] 2026-03-09 17:27:56.787 [main] EventServiceImpl - Finding all events for day 2000-05-15T21:00:00.000+0300 with page size 1 and number of page 1
+[WARN ] 2026-03-09 17:27:56.787 [main] EventServiceImpl - Can not to find a list of events for day 2000-05-15T21:00:00.000+0300
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.788 [main] EventServiceImpl - Start creating an event: null
+[WARN ] 2026-03-09 17:27:56.788 [main] EventServiceImpl - Can not to create an event: null
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.788 [main] EventServiceImpl - Start deleting an event with id: 10
+[WARN ] 2026-03-09 17:27:56.788 [main] EventServiceImpl - Can not to delete an event with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.789 [main] EventServiceImpl - Finding all events by title Third event with page size 2 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.789 [main] EventServiceImpl - All events successfully found by title Third event with page size 2 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.830 [main] TicketServiceImpl - Start canceling a ticket with id: 6
+[DEBUG] 2026-03-09 17:27:56.830 [main] TicketServiceImpl - Successfully canceling of the ticket with id: 6
+[DEBUG] 2026-03-09 17:27:56.833 [main] TicketServiceImpl - Start booking a ticket for user with id 4, event with id event 1, place 10, category BAR
+[WARN ] 2026-03-09 17:27:56.833 [main] TicketServiceImpl - Can not to book a ticket for user with id 4, event with id 1, place 10, category BAR
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.834 [main] TicketServiceImpl - Finding all booked tickets by user {'id' : 1, 'name' : 'Alan', 'email' : 'alan@gmail.com'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.834 [main] TicketServiceImpl - All booked tickets successfully found by user {'id' : 1, 'name' : 'Alan', 'email' : 'alan@gmail.com'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.834 [main] TicketServiceImpl - Finding all booked tickets by event {'id' : 4, 'title' : 'Fourth event', 'date' : '15-05-2022 21:00'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.834 [main] TicketServiceImpl - All booked tickets successfully found by event {'id' : 4, 'title' : 'Fourth event', 'date' : '15-05-2022 21:00'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.835 [main] TicketServiceImpl - Finding all booked tickets by event null with page size 2 and number of page 1
+[WARN ] 2026-03-09 17:27:56.835 [main] TicketServiceImpl - Can not to find a list of booked tickets by event 'null'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.836 [main] TicketServiceImpl - Start booking a ticket for user with id 10, event with id event 10, place 20, category PREMIUM
+[DEBUG] 2026-03-09 17:27:56.836 [main] TicketServiceImpl - Successfully booking of the ticket: {'id' : 0, 'userId' : 10, 'eventId' : 10, 'place' : 20, 'category' : 'PREMIUM'}
+[DEBUG] 2026-03-09 17:27:56.837 [main] TicketServiceImpl - Start canceling a ticket with id: 10
+[WARN ] 2026-03-09 17:27:56.837 [main] TicketServiceImpl - Can not to cancel a ticket with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.837 [main] TicketServiceImpl - Finding all booked tickets by user null with page size 2 and number of page 1
+[WARN ] 2026-03-09 17:27:56.837 [main] TicketServiceImpl - Can not to find a list of booked tickets by user 'null'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.839 [main] UserAccountServiceImpl - Start getting a user account with userId: 3
+[DEBUG] 2026-03-09 17:27:56.839 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 3
+[DEBUG] 2026-03-09 17:27:56.839 [main] UserAccountServiceImpl - Start deleting a user account with userId: 6
+[DEBUG] 2026-03-09 17:27:56.840 [main] UserAccountServiceImpl - Successfully deleting userAccount for userId: 6
+[DEBUG] 2026-03-09 17:27:56.840 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[WARN ] 2026-03-09 17:27:56.840 [main] UserAccountServiceImpl - Can not to create a user account for user with id 3
+ua.epam.mishchenko.ticketbooking.exception.DbException: Account exists
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl.createUserAccount(UserAccountServiceImpl.java:29) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImplTest.createUserAccountWithExistsUserIdShouldReturnNull(UserAccountServiceImplTest.java:71) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1$1.evaluate(DefaultInternalRunner.java:55) ~[mockito-core-4.0.0.jar:?]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1.run(DefaultInternalRunner.java:100) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.DefaultInternalRunner.run(DefaultInternalRunner.java:107) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.StrictRunner.run(StrictRunner.java:41) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.junit.MockitoJUnitRunner.run(MockitoJUnitRunner.java:163) ~[mockito-core-4.0.0.jar:?]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) ~[surefire-booter-2.22.1.jar:2.22.1]
+[DEBUG] 2026-03-09 17:27:56.841 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[DEBUG] 2026-03-09 17:27:56.841 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 3
+[DEBUG] 2026-03-09 17:27:56.843 [main] UserAccountServiceImpl - Start creating a user account with userId: -1
+[WARN ] 2026-03-09 17:27:56.843 [main] UserAccountServiceImpl - Can not to create a user account for user with id -1
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.844 [main] UserAccountServiceImpl - Start updating a user account with userId: 0
+[WARN ] 2026-03-09 17:27:56.844 [main] UserAccountServiceImpl - Can not to update a user account for user with id 0
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.845 [main] UserAccountServiceImpl - Start getting a user account with userId: 10
+[WARN ] 2026-03-09 17:27:56.845 [main] UserAccountServiceImpl - Can not to get a user account for user with id 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.845 [main] UserAccountServiceImpl - Start deleting a user account with userId: 10
+[WARN ] 2026-03-09 17:27:56.846 [main] UserAccountServiceImpl - Can not to delete a user account for user with id 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.862 [main] UserServiceImpl - Finding a user by id: 10
+[WARN ] 2026-03-09 17:27:56.862 [main] UserServiceImpl - Can not to get an user by id: 10
+[DEBUG] 2026-03-09 17:27:56.863 [main] UserServiceImpl - Finding a user by email: max@gmail.com
+[DEBUG] 2026-03-09 17:27:56.863 [main] UserServiceImpl - The user with email max@gmail.com successfully found 
+[DEBUG] 2026-03-09 17:27:56.864 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Max', 'email' : 'max@gmail.com'}
+[WARN ] 2026-03-09 17:27:56.864 [main] UserServiceImpl - Can not to create an user: {'id' : 0, 'name' : 'Max', 'email' : 'max@gmail.com'}
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.864 [main] UserServiceImpl - Start creating an user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.865 [main] UserServiceImpl - Successfully creation of the user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.865 [main] UserServiceImpl - Start updating an user: null
+[WARN ] 2026-03-09 17:27:56.865 [main] UserServiceImpl - Can not to update an user: null
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.866 [main] UserServiceImpl - Finding a user by email: notexists@gmail.com
+[WARN ] 2026-03-09 17:27:56.866 [main] UserServiceImpl - Can not to get an user by email: notexists@gmail.com
+[DEBUG] 2026-03-09 17:27:56.867 [main] UserServiceImpl - Finding all users by name Not exists with page size 1 and number of page 1
+[WARN ] 2026-03-09 17:27:56.867 [main] UserServiceImpl - Can not to find a list of users by name 'Not exists'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 17:27:56.867 [main] UserServiceImpl - Start deleting an user with id: 2
+[DEBUG] 2026-03-09 17:27:56.867 [main] UserServiceImpl - Successfully deletion of the user with id: 2
+[DEBUG] 2026-03-09 17:27:56.868 [main] UserServiceImpl - Finding all users by name Max with page size 2 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.868 [main] UserServiceImpl - All users successfully found by name Max with page size 2 and number of page 1
+[DEBUG] 2026-03-09 17:27:56.868 [main] UserServiceImpl - Finding a user by id: 3
+[DEBUG] 2026-03-09 17:27:56.868 [main] UserServiceImpl - The user with id 3 successfully found 
+[DEBUG] 2026-03-09 17:27:56.869 [main] UserServiceImpl - Start updating an user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.869 [main] UserServiceImpl - Successfully updating of the user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 17:27:56.869 [main] UserServiceImpl - Start deleting an user with id: 10
+[WARN ] 2026-03-09 17:27:56.869 [main] UserServiceImpl - Can not to delete an user with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[INFO ] 2026-03-09 17:31:15.669 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.db.Storage during initialization
+[INFO ] 2026-03-09 17:31:15.670 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: inserting prepared data in bean of type ua.epam.mishchenko.ticketbooking.db.Storage
+[INFO ] 2026-03-09 17:31:15.672 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: successfully inserting prepared data in bean of type ua.epam.mishchenko.ticketbooking.db.Storage
+[INFO ] 2026-03-09 17:31:15.673 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.dao.impl.EventDAOImpl during initialization
+[INFO ] 2026-03-09 17:31:15.676 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.dao.impl.TicketDAOImpl during initialization
+[INFO ] 2026-03-09 17:31:15.677 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl during initialization
+[INFO ] 2026-03-09 17:31:15.679 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.dao.impl.UserAccountDAOImpl during initialization
+[INFO ] 2026-03-09 17:31:15.681 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.service.impl.EventServiceImpl during initialization
+[INFO ] 2026-03-09 17:31:15.683 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.service.impl.TicketServiceImpl during initialization
+[INFO ] 2026-03-09 17:31:15.684 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl during initialization
+[INFO ] 2026-03-09 17:31:15.686 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl during initialization
+[INFO ] 2026-03-09 17:31:15.693 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl during initialization
+[DEBUG] 2026-03-09 17:31:15.717 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Tanya', 'email' : 'null'}
+[DEBUG] 2026-03-09 17:31:15.717 [main] UserDAOImpl - Start inserting of the user: {'id' : 0, 'name' : 'Tanya', 'email' : 'null'}
+[DEBUG] 2026-03-09 17:31:15.718 [main] UserDAOImpl - Successfully insertion of the user: {'id' : 7, 'name' : 'Tanya', 'email' : 'null'}
+[DEBUG] 2026-03-09 17:31:15.718 [main] UserServiceImpl - Successfully creation of the user: {'id' : 7, 'name' : 'Tanya', 'email' : 'null'}
+[DEBUG] 2026-03-09 17:31:15.723 [main] EventServiceImpl - Start creating an event: [!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@4ba302e0=>java.lang.NullPointerException:date must not be null!!!]
+[DEBUG] 2026-03-09 17:31:15.723 [main] EventDAOImpl - Start inserting of the event: [!!!ua.epam.mishchenko.ticketbooking.model.impl.Event@4ba302e0=>java.lang.NullPointerException:date must not be null!!!]
+[INFO ] 2026-03-09 17:36:03.483 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.db.Storage during initialization
+[INFO ] 2026-03-09 17:36:03.483 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: inserting prepared data in bean of type ua.epam.mishchenko.ticketbooking.db.Storage
+[INFO ] 2026-03-09 17:36:03.485 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: successfully inserting prepared data in bean of type ua.epam.mishchenko.ticketbooking.db.Storage
+[INFO ] 2026-03-09 17:36:03.486 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.dao.impl.EventDAOImpl during initialization
+[INFO ] 2026-03-09 17:36:03.488 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.dao.impl.TicketDAOImpl during initialization
+[INFO ] 2026-03-09 17:36:03.490 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl during initialization
+[INFO ] 2026-03-09 17:36:03.492 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.dao.impl.UserAccountDAOImpl during initialization
+[INFO ] 2026-03-09 17:36:03.494 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.service.impl.EventServiceImpl during initialization
+[INFO ] 2026-03-09 17:36:03.499 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.service.impl.TicketServiceImpl during initialization
+[INFO ] 2026-03-09 17:36:03.500 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl during initialization
+[INFO ] 2026-03-09 17:36:03.502 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl during initialization
+[INFO ] 2026-03-09 17:36:03.511 [main] StorageBeanPostProcessor - StorageBeanPostProcessor: processing bean of type ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl during initialization
+[DEBUG] 2026-03-09 17:36:03.527 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Tanya', 'email' : 'null'}
+[DEBUG] 2026-03-09 17:36:03.527 [main] UserDAOImpl - Start inserting of the user: {'id' : 0, 'name' : 'Tanya', 'email' : 'null'}
+[DEBUG] 2026-03-09 17:36:03.529 [main] UserDAOImpl - Successfully insertion of the user: {'id' : 7, 'name' : 'Tanya', 'email' : 'null'}
+[DEBUG] 2026-03-09 17:36:03.529 [main] UserServiceImpl - Successfully creation of the user: {'id' : 7, 'name' : 'Tanya', 'email' : 'null'}
+[DEBUG] 2026-03-09 17:36:03.534 [main] EventServiceImpl - Start creating an event: {'id' : 0, 'title' : 'Concert', 'date' : '09-03-2026 17:36'}
+[DEBUG] 2026-03-09 17:36:03.534 [main] EventDAOImpl - Start inserting of the event: {'id' : 0, 'title' : 'Concert', 'date' : '09-03-2026 17:36'}
+[DEBUG] 2026-03-09 17:36:03.535 [main] EventDAOImpl - Successfully insertion of the event: {'id' : 7, 'title' : 'Concert', 'date' : '09-03-2026 17:36'}
+[DEBUG] 2026-03-09 17:36:03.535 [main] EventServiceImpl - Successfully creation of the event: {'id' : 7, 'title' : 'Concert', 'date' : '09-03-2026 17:36'}
+[DEBUG] 2026-03-09 18:26:08.551 [main] EventServiceImpl - Start updating an event: null
+[WARN ] 2026-03-09 18:26:08.554 [main] EventServiceImpl - Can not to update an event: null
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.555 [main] EventServiceImpl - Finding an event by id: 10
+[WARN ] 2026-03-09 18:26:08.557 [main] EventServiceImpl - Can not to find an event by id: 10
+[DEBUG] 2026-03-09 18:26:08.560 [main] EventServiceImpl - Finding an event by id: 3
+[DEBUG] 2026-03-09 18:26:08.560 [main] EventServiceImpl - Event with id 3 successfully found 
+[DEBUG] 2026-03-09 18:26:08.561 [main] EventServiceImpl - Finding all events for day 2022-05-15T21:00:00.000+0300 with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:26:08.562 [main] EventServiceImpl - All events successfully found for day 2022-05-15T21:00:00.000+0300 with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:26:08.567 [main] EventServiceImpl - Start updating an event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 18:26:08.567 [main] EventServiceImpl - Successfully updating of the event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 18:26:08.569 [main] EventServiceImpl - Finding all events by title not exists title with page size 1 and number of page 1
+[WARN ] 2026-03-09 18:26:08.569 [main] EventServiceImpl - Can not to find a list of events by title 'not exists title'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.569 [main] EventServiceImpl - Start deleting an event with id: 6
+[DEBUG] 2026-03-09 18:26:08.569 [main] EventServiceImpl - Successfully deletion of the event with id: 6
+[DEBUG] 2026-03-09 18:26:08.570 [main] EventServiceImpl - Finding all events for day 2000-05-15T21:00:00.000+0300 with page size 1 and number of page 1
+[WARN ] 2026-03-09 18:26:08.570 [main] EventServiceImpl - Can not to find a list of events for day 2000-05-15T21:00:00.000+0300
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.571 [main] EventServiceImpl - Start deleting an event with id: 10
+[WARN ] 2026-03-09 18:26:08.571 [main] EventServiceImpl - Can not to delete an event with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.572 [main] EventServiceImpl - Finding all events by title Third event with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:26:08.572 [main] EventServiceImpl - All events successfully found by title Third event with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:26:08.616 [main] TicketServiceImpl - Start canceling a ticket with id: 6
+[DEBUG] 2026-03-09 18:26:08.616 [main] TicketServiceImpl - Successfully canceling of the ticket with id: 6
+[DEBUG] 2026-03-09 18:26:08.618 [main] TicketServiceImpl - Start booking a ticket for user with id 4, event with id event 1, place 10, category BAR
+[WARN ] 2026-03-09 18:26:08.619 [main] TicketServiceImpl - Can not to book a ticket for user with id 4, event with id 1, place 10, category BAR
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.620 [main] TicketServiceImpl - Finding all booked tickets by user {'id' : 1, 'name' : 'Alan', 'email' : 'alan@gmail.com'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:26:08.620 [main] TicketServiceImpl - All booked tickets successfully found by user {'id' : 1, 'name' : 'Alan', 'email' : 'alan@gmail.com'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:26:08.621 [main] TicketServiceImpl - Finding all booked tickets by event {'id' : 4, 'title' : 'Fourth event', 'date' : '15-05-2022 21:00'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:26:08.621 [main] TicketServiceImpl - All booked tickets successfully found by event {'id' : 4, 'title' : 'Fourth event', 'date' : '15-05-2022 21:00'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:26:08.622 [main] TicketServiceImpl - Finding all booked tickets by event null with page size 2 and number of page 1
+[WARN ] 2026-03-09 18:26:08.622 [main] TicketServiceImpl - Can not to find a list of booked tickets by event 'null'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.623 [main] TicketServiceImpl - Start booking a ticket for user with id 10, event with id event 10, place 20, category PREMIUM
+[DEBUG] 2026-03-09 18:26:08.627 [main] TicketServiceImpl - Successfully booking of the ticket: {'id' : 0, 'userId' : 10, 'eventId' : 10, 'place' : 20, 'category' : 'PREMIUM'}
+[DEBUG] 2026-03-09 18:26:08.627 [main] TicketServiceImpl - Start canceling a ticket with id: 10
+[WARN ] 2026-03-09 18:26:08.627 [main] TicketServiceImpl - Can not to cancel a ticket with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.628 [main] TicketServiceImpl - Finding all booked tickets by user null with page size 2 and number of page 1
+[WARN ] 2026-03-09 18:26:08.628 [main] TicketServiceImpl - Can not to find a list of booked tickets by user 'null'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.631 [main] UserAccountServiceImpl - Start getting a user account with userId: 3
+[DEBUG] 2026-03-09 18:26:08.631 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 3
+[DEBUG] 2026-03-09 18:26:08.631 [main] UserAccountServiceImpl - Start deleting a user account with userId: 6
+[DEBUG] 2026-03-09 18:26:08.631 [main] UserAccountServiceImpl - Successfully deleting userAccount for userId: 6
+[DEBUG] 2026-03-09 18:26:08.632 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[WARN ] 2026-03-09 18:26:08.632 [main] UserAccountServiceImpl - Can not to create a user account for user with id 3
+ua.epam.mishchenko.ticketbooking.exception.DbException: Account exists
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl.createUserAccount(UserAccountServiceImpl.java:29) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImplTest.createUserAccountWithExistsUserIdShouldReturnNull(UserAccountServiceImplTest.java:71) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1$1.evaluate(DefaultInternalRunner.java:55) ~[mockito-core-4.0.0.jar:?]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1.run(DefaultInternalRunner.java:100) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.DefaultInternalRunner.run(DefaultInternalRunner.java:107) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.StrictRunner.run(StrictRunner.java:41) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.junit.MockitoJUnitRunner.run(MockitoJUnitRunner.java:163) ~[mockito-core-4.0.0.jar:?]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) ~[surefire-booter-2.22.1.jar:2.22.1]
+[DEBUG] 2026-03-09 18:26:08.634 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[DEBUG] 2026-03-09 18:26:08.635 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 3
+[DEBUG] 2026-03-09 18:26:08.636 [main] UserAccountServiceImpl - Start creating a user account with userId: -1
+[WARN ] 2026-03-09 18:26:08.636 [main] UserAccountServiceImpl - Can not to create a user account for user with id -1
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.636 [main] UserAccountServiceImpl - Start updating a user account with userId: 0
+[WARN ] 2026-03-09 18:26:08.636 [main] UserAccountServiceImpl - Can not to update a user account for user with id 0
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.637 [main] UserAccountServiceImpl - Start getting a user account with userId: 10
+[WARN ] 2026-03-09 18:26:08.637 [main] UserAccountServiceImpl - Can not to get a user account for user with id 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.638 [main] UserAccountServiceImpl - Start deleting a user account with userId: 10
+[WARN ] 2026-03-09 18:26:08.638 [main] UserAccountServiceImpl - Can not to delete a user account for user with id 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.658 [main] UserServiceImpl - Finding a user by id: 10
+[WARN ] 2026-03-09 18:26:08.658 [main] UserServiceImpl - Can not to get an user by id: 10
+[DEBUG] 2026-03-09 18:26:08.659 [main] UserServiceImpl - Finding a user by email: max@gmail.com
+[DEBUG] 2026-03-09 18:26:08.659 [main] UserServiceImpl - The user with email max@gmail.com successfully found 
+[DEBUG] 2026-03-09 18:26:08.660 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Max', 'email' : 'max@gmail.com'}
+[WARN ] 2026-03-09 18:26:08.660 [main] UserServiceImpl - Can not to create an user: {'id' : 0, 'name' : 'Max', 'email' : 'max@gmail.com'}
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.661 [main] UserServiceImpl - Start creating an user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 18:26:08.661 [main] UserServiceImpl - Successfully creation of the user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 18:26:08.662 [main] UserServiceImpl - Start updating an user: null
+[WARN ] 2026-03-09 18:26:08.662 [main] UserServiceImpl - Can not to update an user: null
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.663 [main] UserServiceImpl - Finding a user by email: notexists@gmail.com
+[WARN ] 2026-03-09 18:26:08.663 [main] UserServiceImpl - Can not to get an user by email: notexists@gmail.com
+[DEBUG] 2026-03-09 18:26:08.664 [main] UserServiceImpl - Finding all users by name Not exists with page size 1 and number of page 1
+[WARN ] 2026-03-09 18:26:08.664 [main] UserServiceImpl - Can not to find a list of users by name 'Not exists'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:26:08.665 [main] UserServiceImpl - Start deleting an user with id: 2
+[DEBUG] 2026-03-09 18:26:08.665 [main] UserServiceImpl - Successfully deletion of the user with id: 2
+[DEBUG] 2026-03-09 18:26:08.666 [main] UserServiceImpl - Finding all users by name Max with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:26:08.666 [main] UserServiceImpl - All users successfully found by name Max with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:26:08.667 [main] UserServiceImpl - Finding a user by id: 3
+[DEBUG] 2026-03-09 18:26:08.667 [main] UserServiceImpl - The user with id 3 successfully found 
+[DEBUG] 2026-03-09 18:26:08.667 [main] UserServiceImpl - Start updating an user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 18:26:08.667 [main] UserServiceImpl - Successfully updating of the user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 18:26:08.667 [main] UserServiceImpl - Start deleting an user with id: 10
+[WARN ] 2026-03-09 18:26:08.667 [main] UserServiceImpl - Can not to delete an user with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.487 [main] EventServiceImpl - Start updating an event: null
+[WARN ] 2026-03-09 18:48:15.491 [main] EventServiceImpl - Can not to update an event: null
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.493 [main] EventServiceImpl - Finding an event by id: 10
+[WARN ] 2026-03-09 18:48:15.495 [main] EventServiceImpl - Can not to find an event by id: 10
+[DEBUG] 2026-03-09 18:48:15.500 [main] EventServiceImpl - Finding an event by id: 3
+[DEBUG] 2026-03-09 18:48:15.501 [main] EventServiceImpl - Event with id 3 successfully found 
+[DEBUG] 2026-03-09 18:48:15.502 [main] EventServiceImpl - Finding all events for day 2022-05-15T21:00:00.000+0300 with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:48:15.502 [main] EventServiceImpl - All events successfully found for day 2022-05-15T21:00:00.000+0300 with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:48:15.510 [main] EventServiceImpl - Start updating an event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 18:48:15.511 [main] EventServiceImpl - Successfully updating of the event: {'id' : 1, 'title' : 'Second event', 'date' : '15-05-2022 21:00'}
+[DEBUG] 2026-03-09 18:48:15.512 [main] EventServiceImpl - Finding all events by title not exists title with page size 1 and number of page 1
+[WARN ] 2026-03-09 18:48:15.512 [main] EventServiceImpl - Can not to find a list of events by title 'not exists title'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.513 [main] EventServiceImpl - Start deleting an event with id: 6
+[DEBUG] 2026-03-09 18:48:15.513 [main] EventServiceImpl - Successfully deletion of the event with id: 6
+[DEBUG] 2026-03-09 18:48:15.514 [main] EventServiceImpl - Finding all events for day 2000-05-15T21:00:00.000+0300 with page size 1 and number of page 1
+[WARN ] 2026-03-09 18:48:15.514 [main] EventServiceImpl - Can not to find a list of events for day 2000-05-15T21:00:00.000+0300
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.515 [main] EventServiceImpl - Start deleting an event with id: 10
+[WARN ] 2026-03-09 18:48:15.516 [main] EventServiceImpl - Can not to delete an event with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.517 [main] EventServiceImpl - Finding all events by title Third event with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:48:15.517 [main] EventServiceImpl - All events successfully found by title Third event with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:48:15.591 [main] TicketServiceImpl - Start canceling a ticket with id: 6
+[DEBUG] 2026-03-09 18:48:15.591 [main] TicketServiceImpl - Successfully canceling of the ticket with id: 6
+[DEBUG] 2026-03-09 18:48:15.596 [main] TicketServiceImpl - Start booking a ticket for user with id 4, event with id event 1, place 10, category BAR
+[WARN ] 2026-03-09 18:48:15.598 [main] TicketServiceImpl - Can not to book a ticket for user with id 4, event with id 1, place 10, category BAR
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.601 [main] TicketServiceImpl - Finding all booked tickets by user {'id' : 1, 'name' : 'Alan', 'email' : 'alan@gmail.com'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:48:15.601 [main] TicketServiceImpl - All booked tickets successfully found by user {'id' : 1, 'name' : 'Alan', 'email' : 'alan@gmail.com'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:48:15.602 [main] TicketServiceImpl - Finding all booked tickets by event {'id' : 4, 'title' : 'Fourth event', 'date' : '15-05-2022 21:00'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:48:15.603 [main] TicketServiceImpl - All booked tickets successfully found by event {'id' : 4, 'title' : 'Fourth event', 'date' : '15-05-2022 21:00'} with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:48:15.604 [main] TicketServiceImpl - Finding all booked tickets by event null with page size 2 and number of page 1
+[WARN ] 2026-03-09 18:48:15.604 [main] TicketServiceImpl - Can not to find a list of booked tickets by event 'null'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.607 [main] TicketServiceImpl - Start booking a ticket for user with id 10, event with id event 10, place 20, category PREMIUM
+[DEBUG] 2026-03-09 18:48:15.613 [main] TicketServiceImpl - Successfully booking of the ticket: {'id' : 0, 'userId' : 10, 'eventId' : 10, 'place' : 20, 'category' : 'PREMIUM'}
+[DEBUG] 2026-03-09 18:48:15.614 [main] TicketServiceImpl - Start canceling a ticket with id: 10
+[WARN ] 2026-03-09 18:48:15.614 [main] TicketServiceImpl - Can not to cancel a ticket with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.615 [main] TicketServiceImpl - Finding all booked tickets by user null with page size 2 and number of page 1
+[WARN ] 2026-03-09 18:48:15.615 [main] TicketServiceImpl - Can not to find a list of booked tickets by user 'null'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.620 [main] UserAccountServiceImpl - Start getting a user account with userId: 3
+[DEBUG] 2026-03-09 18:48:15.620 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 3
+[DEBUG] 2026-03-09 18:48:15.621 [main] UserAccountServiceImpl - Start deleting a user account with userId: 6
+[DEBUG] 2026-03-09 18:48:15.621 [main] UserAccountServiceImpl - Successfully deleting userAccount for userId: 6
+[DEBUG] 2026-03-09 18:48:15.622 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[WARN ] 2026-03-09 18:48:15.623 [main] UserAccountServiceImpl - Can not to create a user account for user with id 3
+ua.epam.mishchenko.ticketbooking.exception.DbException: Account exists
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl.createUserAccount(UserAccountServiceImpl.java:29) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImplTest.createUserAccountWithExistsUserIdShouldReturnNull(UserAccountServiceImplTest.java:71) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1$1.evaluate(DefaultInternalRunner.java:55) ~[mockito-core-4.0.0.jar:?]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) ~[junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) ~[junit-4.13.2.jar:4.13.2]
+	at org.mockito.internal.runners.DefaultInternalRunner$1.run(DefaultInternalRunner.java:100) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.DefaultInternalRunner.run(DefaultInternalRunner.java:107) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.internal.runners.StrictRunner.run(StrictRunner.java:41) ~[mockito-core-4.0.0.jar:?]
+	at org.mockito.junit.MockitoJUnitRunner.run(MockitoJUnitRunner.java:163) ~[mockito-core-4.0.0.jar:?]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159) ~[surefire-junit4-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126) ~[surefire-booter-2.22.1.jar:2.22.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) ~[surefire-booter-2.22.1.jar:2.22.1]
+[DEBUG] 2026-03-09 18:48:15.626 [main] UserAccountServiceImpl - Start creating a user account with userId: 3
+[DEBUG] 2026-03-09 18:48:15.626 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 3
+[DEBUG] 2026-03-09 18:48:15.628 [main] UserAccountServiceImpl - Start creating a user account with userId: -1
+[WARN ] 2026-03-09 18:48:15.628 [main] UserAccountServiceImpl - Can not to create a user account for user with id -1
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.629 [main] UserAccountServiceImpl - Start updating a user account with userId: 0
+[WARN ] 2026-03-09 18:48:15.629 [main] UserAccountServiceImpl - Can not to update a user account for user with id 0
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.630 [main] UserAccountServiceImpl - Start getting a user account with userId: 10
+[WARN ] 2026-03-09 18:48:15.630 [main] UserAccountServiceImpl - Can not to get a user account for user with id 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.631 [main] UserAccountServiceImpl - Start deleting a user account with userId: 10
+[WARN ] 2026-03-09 18:48:15.631 [main] UserAccountServiceImpl - Can not to delete a user account for user with id 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.662 [main] UserServiceImpl - Finding a user by id: 10
+[WARN ] 2026-03-09 18:48:15.662 [main] UserServiceImpl - Can not to get an user by id: 10
+[DEBUG] 2026-03-09 18:48:15.663 [main] UserServiceImpl - Finding a user by email: max@gmail.com
+[DEBUG] 2026-03-09 18:48:15.663 [main] UserServiceImpl - The user with email max@gmail.com successfully found 
+[DEBUG] 2026-03-09 18:48:15.664 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'Max', 'email' : 'max@gmail.com'}
+[WARN ] 2026-03-09 18:48:15.664 [main] UserServiceImpl - Can not to create an user: {'id' : 0, 'name' : 'Max', 'email' : 'max@gmail.com'}
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.666 [main] UserServiceImpl - Start creating an user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 18:48:15.666 [main] UserServiceImpl - Successfully creation of the user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 18:48:15.667 [main] UserServiceImpl - Start updating an user: null
+[WARN ] 2026-03-09 18:48:15.667 [main] UserServiceImpl - Can not to update an user: null
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.668 [main] UserServiceImpl - Finding a user by email: notexists@gmail.com
+[WARN ] 2026-03-09 18:48:15.669 [main] UserServiceImpl - Can not to get an user by email: notexists@gmail.com
+[DEBUG] 2026-03-09 18:48:15.669 [main] UserServiceImpl - Finding all users by name Not exists with page size 1 and number of page 1
+[WARN ] 2026-03-09 18:48:15.670 [main] UserServiceImpl - Can not to find a list of users by name 'Not exists'
+ua.epam.mishchenko.ticketbooking.exception.DbException: null
+[DEBUG] 2026-03-09 18:48:15.671 [main] UserServiceImpl - Start deleting an user with id: 2
+[DEBUG] 2026-03-09 18:48:15.671 [main] UserServiceImpl - Successfully deletion of the user with id: 2
+[DEBUG] 2026-03-09 18:48:15.672 [main] UserServiceImpl - Finding all users by name Max with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:48:15.672 [main] UserServiceImpl - All users successfully found by name Max with page size 2 and number of page 1
+[DEBUG] 2026-03-09 18:48:15.673 [main] UserServiceImpl - Finding a user by id: 3
+[DEBUG] 2026-03-09 18:48:15.673 [main] UserServiceImpl - The user with id 3 successfully found 
+[DEBUG] 2026-03-09 18:48:15.674 [main] UserServiceImpl - Start updating an user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 18:48:15.674 [main] UserServiceImpl - Successfully updating of the user: {'id' : 1, 'name' : 'Test User', 'email' : 'testuser@gmail.com'}
+[DEBUG] 2026-03-09 18:48:15.675 [main] UserServiceImpl - Start deleting an user with id: 10
+[WARN ] 2026-03-09 18:48:15.675 [main] UserServiceImpl - Can not to delete an user with id: 10
+ua.epam.mishchenko.ticketbooking.exception.DbException: null

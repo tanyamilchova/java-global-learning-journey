@@ -1,0 +1,543 @@
+[DEBUG] 2026-03-12 11:35:25.660 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 11:35:25.723 [main] EventServiceImpl - Successfully created the event: EventImpl{id=88, title='Balley', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 11:35:25.754 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:35:25.760 [main] UserServiceImpl - Successfully creation of the user: {'id' : 25, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:35:25.784 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:35:25.786 [main] UserServiceImpl - Successfully creation of the user: {'id' : 26, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:37:26.318 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 11:37:26.362 [main] EventServiceImpl - Successfully created the event: EventImpl{id=89, title='Balley', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 11:37:26.398 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:37:26.402 [main] UserServiceImpl - Successfully creation of the user: {'id' : 27, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:37:26.427 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:37:26.429 [main] UserServiceImpl - Successfully creation of the user: {'id' : 28, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:37:57.030 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 11:37:57.074 [main] EventServiceImpl - Successfully created the event: EventImpl{id=90, title='Balley', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 11:37:57.101 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:37:57.103 [main] UserServiceImpl - Successfully creation of the user: {'id' : 29, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:37:57.126 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:37:57.127 [main] UserServiceImpl - Successfully creation of the user: {'id' : 30, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:37:57.130 [main] UserAccountServiceImpl - Start creating a user account with userId: 30
+[DEBUG] 2026-03-12 11:37:57.187 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 30
+[DEBUG] 2026-03-12 11:37:57.190 [main] UserAccountServiceImpl - Start getting a user account with userId: 30
+[DEBUG] 2026-03-12 11:37:57.332 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 30
+[DEBUG] 2026-03-12 11:37:57.332 [main] UserAccountServiceImpl - Start getting a user account with userId: 30
+[DEBUG] 2026-03-12 11:37:57.345 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 30
+[DEBUG] 2026-03-12 11:37:57.345 [main] UserAccountServiceImpl - Start updating user account with userId: 30
+[DEBUG] 2026-03-12 11:37:57.381 [main] UserAccountServiceImpl - Successfully updated userAccount for userId: 30
+[DEBUG] 2026-03-12 11:37:57.381 [main] UserAccountServiceImpl - Start deleting user account for userId 30
+[DEBUG] 2026-03-12 11:37:57.427 [main] UserAccountServiceImpl - Successfully deleted user account for userId 30
+[DEBUG] 2026-03-12 11:38:21.382 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 11:38:21.419 [main] EventServiceImpl - Successfully created the event: EventImpl{id=91, title='Balley', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 11:38:21.455 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:38:21.457 [main] UserServiceImpl - Successfully creation of the user: {'id' : 31, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:38:21.474 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:38:21.476 [main] UserServiceImpl - Successfully creation of the user: {'id' : 32, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 11:38:21.480 [main] UserAccountServiceImpl - Start creating a user account with userId: 32
+[DEBUG] 2026-03-12 11:38:21.536 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 32
+[DEBUG] 2026-03-12 11:38:21.538 [main] UserAccountServiceImpl - Start getting a user account with userId: 32
+[DEBUG] 2026-03-12 11:38:21.665 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 32
+[DEBUG] 2026-03-12 11:38:21.665 [main] UserAccountServiceImpl - Start getting a user account with userId: 32
+[DEBUG] 2026-03-12 11:38:21.679 [main] UserAccountServiceImpl - Successfully getting userAccount for userId: 32
+[DEBUG] 2026-03-12 11:38:21.679 [main] UserAccountServiceImpl - Start updating user account with userId: 32
+[DEBUG] 2026-03-12 11:38:21.712 [main] UserAccountServiceImpl - Successfully updated userAccount for userId: 32
+[DEBUG] 2026-03-12 14:26:56.105 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 14:26:56.178 [main] EventServiceImpl - Successfully created the event: EventImpl{id=92, title='Balley', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 14:28:22.686 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Balley', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 14:28:22.735 [main] EventServiceImpl - Successfully created the event: EventImpl{id=93, title='Balley', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 14:28:22.962 [main] EventServiceImpl - Finding an event by id: 1
+[DEBUG] 2026-03-12 14:28:23.015 [main] EventServiceImpl - Event with id 1 successfully found
+[DEBUG] 2026-03-12 14:28:23.015 [main] EventServiceImpl - Finding an event by id: 2
+[DEBUG] 2026-03-12 14:28:23.038 [main] EventServiceImpl - Event with id 2 successfully found
+[DEBUG] 2026-03-12 14:28:23.053 [main] EventServiceImpl - Start creating an event: EventImpl{id=2, title='Updated Concert', date=2026-03-10, ticketPrice=200.0}
+[DEBUG] 2026-03-12 14:28:23.063 [main] EventServiceImpl - Successfully created the event: EventImpl{id=2, title='Updated Concert', date=2026-03-10, ticketPrice=200.0}
+[DEBUG] 2026-03-12 14:28:23.079 [main] EventServiceImpl - Start deleting an event with id: 17
+[WARN ] 2026-03-12 14:28:23.082 [main] EventServiceImpl - Event not found with id: 17
+[DEBUG] 2026-03-12 14:28:23.274 [main] EventServiceImpl - Finding all events by title 'Pop Concert' with page size 5 and number of page 1
+[DEBUG] 2026-03-12 14:28:23.462 [main] EventServiceImpl - Found 5 events by title 'Pop Concert' on page 1 with page size 5
+[DEBUG] 2026-03-12 14:28:59.160 [main] TicketServiceImpl - Start booking a ticket for user with id 1, event with id 1, place 12, category PREMIUM
+[WARN ] 2026-03-12 14:28:59.318 [main] TicketServiceImpl - Insufficient funds for user 1 to book ticket for event 1
+[DEBUG] 2026-03-12 14:31:47.870 [main] TicketServiceImpl - Start booking a ticket for user with id 1, event with id 1, place 12, category PREMIUM
+[WARN ] 2026-03-12 14:31:48.072 [main] TicketServiceImpl - Insufficient funds for user 1 to book ticket for event 1
+[DEBUG] 2026-03-12 14:32:36.095 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 14:32:36.118 [main] UserServiceImpl - Successfully creation of the user: {'id' : 33, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 14:32:36.127 [main] UserAccountServiceImpl - Start creating a user account with userId: 33
+[DEBUG] 2026-03-12 14:32:36.201 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 33
+[DEBUG] 2026-03-12 14:32:36.418 [main] TicketServiceImpl - Start booking a ticket for user with id 33, event with id 1, place 12, category PREMIUM
+[WARN ] 2026-03-12 14:32:36.567 [main] TicketServiceImpl - Insufficient funds for user 33 to book ticket for event 1
+[DEBUG] 2026-03-12 14:34:10.636 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 14:34:14.274 [main] UserServiceImpl - Successfully creation of the user: {'id' : 34, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 14:34:54.980 [main] UserAccountServiceImpl - Start creating a user account with userId: 34
+[DEBUG] 2026-03-12 14:34:55.519 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 34
+[DEBUG] 2026-03-12 14:52:11.815 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 14:52:11.835 [main] UserServiceImpl - Successfully creation of the user: {'id' : 35, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 14:52:11.843 [main] UserAccountServiceImpl - Start creating a user account with userId: 35
+[DEBUG] 2026-03-12 14:52:11.895 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 35
+[DEBUG] 2026-03-12 14:52:11.896 [main] UserAccountServiceImpl - Start adding funds: 10000.0 to userId: 35
+[DEBUG] 2026-03-12 14:52:12.024 [main] UserAccountServiceImpl - Successfully added 10000.0 to userId: 35. New balance: 10000.0
+[DEBUG] 2026-03-12 14:52:12.199 [main] TicketServiceImpl - Start booking a ticket for user with id 35, event with id 1, place 12, category PREMIUM
+[DEBUG] 2026-03-12 14:52:12.222 [main] TicketServiceImpl - Successfully booked ticket: {'id' : 2, 'userId' : 35, 'eventId' : 1, 'place' : 12, 'category' : 'PREMIUM'}
+[DEBUG] 2026-03-12 14:52:12.245 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Concert', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 14:52:12.254 [main] EventServiceImpl - Successfully created the event: EventImpl{id=94, title='Concert', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 14:52:12.428 [main] TicketServiceImpl - Start booking a ticket for user with id 22, event with id 1, place 12, category PREMIUM
+[DEBUG] 2026-03-12 14:52:12.440 [main] TicketServiceImpl - Successfully booked ticket: {'id' : 3, 'userId' : 22, 'eventId' : 1, 'place' : 12, 'category' : 'PREMIUM'}
+[DEBUG] 2026-03-12 14:52:12.446 [main] TicketServiceImpl - Finding all booked tickets by user {'id' : 35, 'name' : 'User', 'email' : 'userEmail@gmail.com'} with page size 5 and number of page 1
+[DEBUG] 2026-03-12 14:52:12.478 [main] TicketServiceImpl - All booked tickets successfully found by user {'id' : 35, 'name' : 'User', 'email' : 'userEmail@gmail.com'} with page size 5 and number of page 1
+[DEBUG] 2026-03-12 14:52:12.479 [main] TicketServiceImpl - Finding all booked tickets by event EventImpl{id=94, title='Concert', date=2026-03-12, ticketPrice=120.0} with page size 5 and number of page 1
+[DEBUG] 2026-03-12 14:52:12.502 [main] TicketServiceImpl - All booked tickets successfully found by event EventImpl{id=94, title='Concert', date=2026-03-12, ticketPrice=120.0} with page size 5 and number of page 1
+[DEBUG] 2026-03-12 14:52:12.503 [main] TicketServiceImpl - Start canceling a ticket with id: 3
+[DEBUG] 2026-03-12 14:59:15.782 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 14:59:15.798 [main] UserServiceImpl - Successfully creation of the user: {'id' : 36, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 14:59:15.805 [main] UserAccountServiceImpl - Start creating a user account with userId: 36
+[DEBUG] 2026-03-12 14:59:15.857 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 36
+[DEBUG] 2026-03-12 14:59:15.859 [main] UserAccountServiceImpl - Start adding funds: 10000.0 to userId: 36
+[DEBUG] 2026-03-12 14:59:15.976 [main] UserAccountServiceImpl - Successfully added 10000.0 to userId: 36. New balance: 10000.0
+[DEBUG] 2026-03-12 14:59:16.126 [main] TicketServiceImpl - Start booking a ticket for user with id 36, event with id 1, place 12, category PREMIUM
+[DEBUG] 2026-03-12 14:59:16.144 [main] TicketServiceImpl - Successfully booked ticket: {'id' : 4, 'userId' : 36, 'eventId' : 1, 'place' : 12, 'category' : 'PREMIUM'}
+[DEBUG] 2026-03-12 14:59:16.165 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Concert', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 14:59:16.174 [main] EventServiceImpl - Successfully created the event: EventImpl{id=95, title='Concert', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 14:59:16.314 [main] TicketServiceImpl - Start booking a ticket for user with id 22, event with id 1, place 12, category PREMIUM
+[DEBUG] 2026-03-12 14:59:16.324 [main] TicketServiceImpl - Successfully booked ticket: {'id' : 5, 'userId' : 22, 'eventId' : 1, 'place' : 12, 'category' : 'PREMIUM'}
+[DEBUG] 2026-03-12 14:59:16.329 [main] TicketServiceImpl - Finding all booked tickets by user {'id' : 36, 'name' : 'User', 'email' : 'userEmail@gmail.com'} with page size 5 and number of page 1
+[DEBUG] 2026-03-12 14:59:16.364 [main] TicketServiceImpl - All booked tickets successfully found by user {'id' : 36, 'name' : 'User', 'email' : 'userEmail@gmail.com'} with page size 5 and number of page 1
+[DEBUG] 2026-03-12 14:59:16.364 [main] TicketServiceImpl - Finding all booked tickets by event EventImpl{id=95, title='Concert', date=2026-03-12, ticketPrice=120.0} with page size 5 and number of page 1
+[DEBUG] 2026-03-12 14:59:16.388 [main] TicketServiceImpl - All booked tickets successfully found by event EventImpl{id=95, title='Concert', date=2026-03-12, ticketPrice=120.0} with page size 5 and number of page 1
+[DEBUG] 2026-03-12 14:59:16.390 [main] TicketServiceImpl - Start canceling a ticket with id: 5
+[DEBUG] 2026-03-12 14:59:16.412 [main] TicketServiceImpl - Successfully canceling of the ticket with id: 5
+[DEBUG] 2026-03-12 15:57:16.849 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 15:57:16.866 [main] UserServiceImpl - Successfully creation of the user: {'id' : 37, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 15:57:16.874 [main] UserAccountServiceImpl - Start creating a user account with userId: 37
+[DEBUG] 2026-03-12 15:57:16.926 [main] UserAccountServiceImpl - Successfully creating userAccount for userId: 37
+[DEBUG] 2026-03-12 15:57:16.928 [main] UserAccountServiceImpl - Start adding funds: 10000.0 to userId: 37
+[DEBUG] 2026-03-12 15:57:17.053 [main] UserAccountServiceImpl - Successfully added 10000.0 to userId: 37. New balance: 10000.0
+[DEBUG] 2026-03-12 15:57:17.199 [main] TicketServiceImpl - Start booking a ticket for user with id 37, event with id 1, place 12, category PREMIUM
+[DEBUG] 2026-03-12 15:57:17.219 [main] TicketServiceImpl - Successfully booked ticket: {'id' : 6, 'userId' : 37, 'eventId' : 1, 'place' : 12, 'category' : 'PREMIUM'}
+[DEBUG] 2026-03-12 15:57:17.242 [main] EventServiceImpl - Start creating an event: EventImpl{id=0, title='Concert', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 15:57:17.249 [main] EventServiceImpl - Successfully created the event: EventImpl{id=96, title='Concert', date=2026-03-12, ticketPrice=120.0}
+[DEBUG] 2026-03-12 15:57:17.372 [main] TicketServiceImpl - Start booking a ticket for user with id 22, event with id 1, place 12, category PREMIUM
+[DEBUG] 2026-03-12 15:57:17.380 [main] TicketServiceImpl - Successfully booked ticket: {'id' : 7, 'userId' : 22, 'eventId' : 1, 'place' : 12, 'category' : 'PREMIUM'}
+[DEBUG] 2026-03-12 15:57:17.385 [main] TicketServiceImpl - Finding all booked tickets by user {'id' : 37, 'name' : 'User', 'email' : 'userEmail@gmail.com'} with page size 5 and number of page 1
+[DEBUG] 2026-03-12 15:57:17.418 [main] TicketServiceImpl - All booked tickets successfully found by user {'id' : 37, 'name' : 'User', 'email' : 'userEmail@gmail.com'} with page size 5 and number of page 1
+[DEBUG] 2026-03-12 15:57:17.419 [main] TicketServiceImpl - Finding all booked tickets by event EventImpl{id=96, title='Concert', date=2026-03-12, ticketPrice=120.0} with page size 5 and number of page 1
+[DEBUG] 2026-03-12 15:57:17.445 [main] TicketServiceImpl - All booked tickets successfully found by event EventImpl{id=96, title='Concert', date=2026-03-12, ticketPrice=120.0} with page size 5 and number of page 1
+[DEBUG] 2026-03-12 15:57:17.447 [main] TicketServiceImpl - Start canceling a ticket with id: 7
+[DEBUG] 2026-03-12 15:57:17.466 [main] TicketServiceImpl - Successfully canceling of the ticket with id: 7
+[DEBUG] 2026-03-12 16:54:24.229 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 16:54:24.262 [main] UserServiceImpl - Successfully creation of the user: {'id' : 38, 'name' : 'User', 'email' : 'userEmail@gmail.com'}
+[DEBUG] 2026-03-12 16:54:24.274 [main] UserServiceImpl - Finding a user by email: 
+[WARN ] 2026-03-12 16:54:24.357 [main] UserServiceImpl - Can not to get an user by email: 
+[DEBUG] 2026-03-12 16:54:24.358 [main] UserServiceImpl - Finding all users by name Alice with page size 2 and number of page 1
+[WARN ] 2026-03-12 16:54:24.361 [main] UserServiceImpl - Can not to find a list of users by name 'Alice'
+ua.epam.mishchenko.ticketbooking.exception.DbException: Error finding users by name
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.getByName(UserDAOImpl.java:72) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl.getUsersByName(UserServiceImpl.java:84) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208) ~[spring-aop-5.3.20.jar:5.3.20]
+	at jdk.proxy2.$Proxy75.getUsersByName(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl.getUsersByName(BookingFacadeImpl.java:75) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.MainApplication.main(MainApplication.java:259) ~[classes/:?]
+Caused by: java.lang.IllegalArgumentException: org.hibernate.hql.internal.ast.QuerySyntaxException: User is not mapped [SELECT u FROM User u WHERE u.name LIKE :name]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:713) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:729) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:103) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:315) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.getByName(UserDAOImpl.java:65) ~[classes/:?]
+	... 8 more
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: User is not mapped [SELECT u FROM User u WHERE u.name LIKE :name]
+	at org.hibernate.hql.internal.ast.QuerySyntaxException.generateQueryException(QuerySyntaxException.java:79) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.QueryException.wrapWithQueryString(QueryException.java:103) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:219) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:143) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:119) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:80) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:153) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:595) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:704) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:729) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:103) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:315) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.getByName(UserDAOImpl.java:65) ~[classes/:?]
+	... 8 more
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: User is not mapped
+	at org.hibernate.hql.internal.ast.util.SessionFactoryHelper.requireClassPersister(SessionFactoryHelper.java:169) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.tree.FromElementFactory.addFromElement(FromElementFactory.java:91) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.tree.FromClause.addFromElement(FromClause.java:79) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.createFromElement(HqlSqlWalker.java:331) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3695) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:3584) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:720) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:576) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:313) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:261) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:271) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:191) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:143) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:119) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:80) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:153) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:595) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:704) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:729) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:103) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:315) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.getByName(UserDAOImpl.java:65) ~[classes/:?]
+	... 8 more
+[DEBUG] 2026-03-12 16:54:24.371 [main] UserServiceImpl - Finding a user by email: alice@example.com
+[WARN ] 2026-03-12 16:54:24.373 [main] UserServiceImpl - Can not to get an user by email: alice@example.com
+[DEBUG] 2026-03-12 16:54:24.390 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 16:54:24.393 [main] UserServiceImpl - Successfully creation of the user: {'id' : 39, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 16:54:24.397 [main] UserServiceImpl - Start updating an user: {'id' : 39, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[WARN ] 2026-03-12 16:54:24.397 [main] UserServiceImpl - Can not to update an user: {'id' : 39, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+ua.epam.mishchenko.ticketbooking.exception.DbException: Error updating user
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.update(UserDAOImpl.java:92) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl.updateUser(UserServiceImpl.java:118) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208) ~[spring-aop-5.3.20.jar:5.3.20]
+	at jdk.proxy2.$Proxy75.updateUser(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl.updateUser(BookingFacadeImpl.java:85) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.MainApplication.main(MainApplication.java:263) ~[classes/:?]
+Caused by: javax.persistence.TransactionRequiredException: No EntityManager with actual transaction available for current thread - cannot reliably process 'merge' call
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:299) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.merge(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.update(UserDAOImpl.java:90) ~[classes/:?]
+	... 8 more
+[DEBUG] 2026-03-12 16:54:24.399 [main] UserServiceImpl - Start deleting an user with id: 39
+[DEBUG] 2026-03-12 16:54:24.399 [main] UserDAOImpl - Start retrieving  user by id: 39
+[WARN ] 2026-03-12 16:54:24.425 [main] UserServiceImpl - Can not to delete an user with id: 39
+ua.epam.mishchenko.ticketbooking.exception.DbException: Error deleting user
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.delete(UserDAOImpl.java:106) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl.deleteUser(UserServiceImpl.java:134) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208) ~[spring-aop-5.3.20.jar:5.3.20]
+	at jdk.proxy2.$Proxy75.deleteUser(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl.deleteUser(BookingFacadeImpl.java:90) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.MainApplication.main(MainApplication.java:264) ~[classes/:?]
+Caused by: javax.persistence.TransactionRequiredException: No EntityManager with actual transaction available for current thread - cannot reliably process 'remove' call
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:299) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.remove(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.delete(UserDAOImpl.java:101) ~[classes/:?]
+	... 8 more
+[DEBUG] 2026-03-12 16:58:51.299 [main] UserServiceImpl - Finding a user by email: userEmail@gmail.com
+[WARN ] 2026-03-12 16:58:51.373 [main] UserServiceImpl - Can not to get an user by email: userEmail@gmail.com
+[DEBUG] 2026-03-12 17:00:24.914 [main] UserServiceImpl - Finding a user by email: userEmail@gmail.com
+[WARN ] 2026-03-12 17:00:24.983 [main] UserServiceImpl - Can not to get an user by email: userEmail@gmail.com
+[DEBUG] 2026-03-12 17:01:58.345 [main] UserServiceImpl - Finding a user by email: alice@example.com
+[WARN ] 2026-03-12 17:01:58.433 [main] UserServiceImpl - Can not to get an user by email: alice@example.com
+[DEBUG] 2026-03-12 17:06:09.771 [main] UserServiceImpl - Finding a user by email: alice@example.com
+[DEBUG] 2026-03-12 17:06:09.929 [main] UserServiceImpl - The user with email alice@example.com successfully found 
+[DEBUG] 2026-03-12 17:07:55.346 [main] UserServiceImpl - Finding a user by email: userEmail@gmail.com
+[DEBUG] 2026-03-12 17:07:55.529 [main] UserServiceImpl - The user with email userEmail@gmail.com successfully found 
+[DEBUG] 2026-03-12 17:09:37.456 [main] UserServiceImpl - Finding all users by name Alice with page size 1 and number of page 1
+[WARN ] 2026-03-12 17:09:37.531 [main] UserServiceImpl - Can not to find a list of users by name 'Alice'
+ua.epam.mishchenko.ticketbooking.exception.DbException: Error finding users by name
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.getByName(UserDAOImpl.java:88) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl.getUsersByName(UserServiceImpl.java:84) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208) ~[spring-aop-5.3.20.jar:5.3.20]
+	at jdk.proxy2.$Proxy75.getUsersByName(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl.getUsersByName(BookingFacadeImpl.java:75) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.MainApplication.main(MainApplication.java:261) ~[classes/:?]
+Caused by: java.lang.IllegalArgumentException: org.hibernate.hql.internal.ast.QuerySyntaxException: User is not mapped [SELECT u FROM User u WHERE u.name LIKE :name]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:713) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:729) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:103) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:315) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.getByName(UserDAOImpl.java:81) ~[classes/:?]
+	... 8 more
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: User is not mapped [SELECT u FROM User u WHERE u.name LIKE :name]
+	at org.hibernate.hql.internal.ast.QuerySyntaxException.generateQueryException(QuerySyntaxException.java:79) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.QueryException.wrapWithQueryString(QueryException.java:103) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:219) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:143) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:119) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:80) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:153) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:595) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:704) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:729) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:103) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:315) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.getByName(UserDAOImpl.java:81) ~[classes/:?]
+	... 8 more
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: User is not mapped
+	at org.hibernate.hql.internal.ast.util.SessionFactoryHelper.requireClassPersister(SessionFactoryHelper.java:169) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.tree.FromElementFactory.addFromElement(FromElementFactory.java:91) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.tree.FromClause.addFromElement(FromClause.java:79) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.createFromElement(HqlSqlWalker.java:331) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3695) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:3584) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:720) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:576) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:313) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:261) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:271) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:191) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:143) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:119) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:80) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:153) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:595) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:704) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:729) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:103) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:315) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.getByName(UserDAOImpl.java:81) ~[classes/:?]
+	... 8 more
+[DEBUG] 2026-03-12 17:10:27.405 [main] UserServiceImpl - Finding all users by name Alice with page size 1 and number of page 1
+[WARN ] 2026-03-12 17:10:27.473 [main] UserServiceImpl - Can not to find a list of users by name 'Alice'
+ua.epam.mishchenko.ticketbooking.exception.DbException: Error finding users by name
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.getByName(UserDAOImpl.java:88) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl.getUsersByName(UserServiceImpl.java:84) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208) ~[spring-aop-5.3.20.jar:5.3.20]
+	at jdk.proxy2.$Proxy75.getUsersByName(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.MainApplication.main(MainApplication.java:262) ~[classes/:?]
+Caused by: java.lang.IllegalArgumentException: org.hibernate.hql.internal.ast.QuerySyntaxException: User is not mapped [SELECT u FROM User u WHERE u.name LIKE :name]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:713) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:729) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:103) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:315) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.getByName(UserDAOImpl.java:81) ~[classes/:?]
+	... 7 more
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: User is not mapped [SELECT u FROM User u WHERE u.name LIKE :name]
+	at org.hibernate.hql.internal.ast.QuerySyntaxException.generateQueryException(QuerySyntaxException.java:79) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.QueryException.wrapWithQueryString(QueryException.java:103) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:219) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:143) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:119) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:80) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:153) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:595) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:704) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:729) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:103) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:315) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.getByName(UserDAOImpl.java:81) ~[classes/:?]
+	... 7 more
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: User is not mapped
+	at org.hibernate.hql.internal.ast.util.SessionFactoryHelper.requireClassPersister(SessionFactoryHelper.java:169) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.tree.FromElementFactory.addFromElement(FromElementFactory.java:91) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.tree.FromClause.addFromElement(FromClause.java:79) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.createFromElement(HqlSqlWalker.java:331) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3695) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:3584) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:720) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:576) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:313) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:261) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:271) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:191) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:143) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:119) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:80) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:153) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.getQueryPlan(AbstractSharedSessionContract.java:595) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:704) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:729) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.createQuery(AbstractSharedSessionContract.java:103) ~[hibernate-core-5.3.7.Final.jar:5.3.7.Final]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:315) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.createQuery(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.getByName(UserDAOImpl.java:81) ~[classes/:?]
+	... 7 more
+[DEBUG] 2026-03-12 18:05:50.066 [main] UserServiceImpl - Finding all users by name Alice with page size 1 and number of page 1
+[DEBUG] 2026-03-12 18:05:50.193 [main] UserServiceImpl - All users successfully found by name Alice with page size 1 and number of page 1
+[DEBUG] 2026-03-12 18:08:12.850 [main] UserServiceImpl - Finding all users by name Alice with page size 1 and number of page 1
+[DEBUG] 2026-03-12 18:08:12.955 [main] UserServiceImpl - All users successfully found by name Alice with page size 1 and number of page 1
+[DEBUG] 2026-03-12 18:09:04.433 [main] UserServiceImpl - Finding all users by name Alice with page size 3 and number of page 2
+[DEBUG] 2026-03-12 18:09:04.551 [main] UserServiceImpl - All users successfully found by name Alice with page size 3 and number of page 2
+[DEBUG] 2026-03-12 18:10:11.306 [main] UserServiceImpl - Retrieving all users
+[DEBUG] 2026-03-12 18:10:11.420 [main] UserServiceImpl - Successfully retrieved 39 users
+[DEBUG] 2026-03-12 18:17:06.948 [main] UserServiceImpl - Retrieving all users
+[DEBUG] 2026-03-12 18:17:07.056 [main] UserServiceImpl - Successfully retrieved 5 users
+[DEBUG] 2026-03-12 18:17:32.879 [main] UserServiceImpl - Retrieving all users
+[DEBUG] 2026-03-12 18:17:33.008 [main] UserServiceImpl - Successfully retrieved 5 users
+[DEBUG] 2026-03-12 18:25:38.706 [main] UserServiceImpl - Retrieving all users
+[DEBUG] 2026-03-12 18:25:38.810 [main] UserServiceImpl - Successfully retrieved 5 users
+[DEBUG] 2026-03-12 18:25:38.814 [main] UserServiceImpl - Finding all users by name Alice with page size 1 and number of page 1
+[DEBUG] 2026-03-12 18:25:38.833 [main] UserServiceImpl - All users successfully found by name Alice with page size 1 and number of page 1
+[DEBUG] 2026-03-12 18:26:27.345 [main] UserServiceImpl - Retrieving all users
+[DEBUG] 2026-03-12 18:26:27.455 [main] UserServiceImpl - Successfully retrieved 5 users
+[DEBUG] 2026-03-12 18:26:27.460 [main] UserServiceImpl - Finding all users by name Alice with page size 3 and number of page 1
+[DEBUG] 2026-03-12 18:26:27.482 [main] UserServiceImpl - All users successfully found by name Alice with page size 3 and number of page 1
+[DEBUG] 2026-03-12 18:26:27.483 [main] UserServiceImpl - Finding a user by email: alice@example.com
+[DEBUG] 2026-03-12 18:26:27.498 [main] UserServiceImpl - The user with email alice@example.com successfully found 
+[DEBUG] 2026-03-12 18:27:58.833 [main] UserServiceImpl - Retrieving all users
+[DEBUG] 2026-03-12 18:27:58.959 [main] UserServiceImpl - Successfully retrieved 5 users
+[DEBUG] 2026-03-12 18:27:58.964 [main] UserServiceImpl - Finding all users by name Alice with page size 3 and number of page 1
+[DEBUG] 2026-03-12 18:27:58.989 [main] UserServiceImpl - All users successfully found by name Alice with page size 3 and number of page 1
+[DEBUG] 2026-03-12 18:27:58.989 [main] UserServiceImpl - Finding a user by email: alice@example.com
+[DEBUG] 2026-03-12 18:27:59.005 [main] UserServiceImpl - The user with email alice@example.com successfully found 
+[DEBUG] 2026-03-12 18:27:59.022 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:27:59.032 [main] UserServiceImpl - Successfully creation of the user: {'id' : 40, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:27:59.038 [main] UserServiceImpl - Start updating an user: {'id' : 40, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[WARN ] 2026-03-12 18:27:59.038 [main] UserServiceImpl - Can not to update an user: {'id' : 40, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+ua.epam.mishchenko.ticketbooking.exception.DbException: Error updating user
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.update(UserDAOImpl.java:124) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl.updateUser(UserServiceImpl.java:118) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208) ~[spring-aop-5.3.20.jar:5.3.20]
+	at jdk.proxy2.$Proxy75.updateUser(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl.updateUser(BookingFacadeImpl.java:93) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.MainApplication.main(MainApplication.java:269) ~[classes/:?]
+Caused by: javax.persistence.TransactionRequiredException: No EntityManager with actual transaction available for current thread - cannot reliably process 'merge' call
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:299) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.merge(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.update(UserDAOImpl.java:122) ~[classes/:?]
+	... 8 more
+[DEBUG] 2026-03-12 18:28:24.471 [main] UserServiceImpl - Retrieving all users
+[DEBUG] 2026-03-12 18:28:24.600 [main] UserServiceImpl - Successfully retrieved 5 users
+[DEBUG] 2026-03-12 18:28:24.605 [main] UserServiceImpl - Finding all users by name Alice with page size 3 and number of page 1
+[DEBUG] 2026-03-12 18:28:24.626 [main] UserServiceImpl - All users successfully found by name Alice with page size 3 and number of page 1
+[DEBUG] 2026-03-12 18:28:24.626 [main] UserServiceImpl - Finding a user by email: alice@example.com
+[DEBUG] 2026-03-12 18:28:24.640 [main] UserServiceImpl - The user with email alice@example.com successfully found 
+[DEBUG] 2026-03-12 18:28:24.667 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:28:24.676 [main] UserServiceImpl - Successfully creation of the user: {'id' : 41, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:29:00.242 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:29:00.259 [main] UserServiceImpl - Successfully creation of the user: {'id' : 42, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:32:06.264 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User2', 'email' : '3userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:32:06.283 [main] UserServiceImpl - Successfully creation of the user: {'id' : 43, 'name' : 'User2', 'email' : '3userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:32:21.445 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User2', 'email' : '3userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:32:21.463 [main] UserServiceImpl - Successfully creation of the user: {'id' : 44, 'name' : 'User2', 'email' : '3userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:32:41.976 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:32:41.990 [main] UserServiceImpl - Successfully creation of the user: {'id' : 45, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:37:05.351 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:37:05.366 [main] UserServiceImpl - Successfully creation of the user: {'id' : 46, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:37:05.375 [main] UserServiceImpl - Start updating an user: {'id' : 46, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[WARN ] 2026-03-12 18:37:05.375 [main] UserServiceImpl - Can not to update an user: {'id' : 46, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+ua.epam.mishchenko.ticketbooking.exception.DbException: Error updating user
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.update(UserDAOImpl.java:124) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl.updateUser(UserServiceImpl.java:118) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208) ~[spring-aop-5.3.20.jar:5.3.20]
+	at jdk.proxy2.$Proxy75.updateUser(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl.updateUser(BookingFacadeImpl.java:93) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.MainApplication.main(MainApplication.java:273) ~[classes/:?]
+Caused by: javax.persistence.TransactionRequiredException: No EntityManager with actual transaction available for current thread - cannot reliably process 'merge' call
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:299) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.merge(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.update(UserDAOImpl.java:122) ~[classes/:?]
+	... 8 more
+[DEBUG] 2026-03-12 18:39:08.096 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:39:08.116 [main] UserServiceImpl - Successfully creation of the user: {'id' : 47, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:39:08.137 [main] UserServiceImpl - Start updating an user: {'id' : 47, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:39:08.147 [main] UserServiceImpl - Successfully updating of the user: {'id' : 47, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:39:39.469 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:39:39.485 [main] UserServiceImpl - Successfully creation of the user: {'id' : 48, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:39:39.503 [main] UserServiceImpl - Start updating an user: {'id' : 48, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:39:39.511 [main] UserServiceImpl - Successfully updating of the user: {'id' : 48, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:39:39.515 [main] UserServiceImpl - Start deleting an user with id: 48
+[DEBUG] 2026-03-12 18:39:39.515 [main] UserDAOImpl - Start retrieving  user by id: 48
+[WARN ] 2026-03-12 18:39:39.529 [main] UserServiceImpl - Can not to delete an user with id: 48
+ua.epam.mishchenko.ticketbooking.exception.DbException: Error deleting user
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.delete(UserDAOImpl.java:138) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl.deleteUser(UserServiceImpl.java:135) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.3.20.jar:5.3.20]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208) ~[spring-aop-5.3.20.jar:5.3.20]
+	at jdk.proxy2.$Proxy75.deleteUser(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.facade.impl.BookingFacadeImpl.deleteUser(BookingFacadeImpl.java:98) ~[classes/:?]
+	at ua.epam.mishchenko.ticketbooking.MainApplication.main(MainApplication.java:274) ~[classes/:?]
+Caused by: javax.persistence.TransactionRequiredException: No EntityManager with actual transaction available for current thread - cannot reliably process 'remove' call
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:299) ~[spring-orm-5.3.30.jar:5.3.30]
+	at jdk.proxy2.$Proxy62.remove(Unknown Source) ~[?:?]
+	at ua.epam.mishchenko.ticketbooking.dao.impl.UserDAOImpl.delete(UserDAOImpl.java:133) ~[classes/:?]
+	... 8 more
+[DEBUG] 2026-03-12 18:40:40.663 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:40:40.685 [main] UserServiceImpl - Successfully creation of the user: {'id' : 49, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:40:40.705 [main] UserServiceImpl - Start updating an user: {'id' : 49, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:40:40.714 [main] UserServiceImpl - Successfully updating of the user: {'id' : 49, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:40:40.728 [main] UserServiceImpl - Start deleting an user with id: 49
+[DEBUG] 2026-03-12 18:40:40.728 [main] UserDAOImpl - Start retrieving  user by id: 49
+[DEBUG] 2026-03-12 18:40:40.733 [main] UserServiceImpl - Successfully deletion of the user with id: 49
+[DEBUG] 2026-03-12 18:41:17.488 [main] UserServiceImpl - Start creating an user: {'id' : 0, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:41:17.509 [main] UserServiceImpl - Successfully creation of the user: {'id' : 50, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:41:17.533 [main] UserServiceImpl - Start updating an user: {'id' : 50, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:41:17.541 [main] UserServiceImpl - Successfully updating of the user: {'id' : 50, 'name' : 'User1', 'email' : '2userEmail@gmail.com'}
+[DEBUG] 2026-03-12 18:41:17.555 [main] UserServiceImpl - Start deleting an user with id: 50
+[DEBUG] 2026-03-12 18:41:17.555 [main] UserDAOImpl - Start retrieving  user by id: 50
+[DEBUG] 2026-03-12 18:41:17.559 [main] UserServiceImpl - Successfully deletion of the user with id: 50
