@@ -1,0 +1,48 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://www.ehcache.org/ehcache.xsd">
+
+    <diskStore path="java.io.tmpdir"/>
+
+    <defaultCache
+            maxEntriesLocalHeap="1000"
+            eternal="false"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="600"
+            overflowToDisk="false"/>
+
+    <cache name="ua.epam.mishchenko.ticketbooking.model.impl.Ticket"
+           maxEntriesLocalHeap="1000"
+           eternal="false"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"/>
+
+    <cache name="ua.epam.mishchenko.ticketbooking.model.impl.User"
+           maxEntriesLocalHeap="1000"
+           eternal="false"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"/>
+
+    <cache name="ua.epam.mishchenko.ticketbooking.model.impl.Event"
+           maxEntriesLocalHeap="1000"
+           eternal="false"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"/>
+
+    <cache name="ua.epam.mishchenko.ticketbooking.model.impl.UserAccount"
+           maxEntriesLocalHeap="1000"
+           eternal="false"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           overflowToDisk="false"/>
+
+    <cache name="default-query-results-region"
+           maxEntriesLocalHeap="1000"
+           timeToLiveSeconds="600"/>
+
+    <cache name="default-update-timestamps-region"
+           maxEntriesLocalHeap="1000"
+           eternal="true"/>
+</ehcache>
