@@ -36,7 +36,7 @@ public class UserDAOImpl implements UserDAO {
                 log.info("No user found with id: {}", id);
                 return Optional.empty();
             }
-            return Optional.of(user);
+            return Optional.ofNullable(user);
         } catch (DbException exception) {
             log.error("Error while retrieving user by id: {}", id, exception);
 
