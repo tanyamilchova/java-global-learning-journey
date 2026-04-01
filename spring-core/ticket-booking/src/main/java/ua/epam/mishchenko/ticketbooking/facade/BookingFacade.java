@@ -1,20 +1,17 @@
 package ua.epam.mishchenko.ticketbooking.facade;
 
-import org.springframework.stereotype.Component;
-import ua.epam.mishchenko.ticketbooking.model.impl.Event;
-import ua.epam.mishchenko.ticketbooking.model.impl.Ticket;
-import ua.epam.mishchenko.ticketbooking.model.impl.User;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserAccount;
+import ua.epam.mishchenko.ticketbooking.model.Event;
+import ua.epam.mishchenko.ticketbooking.model.Ticket;
+import ua.epam.mishchenko.ticketbooking.model.User;
+import ua.epam.mishchenko.ticketbooking.model.UserAccount;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Groups together all operations related to tickets booking.
  * Created by maksym_govorischev.
  */
-@Component
 public interface BookingFacade {
 
     /**
@@ -41,7 +38,7 @@ public interface BookingFacade {
      * @param pageNum Pagination param. Number of the page to return. Starts from 1.
      * @return List of events.
      */
-    List<Event> getEventsForDay(LocalDate day, int pageSize, int pageNum);
+    List<Event> getEventsForDay(Date day, int pageSize, int pageNum);
 
     /**
      * Creates new event. Event id should be auto-generated.
@@ -65,27 +62,16 @@ public interface BookingFacade {
     boolean deleteEvent(long eventId);
 
     /**
-     * Gets user by their id.
-     * @param userId the id of the user to retrieve
-     * @return Optional containing the User if found, or Optional.empty() if not found.
+     * Gets user by its id.
+     * @return User.
      */
-    Optional<User> getUserById(long userId);
+    User getUserById(long userId);
 
     /**
-     * Retrieves a paginated list of all users.
-     *
-     * @param pageSize the number of users to return per page
-     * @param pageNum the page number to retrieve (starting from 1)
-     * @return a list of users for the specified page, or an empty list if none found
+     * Gets user by its email. Email is strictly matched.
+     * @return User.
      */
-     List<User> getAllUsers(int pageSize, int pageNum);
-
-    /**
-     * Gets user by their email. Email is strictly matched.
-     * @param email the email to search for
-     * @return Optional containing the User if found, or Optional.empty() if not found.
-     */
-    Optional<User> getUserByEmail(String email);
+    User getUserByEmail(String email);
 
     /**
      * Get list of users by matching name. Name is matched using 'contains' approach.
@@ -168,7 +154,7 @@ public interface BookingFacade {
      * @param userId User id whose account should be retrieved.
      * @return UserAccount associated with the specified user id or null if not found.
      */
-    UserAccount getUserAccountByUserId(long userId);
+    UserAccount getAccountByUserId(long userId);
 
     /**
      * Update an existing user account.
@@ -176,7 +162,7 @@ public interface BookingFacade {
      * @param userAccount UserAccount object containing updated information.
      * @return Updated UserAccount object or null if update failed.
      */
-    UserAccount updateUserAccount(UserAccount userAccount);
+    UserAccount updateAccount(UserAccount userAccount);
 
     /**
      * Delete the user account for the specified user.
@@ -185,20 +171,4 @@ public interface BookingFacade {
      * @return Flag whether the user account has been successfully deleted.
      */
     boolean deleteUserAccount(long userId);
-
-
-    /**
-     * Adds the specified amount of funds to the user's account.
-     * <p>
-     * This method increases the balance of the {@link UserAccount} associated with the given user ID
-     * by the provided amount. The amount must be positive.
-     * </p>
-     *
-     * @param userId the ID of the user whose account will be credited
-     * @param amount the amount to add to the user's account; must be positive
-     * @return the updated {@link UserAccount} with the new balance
-     * @throws IllegalArgumentException if {@code userId} is invalid or {@code amount} is not positive
-     * @throws ua.epam.mishchenko.ticketbooking.exception.DbException if the user account cannot be found or updated due to a database error
-     */
-     UserAccount addFunds(long userId, double amount);
 }

@@ -1,20 +1,16 @@
 package ua.epam.mishchenko.ticketbooking.dao;
 
-import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.impl.User;
+import org.springframework.stereotype.Repository;
+import ua.epam.mishchenko.ticketbooking.model.User;
 
 import java.util.List;
-import java.util.Optional;
 
+@Repository
 public interface UserDAO {
 
-    Optional<User> getById(long id);
+    User getById(long id);
 
-    List<User> getAll(int size, int num);
-
-    Optional<User> getByEmail(String email) throws DbException;
-
-    List<User> getByName(String name, int pageSize, int pageNum) throws DbException;
+    List<User> getAll();
 
     User insert(User user);
 

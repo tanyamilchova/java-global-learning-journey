@@ -1,124 +1,262 @@
 package ua.epam.mishchenko.ticketbooking.dao.impl;
 
-import lombok.extern.log4j.Log4j2;
-import org.springframework.stereotype.Repository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
+import ua.epam.mishchenko.ticketbooking.db.Storage;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.impl.User;
+import ua.epam.mishchenko.ticketbooking.model.User;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
 
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
-@Log4j2
-@Repository
 public class UserDAOImpl implements UserDAO {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    private static final String NAMESPACE = "user:";
 
+    private static final Logger logger = LoggerFactory.getLogger(UserDAOImpl.class);
 
-
+    private Storage storage;
 
     @Override
-    public Optional<User> getById(long id) throws DbException {
+    public User getById(long id) {
+        logger.debug("Finding a user by id: {}", id);
 
-        if (id <= 0) {
-            throw new IllegalArgumentException("Value must be positive. Provided: " + id);
+        String stringUser = storage.getInMemoryStorage().get(NAMESPACE + id);
+        if (stringUser == null) {
+            logger.warn("Can not to find a user by id: {}", id);
+            throw new DbException("Can not to find a user by id: " + id);
         }
-        try {
-            log.debug("Start retrieving user by id: {}", id);
-            User user = entityManager.find(User.class, id);
-            if (user == null) {
-                log.info("No user found with id: {}", id);
-                return Optional.empty();
+
+        User user = parseFromStringToUser(stringUser);
+
+        logger.debug("The user with id {} successfully found ", id);
+        return user;
+    }
+
+    private User parseFromStringToUser(String stringUser) {
+        final String delimiterBetweenFields = ",";
+        stringUser = removeBrackets(stringUser);
+        String[] stringFields = stringUser.split(delimiterBetweenFields);
+        return createUserFromStringFields(stringFields);
+    }
+
+    private String removeBrackets(String text) {
+        text = text.replace("{", "");
+        return text.replace("}", "");
+    }
+
+    private User createUserFromStringFields(String[] stringFields) {
+        int index = 0;
+        User user = new UserImpl();
+        user.setId(Long.parseLong(getFieldValueFromFields(stringFields, index++)));
+        user.setName(getFieldValueFromFields(stringFields, index++));
+        user.setEmail(getFieldValueFromFields(stringFields, index));
+        return user;
+    }
+
+    private String getFieldValueFromFields(String[] stringFields, int index) {
+        final String delimiterBetweenKeyAndValue = " : ";
+        return removeSingleQuotesIfExist(stringFields[index].split(delimiterBetweenKeyAndValue)[1]);
+    }
+
+    private String removeSingleQuotesIfExist(String text) {
+        return text.replaceAll("'", "");
+    }
+
+    public User getByEmail(String email) {
+        logger.debug("Finding a user by email: {}", email);
+
+        List<String> idsOfUsers = getIdsOfUsers();
+        for (String id : idsOfUsers) {
+            String stringUser = storage.getInMemoryStorage().get(id);
+            if (emailEquals(stringUser, email)) {
+                logger.debug("The user with email {} successfully found ", email);
+                return parseFromStringToUser(stringUser);
             }
-            return Optional.ofNullable(user);
-        } catch (PersistenceException exception) {
-            log.error("Error while retrieving user by id: {}", id, exception);
-
-            throw new DbException(exception.getMessage());
         }
+
+        logger.warn("Can not to find a user by email: {}", email);
+        throw new DbException("Can not to find a user by email: " + email);
+    }
+
+    private List<String> getIdsOfUsers() {
+        return storage.getInMemoryStorage().keySet().stream()
+                .filter(this::isUserEntity)
+                .collect(Collectors.toList());
+    }
+
+    private boolean isUserEntity(String entity) {
+        return entity.contains(NAMESPACE);
+    }
+
+    private boolean emailEquals(String entity, String email) {
+        return entity.contains("'email' : '" + email + "'");
+    }
+
+    public List<User> getByName(String name, int pageSize, int pageNum) {
+        logger.debug("Finding all users by name '{}' in the database using pagination", name);
+
+        if (pageSize <= 0 || pageNum <= 0) {
+            throw new DbException("The page size and page num must be greater than 0");
+        }
+
+        List<String> stringListOfUsersByName = getListOfStringUsersByName(name);
+        if (stringListOfUsersByName.isEmpty()) {
+            throw new DbException("List of all users by name '" + name + "' is empty");
+        }
+
+        int start = getStartIndex(pageSize, pageNum);
+        int end = getEndIndex(start, pageSize);
+        if (end > stringListOfUsersByName.size()) {
+            throw new DbException("The size of users list (size=" + stringListOfUsersByName.size() + ") " +
+                    "is less than end page (last page=" + end + ")");
+        }
+        List<String> stringListOfUsersByNameInRange = stringListOfUsersByName.subList(start, end);
+        List<User> listOfUsersByNameInRange = parseFromStringListToUserList(stringListOfUsersByNameInRange);
+
+        logger.debug(
+                "All users successfully found by name '{}' in the database using pagination",
+                name);
+        return listOfUsersByNameInRange;
+    }
+
+    private List<String> getListOfStringUsersByName(String name) {
+        List<String> stringListOfUsersByName = new ArrayList<>();
+        List<String> idsOfUsers = getIdsOfUsers();
+        for (String id : idsOfUsers) {
+            String stringUser = storage.getInMemoryStorage().get(id);
+            if (nameEquals(stringUser, name)) {
+                stringListOfUsersByName.add(stringUser);
+            }
+        }
+        return stringListOfUsersByName;
+    }
+
+    private List<User> parseFromStringListToUserList(List<String> stringListOfUsers) {
+        List<User> users = new ArrayList<>();
+        for (String stringUser : stringListOfUsers) {
+            users.add(parseFromStringToUser(stringUser));
+        }
+        return users;
+    }
+
+    private boolean nameEquals(String entity, String name) {
+        return entity.contains("'name' : '" + name + "'");
+    }
+
+    private int getStartIndex(int pageSize, int pageNum) {
+        return pageSize * (pageNum - 1);
+    }
+
+    private int getEndIndex(int start, int pageSize) {
+        return start + pageSize;
     }
 
     @Override
-    public List<User> getAll(int pageSize, int pageNum) throws DbException {
-        try {
-            return entityManager.createQuery(
-                    "SELECT u FROM UserImpl u", User.class)
-                    .setFirstResult((pageNum - 1) * pageSize)
-                    .setMaxResults(pageSize).getResultList();
-        } catch (Exception e) {
-            throw new DbException("Error retrieving all users", e);
-        }
-    }
+    public List<User> getAll() {
+        logger.debug("Finding all users in the database");
 
-
-    @Override
-    public Optional<User> getByEmail(String email) throws DbException {
-        try {
-            User user = entityManager.createQuery(
-                            "SELECT u FROM UserImpl u WHERE u.email = :email", User.class)
-                    .setParameter("email", email)
-                    .getSingleResult();
-            return Optional.ofNullable(user);
-        } catch (NoResultException exception) {
-            return Optional.empty();
-        } catch (PersistenceException  exception) {
-            log.error("Error retrieving user by email: {}", email, exception);
-            throw new DbException("Error retrieving user by email: " + email, exception);
+        List<User> listOfAllUsers = new ArrayList<>();
+        List<String> idsOfUsers = getIdsOfUsers();
+        for (String id : idsOfUsers) {
+            listOfAllUsers.add(parseFromStringToUser(storage.getInMemoryStorage().get(id)));
         }
+        if (listOfAllUsers.isEmpty()) {
+            throw new DbException("List of users is empty");
+        }
+
+        logger.debug("All users successfully found");
+        return listOfAllUsers;
     }
 
     @Override
-    public List<User> getByName(String name, int pageSize, int pageNum) throws DbException {
-        try {
-            return entityManager.createQuery(
-                            "SELECT u FROM UserImpl u WHERE u.name LIKE :name", User.class)
-                    .setParameter("name", "%" + name + "%")
-                    .setFirstResult((pageNum - 1) * pageSize)
-                    .setMaxResults(pageSize)
-                    .getResultList();
-        } catch (PersistenceException  exception) {
-            return Collections.emptyList();
+    public User insert(User user) {
+        logger.debug("Start inserting of the user: {}", user);
+
+        if (user == null) {
+            throw new DbException("The user can not equal a null");
         }
+        if (existsUserByEmail(user)) {
+            throw new DbException("This email already exists");
+        }
+        setIdForUser(user);
+        storage.getInMemoryStorage().put(NAMESPACE + user.getId(), user.toString());
+
+        logger.debug("Successfully insertion of the user: {}", user);
+
+        return user;
     }
 
-    @Override
-    public User insert(User user) throws DbException {
-        try {
-            entityManager.persist(user);
-            return user;
-        } catch (PersistenceException exception) {
-            throw new DbException("Error inserting user", exception);
-
-        }
-    }
-
-    @Override
-    public User update(User user) throws DbException {
-        try {
-            return entityManager.merge(user);
-        } catch (PersistenceException  exception) {
-            throw new DbException("Error updating user", exception);
-        }
-    }
-
-    @Override
-    public boolean delete(long id) throws DbException {
-        try {
-            Optional<User> user = getById(id);
-            if (user.isPresent()) {
-                entityManager.remove(user.get());
+    private boolean existsUserByEmail(User user) {
+        List<String> idsOfUsers = getIdsOfUsers();
+        for (String id : idsOfUsers) {
+            String stringUser = storage.getInMemoryStorage().get(id);
+            if (emailEquals(stringUser, user.getEmail())) {
                 return true;
             }
-            return false;
-        } catch (PersistenceException exception) {
-            throw new DbException("Error deleting user", exception);
         }
+        return false;
+    }
+
+    private void setIdForUser(User user) {
+        List<String> idsOfUsers = getIdsOfUsers();
+        if (idsOfUsers.isEmpty()) {
+            user.setId(1L);
+            return;
+        }
+        Collections.sort(idsOfUsers);
+        String stringLastUserId = idsOfUsers.get(idsOfUsers.size() - 1);
+        long longLastUserId = Long.parseLong(stringLastUserId.split(":")[1]);
+        long newId = longLastUserId + 1;
+        user.setId(newId);
+    }
+
+    @Override
+    public User update(User user) {
+        logger.debug("Start updating of the user: {}", user);
+
+        if (user == null) {
+            throw new DbException("The user can not equal a null");
+        }
+        if (!isUserExists(user.getId())) {
+            throw new DbException("The user with id " + user.getId() + " does not exist");
+        }
+
+        storage.getInMemoryStorage().replace(NAMESPACE + user.getId(), user.toString());
+
+        logger.debug("Successfully update of the user: {}", user);
+
+        return user;
+    }
+
+    private boolean isUserExists(long id) {
+        return storage.getInMemoryStorage().containsKey(NAMESPACE + id);
+    }
+
+    @Override
+    public boolean delete(long userId) {
+        logger.debug("Start deleting of the user with id: {}", userId);
+
+        if (!isUserExists(userId)) {
+            throw new DbException("The user with id " + userId + " does not exist");
+        }
+
+        String removedUser = storage.getInMemoryStorage().remove(NAMESPACE + userId);
+
+        if (removedUser == null) {
+            throw new DbException("The user with id" + userId + " not deleted");
+        }
+
+        logger.debug("Successfully deletion of the user with id: {}", userId);
+
+        return true;
+    }
+
+    public void setStorage(Storage storage) {
+        this.storage = storage;
     }
 }

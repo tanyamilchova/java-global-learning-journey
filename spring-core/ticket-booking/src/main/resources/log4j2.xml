@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="debug">
+<Configuration status="warn">
     <Properties>
         <Property name="basePath">./src/logs/</Property>
     </Properties>
@@ -25,14 +25,5 @@
         <Root level="debug" additivity="false">
             <appender-ref ref="console" />
         </Root>
-        <Logger name="org.hibernate.cache" level="debug" additivity="false">
-            <AppenderRef ref="console"/>
-            <AppenderRef ref="fileLogger"/>
-        </Logger>
-
-        <Logger name="org.hibernate.stat" level="debug" additivity="false">
-            <AppenderRef ref="console"/>
-            <AppenderRef ref="fileLogger"/>
-        </Logger>
     </Loggers>
 </Configuration>

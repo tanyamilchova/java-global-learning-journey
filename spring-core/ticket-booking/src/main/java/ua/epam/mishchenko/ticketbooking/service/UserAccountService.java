@@ -1,15 +1,13 @@
 package ua.epam.mishchenko.ticketbooking.service;
 
-import ua.epam.mishchenko.ticketbooking.model.impl.UserAccount;
+import ua.epam.mishchenko.ticketbooking.model.UserAccount;
 
 public interface UserAccountService {
     UserAccount createUserAccount(long userId);
 
-    UserAccount getUserAccountByUserId(long userId);
+    UserAccount getAccountByUserId(long userId);
 
-    UserAccount updateUserAccount(UserAccount userAccount);
+    UserAccount updateAccount(UserAccount userAccount);
 
     boolean deleteUserAccount(long userId);
-
-    UserAccount addFunds(long userId, double funds);
 }

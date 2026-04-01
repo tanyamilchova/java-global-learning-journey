@@ -1,167 +1,86 @@
 package ua.epam.mishchenko.ticketbooking.service.impl;
 
-import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ua.epam.mishchenko.ticketbooking.dao.UserAccountDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.impl.User;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserAccount;
-import ua.epam.mishchenko.ticketbooking.model.repository.UserAccountRepository;
+import ua.epam.mishchenko.ticketbooking.model.UserAccount;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
 import ua.epam.mishchenko.ticketbooking.service.UserAccountService;
-import ua.epam.mishchenko.ticketbooking.validator.GenericValidator;
-import ua.epam.mishchenko.ticketbooking.validator.UserAccountValidator;
 
-import java.util.Optional;
-
-@Log4j2
-@Service
 public class UserAccountServiceImpl implements UserAccountService {
+    private static final Logger logger = LoggerFactory.getLogger(UserAccountServiceImpl.class);
+    private  UserAccountDAO userAccountDAO;
 
-    private final UserDAO userDAO;
-    private final UserAccountRepository userAccountRepository;
-    private final UserAccountValidator userAccountValidator;
-    private final GenericValidator genericValidator;
+    public UserAccountServiceImpl() {
+    }
 
-    @Autowired
-    public UserAccountServiceImpl(
-            UserDAO userDAO,
-            UserAccountRepository userAccountRepository,
-            UserAccountValidator userAccountValidator,
-            GenericValidator genericValidator
-    ) {
-        this.userDAO = userDAO;
-        this.userAccountRepository = userAccountRepository;
-        this.userAccountValidator = userAccountValidator;
-        this.genericValidator = genericValidator;
+    public UserAccountServiceImpl(UserAccountDAO userAccountDAO) {
+        this.userAccountDAO = userAccountDAO;
     }
 
     @Override
     public UserAccount createUserAccount(long userId) {
-        genericValidator.validateId(userId, "User id");
-        log.debug("Start creating a user account with userId: {}", userId);
-
-        Optional<User> userOpt = userDAO.getById(userId);
-        if (userOpt.isEmpty()) {
-            log.warn("User with id {} not found", userId);
-            throw new DbException("User not found: " + userId);
-        }
+        logger.debug("Start creating a user account with userId: {}", userId);
 
         try{
-            UserAccount userAccount = createNewUserAccount(userId);
-            userAccountRepository.save((UserAccount)userAccount);
-
-            log.info("Successfully created userAccount for userId: {}", userId);
+            UserAccount userAccount = userAccountDAO.insert(createNewUserAccount(userId));
+            logger.debug("Successfully creating userAccount for userId: {}", userId);
             return userAccount;
-
-        } catch (Exception e) {
-            log.error("Cannot create user account for userId {}", userId, e);
-            throw new DbException("Cannot create user account for userId " + userId, e);
+        } catch (DbException exception){
+            logger.warn("Can not to create a user account for user with id {}", userId, exception);
+            return null;
         }
     }
 
     private UserAccount createNewUserAccount(long userId) {
-        return new UserAccount(userId);
+        return new UserAccountImpl(userId);
     }
 
     @Override
-    public UserAccount addFunds(long userId, double amount) {
-
-        genericValidator.validateId(userId, "User id");
-        genericValidator.validateFunds(amount);
-        if (amount <= 0) {
-            throw new IllegalArgumentException("Amount must be positive");
-        }
-        log.debug("Start adding funds: {} to userId: {}", amount, userId);
+    public UserAccount getAccountByUserId(long userId) {
+        logger.debug("Start getting a user account with userId: {}", userId);
 
         try {
-            Optional<UserAccount> optionalAccount = userAccountRepository.findById(userId);
-
-            UserAccount userAccount = optionalAccount.orElseThrow(() -> {
-                log.warn("User account not found for userId: {}", userId);
-                return new DbException("User account not found for userId: " + userId);
-            });
-
-            double newBalance = userAccountValidator.updateBalance(userAccount, amount);
-
-            userAccountRepository.save( userAccount);
-            log.info("Successfully added {} to userId: {}. New balance: {}", amount, userId, newBalance);
-
+            UserAccount userAccount = userAccountDAO.getByUserId(userId);
+            logger.debug("Successfully getting userAccount for userId: {}", userId);
             return userAccount;
-        } catch (DbException exception) {
-            throw exception;
-        } catch (Exception exception) {
-            log.error("Cannot add funds to userId: {}", userId, exception);
-            throw new DbException("Cannot add funds to userId " + userId, exception);
+        } catch (DbException exception){
+            logger.warn("Can not to get a user account for user with id {}", userId, exception);
+            return null;
         }
     }
 
-
     @Override
-    public UserAccount getUserAccountByUserId(long userId) {
-        genericValidator.validateId(userId, "User id");
-        log.debug("Start getting a user account with userId: {}", userId);
-
-            UserAccount userAccount = userAccountRepository.findById(userId)
-                    .orElseThrow(() -> {
-                        log.warn("User account not found for userId {}", userId);
-                        return new DbException("User account not found for userId: " + userId);
-                    });
-        log.info("Successfully retrieved userAccount for userId: {}", userId);
-
-            return userAccount;
-    }
-
-
-    @Override
-    public UserAccount updateUserAccount(UserAccount userAccount) {
-        userAccountValidator.validate(userAccount);
-        log.debug("Start updating user account with userId: {}", userAccount.getUserId());
+    public UserAccount updateAccount(UserAccount userAccount) {
+        logger.debug("Start updating a user account with userId: {}", userAccount.getUserId());
 
         try {
-            UserAccount userAccountToUpdate = userAccountRepository
-                    .findById(userAccount.getUserId())
-                    .orElseThrow(() -> {
-
-                        log.warn("User account to update not found for userId {}", userAccount.getUserId());
-                        return new DbException("User account to update not found for userId: " + userAccount.getUserId());
-                    });
-
-            userAccountToUpdate.setBalance(userAccount.getBalance());
-            userAccountRepository.save(userAccountToUpdate);
-
-            log.info("Successfully updated userAccount for userId: {}", userAccountToUpdate.getUserId());
-
-            return userAccountToUpdate;
-        } catch (Exception exception) {
-
-            log.error("Cannot update user account for userId {}", userAccount.getUserId(), exception);
-            throw new DbException("Error while updating user account", exception);
+            UserAccount userAccountUpdated =  userAccountDAO.update(userAccount);
+            logger.debug("Successfully updating userAccount for userId: {}", userAccountUpdated.getUserId());
+            return userAccount;
+        } catch (DbException exception){
+            logger.warn("Can not to update a user account for user with id {}", userAccount.getUserId(), exception);
+            return null;
         }
     }
 
     @Override
     public boolean deleteUserAccount(long userId) {
+        logger.debug("Start deleting a user account with userId: {}", userId);
 
-        genericValidator.validateId(userId, "User id");
-        if (userId <= 0) {
-            log.warn("Attempted to delete user account with invalid userId: {}", userId);
-            throw new IllegalArgumentException("UserId must be positive");
+        try {
+            boolean isRemoved = userAccountDAO.delete(userId);
+            logger.debug("Successfully deleting userAccount for userId: {}", userId);
+            return isRemoved;
+        } catch (DbException exception){
+            logger.warn("Can not to delete a user account for user with id {}", userId, exception);
+            return false;
         }
+    }
 
-        log.debug("Start deleting user account for userId {}", userId);
 
-        UserAccount account = userAccountRepository
-                .findById(userId)
-                .orElseThrow(() -> {
-                    log.warn("No user account exists for userId: {}. Deletion aborted.", userId);
-                    return new DbException("User account not found for userId: " + userId);
-                });
-
-        userAccountRepository.delete(account);
-
-        log.info("Successfully deleted user account for userId {}", userId);
-
-        return true;
+    public void setUserAccountDAO(UserAccountDAO userAccountDAO) {
+        this.userAccountDAO = userAccountDAO;
     }
 }

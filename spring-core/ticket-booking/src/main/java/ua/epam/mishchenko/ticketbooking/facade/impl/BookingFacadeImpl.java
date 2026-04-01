@@ -1,33 +1,30 @@
 package ua.epam.mishchenko.ticketbooking.facade.impl;
 
-import org.springframework.stereotype.Component;
+import jakarta.transaction.Transactional;
 import ua.epam.mishchenko.ticketbooking.facade.BookingFacade;
-import ua.epam.mishchenko.ticketbooking.model.impl.Event;
-import ua.epam.mishchenko.ticketbooking.model.impl.Ticket;
-import ua.epam.mishchenko.ticketbooking.model.impl.User;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserAccount;
-import ua.epam.mishchenko.ticketbooking.service.EventService;
-import ua.epam.mishchenko.ticketbooking.service.TicketService;
-import ua.epam.mishchenko.ticketbooking.service.UserAccountService;
-import ua.epam.mishchenko.ticketbooking.service.UserService;
+import ua.epam.mishchenko.ticketbooking.model.Event;
+import ua.epam.mishchenko.ticketbooking.model.Ticket;
+import ua.epam.mishchenko.ticketbooking.model.User;
+import ua.epam.mishchenko.ticketbooking.model.UserAccount;
+import ua.epam.mishchenko.ticketbooking.service.impl.EventServiceImpl;
+import ua.epam.mishchenko.ticketbooking.service.impl.TicketServiceImpl;
+import ua.epam.mishchenko.ticketbooking.service.impl.UserAccountServiceImpl;
+import ua.epam.mishchenko.ticketbooking.service.impl.UserServiceImpl;
 
-import javax.transaction.Transactional;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
-@Component
 public class BookingFacadeImpl implements BookingFacade {
 
-    private final EventService eventService;
+    private final EventServiceImpl eventService;
 
-    private final TicketService ticketService;
+    private final TicketServiceImpl ticketService;
 
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
-    private final UserAccountService userAccountService;
+    private final UserAccountServiceImpl userAccountService;
 
-    public BookingFacadeImpl(EventService eventService, TicketService ticketService, UserService userService, UserAccountService userAccountService) {
+    public BookingFacadeImpl(EventServiceImpl eventService, TicketServiceImpl ticketService, UserServiceImpl userService, UserAccountServiceImpl userAccountService) {
         this.eventService = eventService;
         this.ticketService = ticketService;
         this.userService = userService;
@@ -45,7 +42,7 @@ public class BookingFacadeImpl implements BookingFacade {
     }
 
     @Override
-    public List<Event> getEventsForDay(LocalDate day, int pageSize, int pageNum) {
+    public List<Event> getEventsForDay(Date day, int pageSize, int pageNum) {
         return eventService.getEventsForDay(day, pageSize, pageNum);
     }
 
@@ -65,18 +62,12 @@ public class BookingFacadeImpl implements BookingFacade {
     }
 
     @Override
-    public Optional<User> getUserById(long userId) {
+    public User getUserById(long userId) {
         return userService.getUserById(userId);
     }
 
     @Override
-    public List<User> getAllUsers(int pageSize, int pageNum) {
-
-            return userService.getAllUsers(pageSize, pageNum);
-    }
-
-    @Override
-    public Optional<User> getUserByEmail(String email) {
+    public User getUserByEmail(String email) {
         return userService.getUserByEmail(email);
     }
 
@@ -100,23 +91,31 @@ public class BookingFacadeImpl implements BookingFacade {
         return userService.deleteUser(userId);
     }
 
-    @Override
     @Transactional
+    @Override
     public Ticket bookTicket(long userId, long eventId, int place, Ticket.Category category) {
-
-        userService.getUserById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User not found: " + userId));
+        User user = userService.getUserById(userId);
+        if (user == null) {
+            throw new IllegalArgumentException("User not found: " + userId);
+        }
 
         Event event = eventService.getEventById(eventId);
-        UserAccount account = userAccountService.getUserAccountByUserId(userId);
+        if (event == null) {
+            throw new IllegalArgumentException("Event not found: " + eventId);
+        }
+
+        UserAccount account = userAccountService.getAccountByUserId(userId);
+        if (account == null) {
+            throw new IllegalArgumentException("User account not found for userId: " + userId);
+        }
 
         if (account.getBalance() < event.getTicketPrice()) {
             throw new IllegalStateException("Not enough money");
         }
-        account.setBalance(account.getBalance() - event.getTicketPrice());
-        userAccountService.updateUserAccount(account);
 
-        return ticketService.createTicket(userId, eventId, place, category);
+        account.setBalance(account.getBalance() - event.getTicketPrice());
+        userAccountService.updateAccount(account);
+        return ticketService.bookTicket(userId, eventId, place, category);
     }
 
     @Override
@@ -129,8 +128,27 @@ public class BookingFacadeImpl implements BookingFacade {
         return ticketService.getBookedTickets(event, pageSize, pageNum);
     }
 
+    @Transactional
     @Override
     public boolean cancelTicket(long ticketId) {
+        Ticket ticket = ticketService.getTicketById(ticketId);
+        if (ticket == null) {
+            throw new IllegalArgumentException("Ticket not found: " + ticketId);
+        }
+
+        Event event = eventService.getEventById(ticket.getEventId());
+        if (event == null) {
+            throw new IllegalArgumentException("Event not found: " + ticket.getEventId());
+        }
+
+        UserAccount account = userAccountService.getAccountByUserId(ticket.getUserId());
+        if (account == null) {
+            throw new IllegalArgumentException("User account not found for userId: " + ticket.getUserId());
+        }
+
+        account.setBalance(account.getBalance() + event.getTicketPrice());
+        userAccountService.updateAccount(account);
+
         return ticketService.cancelTicket(ticketId);
     }
 
@@ -140,22 +158,17 @@ public class BookingFacadeImpl implements BookingFacade {
     }
 
     @Override
-    public UserAccount getUserAccountByUserId(long userId) {
-        return userAccountService.getUserAccountByUserId(userId);
+    public UserAccount getAccountByUserId(long userId) {
+        return userAccountService.getAccountByUserId(userId);
     }
 
     @Override
-    public UserAccount updateUserAccount(UserAccount userAccount) {
-        return userAccountService.updateUserAccount(userAccount);
+    public UserAccount updateAccount(UserAccount userAccount) {
+        return userAccountService.updateAccount(userAccount);
     }
 
     @Override
     public boolean deleteUserAccount(long userId) {
         return userAccountService.deleteUserAccount(userId);
-    }
-
-    @Override
-    public UserAccount addFunds(long userId, double amount) {
-        return userAccountService.addFunds(userId, amount);
     }
 }

@@ -1,8 +1,8 @@
 package ua.epam.mishchenko.ticketbooking.service;
 
-import ua.epam.mishchenko.ticketbooking.model.impl.Event;
-import ua.epam.mishchenko.ticketbooking.model.impl.Ticket;
-import ua.epam.mishchenko.ticketbooking.model.impl.User;
+import ua.epam.mishchenko.ticketbooking.model.Event;
+import ua.epam.mishchenko.ticketbooking.model.Ticket;
+import ua.epam.mishchenko.ticketbooking.model.User;
 
 import java.util.List;
 
@@ -16,5 +16,6 @@ public interface TicketService {
 
     boolean cancelTicket(long ticketId);
 
-    Ticket createTicket(long userId, long eventId, int place, Ticket.Category category);
+    Ticket getTicketById(long ticketId);
+
 }
