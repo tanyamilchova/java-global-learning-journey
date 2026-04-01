@@ -8,8 +8,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import ua.epam.mishchenko.ticketbooking.config.AppConfig;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.User;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserAccount;
 import ua.epam.mishchenko.ticketbooking.model.repository.UserAccountRepository;
 import ua.epam.mishchenko.ticketbooking.service.UserAccountService;
 import ua.epam.mishchenko.ticketbooking.service.UserService;
@@ -33,11 +33,11 @@ public class UserAccountServiceIntegrationTest {
 
     @Test
     public void findByIdShouldReturnAccount() {
-        UserAccountImpl account = new UserAccountImpl(5L);
+        UserAccount account = new UserAccount(5L);
         account.setBalance(200);
 
         userAccountRepository.save(account);
-        Optional<UserAccountImpl> result = userAccountRepository.findById(5L);
+        Optional<UserAccount> result = userAccountRepository.findById(5L);
 
         assertTrue(result.isPresent());
         assertEquals(200.0, result.get().getBalance(), 0.001);
@@ -53,12 +53,12 @@ public class UserAccountServiceIntegrationTest {
 
     @Test
     public void createUserAccount_ShouldPersist_WhenUserExists() {
-        UserImpl user = userService.createUser(new UserImpl("Peter", "peer1@gmail.com"));
+        User user = userService.createUser(new User("Peter", "peer1@gmail.com"));
 
-        UserAccountImpl account = userAccountService.createUserAccount(user.getId());
+        UserAccount account = userAccountService.createUserAccount(user.getId());
 
         assertNotNull(account);
-        UserAccountImpl fromDb = userAccountRepository.findById(account.getUserId()).orElse(null);
+        UserAccount fromDb = userAccountRepository.findById(account.getUserId()).orElse(null);
         assertNotNull(fromDb);
         assertEquals(user.getId(), fromDb.getUserId());
     }
@@ -76,25 +76,25 @@ public class UserAccountServiceIntegrationTest {
 
     @Test
     public void addFunds_ShouldIncreaseBalance_WhenAmountIsPositive() {
-        UserImpl user = userService.createUser(new UserImpl("Poly", "poli@gmail.com"));
-        UserAccountImpl account = userAccountService.createUserAccount(user.getId());
+        User user = userService.createUser(new User("Poly", "poli@gmail.com"));
+        UserAccount account = userAccountService.createUserAccount(user.getId());
 
         double initialBalance = account.getBalance();
         double amountToAdd = 100.0;
 
-        UserAccountImpl updatedAccount = userAccountService.addFunds(user.getId(), amountToAdd);
+        UserAccount updatedAccount = userAccountService.addFunds(user.getId(), amountToAdd);
 
         assertNotNull(updatedAccount);
         assertEquals(initialBalance + amountToAdd, updatedAccount.getBalance(), 0.001);
 
-        UserAccountImpl fromDb = userAccountRepository.findById(user.getId()).orElse(null);
+        UserAccount fromDb = userAccountRepository.findById(user.getId()).orElse(null);
         assertNotNull(fromDb);
         assertEquals(initialBalance + amountToAdd, fromDb.getBalance(), 0.001);
     }
 
     @Test
     public void addFunds_ShouldThrowException_WhenAmountIsZeroOrNegative() {
-        UserImpl user = userService.createUser(new UserImpl("Anna", "anna@gmail.com"));
+        User user = userService.createUser(new User("Anna", "anna@gmail.com"));
         userAccountService.createUserAccount(user.getId());
 
         double negativeAmount = -50.0;
@@ -120,18 +120,18 @@ public class UserAccountServiceIntegrationTest {
 
     @Test
     public void updateUserAccountSuccessfulWhenUserAccountExists() {
-        UserImpl user = userService.createUser(new UserImpl("John", "john@gmail.com"));
-        UserAccountImpl account = userAccountService.createUserAccount(user.getId());
+        User user = userService.createUser(new User("John", "john@gmail.com"));
+        UserAccount account = userAccountService.createUserAccount(user.getId());
 
         double newBalance = account.getBalance() + 150.0;
         account.setBalance(newBalance);
 
-        UserAccountImpl updatedAccount = userAccountService.updateUserAccount(account);
+        UserAccount updatedAccount = userAccountService.updateUserAccount(account);
 
         assertNotNull(updatedAccount);
         assertEquals(newBalance, updatedAccount.getBalance(), 0.001);
 
-        UserAccountImpl fromDb = userAccountRepository.findById(account.getUserId()).orElse(null);
+        UserAccount fromDb = userAccountRepository.findById(account.getUserId()).orElse(null);
         assertNotNull(fromDb);
         assertEquals(newBalance, fromDb.getBalance(), 0.001);
     }
@@ -145,12 +145,12 @@ public class UserAccountServiceIntegrationTest {
 
     @Test
     public void updateUserAccount_ShouldHandleNegativeBalanceProperly() {
-        UserImpl user = userService.createUser(new UserImpl("Lara", "lara@gmail.com"));
-        UserAccountImpl account = userAccountService.createUserAccount(user.getId());
+        User user = userService.createUser(new User("Lara", "lara@gmail.com"));
+        UserAccount account = userAccountService.createUserAccount(user.getId());
 
         account.setBalance(-50.0);
 
-        UserAccountImpl updatedAccount = userAccountService.updateUserAccount(account);
+        UserAccount updatedAccount = userAccountService.updateUserAccount(account);
 
         assertEquals(-50.0, updatedAccount.getBalance(), 0.001);
 
@@ -159,14 +159,14 @@ public class UserAccountServiceIntegrationTest {
 
     @Test
     public void deleteUserAccount_ShouldRemoveAccount_WhenUserExists() {
-        UserImpl user = userService.createUser(new UserImpl("Ana", "ana@gmail.com"));
-        UserAccountImpl account = userAccountService.createUserAccount(user.getId());
+        User user = userService.createUser(new User("Ana", "ana@gmail.com"));
+        UserAccount account = userAccountService.createUserAccount(user.getId());
 
         boolean deleted = userAccountService.deleteUserAccount(user.getId());
 
         assertTrue("deleteUserAccount should return true", deleted);
 
-        Optional<UserAccountImpl> fromDb = userAccountRepository.findById(user.getId());
+        Optional<UserAccount> fromDb = userAccountRepository.findById(user.getId());
         assertFalse("User account should be deleted from DB", fromDb.isPresent());
     }
 

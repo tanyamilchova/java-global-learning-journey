@@ -1,21 +1,21 @@
 package ua.epam.mishchenko.ticketbooking.service;
 
-import ua.epam.mishchenko.ticketbooking.model.impl.EventImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.Event;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public interface EventService {
 
-    EventImpl getEventById(long eventId);
+    Event getEventById(long eventId);
 
-    List<EventImpl> getEventsByTitle(String title, int pageSize, int pageNum);
+    List<Event> getEventsByTitle(String title, int pageSize, int pageNum);
 
-    List<EventImpl> getEventsForDay(LocalDate day, int pageSize, int pageNum);
+    List<Event> getEventsForDay(LocalDate day, int pageSize, int pageNum);
 
-    EventImpl createEvent(EventImpl event);
+    Event createEvent(Event event);
 
-    EventImpl updateEvent(EventImpl event);
+    Event updateEvent(Event event);
 
     boolean deleteEvent(long eventId);
 }

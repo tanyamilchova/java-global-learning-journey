@@ -1,13 +1,14 @@
 package ua.epam.mishchenko.ticketbooking.service.impl;
 
+import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserAccount;
+import ua.epam.mishchenko.ticketbooking.model.impl.User;
 import ua.epam.mishchenko.ticketbooking.model.repository.UserAccountRepository;
 import ua.epam.mishchenko.ticketbooking.service.UserAccountService;
 import ua.epam.mishchenko.ticketbooking.validator.GenericValidator;
@@ -15,9 +16,9 @@ import ua.epam.mishchenko.ticketbooking.validator.UserAccountValidator;
 
 import java.util.Optional;
 
+@Log4j2
 @Service
 public class UserAccountServiceImpl implements UserAccountService {
-    private static final Logger LOGGER = LogManager.getLogger(UserAccountServiceImpl.class);
 
     private final UserDAO userDAO;
     private final UserAccountRepository userAccountRepository;
@@ -38,105 +39,105 @@ public class UserAccountServiceImpl implements UserAccountService {
     }
 
     @Override
-    public UserAccountImpl createUserAccount(long userId) {
+    public UserAccount createUserAccount(long userId) {
         genericValidator.validateId(userId, "User id");
-        LOGGER.debug("Start creating a user account with userId: {}", userId);
+        log.debug("Start creating a user account with userId: {}", userId);
 
-        Optional<UserImpl> userOpt = userDAO.getById(userId);
+        Optional<User> userOpt = userDAO.getById(userId);
         if (userOpt.isEmpty()) {
-            LOGGER.warn("User with id {} not found", userId);
+            log.warn("User with id {} not found", userId);
             throw new DbException("User not found: " + userId);
         }
 
         try{
-            UserAccountImpl userAccount = createNewUserAccount(userId);
-            userAccountRepository.save((UserAccountImpl)userAccount);
+            UserAccount userAccount = createNewUserAccount(userId);
+            userAccountRepository.save((UserAccount)userAccount);
 
-            LOGGER.info("Successfully created userAccount for userId: {}", userId);
+            log.info("Successfully created userAccount for userId: {}", userId);
             return userAccount;
 
         } catch (Exception e) {
-            LOGGER.error("Cannot create user account for userId {}", userId, e);
+            log.error("Cannot create user account for userId {}", userId, e);
             throw new DbException("Cannot create user account for userId " + userId, e);
         }
     }
 
-    private UserAccountImpl createNewUserAccount(long userId) {
-        return new UserAccountImpl(userId);
+    private UserAccount createNewUserAccount(long userId) {
+        return new UserAccount(userId);
     }
 
     @Override
-    public UserAccountImpl addFunds(long userId, double amount) {
+    public UserAccount addFunds(long userId, double amount) {
 
         genericValidator.validateId(userId, "User id");
         genericValidator.validateFunds(amount);
         if (amount <= 0) {
             throw new IllegalArgumentException("Amount must be positive");
         }
-        LOGGER.debug("Start adding funds: {} to userId: {}", amount, userId);
+        log.debug("Start adding funds: {} to userId: {}", amount, userId);
 
         try {
-            Optional<UserAccountImpl> optionalAccount = userAccountRepository.findById(userId);
+            Optional<UserAccount> optionalAccount = userAccountRepository.findById(userId);
 
-            UserAccountImpl userAccount = optionalAccount.orElseThrow(() -> {
-                LOGGER.warn("User account not found for userId: {}", userId);
+            UserAccount userAccount = optionalAccount.orElseThrow(() -> {
+                log.warn("User account not found for userId: {}", userId);
                 return new DbException("User account not found for userId: " + userId);
             });
 
             double newBalance = userAccountValidator.updateBalance(userAccount, amount);
 
             userAccountRepository.save( userAccount);
-            LOGGER.info("Successfully added {} to userId: {}. New balance: {}", amount, userId, newBalance);
+            log.info("Successfully added {} to userId: {}. New balance: {}", amount, userId, newBalance);
 
             return userAccount;
         } catch (DbException exception) {
             throw exception;
         } catch (Exception exception) {
-            LOGGER.error("Cannot add funds to userId: {}", userId, exception);
+            log.error("Cannot add funds to userId: {}", userId, exception);
             throw new DbException("Cannot add funds to userId " + userId, exception);
         }
     }
 
 
     @Override
-    public UserAccountImpl getUserAccountByUserId(long userId) {
+    public UserAccount getUserAccountByUserId(long userId) {
         genericValidator.validateId(userId, "User id");
-        LOGGER.debug("Start getting a user account with userId: {}", userId);
+        log.debug("Start getting a user account with userId: {}", userId);
 
-            UserAccountImpl userAccount = userAccountRepository.findById(userId)
+            UserAccount userAccount = userAccountRepository.findById(userId)
                     .orElseThrow(() -> {
-                        LOGGER.warn("User account not found for userId {}", userId);
+                        log.warn("User account not found for userId {}", userId);
                         return new DbException("User account not found for userId: " + userId);
                     });
-            LOGGER.info("Successfully retrieved userAccount for userId: {}", userId);
+        log.info("Successfully retrieved userAccount for userId: {}", userId);
 
             return userAccount;
     }
 
 
     @Override
-    public UserAccountImpl updateUserAccount(UserAccountImpl userAccount) {
+    public UserAccount updateUserAccount(UserAccount userAccount) {
         userAccountValidator.validate(userAccount);
-        LOGGER.debug("Start updating user account with userId: {}", userAccount.getUserId());
+        log.debug("Start updating user account with userId: {}", userAccount.getUserId());
 
         try {
-            UserAccountImpl userAccountToUpdate = userAccountRepository
+            UserAccount userAccountToUpdate = userAccountRepository
                     .findById(userAccount.getUserId())
                     .orElseThrow(() -> {
 
-                        LOGGER.warn("User account to update not found for userId {}", userAccount.getUserId());
+                        log.warn("User account to update not found for userId {}", userAccount.getUserId());
                         return new DbException("User account to update not found for userId: " + userAccount.getUserId());
                     });
 
             userAccountToUpdate.setBalance(userAccount.getBalance());
             userAccountRepository.save(userAccountToUpdate);
 
-            LOGGER.info("Successfully updated userAccount for userId: {}", userAccountToUpdate.getUserId());
+            log.info("Successfully updated userAccount for userId: {}", userAccountToUpdate.getUserId());
 
             return userAccountToUpdate;
         } catch (Exception exception) {
 
-            LOGGER.error("Cannot update user account for userId {}", userAccount.getUserId(), exception);
+            log.error("Cannot update user account for userId {}", userAccount.getUserId(), exception);
             throw new DbException("Error while updating user account", exception);
         }
     }
@@ -146,22 +147,22 @@ public class UserAccountServiceImpl implements UserAccountService {
 
         genericValidator.validateId(userId, "User id");
         if (userId <= 0) {
-            LOGGER.warn("Attempted to delete user account with invalid userId: {}", userId);
+            log.warn("Attempted to delete user account with invalid userId: {}", userId);
             throw new IllegalArgumentException("UserId must be positive");
         }
 
-        LOGGER.debug("Start deleting user account for userId {}", userId);
+        log.debug("Start deleting user account for userId {}", userId);
 
-        UserAccountImpl account = userAccountRepository
+        UserAccount account = userAccountRepository
                 .findById(userId)
                 .orElseThrow(() -> {
-                    LOGGER.warn("No user account exists for userId: {}. Deletion aborted.", userId);
+                    log.warn("No user account exists for userId: {}. Deletion aborted.", userId);
                     return new DbException("User account not found for userId: " + userId);
                 });
 
         userAccountRepository.delete(account);
 
-        LOGGER.info("Successfully deleted user account for userId {}", userId);
+        log.info("Successfully deleted user account for userId {}", userId);
 
         return true;
     }

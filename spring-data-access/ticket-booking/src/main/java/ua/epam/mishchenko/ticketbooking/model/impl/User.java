@@ -10,7 +10,7 @@ import java.util.Objects;
 @Table(name = "users")
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class UserImpl  implements Comparable<UserImpl>{
+public class User implements Comparable<User>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,15 +20,15 @@ public class UserImpl  implements Comparable<UserImpl>{
 
     private String email;
 
-    public UserImpl() {}
+    public User() {}
 
-    public UserImpl(long id, String name, String email) {
+    public User(long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
     }
 
-    public UserImpl(String name, String email) {
+    public User(String name, String email) {
         this.name = name;
         this.email = email;
     }
@@ -61,7 +61,7 @@ public class UserImpl  implements Comparable<UserImpl>{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserImpl user = (UserImpl) o;
+        User user = (User) o;
         return id == user.id && Objects.equals(name, user.name) && Objects.equals(email, user.email);
     }
 
@@ -80,7 +80,7 @@ public class UserImpl  implements Comparable<UserImpl>{
     }
 
     @Override
-    public int compareTo(UserImpl o) {
+    public int compareTo(User o) {
         return Long.compare(this.id, o.id);
     }
 }

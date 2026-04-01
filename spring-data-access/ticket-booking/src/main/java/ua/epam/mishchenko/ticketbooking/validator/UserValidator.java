@@ -1,13 +1,13 @@
 package ua.epam.mishchenko.ticketbooking.validator;
 
 import org.springframework.stereotype.Component;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.User;
 
 @Component
 public class UserValidator {
 
 
-    public void validate(UserImpl user) {
+    public void validate(User user) {
         if (user == null) {
             throw new IllegalArgumentException("User cannot be null");
         }

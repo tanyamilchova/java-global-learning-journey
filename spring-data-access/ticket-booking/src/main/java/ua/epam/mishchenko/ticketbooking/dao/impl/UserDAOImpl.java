@@ -1,11 +1,10 @@
 package ua.epam.mishchenko.ticketbooking.dao.impl;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 import ua.epam.mishchenko.ticketbooking.dao.UserDAO;
 import ua.epam.mishchenko.ticketbooking.exception.DbException;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -14,41 +13,42 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+@Log4j2
 @Repository
 public class UserDAOImpl implements UserDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    private static final Logger LOGGER = LogManager.getLogger(UserDAOImpl.class);
+
 
 
     @Override
-    public Optional<UserImpl> getById(long id) throws DbException {
+    public Optional<User> getById(long id) throws DbException {
 
         if (id <= 0) {
             throw new IllegalArgumentException("Value must be positive. Provided: " + id);
         }
         try {
-            LOGGER.debug("Start retrieving user by id: {}", id);
-            UserImpl user = entityManager.find(UserImpl.class, id);
+            log.debug("Start retrieving user by id: {}", id);
+            User user = entityManager.find(User.class, id);
             if (user == null) {
-                LOGGER.info("No user found with id: {}", id);
+                log.info("No user found with id: {}", id);
                 return Optional.empty();
             }
             return Optional.of(user);
         } catch (DbException exception) {
-            LOGGER.error("Error while retrieving user by id: {}", id, exception);
+            log.error("Error while retrieving user by id: {}", id, exception);
 
             throw new DbException(exception.getMessage());
         }
     }
 
     @Override
-    public List<UserImpl> getAll(int pageSize, int pageNum) throws DbException {
+    public List<User> getAll(int pageSize, int pageNum) throws DbException {
         try {
             return entityManager.createQuery(
-                    "SELECT u FROM UserImpl u", UserImpl.class)
+                    "SELECT u FROM UserImpl u", User.class)
                     .setFirstResult((pageNum - 1) * pageSize)
                     .setMaxResults(pageSize).getResultList();
         } catch (Exception e) {
@@ -58,26 +58,26 @@ public class UserDAOImpl implements UserDAO {
 
 
     @Override
-    public Optional<UserImpl> getByEmail(String email) throws DbException {
+    public Optional<User> getByEmail(String email) throws DbException {
         try {
-            UserImpl user = entityManager.createQuery(
-                            "SELECT u FROM UserImpl u WHERE u.email = :email", UserImpl.class)
+            User user = entityManager.createQuery(
+                            "SELECT u FROM UserImpl u WHERE u.email = :email", User.class)
                     .setParameter("email", email)
                     .getSingleResult();
             return Optional.ofNullable(user);
         } catch (NoResultException e) {
             return Optional.empty();
         } catch (Exception e) {
-            LOGGER.error("Error retrieving user by email: {}", email, e);
+            log.error("Error retrieving user by email: {}", email, e);
             throw new DbException("Error retrieving user by email: " + email, e);
         }
     }
 
     @Override
-    public List<UserImpl> getByName(String name, int pageSize, int pageNum) throws DbException {
+    public List<User> getByName(String name, int pageSize, int pageNum) throws DbException {
         try {
             return entityManager.createQuery(
-                            "SELECT u FROM UserImpl u WHERE u.name LIKE :name", UserImpl.class)
+                            "SELECT u FROM UserImpl u WHERE u.name LIKE :name", User.class)
                     .setParameter("name", "%" + name + "%")
                     .setFirstResult((pageNum - 1) * pageSize)
                     .setMaxResults(pageSize)
@@ -88,7 +88,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public UserImpl insert(UserImpl user) throws DbException {
+    public User insert(User user) throws DbException {
         try {
             entityManager.persist(user);
             return user;
@@ -99,7 +99,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public UserImpl update(UserImpl user) throws DbException {
+    public User update(User user) throws DbException {
         try {
             return entityManager.merge(user);
         } catch (Exception e) {
@@ -110,7 +110,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean delete(long id) throws DbException {
         try {
-            Optional<UserImpl> user = getById(id);
+            Optional<User> user = getById(id);
             if (user.isPresent()) {
                 entityManager.remove(user.get());
                 return true;

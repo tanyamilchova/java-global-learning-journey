@@ -1,12 +1,12 @@
 package ua.epam.mishchenko.ticketbooking.validator;
 
 import org.springframework.stereotype.Component;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserAccount;
 
 @Component
 public class UserAccountValidator {
 
-    public void validate(UserAccountImpl userAccount) {
+    public void validate(UserAccount userAccount) {
         if (userAccount == null) {
             throw new IllegalArgumentException("UserAccount cannot be null");
         }
@@ -15,7 +15,7 @@ public class UserAccountValidator {
         }
     }
 
-    public  double updateBalance(UserAccountImpl userAccount, double delta) {
+    public  double updateBalance(UserAccount userAccount, double delta) {
         double newBalance = userAccount.getBalance() + delta;
         if (newBalance < 0) {
             throw new IllegalArgumentException("Insufficient funds: resulting balance would be negative");

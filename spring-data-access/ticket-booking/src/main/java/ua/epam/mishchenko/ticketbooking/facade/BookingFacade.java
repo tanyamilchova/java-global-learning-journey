@@ -1,10 +1,10 @@
 package ua.epam.mishchenko.ticketbooking.facade;
 
 import org.springframework.stereotype.Component;
-import ua.epam.mishchenko.ticketbooking.model.impl.EventImpl;
-import ua.epam.mishchenko.ticketbooking.model.impl.TicketImpl;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
-import ua.epam.mishchenko.ticketbooking.model.impl.UserImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.Event;
+import ua.epam.mishchenko.ticketbooking.model.impl.Ticket;
+import ua.epam.mishchenko.ticketbooking.model.impl.User;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserAccount;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,7 +21,7 @@ public interface BookingFacade {
      * Gets event by its id.
      * @return Event.
      */
-    EventImpl getEventById(long eventId);
+    Event getEventById(long eventId);
 
     /**
      * Get list of events by matching title. Title is matched using 'contains' approach.
@@ -31,7 +31,7 @@ public interface BookingFacade {
      * @param pageNum Pagination param. Number of the page to return. Starts from 1.
      * @return List of events.
      */
-    List<EventImpl> getEventsByTitle(String title, int pageSize, int pageNum);
+    List<Event> getEventsByTitle(String title, int pageSize, int pageNum);
 
     /**
      * Get list of events for specified day.
@@ -41,21 +41,21 @@ public interface BookingFacade {
      * @param pageNum Pagination param. Number of the page to return. Starts from 1.
      * @return List of events.
      */
-    List<EventImpl> getEventsForDay(LocalDate day, int pageSize, int pageNum);
+    List<Event> getEventsForDay(LocalDate day, int pageSize, int pageNum);
 
     /**
      * Creates new event. Event id should be auto-generated.
      * @param event Event data.
      * @return Created Event object.
      */
-    EventImpl createEvent(EventImpl event);
+    Event createEvent(Event event);
 
     /**
      * Updates event using given data.
      * @param event Event data for update. Should have id set.
      * @return Updated Event object.
      */
-    EventImpl updateEvent(EventImpl event);
+    Event updateEvent(Event event);
 
     /**
      * Deletes event by its id.
@@ -69,7 +69,7 @@ public interface BookingFacade {
      * @param userId the id of the user to retrieve
      * @return Optional containing the User if found, or Optional.empty() if not found.
      */
-    Optional<UserImpl> getUserById(long userId);
+    Optional<User> getUserById(long userId);
 
     /**
      * Retrieves a paginated list of all users.
@@ -78,14 +78,14 @@ public interface BookingFacade {
      * @param pageNum the page number to retrieve (starting from 1)
      * @return a list of users for the specified page, or an empty list if none found
      */
-     List<UserImpl> getAllUsers(int pageSize, int pageNum);
+     List<User> getAllUsers(int pageSize, int pageNum);
 
     /**
      * Gets user by their email. Email is strictly matched.
      * @param email the email to search for
      * @return Optional containing the User if found, or Optional.empty() if not found.
      */
-    Optional<UserImpl> getUserByEmail(String email);
+    Optional<User> getUserByEmail(String email);
 
     /**
      * Get list of users by matching name. Name is matched using 'contains' approach.
@@ -95,21 +95,21 @@ public interface BookingFacade {
      * @param pageNum Pagination param. Number of the page to return. Starts from 1.
      * @return List of users.
      */
-    List<UserImpl> getUsersByName(String name, int pageSize, int pageNum);
+    List<User> getUsersByName(String name, int pageSize, int pageNum);
 
     /**
      * Creates new user. User id should be auto-generated.
      * @param user User data.
      * @return Created User object.
      */
-    UserImpl createUser(UserImpl user);
+    User createUser(User user);
 
     /**
      * Updates user using given data.
      * @param user User data for update. Should have id set.
      * @return Updated User object.
      */
-    UserImpl updateUser(UserImpl user);
+    User updateUser(User user);
 
     /**
      * Deletes user by its id.
@@ -127,7 +127,7 @@ public interface BookingFacade {
      * @return Booked ticket object.
      * @throws IllegalStateException if this place has already been booked.
      */
-    TicketImpl bookTicket(long userId, long eventId, int place, TicketImpl.Category category);
+    Ticket bookTicket(long userId, long eventId, int place, Ticket.Category category);
 
     /**
      * Get all booked tickets for specified user. Tickets should be sorted by event date in descending order.
@@ -136,7 +136,7 @@ public interface BookingFacade {
      * @param pageNum Pagination param. Number of the page to return. Starts from 1.
      * @return List of Ticket objects.
      */
-    List<TicketImpl> getBookedTickets(UserImpl user, int pageSize, int pageNum);
+    List<Ticket> getBookedTickets(User user, int pageSize, int pageNum);
 
     /**
      * Get all booked tickets for specified event. Tickets should be sorted in by user email in ascending order.
@@ -145,7 +145,7 @@ public interface BookingFacade {
      * @param pageNum Pagination param. Number of the page to return. Starts from 1.
      * @return List of Ticket objects.
      */
-    List<TicketImpl> getBookedTickets(EventImpl event, int pageSize, int pageNum);
+    List<Ticket> getBookedTickets(Event event, int pageSize, int pageNum);
 
     /**
      * Cancel ticket with a specified id.
@@ -160,7 +160,7 @@ public interface BookingFacade {
      * @param userId User id for which the account will be created.
      * @return Created UserAccount object or null if creation failed.
      */
-    UserAccountImpl createUserAccount(long userId);
+    UserAccount createUserAccount(long userId);
 
     /**
      * Get the user account by user id.
@@ -168,7 +168,7 @@ public interface BookingFacade {
      * @param userId User id whose account should be retrieved.
      * @return UserAccount associated with the specified user id or null if not found.
      */
-    UserAccountImpl getUserAccountByUserId(long userId);
+    UserAccount getUserAccountByUserId(long userId);
 
     /**
      * Update an existing user account.
@@ -176,7 +176,7 @@ public interface BookingFacade {
      * @param userAccount UserAccount object containing updated information.
      * @return Updated UserAccount object or null if update failed.
      */
-    UserAccountImpl updateUserAccount(UserAccountImpl userAccount);
+    UserAccount updateUserAccount(UserAccount userAccount);
 
     /**
      * Delete the user account for the specified user.
@@ -190,15 +190,15 @@ public interface BookingFacade {
     /**
      * Adds the specified amount of funds to the user's account.
      * <p>
-     * This method increases the balance of the {@link UserAccountImpl} associated with the given user ID
+     * This method increases the balance of the {@link UserAccount} associated with the given user ID
      * by the provided amount. The amount must be positive.
      * </p>
      *
      * @param userId the ID of the user whose account will be credited
      * @param amount the amount to add to the user's account; must be positive
-     * @return the updated {@link UserAccountImpl} with the new balance
+     * @return the updated {@link UserAccount} with the new balance
      * @throws IllegalArgumentException if {@code userId} is invalid or {@code amount} is not positive
      * @throws ua.epam.mishchenko.ticketbooking.exception.DbException if the user account cannot be found or updated due to a database error
      */
-     UserAccountImpl addFunds(long userId, double amount);
+     UserAccount addFunds(long userId, double amount);
 }

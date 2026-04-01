@@ -10,28 +10,28 @@
             timeToLiveSeconds="600"
             overflowToDisk="false"/>
 
-    <cache name="ua.epam.mishchenko.ticketbooking.model.impl.TicketImpl"
+    <cache name="ua.epam.mishchenko.ticketbooking.model.impl.Ticket"
            maxEntriesLocalHeap="1000"
            eternal="false"
            timeToIdleSeconds="300"
            timeToLiveSeconds="600"
            overflowToDisk="false"/>
 
-    <cache name="ua.epam.mishchenko.ticketbooking.model.impl.UserImpl"
+    <cache name="ua.epam.mishchenko.ticketbooking.model.impl.User"
            maxEntriesLocalHeap="1000"
            eternal="false"
            timeToIdleSeconds="300"
            timeToLiveSeconds="600"
            overflowToDisk="false"/>
 
-    <cache name="ua.epam.mishchenko.ticketbooking.model.impl.EventImpl"
+    <cache name="ua.epam.mishchenko.ticketbooking.model.impl.Event"
            maxEntriesLocalHeap="1000"
            eternal="false"
            timeToIdleSeconds="300"
            timeToLiveSeconds="600"
            overflowToDisk="false"/>
 
-    <cache name="ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl"
+    <cache name="ua.epam.mishchenko.ticketbooking.model.impl.UserAccount"
            maxEntriesLocalHeap="1000"
            eternal="false"
            timeToIdleSeconds="300"

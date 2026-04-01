@@ -1,6 +1,6 @@
 package ua.epam.mishchenko.ticketbooking.validator;
 
-import ua.epam.mishchenko.ticketbooking.model.impl.UserAccountImpl;
+import ua.epam.mishchenko.ticketbooking.model.impl.UserAccount;
 
 public class Util {
 
@@ -12,7 +12,7 @@ public class Util {
     }
 
 
-    public static double updateBalance(UserAccountImpl userAccount, double delta) {
+    public static double updateBalance(UserAccount userAccount, double delta) {
         double newBalance = userAccount.getBalance() + delta;
         if (newBalance < 0) {
             throw new IllegalArgumentException("Insufficient funds: resulting balance would be negative");
