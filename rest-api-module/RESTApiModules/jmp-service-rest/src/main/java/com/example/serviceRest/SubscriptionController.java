@@ -32,8 +32,6 @@ public class SubscriptionController {
     public SubscriptionResponseDto createSubscription(@RequestBody SubscriptionRequestDto subscriptionRequestDto){
         return subscriptionService.createSubscription(subscriptionRequestDto);
     }
-
-
     @Operation(summary = "Update an existing subscription", description = "Updates subscription details and returns the updated subscription.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Subscription updated successfully"),
@@ -43,8 +41,6 @@ public class SubscriptionController {
     public SubscriptionResponseDto updateSubscription(@RequestBody SubscriptionRequestDto subscriptionRequestDto){
         return subscriptionService.updateSubscription(subscriptionRequestDto);
     }
-
-
     @Operation(summary = "Delete a subscription", description = "Deletes a subscription by ID.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Subscription deleted successfully"),
@@ -55,8 +51,6 @@ public class SubscriptionController {
     public SubscriptionResponseDto deleteSubscription(@PathVariable("id") Long subscriptionId){
         return subscriptionService.deleteSubscription(subscriptionId);
     }
-
-
     @Operation(summary = "Get a subscription by ID", description = "Retrieves a subscription by its ID.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Subscription found"),
@@ -66,8 +60,6 @@ public class SubscriptionController {
     public SubscriptionResponseDto getSubscription(@PathVariable("id") Long subscriptionId){
         return subscriptionService.getSubscription(subscriptionId);
     }
-
-
     @Operation(summary = "Get all subscriptions", description = "Retrieves a paginated list of all subscriptions.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Subscriptions retrieved successfully")
