@@ -2,11 +2,14 @@ package com.example.cloudServiceImpl.service;
 
 import com.domain.User;
 import com.example.cloudServiceImpl.exception.DBException;
+import com.example.cloudServiceImpl.exception.ResourceNotFoundException;
+import com.example.cloudServiceImpl.exception.ServiceException;
 import com.example.cloudServiceImpl.repository.UserRepository;
 import com.example.cloudServiceImpl.util.Util;
 import com.example.dto.UserRequestDto;
 import com.example.dto.UserResponseDto;
 import com.example.serviceApi.UserService;
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -15,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,6 +36,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
 
+    @Transactional
     @Override
     public UserResponseDto createUser(UserRequestDto userRequestDTO) {
         Util.validateUser(userRequestDTO);
@@ -46,16 +51,17 @@ public class UserServiceImpl implements UserService {
             return userResponseDto;
         }catch (DBException exception){
             log.error( "Cannot create user: {}", userRequestDTO, exception);
-            throw exception;
+            throw new ServiceException("Failed to create user", exception);
         }
     }
 
 
+    @Transactional
     @Override
     public UserResponseDto updateUser(long userId, UserRequestDto userRequestDTO) {
         Util.validateUser(userRequestDTO);
         User userToUpdate = userRepository.findById(userId)
-                .orElseThrow();
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + userId));
         log.debug("Found user to update: {}", userToUpdate);
         try{
             User mappedUser = modelMapper.map(userRequestDTO, User.class);
@@ -70,15 +76,16 @@ public class UserServiceImpl implements UserService {
             return responseDto;
         }catch (DBException exception){
             log.error( "Cannot update user: {}", userRequestDTO, exception);
-            throw exception;
+            throw new ServiceException("Failed to update user", exception);
         }
     }
 
+    @Transactional
     @Override
     public boolean deleteUser(Long userId) {
         Util.validateId(userId);
         User userToDelete = userRepository.findById(userId)
-                .orElseThrow();
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + userId));
         log.debug("Start deleting an user with id: {}", userId);
         try{
             userRepository.delete(userToDelete);
@@ -86,17 +93,18 @@ public class UserServiceImpl implements UserService {
             return true;
         }catch (DBException exception){
             log.error( "Cannot update user with id : {}", userId, exception);
-            throw exception;
+            throw new ServiceException("Failed to delete user", exception);
         }
     }
 
+    @Transactional(readOnly = true)
     @Override
     public UserResponseDto getUser(Long userId) {
         Util.validateId(userId);
         log.debug( "Finding a user by id: {}", userId);
 
         User userToGet = userRepository.findById(userId)
-                .orElseThrow(() -> new DBException("Cannot get user with id: " + userId));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + userId));
         log.info("User retrieved successfully with id: {}", userId);
 
         UserResponseDto responseDto = modelMapper.map(userToGet, UserResponseDto.class);
@@ -124,9 +132,9 @@ public class UserServiceImpl implements UserService {
                     userResponseDtoList.size(), page, size);
 
             return userResponseDtoList;
-        }catch (DBException exception){
+        }catch (Exception exception){
             log.error( "Cannot get all users from page {}, size {}", page, size);
-            throw exception;
+            throw new ServiceException("Failed to retrieve users", exception);
         }
     }
 }

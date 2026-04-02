@@ -16,4 +16,6 @@ module jmp.cloud.service.impl {
     requires spring.data.commons;
     requires org.apache.logging.log4j;
     requires spring.web;
+    requires jakarta.transaction;
+    requires spring.tx;
 }

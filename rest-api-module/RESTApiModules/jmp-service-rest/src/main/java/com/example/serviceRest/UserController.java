@@ -29,6 +29,8 @@ public class UserController {
             @ApiResponse(responseCode = "201", description = "User created successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid input")
     })
+
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public EntityModel<UserResponseDto> createUser(@RequestBody UserRequestDto userRequestDTO){

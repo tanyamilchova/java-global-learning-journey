@@ -3,6 +3,8 @@ package com.example.cloudServiceImpl.service;
 import com.domain.Subscription;
 import com.domain.User;
 import com.example.cloudServiceImpl.exception.DBException;
+import com.example.cloudServiceImpl.exception.ResourceNotFoundException;
+import com.example.cloudServiceImpl.exception.ServiceException;
 import com.example.cloudServiceImpl.repository.SubscriptionRepository;
 import com.example.cloudServiceImpl.repository.UserRepository;
 import com.example.cloudServiceImpl.util.Util;
@@ -15,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -33,6 +36,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     @Autowired
     UserRepository userRepository;
 
+    @Transactional
     @Override
     public SubscriptionResponseDto createSubscription(SubscriptionRequestDto subscriptionRequestDto) {
         Util.validateSubscription(subscriptionRequestDto);
@@ -50,22 +54,28 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
         } catch (DBException exception) {
             log.error("Cannot create subscription: {}", subscriptionRequestDto, exception);
-            throw exception;
+            throw new ServiceException("Failed to create subscription", exception);
         }
     }
 
 
+    @Transactional
     @Override
     public SubscriptionResponseDto updateSubscription(SubscriptionRequestDto subscriptionRequestDto) {
         Util.validateSubscription(subscriptionRequestDto);
         Subscription subscriptionToUpdate = subscriptionRepository.findById(subscriptionRequestDto.getId())
-                .orElseThrow();
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Subscription not found with id: " + subscriptionRequestDto.getId()
+                ));
         log.debug("Found subscription to update: {}", subscriptionToUpdate);
 
         try{
             Subscription mappedSubscription = modelMapper.map(subscriptionRequestDto, Subscription.class);
             mappedSubscription.setStartDate(LocalDate.now());
-            User userToUpdate = userRepository.findById(subscriptionRequestDto.getUserId()).orElseThrow();
+            User userToUpdate = userRepository.findById(subscriptionRequestDto.getUserId())
+                    .orElseThrow(() -> new ResourceNotFoundException(
+                            "User not found with id: " + subscriptionRequestDto.getUserId()
+                    ));
             mappedSubscription.setUser(userToUpdate);
             log.debug("Mapped subscription for update: {}", mappedSubscription);
 
@@ -77,15 +87,18 @@ public class SubscriptionServiceImpl implements SubscriptionService {
             return responseDto;
         }catch (DBException exception){
             log.error( "Cannot update user: {}", subscriptionRequestDto, exception);
-            throw exception;
+            throw new ServiceException("Failed to update subscription", exception);
         }
     }
 
+    @Transactional
     @Override
     public SubscriptionResponseDto deleteSubscription(Long subscriptionId) {
         Util.validateId(subscriptionId);
         Subscription subscriptionToDelete = subscriptionRepository.findById(subscriptionId)
-                .orElseThrow(() -> new DBException("Subscription not found with id: " + subscriptionId));
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Subscription not found with id: " + subscriptionId
+                ));
         log.debug("Start deleting subscription with id: {}", subscriptionId);
 
         try {
@@ -95,17 +108,20 @@ public class SubscriptionServiceImpl implements SubscriptionService {
             return modelMapper.map(subscriptionToDelete, SubscriptionResponseDto.class);
         } catch (DBException exception) {
             log.error("Cannot delete subscription with id: {}", subscriptionId, exception);
-            throw exception;
+            throw new ServiceException("Failed to delete subscription", exception);
         }
     }
 
+    @Transactional(readOnly = true)
     @Override
     public SubscriptionResponseDto getSubscription(Long subscriptionId) {
         Util.validateId(subscriptionId);
         log.debug("Finding a subscription by id: {}", subscriptionId);
 
         Subscription subscription = subscriptionRepository.findById(subscriptionId)
-                .orElseThrow(() -> new DBException("Cannot get subscription with id: " + subscriptionId));
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Subscription not found with id: " + subscriptionId
+                ));
         log.info("Subscription retrieved successfully with id: {}", subscriptionId);
 
         SubscriptionResponseDto responseDto = modelMapper.map(subscription, SubscriptionResponseDto.class);
@@ -138,7 +154,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
             return subscriptionResponseDtoList;
         } catch (DBException exception) {
             log.error("Cannot get all subscriptions for page {}, size {}", page, size, exception);
-            throw exception;
+            throw new ServiceException("Failed to retrieve subscriptions", exception);
         }
     }
 }
