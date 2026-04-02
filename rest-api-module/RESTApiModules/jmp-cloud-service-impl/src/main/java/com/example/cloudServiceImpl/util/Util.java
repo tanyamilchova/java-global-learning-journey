@@ -22,20 +22,6 @@ public class Util {
     }
 
     /**
-     * Validates that the given resource is not null.
-     *
-     * @param resource the object to validate
-     * @param resourceName the name of the resource (for error messages)
-     * @param <T> the type of the resource
-     * @throws IllegalArgumentException if the resource is null
-     */
-    public static <T> void validateNotNull(T resource, String resourceName) {
-        if (resource == null) {
-            throw new IllegalArgumentException(resourceName + " cannot be null");
-        }
-    }
-
-    /**
      * Validates that a string is not null, not empty, and not blank.
      *
      * @param value String to validate.

@@ -8,7 +8,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
@@ -33,21 +32,8 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public EntityModel<UserResponseDto> createUser(@RequestBody UserRequestDto userRequestDTO){
-        UserResponseDto user = userService.createUser(userRequestDTO);
-
-        EntityModel<UserResponseDto> model = EntityModel.of(user);
-
-        model.add(WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(UserController.class)
-                .getUser(user.getId())).withSelfRel());
-        model.add(WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(UserController.class)
-                .updateUser(user.getId(), null)).withRel("update"));
-        model.add(WebMvcLinkBuilder.linkTo(UserController.class)
-                .slash(user.getId()).withRel("delete"));
-        model.add(WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(UserController.class)
-                .getAllUsers(0, 10)).withRel("all-users"));
-
-        return model;
+    public UserResponseDto createUser(@RequestBody UserRequestDto userRequestDTO){
+        return userService.createUser(userRequestDTO);
     }
 
     @Operation(summary = "Update an existing user", description = "Updates user details and returns the updated user.")
@@ -83,33 +69,16 @@ public class UserController {
         userService.deleteUser(userId);
     }
 
+
     @Operation(summary = "Get all users", description = "Retrieves a paginated list of users.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Users found")
     })
     @GetMapping
-    public CollectionModel<EntityModel<UserResponseDto>> getAllUsers(@RequestParam(defaultValue = "0") int page,
-                                                                     @RequestParam(defaultValue = "10") int size){
-        List<UserResponseDto> users = userService.getAllUsers(page, size);
-
-        List<EntityModel<UserResponseDto>> userModels = users.stream()
-                .map(user -> EntityModel.of(user,
-                        WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(UserController.class)
-                                .getUser(user.getId())).withSelfRel(),
-                        WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(UserController.class)
-                                .updateUser(user.getId(), null)).withRel("update"),
-                        WebMvcLinkBuilder.linkTo(UserController.class)
-                                .slash(user.getId()).withRel("delete")
-                ))
-                .toList();
-
-        CollectionModel<EntityModel<UserResponseDto>> collectionModel = CollectionModel.of(userModels);
-
-        collectionModel.add(WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(UserController.class)
-                .getAllUsers(page, size)).withSelfRel());
-
-        return collectionModel;
+    public List<UserResponseDto> getAllUsers(@RequestParam int page, @RequestParam int size){
+        return userService.getAllUsers(page, size);
     }
+
 
     @Operation(summary = "Get a user by ID", description = "Retrieves a user by their ID.")
     @ApiResponses(value = {

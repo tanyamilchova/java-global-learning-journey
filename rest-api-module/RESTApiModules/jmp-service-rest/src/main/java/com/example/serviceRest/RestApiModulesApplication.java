@@ -16,5 +16,4 @@ public class RestApiModulesApplication {
     public static void main(String[] args) {
         SpringApplication.run(RestApiModulesApplication.class, args);
     }
-
 }
